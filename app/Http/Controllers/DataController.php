@@ -20,7 +20,7 @@ class DataController extends Controller
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => "http://10.100.32.72:7801/cif/v1/CustomerInformation/?NIC="+$nic,
+                CURLOPT_URL => "http://10.100.32.72:7801/cif/v1/CustomerInformation/?NIC=" + $nic,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -36,12 +36,10 @@ class DataController extends Controller
             echo $response;
         } else {
 
-            $k = array(
-                "code": 1150,
-                "status": false,
-                "message": "NIC  does not exist.",
-                "serverTime": date("Y-m-d h:i:sa")
-            );
+            $k = array("code" => "1150", "status" => false, "message" => "NIC  does not exist.", "serverTime" => date("Y-m-d h:i:sa"));
+
+            // $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
             echo  json_encode($k);
         }
     }
