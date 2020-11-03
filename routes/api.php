@@ -42,6 +42,8 @@ Route::get('/user',  [UserController::class, 'getAuthenticatedUser'])->middlewar
 Route::post('/applicantInitialSubmit',  [ApplicantController::class, 'ApplicantInitialSubmit'])->middleware('jwt.verify');
 
 
+Route::get('/applicant_nic_check', [Application::class, 'checkApplicantWithCurrentBankingData']);
+
 
 
 Route::post('/status', [Application::class, 'applicant_status']);
