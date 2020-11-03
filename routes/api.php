@@ -42,7 +42,7 @@ Route::get('/user',  [UserController::class, 'getAuthenticatedUser'])->middlewar
 Route::post('/applicantInitialSubmit',  [ApplicantController::class, 'ApplicantInitialSubmit'])->middleware('jwt.verify');
 
 
-Route::get('/applicant_nic_check', [DataController::class, 'checkApplicantWithCurrentBankingData']);
+Route::get('/applicant_nic_check', [DataController::class, 'check_applicant_with_current_banking_data'])->middleware('jwt.verify');
 
 
 

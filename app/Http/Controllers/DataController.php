@@ -10,7 +10,7 @@ class DataController extends Controller
 {
 
 
-    public function checkApplicantWithCurrentBankingData(Request $request)
+    public function check_applicant_with_current_banking_data(Request $request)
     {
         //  "http://10.100.32.72:7801/cif/v1/CustomerInformation/?NIC=       782900013V  ",
 
@@ -42,6 +42,17 @@ class DataController extends Controller
 
             echo  json_encode($k);
         }
+    }
+
+
+
+
+
+
+
+
+    public function create_new_Cif()
+    {
     }
 
 
