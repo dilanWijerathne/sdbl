@@ -56,8 +56,9 @@ class DataController extends Controller
     {
 
         Log::info($request);
-
-        $responseB = Http::withHeaders([
+        echo ($request->initial_name);
+        die();
+        $response = Http::withHeaders([
             'Content-Type' => 'application/json'
         ])->post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
 
@@ -118,7 +119,7 @@ class DataController extends Controller
 
         ]);
 
-        return response()->json(compact('responseB'), 200);
+        echo $response;
     }
 
 
