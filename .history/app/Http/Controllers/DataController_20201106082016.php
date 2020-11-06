@@ -50,6 +50,17 @@ class DataController extends Controller
 
 
 
+    public function checkGender($v)
+    {
+        $sex = "";
+        if ($v == "Male") {
+            $sex = "M";
+        } else {
+            $sex = "F";
+        }
+        return $sex;
+    }
+
 
 
     public function create_new_Cif(Request $request)
