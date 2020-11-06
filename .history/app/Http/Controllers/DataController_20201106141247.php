@@ -163,7 +163,7 @@ class DataController extends Controller
     {
 
 
-        $vl = array(
+         $vl =    array(
             "FIELD1" => "0",
             "FIELD2" => "0",
             "FIELD3" => "0",
@@ -218,13 +218,14 @@ class DataController extends Controller
             "TITLE" =>  $request->title,
             "CUST_DOC_ACTIVITY" => "2020002",
             "SOLICITABLE_CODE" => ""
-        );
+        )
+        Log::info($request);
 
         $responseB = Http::withHeaders([
             'Content-Type' => 'application/json'
         ])->post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
 
-            json_encode($vl)
+          json_encode(vl)
 
         ]);
 
