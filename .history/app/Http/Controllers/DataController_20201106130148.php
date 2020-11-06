@@ -56,8 +56,7 @@ class DataController extends Controller
     {
 
         Log::info($request);
-        echo json_encode($request);
-        die();
+        die($request);
         $response = Http::withHeaders([
             'Content-Type' => 'application/json'
         ])->post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
