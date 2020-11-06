@@ -51,10 +51,8 @@ class DataController extends Controller
 
 
 
-    public function kk(Request $request)
+    public function kk()
     {
-
-
 
         $curl = curl_init();
 
@@ -67,62 +65,9 @@ class DataController extends Controller
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{  \"FIELD1\":\"0\",\r\n\r\n
-      \"FIELD2\":\"0\",\r\n\r\n
-        \"FIELD3\":\"0\",\r\n\r\n
-          \"FIELD4\":\"0\",\r\n\r\n
-           \"FIELD5\":\"0\",\r\n\r\n
-            \"FIELD6\":\"\",\r\n\r\n
-             \"FIELD7\":\"\",\r\n\r\n
-             \"FIELD8\":\"\",\r\n\r\n
-             \"FIELD9\":\"\",\r\n\r\n
-              \"FIELD10\":\"\",\r\n\r\n
-               \"MARITAL_STATUS\":\"S\",\r\n\r\n
-                \"USER_ID\":\"\",\r\n\r\n
-                \"SHORT_NAME\":\"'" . $request->initial_name . "'\",\r\n\r\n
-                \"SECOND_NAME\":\"'" . $request->surname . "'\",\r\n\r\n
-                \"CURR_STREET\":\"'" . $request->street . "'\",\r\n\r\n
-                \"BUSINESS_PHONE\":\"'" . $request->work_phone . "'\",\r\n\r\n
-                \"STATUS\":\"1\",\r\n\r\n
-                \"PRIMARY_OFFICER_COD\":\"MOB\",\r\n\r\n
-                \"CURR_DISTRICT\":\"'" . $request->district . "'\",\r\n\r\n
-                \"CITIZENSHIP_CODE\":\"001\",\r\n\r\n
-                \"CURR_HOUSE_NBR\":\"'" . $request->house_number . "'\",\r\n\r\n
-                \"HOME_PHONE_NUMBER\":\"'" . $request->home_phone . "'\",\r\n\r\n
-                \"TIN_ACTIVITY_DATE\":\"'" . $request->ttn_active_date . "'\",\r\n\r\n
-                \"CURR_POST_TOWN\":\"'" . $request->city . "'\",\r\n\r\n
-                \"DATE\":\"'" . $request->today . "'\",\r\n\r\n
-                \"MARKET_SEQMENT\":\"SOT\",\r\n\r\n
-                \"CURR_COUNTRY\":\"Sri Lanka\",\r\n\r\n
-                \"BRANCH_NUMBER\":\"'" . $request->branch_code . "'\",\r\n\r\n
-                \"ACCOUNT_TYPE\":\"S\",\r\n\r\n
-                \"SOURCE_OF_DATA\":\"\",\r\n\r\n
-                \"SEX\":\"'" . $request->sex . "'\",\r\n\r\n
-                \"CUSTOMER_TYPE\":\"001\",\r\n\r\n
-                \"FIRST_NAME\":\"'" . $request->f_name . "'\",\r\n\r\n
-                \"PREFERED_CUSTOMER\":\"\",\r\n\r\n
-                \"ERROR_CODE\":\"1\",\r\n\r\n
-                \"SEQUENCE_NUMBER\":\"1\",\r\n\r\n
-                \"LOCATION_CODE\":\"1\",\r\n\r\n
-                \"CELLULAR_PHONE_NU\":\"'" . $request->primary_mobile . "'\",\r\n\r\n
-                \"DATE_OF_BIRTH\":\"'" . $request->dob . "'\",\r\n\r\n
-                \"SOCIO_ECONOMIC_GRO\":\"001\",\r\n\r\n
-                \"PERSONAL_NONPERSONAL\":\"P\",\r\n\r\n
-                \"CIF_NUMBER\":\"\",\r\n\r\n
-                \"SURNAME\":\"'" . $request->surname . "'\",\r\n\r\n
-                \"SIC_CODE\":\"33\",\r\n\r\n
-                \"REFERENCE_NUMBER\":\"'" . $request->ref . "'\",\r\n\r\n
-                \"CUSTOMER_CLASSIF\":\"1\",\r\n\r\n
-                \"TIME\":\"\",\r\n\r\n
-                \"NATIONAL_ID_NUMBER\":\"'" . $request->nic . "'\",\r\n\r\n
-                \"MOVED_IN_DATE\":\"2020002\",\r\n\r\n
-                \"RACE\":\"1\",\r\n\r\n
-                \"CUSTOMER_OPEN_DATE\":\"'" . $request->open_date . "'\",\r\n\r\n
-                \"TITLE\":\"'" . $request->title . "'\",\r\n\r\n
-                \"CUST_DOC_ACTIVITY\":\"2020002\",\r\n\r\n
-                \"SOLICITABLE_CODE\":\"\"\r\n\r\n}\r\n\r\n ",
+            CURLOPT_POSTFIELDS => "nic=900126642v&initial_name=D.B%20Wijerathne&street=Handessa&work_phone=0552552558&district=Kandy&house_number=143/2&home_phone=08125463&ttn_active_date=20201102&city=Pilimathalwa&today=20201106&branch_code=56&sex=M&f_name=Dilan&primary_mobile=0772772779&dob=19900110&surname=Wijerathne&open_date=20201106&title=Dr",
             CURLOPT_HTTPHEADER => array(
-                "Content-Type: application/json"
+                "Content-Type: application/x-www-form-urlencoded"
             ),
         ));
 
