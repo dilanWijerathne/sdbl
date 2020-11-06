@@ -73,8 +73,8 @@ class DataController extends Controller
             "FIELD10" => "",
             "MARITAL_STATUS" => "",
             "USER_ID" => "",
-            "SHORT_NAME" => "Dilan Wijerathne", //$request->initial_name,
-            "SECOND_NAME" => "Buddhika", // $request->surname,
+            "SHORT_NAME" => $request->initial_name,
+            "SECOND_NAME" => $request->surname,
             "CURR_STREET" => "Colombo",
             "BUSINESS_PHONE" => "112832599",
             "STATUS" => "1",
@@ -82,7 +82,7 @@ class DataController extends Controller
             "CURR_DISTRICT" => "Colombo",
             "CITIZENSHIP_CODE" => "001",
             "CURR_HOUSE_NBR" => "197",
-            "HOME_PHONE_NUMBER" => "342231560",
+            "HOME_PHONE_NUMBER" => "342231557",
             "TIN_ACTIVITY_DATE" => "2020002",
             "CURR_POST_TOWN" => "Narahenpita",
             "DATE" => "",
@@ -123,7 +123,6 @@ class DataController extends Controller
     public function open()
     {
         $data = "This data is open and can be accessed without the client being authenticated";
-
         return response()->json(compact('data'), 200);
     }
 

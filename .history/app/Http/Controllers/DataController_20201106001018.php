@@ -53,13 +53,13 @@ class DataController extends Controller
 
 
 
-    public function create_new_Cif(Request $request)
+    public function create_new_Cif()
     {
 
-        //$nic  =  $request->nic;
         $response = Http::withHeaders([
             'Content-Type' => 'bar'
         ])->post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
+            'name' => 'Taylor',
 
             "FIELD1" => "0",
             "FIELD2" => "0",
@@ -71,18 +71,18 @@ class DataController extends Controller
             "FIELD8" => "",
             "FIELD9" => "",
             "FIELD10" => "",
-            "MARITAL_STATUS" => "",
+            "MARITAL_STATUS" => "S",
             "USER_ID" => "",
-            "SHORT_NAME" => "Dilan Wijerathne", //$request->initial_name,
-            "SECOND_NAME" => "Buddhika", // $request->surname,
-            "CURR_STREET" => "Colombo",
+            "SHORT_NAME" => "Perera ABC",
+            "SECOND_NAME" => "Perera",
+            "CURR_STREET" => "Kirula Road",
             "BUSINESS_PHONE" => "112832599",
             "STATUS" => "1",
             "PRIMARY_OFFICER_COD" => "MOB",
             "CURR_DISTRICT" => "Colombo",
             "CITIZENSHIP_CODE" => "001",
             "CURR_HOUSE_NBR" => "197",
-            "HOME_PHONE_NUMBER" => "342231560",
+            "HOME_PHONE_NUMBER" => "342231557",
             "TIN_ACTIVITY_DATE" => "2020002",
             "CURR_POST_TOWN" => "Narahenpita",
             "DATE" => "",
@@ -105,10 +105,10 @@ class DataController extends Controller
             "CIF_NUMBER" => "",
             "SURNAME" => "Perera",
             "SIC_CODE" => "33",
-            "REFERENCE_NUMBER" => rand(10, 999999999),
+            "REFERENCE_NUMBER" => "CUS000000000026",
             "CUSTOMER_CLASSIF" => "1",
             "TIME" => "",
-            "NATIONAL_ID_NUMBER" => $request->nic,
+            "NATIONAL_ID_NUMBER" => "126020778V",
             "MOVED_IN_DATE" => "2020002",
             "RACE" => "1",
             "CUSTOMER_OPEN_DATE" => "2020002",
@@ -123,7 +123,6 @@ class DataController extends Controller
     public function open()
     {
         $data = "This data is open and can be accessed without the client being authenticated";
-
         return response()->json(compact('data'), 200);
     }
 
