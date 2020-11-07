@@ -71,7 +71,6 @@ class Application extends Controller
 
             $nominee = new Nominee;
             $nominee->json = $nominees;
-            $nominee->applicant_nic = $nic;
             $nominee->save();
 
             $work = new Work_place;
@@ -81,7 +80,6 @@ class Application extends Controller
             $work->telephone = $telephone;
             $work->income_monthly = $salary;
             $work->other_income = $other_income;
-            $work->applicant_nic = $nic;
             $work->source_other_income = $source_of_other_income;
 
             $work->save();
