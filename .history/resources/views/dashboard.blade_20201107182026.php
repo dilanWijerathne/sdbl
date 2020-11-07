@@ -46,8 +46,8 @@
                 text: 'Get selected data',
                 action: function () {
                     var count = table.rows( { selected: true } ).count();
-                    alert(table.rows( { selected: true } ));
-                    //events.prepend( '<div>'+count+' row(s) selected</div>' );
+
+                    events.prepend( '<div>'+count+' row(s) selected</div>' );
                 }
             }
         ]
