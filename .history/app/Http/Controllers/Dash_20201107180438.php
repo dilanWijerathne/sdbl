@@ -36,6 +36,8 @@ class Dash extends Controller
 
 
 
+
+        $app = Applicant::all();
         $ln = $app->count();
 
         $a = array(
