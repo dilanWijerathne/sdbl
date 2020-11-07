@@ -38,21 +38,20 @@
             $(document).ready(function() {
                 var events = $('#events');
                 $('#example').DataTable( {
-                    "ajax": "http://10.101.6.198/sdbl/applicants"
                     select: true,
                     "processing": true,
                     "serverSide": true,
                     buttons: [
-                                {
-                                    text: 'Get selected data',
-                                    action: function () {
-                                        var count = table.rows( { selected: true } ).count();
-                                        alert(table.rows( { selected: true } ));
-                                        //events.prepend( '<div>'+count+' row(s) selected</div>' );
-                                    }
-                                }
-                            ]
-
+            {
+                text: 'Get selected data',
+                action: function () {
+                    var count = table.rows( { selected: true } ).count();
+                    alert(table.rows( { selected: true } ));
+                    //events.prepend( '<div>'+count+' row(s) selected</div>' );
+                }
+            }
+        ]
+                    "ajax": "http://10.101.6.198/sdbl/applicants"
                 } );
 } );
         </script>
