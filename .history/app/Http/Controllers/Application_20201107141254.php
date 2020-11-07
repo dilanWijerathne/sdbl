@@ -187,9 +187,6 @@ class Application extends Controller
         $kyc = new Kyc;
         $kyc->json = json_encode($kyc_json);
         $kyc->save();
-
-
-        echo "Application data been recorded !"
     }
 
 

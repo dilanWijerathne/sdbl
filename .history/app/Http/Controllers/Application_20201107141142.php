@@ -120,7 +120,7 @@ class Application extends Controller
         $pep_relationship = $request->input('pep_relationship');
         $nominees = $request->input('nominees');
         //   $front_res = $request->input('front_res');
-        //   $rear_res = $request->input('rear_res');
+        //  $rear_res = $request->input('rear_res');
         $security_answer = $request->input('security_answer');
         $displayName = $request->input('displayName');
 
@@ -187,9 +187,6 @@ class Application extends Controller
         $kyc = new Kyc;
         $kyc->json = json_encode($kyc_json);
         $kyc->save();
-
-
-        echo "Application data been recorded !"
     }
 
 

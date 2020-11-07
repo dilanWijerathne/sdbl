@@ -51,5 +51,3 @@ Route::post('/gointo', [Application::class, 'goin_to_open']);
 Route::post('/individualaccounttypes', [Application::class, 'individual_account_types']);
 Route::get('/cif', [DataController::class, 'create_new_Cif']);
 Route::post('/account', [DataController::class, 'create_account']);
-
-Route::post('/new_applicant', [Application::class, 'new_customer']);

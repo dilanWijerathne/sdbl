@@ -19,9 +19,6 @@ class Application extends Controller
 
     /**
      *  nic,
-     *
-     *
-
     dob_day,
     dob_month,
     dob_year,
@@ -84,12 +81,11 @@ class Application extends Controller
     residence_proof,
     f_name,
     s_name,
-
-
      *
      */
     public function new_customer(Request $request)
     {
+
         //        $age = $request->input('age');
         $nic = $request->input('nic');
         $dob_day = $request->input('dob_day');
@@ -119,33 +115,41 @@ class Application extends Controller
         $pep = $request->input('pep');
         $pep_relationship = $request->input('pep_relationship');
         $nominees = $request->input('nominees');
-        //   $front_res = $request->input('front_res');
-        //   $rear_res = $request->input('rear_res');
+        $front_res = $request->input('front_res');
+        $rear_res = $request->input('rear_res');
         $security_answer = $request->input('security_answer');
         $displayName = $request->input('displayName');
-
+        $monthly_income = $request->input('monthly_income');
+        $pep_code = $request->input('pep_code');
+        $pupose_other_reason = $request->input('pupose_other_reason');
+        $source_funds_other_reason = $request->input('source_funds_other_reason');
+        $wealth_other_reason = $request->input('wealth_other_reason');
         $source_of_other_income = $request->input('source_of_other_income');
-
+        $existing_customer = $request->input('existing_customer');
+        $customer_cif = $request->input('customer_cif');
+        $customer_type = $request->input('customer_type');
+        $date_of_birth = $request->input('date_of_birth');
+        $sex_core_bank = $request->input('sex_core_bank');
+        $national_id_number = $request->input('national_id_number');
+        $citizenship_code = $request->input('citizenship_code');
+        $profession_code = $request->input('profession_code');
+        $postal_code = $request->input('postal_code');
+        $branch_number = $request->input('branch_number');
+        $marital_status = $request->input('marital_status');
+        $socio_economic_group = $request->input('socio_economic_group');
+        $personal_or_non_personal = $request->input('personal_or_non_personal');
+        $salutation = $request->input('salutation');
+        $market_seqment = $request->input('market_seqment');
+        $employee_code = $request->input('employee_code');
+        $location_code = $request->input('location_code');
+        $customer_classification = $request->input('customer_classification');
+        $first_name = $request->input('first_name');
+        $status = $request->input('status');
+        $address_status = $request->input('address_status');
+        $address_status_code = $request->input('address_status_code');
+        $residence_proof = $request->input('residence_proof');
         $f_name = $request->input('f_name');
         $s_name = $request->input('s_name');
-
-
-
-
-        $nominee = new Nominee;
-        $nominee->json = $nominees;
-        $nominee->save();
-
-        $work = new Work_place;
-        $work->name = $name_of_employer;
-        $work->address = $work_address;
-        $work->position = $position;
-        $work->telephone = $telephone;
-        $work->income_monthly = $salary;
-        $work->other_income = $other_income;
-        $work->source_other_income = $source_of_other_income;
-
-        $work->save();
 
 
         $applicant = new Applicant;
@@ -160,36 +164,23 @@ class Application extends Controller
         $applicant->birth_year = $dob_year;
         $applicant->birth_month = $dob_month;
         $applicant->birth_day = $dob_day;
-        $applicant->sex = $sex;
-        $applicant->applicant_status = $applicant_status;
-        $applicant->applicant_going_to_open = $goin_to_open;
-        $applicant->applicant_individual_account_type = $account_type;
-        $applicant->primary_mobile_number = $primary_mobile;
-        $applicant->secondary_mobile_number = $secondary_mobile;
-        $applicant->email = $email;
-        $applicant->address = $address;
+        $applicant->sex = $title;
+        $applicant->applicant_status = $title;
+        $applicant->applicant_going_to_open = $title;
+        $applicant->applicant_individual_account_type = $title;
+        $applicant->primary_mobile_number = $title;
+        $applicant->secondary_mobile_number = $title;
+        $applicant->email = $title;
+        $applicant->address = $title;
         $applicant->living_place_dif = $title;     // recheck
-        $applicant->district = $district;
-        $applicant->same_nic_address = "";
-        $applicant->security_question = $security_answer;
-        // $applicant->existing_customer = $existing_customer;
+        $applicant->district = $title;
+        $applicant->same_nic_address = $title;
+        $applicant->security_question = $title;
+        $applicant->title = $title;
+        $applicant->title = $title;
+        $applicant->title = $title;
+
         $applicant->save();
-
-
-        $kyc_json = array(
-            'pupose' => $purpose_usage,
-            'source_funds' => $source_of_funds,
-            'anticipated_volume' => $anticipated_volumes,
-            'source_wealth' => $source_of_wealth,
-            'pep' => $pep,
-            'pep_relationsip' => $pep_relationship
-        );
-        $kyc = new Kyc;
-        $kyc->json = json_encode($kyc_json);
-        $kyc->save();
-
-
-        echo "Application data been recorded !"
     }
 
 
