@@ -132,7 +132,7 @@ class Dash extends Controller
             "FIELD8" => "",
             "FIELD9" => "",
             "FIELD10" => "",
-            "MARITAL_STATUS" => "S",
+            "MARITAL_STATUS" => "",
             "USER_ID" => "",
             "SHORT_NAME" => $param['short_name'], //"Perera ABC",
             "SECOND_NAME" => $param['second_name'],
