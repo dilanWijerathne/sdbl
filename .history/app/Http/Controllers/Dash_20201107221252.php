@@ -90,8 +90,6 @@ class Dash extends Controller
         $m = $mydate["mday"];
         $y = $mydate["year"];
 
-        $nm_s = $this->doName($app['full_name']);
-
         $param = array(
             'initials_of_name' => $app['display_name'],
             'district' => $app['district'],
@@ -106,8 +104,7 @@ class Dash extends Controller
             'today' => juliantojd($m, $d, $y),
             'telephone' => $work_place['telephone'],
             'ref_number' => $this->doRef(),
-            'short_name' => $nm_s[0],
-            'second_name' => $nm_s[1],
+            'short_name' => $this->doName($app['full_name']),
         );
 
 
