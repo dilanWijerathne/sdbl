@@ -50,3 +50,4 @@ Route::post('/status', [Application::class, 'applicant_status']);
 Route::post('/gointo', [Application::class, 'goin_to_open']);
 Route::post('/individualaccounttypes', [Application::class, 'individual_account_types']);
 Route::post('/cif', [DataController::class, 'create_new_Cif']);
+Route::post('/cifkk', [DataController::class, 'kt']);
