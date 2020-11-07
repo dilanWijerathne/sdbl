@@ -24,8 +24,7 @@ class Dash extends Controller
     public function getApplicants()
     {
         $app = Applicant::all();
-
-        echo json_encode($app);
         echo $app[0]['surname'];
+        echo json_encode($app);
     }
 }
