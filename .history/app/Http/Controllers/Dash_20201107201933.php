@@ -44,7 +44,7 @@ class Dash extends Controller
 
 
 
-        echo $app['applicant_status:'];
+        echo json_encode($app);
 
         die();
 
