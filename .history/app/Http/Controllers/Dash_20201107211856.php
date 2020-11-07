@@ -25,59 +25,24 @@ class Dash extends Controller
 
 
 
-    public function doRef()
-    {
-        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
-
-        $v =  $ref['ref_number'] + 1;
-
-        $rn = new Ref_nums;
-        $rn->ref_number = $v;
-        $rn->save();
-
-        $ref = 'TAP00000000' . $v;
-        return $ref;
-    }
 
 
-    public function doName($fullname)
+    public function create_new_Cif_inapp()
     {
 
-
-
-        $name = explode(" ", $fullname);
-        $num_name = count($name);
-        $surname = $name[$num_name - 1];
-
-        $nm =  $surname . " ";
-        for ($i = 0; $num_name - 1 > $i; $i++) {
-            $v = $name[$i];
-            $nm .= $v[0];
-        }
-
-
-        return $nm;
-    }
-
-
-    public function create_new_Cif_inapp(Request $request)
-    {
-
-        // $nic = "900103875v";
-
-        $nic  =  $request->nic;
+        $nic = "900103875v";
 
         $app = Applicant::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
 
-        // $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
-        // $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
+        $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
+        $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
         $work_place = Work_place::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
-        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
 
         //$price = DB::table('orders')->max('price');
 
 
-        $name = explode(" ", $app['full_name']);
+        $name = explode(" ", $app['display_name']);
         $num_name = count($name);
         $street = explode(",", $app['address']);
         $addr_lng = count($street);
@@ -101,8 +66,7 @@ class Dash extends Controller
             'dob' => juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
             'today' => juliantojd($m, $d, $y),
             'telephone' => $work_place['telephone'],
-            'ref_number' => $this->doRef(),
-            'short_name' => $this->doName($app['full_name']),
+            'ref_number' => $ref['ref_number'] + 1 // TAP000000001000
         );
 
 
@@ -124,7 +88,7 @@ class Dash extends Controller
             "FIELD10" => "",
             "MARITAL_STATUS" => "",
             "USER_ID" => "",
-            "SHORT_NAME" => $param['short_name'], //"Perera ABC",
+            "SHORT_NAME" => $param[0], //"Perera ABC",
             "SECOND_NAME" => $param['second_name'],
             "CURR_STREET" => $param['street'],
             "BUSINESS_PHONE" => $param['telephone'],
@@ -156,7 +120,7 @@ class Dash extends Controller
             "CIF_NUMBER" => "",
             "SURNAME" => $param['surname'], // "Perera",
             "SIC_CODE" => "33",
-            "REFERENCE_NUMBER" =>  $param['ref_number'],
+            "REFERENCE_NUMBER" => 'TAP00000000' . $param['ref_number'],
             "CUSTOMER_CLASSIF" => "1",
             "TIME" => "",
             "NATIONAL_ID_NUMBER" => $param['nic'],
@@ -189,8 +153,6 @@ class Dash extends Controller
         $newCif->response_status = $array['JSON']['Data']['response_status'];
 
         $newCif->save();
-
-        Log::info(json_encode($var));
 
         echo $id;
     }

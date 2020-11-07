@@ -60,19 +60,17 @@ class Dash extends Controller
     }
 
 
-    public function create_new_Cif_inapp(Request $request)
+    public function create_new_Cif_inapp()
     {
 
-        // $nic = "900103875v";
-
-        $nic  =  $request->nic;
+        $nic = "900103875v";
 
         $app = Applicant::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
 
-        // $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
-        // $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
+        $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
+        $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
         $work_place = Work_place::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
-        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
 
         //$price = DB::table('orders')->max('price');
 
@@ -124,7 +122,7 @@ class Dash extends Controller
             "FIELD10" => "",
             "MARITAL_STATUS" => "",
             "USER_ID" => "",
-            "SHORT_NAME" => $param['short_name'], //"Perera ABC",
+            "SHORT_NAME" => $param[0], //"Perera ABC",
             "SECOND_NAME" => $param['second_name'],
             "CURR_STREET" => $param['street'],
             "BUSINESS_PHONE" => $param['telephone'],
@@ -189,8 +187,6 @@ class Dash extends Controller
         $newCif->response_status = $array['JSON']['Data']['response_status'];
 
         $newCif->save();
-
-        Log::info(json_encode($var));
 
         echo $id;
     }
