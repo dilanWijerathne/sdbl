@@ -238,7 +238,6 @@ class DataController extends Controller
         $v = json_encode($var);
         $v = json_decode($v);
         echo $v[0];
-        echo $v["JSON"];
     }
 
 
