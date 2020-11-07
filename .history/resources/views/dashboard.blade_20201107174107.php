@@ -52,7 +52,7 @@
                         <th>surname</th>
                         <th>initials</th>
                         <th>display_name</th>
-                        <th>full name</th>
+                        <th>full_name</th>
                         <th>nic</th>
                         <th>birth_year</th>
                         <th>birth_month</th>
