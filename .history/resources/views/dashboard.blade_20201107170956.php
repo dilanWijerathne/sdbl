@@ -33,7 +33,7 @@
 
             $(document).ready(function() {
     $('#example').DataTable( {
-        "ajax": "/sdbl/applicants"
+        "ajax": "http://10.101.6.198/sdbl/applicants"
     } );
 } );
         </script>
@@ -44,35 +44,12 @@
             <table id="example" class="display" style="width:75%">
                 <thead>
                     <tr>
-
-
-                        <th>id</th>
-                        <th>title</th>
-                        <th>surname</th>
-                        <th>initials</th>
-                        <th>display_name</th>
-                        <th>full_name</th>
-                        <th>nic</th>
-                        <th>birth_year</th>
-                        <th>birth_month</th>
-                        <th>sex</th>
-                        <th>applicant_status</th>
-                        <th>applicant_going_to_open</th>
-                        <th>individual_account_type</th>
-                        <th>primary_mobile_number</th>
-                        <th>secondary_mobile_number</th>
-                        <th>email</th>
-                        <th>address</th>
-                        <th>living_place_dif</th>
-                        <th>district</th>
-                        <th>same_nic_address</th>
-                        <th>secondary_mobile_number</th>
-                        <th>security_question</th>
-                        <th>existing_customer</th>
-                        <th>created_at</th>
-                        <th>updated_at</th>
-
-
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
                     </tr>
                 </thead>
                 <tbody>

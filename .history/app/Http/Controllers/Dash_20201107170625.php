@@ -26,5 +26,6 @@ class Dash extends Controller
         $app = Applicant::all();
 
         echo json_encode($app);
+        echo $app[0]['surname'];
     }
 }
