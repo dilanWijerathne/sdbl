@@ -173,7 +173,7 @@ class Dash extends Controller
             "MOVED_IN_DATE" => "2020002", $param['today'],
             "RACE" => "",
             "CUSTOMER_OPEN_DATE" => "2020002", //$param['today'],
-            "TITLE" => "Mr.", //$param['title'] . ".",
+            "TITLE" => $param['title'] . ".",
             "CUST_DOC_ACTIVITY" => "2020002", //$param['today'],
             "SOLICITABLE_CODE" => ""
 
