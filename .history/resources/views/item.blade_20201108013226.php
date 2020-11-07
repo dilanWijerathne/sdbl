@@ -32,7 +32,7 @@
                         .done(function( msg ) {
                             alert( "Data Saved: " + msg );
                         });
-                alert(nic +" Okay");
+                alert(nic);
             }
         </script>
 

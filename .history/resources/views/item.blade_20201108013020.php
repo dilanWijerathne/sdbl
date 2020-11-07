@@ -22,17 +22,7 @@
 
             function acc(){
                 var nic = $('#nic').val();
-                // http://10.101.6.198/sdbl/api/inapp?nic=900103775v
-
-                $.ajax({
-                        method: "GET",
-                        url: "http://10.101.6.198/sdbl/api/inapp?nic="+nic,
-                        data: { nic: nic }
-                        })
-                        .done(function( msg ) {
-                            alert( "Data Saved: " + msg );
-                        });
-                alert(nic +" Okay");
+                alert(nic);
             }
         </script>
 
