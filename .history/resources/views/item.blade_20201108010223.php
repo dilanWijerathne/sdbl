@@ -44,27 +44,14 @@
                 <p>Gender :  {{ $a->sex }}</p>
                 <p>Applicant status :  {{ $a->applicant_status }}</p>
                 <p>Account going to open  :{{ $a->applicant_going_to_open }}</p>
-                <p>Individual account_type :  {{ $a->applicant_individual_account_type }}</p>
-                <p>Mobile :  {{ $a->primary_mobile_number }}</p>
-                <p>Seconday Mobile  :{{ $a->secondary_mobile_number }}</p>
-                <p>Email  :{{ $a->email }}</p>
-                <p>Address  :{{ $a->address }}</p>
-                <p>Address same as NIC :  :{{ $a->same_nic_address }}</p>
-                <p>Security Question  :{{ $a->security_question }}</p>
-                <p>Created at   :{{ $a->created_at }}</p>
-
-
-
-                @endforeach
-
-
-                <h2>**************************************************************</h2>
-                <h2>KYC : </h2>
-                @foreach ($ar['KYC'] as $a)
-                <p>PEP   :{{ $a->pep }}</p>
-                <p>PEP relationship   :{{ $a->pep_relationship }}</p>
-                <p>{{ $a->json }}</p>
-
+                <p>Display name :  :{{ $a->applicant_individual_account_type }}</p>
+                <p>Display name :  :{{ $a->primary_mobile_number }}</p>
+                <p>Display name :  :{{ $a->secondary_mobile_number }}</p>
+                <p>Display name :  :{{ $a->email }}</p>
+                <p>Display name :  :{{ $a->address }}</p>
+                <p>Display name :  :{{ $a->same_nic_address }}</p>
+                <p>Display name :  :{{ $a->security_question }}</p>
+                <p>Display name :  :{{ $a->created_at }}</p>
 
 
 

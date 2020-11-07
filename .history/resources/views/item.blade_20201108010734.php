@@ -61,8 +61,6 @@
                 <h2>**************************************************************</h2>
                 <h2>KYC : </h2>
                 @foreach ($ar['KYC'] as $a)
-                <p>PEP   :{{ $a->pep }}</p>
-                <p>PEP relationship   :{{ $a->pep_relationship }}</p>
                 <p>{{ $a->json }}</p>
 
 
