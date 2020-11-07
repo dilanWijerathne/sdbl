@@ -34,7 +34,7 @@ class Dash extends Controller
 
     public function create_account($para)
     {
-        Log::info('Account creation started ' . json_encode($para));
+        Log::info('Account creation started ');
 
         $responseC = Http::post('http://10.100.32.72:7801/account_creation/v1/accountCreation', [
 
