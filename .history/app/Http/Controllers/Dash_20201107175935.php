@@ -38,16 +38,16 @@ class Dash extends Controller
         $app = Applicant::all();
         $ln = $app->count();
 
-        $a = array(
+        $$a = array(
             "draw" => 1,
             "recordsTotal" => $ln,
             "recordsFiltered" => $ln,
-            "data" => $models,
+            "data" => $app,
 
         );
 
 
 
-        echo json_encode($a);
+        echo json_encode($models);
     }
 }

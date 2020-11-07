@@ -23,26 +23,13 @@ class Dash extends Controller
 
     public function getApplicants()
     {
-
-
-        $app = Applicant::all();
-
-
-        $models = $app->map(function ($item) {
-            return [$item->created_at, $item->name];
-        })->toArray();
-
-
-
-
         $app = Applicant::all();
         $ln = $app->count();
-
         $a = array(
             "draw" => 1,
             "recordsTotal" => $ln,
             "recordsFiltered" => $ln,
-            "data" => $models,
+            "data" => $app,
 
         );
 
