@@ -60,28 +60,6 @@
 
 
                 <h2>**************************************************************</h2>
-                <h2>Work Place info   : </h2>
-
-
-                @foreach ($ar['WorkPlace'] as $a)
-
-                <p>Employer name  : {{ $a->name }}</p>
-                <p>Position  : {{ $a->position }}</p>
-                <p>Employer address  : {{ $a->address }}</p>
-
-                <p>Work plz Telephone : {{ $a->telephone }}</p>
-                <p>Monly income/ Salary  : {{ $a->income_monthly }}</p>
-                <p>Other incomes : {{ $a->other_income }}</p>
-                <p>Source other income : {{ $a->source_other_income }}</p>
-                <p>Created at   : {{ $a->created_at }}</p>
-
-
-                <br>
-                <br>
-                @endforeach
-
-
-                <h2>**************************************************************</h2>
                 <h2>KYC : </h2>
 
 
@@ -104,6 +82,18 @@
 
 
                 @foreach ($ar['Nominee'] as $a)
+                <p>{{ $a->json }}</p>
+                <p>Created at   :{{ $a->created_at }}</p>
+                <br>
+                <br>
+                @endforeach
+
+
+                <h2>**************************************************************</h2>
+                <h2>Nominees  : </h2>
+
+
+                @foreach ($ar['WorkPlace'] as $a)
                 <p>{{ $a->json }}</p>
                 <p>Created at   :{{ $a->created_at }}</p>
                 <br>
