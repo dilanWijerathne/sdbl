@@ -109,7 +109,7 @@ class Application extends Controller
             $applicant->district = $district;
             $applicant->same_nic_address = "";
             $applicant->security_question = $security_answer;
-            //   $applicant->existing_customer = $existing_customer;  // bolean
+            $applicant->existing_customer = $existing_customer;  // bolean
             $applicant->save();
 
 

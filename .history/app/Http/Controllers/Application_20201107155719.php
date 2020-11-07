@@ -61,11 +61,6 @@ class Application extends Controller
             $f_name = $request->input('f_name');
             $s_name = $request->input('s_name');
 
-            $existing_customer = $request->input('existing_customer');  // booloan
-            $living_place_dif = $request->input('living_place_dif');  // dif
-
-
-
 
 
 
@@ -105,11 +100,11 @@ class Application extends Controller
             $applicant->secondary_mobile_number = $secondary_mobile;
             $applicant->email = $email;
             $applicant->address = $address;
-            $applicant->living_place_dif =  $living_place_dif;    // dif
+            $applicant->living_place_dif = 0;     // recheck
             $applicant->district = $district;
             $applicant->same_nic_address = "";
             $applicant->security_question = $security_answer;
-            //   $applicant->existing_customer = $existing_customer;  // bolean
+            // $applicant->existing_customer = $existing_customer;
             $applicant->save();
 
 
