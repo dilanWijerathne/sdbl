@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Http;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 use App\Models\Cif_response;
-use App\Models\Account;
 
 class DataController extends Controller
 {
@@ -128,14 +127,7 @@ class DataController extends Controller
          */
 
         $var =  $responseC->body();
-        $array = json_decode($var, true);
-        $id = $array['JSON']['Data']['response_status'];
-
-        $account = new Account;
-        $account->ref_number = $array['JSON']['Data']['referenceNumber'];
-        $account->account_number = $array['JSON']['Data']['svId'];
-
-        $account->save();
+        dump($var);
     }
 
 
