@@ -159,7 +159,7 @@ class Dash extends Controller
             "ERROR_CODE" => "1",
             "SEQUENCE_NUMBER" => "1",
             "LOCATION_CODE" => "1",
-            "CELLULAR_PHONE_NU" => "112832599", // $param['primary_mobile_number'],
+            "CELLULAR_PHONE_NU" => "112832599", $param['primary_mobile_number'],
             "DATE_OF_BIRTH" => $param['dob'],
             "SOCIO_ECONOMIC_GRO" => "001",
             "PERSONAL_NONPERSONAL" => "P",
