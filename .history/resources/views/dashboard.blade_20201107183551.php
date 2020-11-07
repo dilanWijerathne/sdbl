@@ -66,7 +66,7 @@ function getSelected(){
 
 
 
-            <table onclick="getSelected()" style="margin-top: 100" id="example" class="display"   style="width:100%">
+            <table id="example" class="display"   style="width:100%">
                 <thead>
                     <tr>
 
