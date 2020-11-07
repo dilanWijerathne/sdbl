@@ -52,7 +52,7 @@ class DataController extends Controller
     public function create_account(Request $request)
     {
 
-        $responseC = Http::post('http://10.100.32.72:7801/account_creation/v1/accountCreation', [
+        $responseB = Http::post('http://10.100.32.72:7801/account_creation/v1/accountCreation', [
 
 
 
@@ -115,11 +115,9 @@ class DataController extends Controller
             "FIELD9" => "",
 
             "FIELD10" => ""
+
+
         ]);
-
-
-        $var =  $responseC->body();
-        dump($var);
     }
 
 
