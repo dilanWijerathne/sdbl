@@ -24,16 +24,12 @@ class Dash extends Controller
     public function getApplicants()
     {
         $app = Applicant::all();
-        $ln = $app->count();
-        $a = array(
-            "draw" => 1,
-            "recordsTotal" => $ln,
-            "recordsFiltered" => $ln,
 
-        );
-
-        $combine = array($a, $app);
-
-        echo json_encode($combine);
+        $a = array{
+            "draw": 1,
+  "recordsTotal": 57,
+  "recordsFiltered": 57,
+        }
+        echo json_encode($app);
     }
 }
