@@ -36,11 +36,13 @@
 
 
             $(document).ready(function() {
-    $('#example').DataTable( {
-        "processing": true,
-        "serverSide": true,
-        "ajax": "http://10.101.6.198/sdbl/applicants"
-    } );
+                var events = $('#events');
+                $('#example').DataTable( {
+                    select: true,
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": "http://10.101.6.198/sdbl/applicants"
+                } );
 } );
         </script>
     </head>
