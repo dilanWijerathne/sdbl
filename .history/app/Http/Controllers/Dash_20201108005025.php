@@ -47,7 +47,7 @@ class Dash extends Controller
 
 
 
-        return view('item', compact('ar'));
+        return view('item', $ar);
     }
 
 
