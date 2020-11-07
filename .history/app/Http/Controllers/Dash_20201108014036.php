@@ -34,17 +34,11 @@ class Dash extends Controller
         $nominee = Nominee::where("applicant_nic", $nic)->get();
         $work_place = Work_place::where("applicant_nic", $nic)->get();
 
-        $account = Account::where('nic', $nic)->get();
-        $cif_Response =  Cif_Response::where('nic', $nic)->get();
-
         $ar = array(
             "Applicant" => $app,
             "KYC" => $kyc,
             "Nominee" => $nominee,
             "WorkPlace" => $work_place,
-            "cif" => $cif_Response,
-            "ref" => $account,
-
         );
 
 

@@ -34,17 +34,11 @@ class Dash extends Controller
         $nominee = Nominee::where("applicant_nic", $nic)->get();
         $work_place = Work_place::where("applicant_nic", $nic)->get();
 
-        $account = Account::where('nic', $nic)->get();
-        $cif_Response =  Cif_Response::where('nic', $nic)->get();
-
         $ar = array(
             "Applicant" => $app,
             "KYC" => $kyc,
             "Nominee" => $nominee,
             "WorkPlace" => $work_place,
-            "cif" => $cif_Response,
-            "ref" => $account,
-
         );
 
 
@@ -149,7 +143,6 @@ class Dash extends Controller
         $account = new Account;
         $account->ref_number = $array['JSON']['Data']['referenceNumber'];
         $account->account_number = $array['JSON']['Data']['svId'];
-        $account->nic =  $para['nic'];
 
         Log::info(json_encode($array));
 
@@ -349,7 +342,6 @@ class Dash extends Controller
             $para = array(
                 "cif" => $array['JSON']['Data']['cifNumber'],
                 "ref" => $array['JSON']['Data']['cifNumber'],
-                "nic" => $nic,
             );
             $this->create_account($para);
         }

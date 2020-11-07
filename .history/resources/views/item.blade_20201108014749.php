@@ -33,9 +33,6 @@
                             alert( "Data Saved: " + msg );
                         });
                 alert(nic +" Okay");
-
-                location.reload();
-
             }
         </script>
 

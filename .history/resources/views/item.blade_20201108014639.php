@@ -33,9 +33,6 @@
                             alert( "Data Saved: " + msg );
                         });
                 alert(nic +" Okay");
-
-                location.reload();
-
             }
         </script>
 
@@ -150,21 +147,6 @@
                 <p>Title :{{ $a->title }}</p>
                 <p>CIF REf number :  {{ $a->ref_number }}</p>
                 <p>CIF  :  {{ $a->cif }}</p>
-                <p>Created at   :{{ $a->created_at }}</p>
-
-
-                <br>
-                <br>
-                @endforeach
-
-
-                <h2>Account Details.</h2></h2>
-
-                @foreach ($ar['acc'] as $a)
-
-                <p>Title :{{ $a->title }}</p>
-                <p>Acc REf number :  {{ $a->ref_number }}</p>
-                <p>Acc Number  :  {{ $a->account_number }}</p>
                 <p>Created at   :{{ $a->created_at }}</p>
 
 
