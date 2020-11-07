@@ -24,10 +24,13 @@ class Dash extends Controller
     }
 
 
-    public function item_view(Request $request)
+    public function item_view()
     {
 
-        $nic  =  $request->nic;
+
+        /**
+         *
+         *   $nic  =  $request->nic;
 
         $app = Applicant::where("nic", $nic)->get();
         $kyc = Kyc::where("nic", $nic)->get();
@@ -42,12 +45,12 @@ class Dash extends Controller
         );
 
 
-        // echo json_encode($ar);
+        echo json_encode($ar);
+    }
 
 
-
-
-        return view('item', $ar);
+         */
+        return view('item');
     }
 
 

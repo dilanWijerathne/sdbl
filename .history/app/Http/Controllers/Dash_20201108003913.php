@@ -24,30 +24,9 @@ class Dash extends Controller
     }
 
 
-    public function item_view(Request $request)
+    public function item_view()
     {
-
-        $nic  =  $request->nic;
-
-        $app = Applicant::where("nic", $nic)->get();
-        $kyc = Kyc::where("nic", $nic)->get();
-        $nominee = Nominee::where("applicant_nic", $nic)->get();
-        $work_place = Work_place::where("applicant_nic", $nic)->get();
-
-        $ar = array(
-            "Applicant" => $app,
-            "KYC" => $kyc,
-            "Nominee" => $nominee,
-            "Work Place " => $work_place,
-        );
-
-
-        // echo json_encode($ar);
-
-
-
-
-        return view('item', $ar);
+        return view('item');
     }
 
 
