@@ -26,25 +26,16 @@ class Dash extends Controller
 
 
 
-    public function create_new_Cif_inapp()
+    public function create_new_Cif($nic)
     {
 
-        $nic = "900103875v";
+        $app = Applicant::where("nic", $nic)->get();
+        $kyc = Kyc::where("nic", $nic)->get();
+        $nominee = Nominee::where("applicant_nic", $nic)->get();
+        $work_place = Work_place::where("applicant_nic", $nic)->get();
 
-        $app = Applicant::where("nic", $nic)->latest()->get();
-        $kyc = Kyc::where("nic", $nic)->get()->latest()->get();
-        $nominee = Nominee::where("applicant_nic", $nic)->latest()->get();
-        $work_place = Work_place::where("applicant_nic", $nic)->latest()->get();
-        /*
-        $param = array(
-            'second_name'=>
-        );
+        $param = array();
 
-*/
-
-        echo json_encode($app);
-
-        die();
 
         $responseB = Http::post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
             "FIELD1" => "0",

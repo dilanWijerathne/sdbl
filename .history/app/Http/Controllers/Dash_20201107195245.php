@@ -26,7 +26,7 @@ class Dash extends Controller
 
 
 
-    public function create_new_Cif_inapp()
+    public function create_new_Cif($nic)
     {
 
         $nic = "900103875v";
@@ -42,7 +42,6 @@ class Dash extends Controller
 
 */
 
-        echo json_encode($app);
 
         die();
 

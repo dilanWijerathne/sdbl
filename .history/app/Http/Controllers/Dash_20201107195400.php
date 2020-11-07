@@ -42,7 +42,6 @@ class Dash extends Controller
 
 */
 
-        echo json_encode($app);
 
         die();
 
