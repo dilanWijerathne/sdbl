@@ -18,13 +18,6 @@
 
 
 
-        <script>
-
-            function acc(nic){
-                alert(nic);
-            }
-        </script>
-
     </head>
 
 

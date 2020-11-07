@@ -18,13 +18,6 @@
 
 
 
-        <script>
-
-            function acc(nic){
-                alert(nic);
-            }
-        </script>
-
     </head>
 
 
@@ -121,8 +114,7 @@
 
               </div>
               <div class="col-sm">
-                  <input type="hidden"  id="nic" value=" {{$ar['Applicant']->nic}} ">
-               <button onclick="acc( {{$ar['Applicant']->nic}} )"> Approved Create account</button>
+               <button> Approved Create account</button>
               </div>
               <div class="col-sm">
                 pending ....
