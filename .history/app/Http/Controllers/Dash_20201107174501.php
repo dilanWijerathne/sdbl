@@ -29,7 +29,7 @@ class Dash extends Controller
             "draw" => 1,
             "recordsTotal" => $ln,
             "recordsFiltered" => $ln,
-            $app,
+            "data" => $app,
 
         );
 
