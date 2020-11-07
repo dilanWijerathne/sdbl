@@ -119,7 +119,7 @@ class Application extends Controller
             $applicant->birth_year = $dob_year;
             $applicant->birth_month = $dob_month_p;
             $applicant->birth_day = $dob_day;
-            $applicant->sex = $sex_f[$sex];
+            $applicant->sex = $sex;
             $applicant->applicant_status = $applicant_status;
             $applicant->applicant_going_to_open = $goin_to_open;
             $applicant->applicant_individual_account_type = $account_type;
