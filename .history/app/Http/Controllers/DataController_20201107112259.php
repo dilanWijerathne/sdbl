@@ -235,11 +235,11 @@ class DataController extends Controller
 
 
         $var =  $responseB->body();
-        $array = json_decode($var, true);
-        $id = $array['JSON'];
+        $content = $var->getContent();
+        $array = json_decode($content, true);
+        $id = $array['id']
 
 
-        echo $id;
     }
 
 
