@@ -10,15 +10,13 @@ use Symfony\Component\VarDumper\Cloner\Data;
 use App\Models\Cif_Response;
 use App\Models\Account;
 use App\Models\Applicant;
-use App\Models\Kyc;
-use App\Models\Nominee;
-use App\Models\Work_place;
-
 
 class Dash extends Controller
 {
     public function dash_view()
     {
+
+
         return view('dashboard');
     }
 
@@ -34,20 +32,7 @@ class Dash extends Controller
 
         $nic  =  $request->nic;
 
-        $app = Applicant::where("nic", $nic)->get();
-        $kyc = Kyc::where("nic", $nic)->get();
-        $nominee = Nominee::where("applicant_nic", $nic)->get();
-        $work_place = Work_place::where("applicant_nic", $nic)->get();
-
-        $ar = array(
-            "Applicant" => $app,
-            "KYC" => $kyc,
-            "Nominee" => $nominee,
-            "Work Place " => $work_place,
-        );
-
-
-        echo json_encode($ar);
+        $app = Applicant::where("nic",);
     }
 
 
