@@ -334,7 +334,7 @@ class Dash extends Controller
                 'telephone' => $work_place['telephone'],
                 'ref_number' => $this->doRef(),
                 'short_name' => $nm_s[0],
-                'second_name' => "", // $nm_s[1],
+                'second_name' => $nm_s[1],
                 'title' => $app['title'],
             );
 
