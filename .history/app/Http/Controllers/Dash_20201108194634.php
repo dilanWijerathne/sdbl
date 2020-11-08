@@ -325,7 +325,7 @@ class Dash extends Controller
             $nm_s = $this->doName($app['full_name']);
 
             $param = array(
-                'initials_of_name' =>  $nm_s[3], //$app['display_name'],
+                'initials_of_name' => $app['display_name'],
                 'district' => $app['district'],
                 'house_numer' => $street[0],
                 'secondary_number' => $app['secondary_mobile_number'],

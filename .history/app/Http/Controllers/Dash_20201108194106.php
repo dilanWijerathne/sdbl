@@ -256,21 +256,17 @@ class Dash extends Controller
         $surname = $name[$num_name - 1];
         $second_name = "";
 
-        $initials = "";
         $nm =  $surname . " ";
         for ($i = 0; $num_name - 1 > $i; $i++) {
             $v = $name[$i];
             $nm .= $v[0];
             $second_name .= $v;
-            $initials .= "." . $v[0];
         }
 
 
         $mod = explode(" ", $nm);
-        return array($nm, $second_name, $mod[0], $initials);
+        return array($nm, $second_name, $mod[0]);
     }
-
-
 
 
     public function create_new_Cif_inapp(Request $request)
@@ -325,7 +321,7 @@ class Dash extends Controller
             $nm_s = $this->doName($app['full_name']);
 
             $param = array(
-                'initials_of_name' =>  $nm_s[3], //$app['display_name'],
+                'initials_of_name' => $app['display_name'],
                 'district' => $app['district'],
                 'house_numer' => $street[0],
                 'secondary_number' => $app['secondary_mobile_number'],
