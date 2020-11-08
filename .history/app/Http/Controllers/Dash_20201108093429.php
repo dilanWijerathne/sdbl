@@ -61,16 +61,15 @@ class Dash extends Controller
 
 
 
-    //  old one     http://10.100.32.72:7801/account_creation/v1/accountCreation
 
-    // new onw
-    //http://10.100.32.72:7802/account_creationa/v1/accountCreationA
+
+
 
     public function create_account($para)
     {
         Log::info('Account creation started ' . json_encode($para));
 
-        $responseC = Http::post('/http://10.100.32.72:7802/account_creationa/v1/accountCreationA', [
+        $responseC = Http::post('http://10.100.32.72:7801/account_creation/v1/accountCreation', [
 
 
             "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
@@ -260,7 +259,8 @@ class Dash extends Controller
 
         echo json_encode($param);
         //  die();
-
+        // new onw
+        //http://10.100.32.72:7802/account_creationa/v1/accountCreationA
         $responseB = Http::post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
             "FIELD1" => "0",
             "FIELD2" => "0",
