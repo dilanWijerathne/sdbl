@@ -26,9 +26,9 @@ class Dash extends Controller
 
 
 
-    public function sdb_julian_lib($day)
+    public function sdb_julian_lib(Request $request)
     {
-        //  $day = $request->day;
+        $day = $request->day;
 
         $curl = curl_init();
 
@@ -329,7 +329,7 @@ class Dash extends Controller
                 'surname' => $name[$num_name - 1],
                 'nic' =>  $app['nic'],
                 'sex' =>  $app['sex'],
-                'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
+                'dob' => juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
                 'today' => "2020280", // juliantojd($m, $d, $y),  // for uat only
                 'telephone' => $work_place['telephone'],
                 'ref_number' => $this->doRef(),
@@ -341,8 +341,7 @@ class Dash extends Controller
 
 
 
-
-            //   {
+            //   call_sampaths_format($d,$m,$y){
 
             //  echo $app['applicant_status'];
 
