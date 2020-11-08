@@ -267,7 +267,7 @@ class Dash extends Controller
 
         $str = ltrim($initials, '.');
         $mod = explode(" ", $nm);
-        return array($nm, $second_name, $mod[0], $str);
+        return array($nm, $second_name, $mod[0], $initials);
     }
 
 
@@ -338,7 +338,7 @@ class Dash extends Controller
                 'today' => "2020280", // juliantojd($m, $d, $y),  // for uat only
                 'telephone' => $work_place['telephone'],
                 'ref_number' => $this->doRef(),
-                'short_name' => $nm_s[2] . " " . $nm_s[2],
+                'short_name' => $nm_s[2],
                 'second_name' => "", // $nm_s[1],
                 'title' => $app['title'],
             );
