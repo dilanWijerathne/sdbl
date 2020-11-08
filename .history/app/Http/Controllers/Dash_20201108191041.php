@@ -382,7 +382,7 @@ class Dash extends Controller
                 "MARKET_SEQMENT" => "SOT",
                 "CURR_COUNTRY" => "Sri Lanka",
                 "BRANCH_NUMBER" => "56",
-                "ACCOUNT_TYPE" => "'01'",
+                "ACCOUNT_TYPE" => "",
                 "SOURCE_OF_DATA" => "",
                 "SEX" => $param['sex'],
                 "CUSTOMER_TYPE" => "001",
