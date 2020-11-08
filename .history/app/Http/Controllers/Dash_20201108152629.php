@@ -51,10 +51,12 @@ class Dash extends Controller
         Log::info('taken Julian dates from sdb ');
         Log::info($response);
         $vl =  json_decode($response);
+        echo $vl->JSON->Data->Julian_Date;
 
-        $str = $vl->JSON->Data->Julian_Date; //"19900010";
+
+        $str = "19900010";
         $str1 = substr($str, 2);
-        echo $str1;
+        echo $str1 . "\n";
     }
 
 
