@@ -338,7 +338,7 @@ class Dash extends Controller
                 'today' => "2020280", // juliantojd($m, $d, $y),  // for uat only
                 'telephone' => $work_place['telephone'],
                 'ref_number' => $this->doRef(),
-                'short_name' => $nm_s[2], // . " " . $nm_s[3],
+                'short_name' => $nm_s[2] . " " . $nm_s[3],
                 'second_name' => "", // $nm_s[1],
                 'title' => $app['title'],
             );
