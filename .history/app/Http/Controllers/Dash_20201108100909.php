@@ -258,9 +258,8 @@ class Dash extends Controller
 
         /// die();
 
-        //echo json_encode($param);
-
-        Log::info($param);
+        echo json_encode($param);
+        //  die();
 
         $responseB = Http::post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
             "FIELD1" => "0",
