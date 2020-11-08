@@ -25,54 +25,6 @@ class Dash extends Controller
     }
 
 
-
-    public function sdb_julian_lib(Request $request)
-    {
-        $day = $request->day;
-
-        $curl = curl_init();
-
-        Log::info('Julian dates from sdb');
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://10.100.32.72:7802/jdate/v1/JDateInformation?cdate=" . $day,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        Log::info('taken Julian dates from sdb ');
-        Log::info($response);
-        echo  $response;
-    }
-
-
-
-    public function prepare_number_two_digits($num)
-    {
-        //$num = 3;
-        $num_padded = sprintf("%02d", $num);
-        return $num_padded; // returns 04
-    }
-
-    public function call_sampaths_format($d, $m, $y)
-    {
-        $dmy_d = $this->prepare_number_two_digits($d);
-        $dmy_m = $this->prepare_number_two_digits($m);
-        $dmy_y = $this->prepare_number_two_digits($y);
-        $sam_date =  $dmy_d . $dmy_m . $dmy_y;
-        return $sam_date;
-    }
-
-
-
     public function item_view(Request $request)
     {
 
@@ -335,9 +287,6 @@ class Dash extends Controller
             );
 
 
-
-
-            //   call_sampaths_format($d,$m,$y){
 
             //  echo $app['applicant_status'];
 

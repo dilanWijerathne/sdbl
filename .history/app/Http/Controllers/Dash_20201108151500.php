@@ -26,10 +26,8 @@ class Dash extends Controller
 
 
 
-    public function sdb_julian_lib(Request $request)
+    public function sdb_julian_lib($day)
     {
-        $day = $request->day;
-
         $curl = curl_init();
 
         Log::info('Julian dates from sdb');
@@ -50,7 +48,7 @@ class Dash extends Controller
         curl_close($curl);
         Log::info('taken Julian dates from sdb ');
         Log::info($response);
-        echo  $response;
+        return $response;
     }
 
 

@@ -20,7 +20,12 @@ class Application extends Controller
 {
 
 
-
+    public function prepare_number_two_digits($num)
+    {
+        //$num = 3;
+        $num_padded = sprintf("%02d", $num);
+        return $num_padded; // returns 04
+    }
 
     public function new_customer(Request $request)
     {

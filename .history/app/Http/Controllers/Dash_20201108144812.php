@@ -25,54 +25,6 @@ class Dash extends Controller
     }
 
 
-
-    public function sdb_julian_lib(Request $request)
-    {
-        $day = $request->day;
-
-        $curl = curl_init();
-
-        Log::info('Julian dates from sdb');
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://10.100.32.72:7802/jdate/v1/JDateInformation?cdate=" . $day,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        Log::info('taken Julian dates from sdb ');
-        Log::info($response);
-        echo  $response;
-    }
-
-
-
-    public function prepare_number_two_digits($num)
-    {
-        //$num = 3;
-        $num_padded = sprintf("%02d", $num);
-        return $num_padded; // returns 04
-    }
-
-    public function call_sampaths_format($d, $m, $y)
-    {
-        $dmy_d = $this->prepare_number_two_digits($d);
-        $dmy_m = $this->prepare_number_two_digits($m);
-        $dmy_y = $this->prepare_number_two_digits($y);
-        $sam_date =  $dmy_d . $dmy_m . $dmy_y;
-        return $sam_date;
-    }
-
-
-
     public function item_view(Request $request)
     {
 
@@ -294,119 +246,115 @@ class Dash extends Controller
                 "nic" => $nic,
             );
 
-            Log::info("old customer to new acccount");
-
             $this->create_account($para);
-        } else {
-
-
-            Log::info("CIF call new cusomter ");
-            Log::info(json_encode($app));
-            $name = explode(" ", $app['full_name']);
-            $num_name = count($name);
-            $street = explode(",", $app['address']);
-            $addr_lng = count($street);
-            $city = $street[$addr_lng - 1];
-
-            $mydate = getdate(date("U"));
-            $d =  $mydate["mon"];
-            $m = $mydate["mday"];
-            $y = $mydate["year"];
-
-            $nm_s = $this->doName($app['full_name']);
-
-            $param = array(
-                'initials_of_name' => $app['display_name'],
-                'district' => $app['district'],
-                'street' => $street[0],
-                'secondary_number' => $app['secondary_mobile_number'],
-                'primary_mobile_number' => $app['primary_mobile_number'],
-                'city' => $city,
-                'surname' => $name[$num_name - 1],
-                'nic' =>  $app['nic'],
-                'sex' =>  $app['sex'],
-                'dob' => juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                'today' => "2020280", // juliantojd($m, $d, $y),  // for uat only
-                'telephone' => $work_place['telephone'],
-                'ref_number' => $this->doRef(),
-                'short_name' => $nm_s[0],
-                'second_name' => $nm_s[1],
-                'title' => $app['title'],
-            );
+        }
 
 
 
+        Log::info("CIF call");
+        Log::info(json_encode($app));
+        $name = explode(" ", $app['full_name']);
+        $num_name = count($name);
+        $street = explode(",", $app['address']);
+        $addr_lng = count($street);
+        $city = $street[$addr_lng - 1];
 
-            //   call_sampaths_format($d,$m,$y){
+        $mydate = getdate(date("U"));
+        $d =  $mydate["mon"];
+        $m = $mydate["mday"];
+        $y = $mydate["year"];
 
-            //  echo $app['applicant_status'];
+        $nm_s = $this->doName($app['full_name']);
 
-            /// die();
-
-            //echo json_encode($param);
-
-            Log::info($param);
-
-            $responseB = Http::post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
-                "FIELD1" => "0",
-                "FIELD2" => "0",
-                "FIELD3" => "0",
-                "FIELD4" => "0",
-                "FIELD5" => "0",
-                "FIELD6" => "",
-                "FIELD7" => "",
-                "FIELD8" => "",
-                "FIELD9" => "",
-                "FIELD10" => "",
-                "MARITAL_STATUS" => "S",
-                "USER_ID" => "",
-                "SHORT_NAME" => $param['short_name'], //"Perera ABC",
-                "SECOND_NAME" => $param['second_name'],
-                "CURR_STREET" => $param['street'],
-                "BUSINESS_PHONE" => "112832599", //$param['telephone'],
-                "STATUS" => "1",
-                "PRIMARY_OFFICER_COD" => "MOB",
-                "CURR_DISTRICT" => $param['district'],
-                "CITIZENSHIP_CODE" => "001",
-                "CURR_HOUSE_NBR" => "197",
-                "HOME_PHONE_NUMBER" => "112832599", //$param['secondary_number'],
-                "TIN_ACTIVITY_DATE" => $param['today'],  // current date // today  => UAT 2020280 //  october 6 2020
-                "CURR_POST_TOWN" => $param['city'],
-                "DATE" => "",  // current date
-                "MARKET_SEQMENT" => "SOT",
-                "CURR_COUNTRY" => "Sri Lanka",
-                "BRANCH_NUMBER" => "56",
-                "ACCOUNT_TYPE" => "S",
-                "SOURCE_OF_DATA" => "",
-                "SEX" => $param['sex'],
-                "CUSTOMER_TYPE" => "001",
-                "FIRST_NAME" => $param['initials_of_name'],
-                "PREFERED_CUSTOMER" => "",
-                "ERROR_CODE" => "1",
-                "SEQUENCE_NUMBER" => "1",
-                "LOCATION_CODE" => "1",
-                "CELLULAR_PHONE_NU" => "112832599", // $param['primary_mobile_number'],
-                "DATE_OF_BIRTH" => $param['dob'],
-                "SOCIO_ECONOMIC_GRO" => "001",
-                "PERSONAL_NONPERSONAL" => "P",
-                "CIF_NUMBER" => "",
-                "SURNAME" => $param['surname'], // "Perera",
-                "SIC_CODE" => "33",
-                "REFERENCE_NUMBER" =>  $param['ref_number'],
-                "CUSTOMER_CLASSIF" => "1",
-                "TIME" => "",  /// current time iso time
-                "NATIONAL_ID_NUMBER" => $param['nic'],
-                "MOVED_IN_DATE" =>  $param['today'],   // "2020002"
-                "RACE" => "",
-                "CUSTOMER_OPEN_DATE" => $param['today'],
-                "TITLE" => "Mr.", //$param['title'] . ".",
-                "CUST_DOC_ACTIVITY" => $param['today'],
-                "SOLICITABLE_CODE" => ""
-
-            ]);
+        $param = array(
+            'initials_of_name' => $app['display_name'],
+            'district' => $app['district'],
+            'street' => $street[0],
+            'secondary_number' => $app['secondary_mobile_number'],
+            'primary_mobile_number' => $app['primary_mobile_number'],
+            'city' => $city,
+            'surname' => $name[$num_name - 1],
+            'nic' =>  $app['nic'],
+            'sex' =>  $app['sex'],
+            'dob' => juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
+            'today' => "2020280", // juliantojd($m, $d, $y),  // for uat only
+            'telephone' => $work_place['telephone'],
+            'ref_number' => $this->doRef(),
+            'short_name' => $nm_s[0],
+            'second_name' => $nm_s[1],
+            'title' => $app['title'],
+        );
 
 
-            /*
+
+        //  echo $app['applicant_status'];
+
+        /// die();
+
+        //echo json_encode($param);
+
+        Log::info($param);
+
+        $responseB = Http::post('http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation', [
+            "FIELD1" => "0",
+            "FIELD2" => "0",
+            "FIELD3" => "0",
+            "FIELD4" => "0",
+            "FIELD5" => "0",
+            "FIELD6" => "",
+            "FIELD7" => "",
+            "FIELD8" => "",
+            "FIELD9" => "",
+            "FIELD10" => "",
+            "MARITAL_STATUS" => "S",
+            "USER_ID" => "",
+            "SHORT_NAME" => $param['short_name'], //"Perera ABC",
+            "SECOND_NAME" => $param['second_name'],
+            "CURR_STREET" => $param['street'],
+            "BUSINESS_PHONE" => "112832599", //$param['telephone'],
+            "STATUS" => "1",
+            "PRIMARY_OFFICER_COD" => "MOB",
+            "CURR_DISTRICT" => $param['district'],
+            "CITIZENSHIP_CODE" => "001",
+            "CURR_HOUSE_NBR" => "197",
+            "HOME_PHONE_NUMBER" => "112832599", //$param['secondary_number'],
+            "TIN_ACTIVITY_DATE" => $param['today'],  // current date // today  => UAT 2020280 //  october 6 2020
+            "CURR_POST_TOWN" => $param['city'],
+            "DATE" => "",  // current date
+            "MARKET_SEQMENT" => "SOT",
+            "CURR_COUNTRY" => "Sri Lanka",
+            "BRANCH_NUMBER" => "56",
+            "ACCOUNT_TYPE" => "S",
+            "SOURCE_OF_DATA" => "",
+            "SEX" => $param['sex'],
+            "CUSTOMER_TYPE" => "001",
+            "FIRST_NAME" => $param['initials_of_name'],
+            "PREFERED_CUSTOMER" => "",
+            "ERROR_CODE" => "1",
+            "SEQUENCE_NUMBER" => "1",
+            "LOCATION_CODE" => "1",
+            "CELLULAR_PHONE_NU" => "112832599", // $param['primary_mobile_number'],
+            "DATE_OF_BIRTH" => $param['dob'],
+            "SOCIO_ECONOMIC_GRO" => "001",
+            "PERSONAL_NONPERSONAL" => "P",
+            "CIF_NUMBER" => "",
+            "SURNAME" => $param['surname'], // "Perera",
+            "SIC_CODE" => "33",
+            "REFERENCE_NUMBER" =>  $param['ref_number'],
+            "CUSTOMER_CLASSIF" => "1",
+            "TIME" => "",  /// current time iso time
+            "NATIONAL_ID_NUMBER" => $param['nic'],
+            "MOVED_IN_DATE" =>  $param['today'],   // "2020002"
+            "RACE" => "",
+            "CUSTOMER_OPEN_DATE" => $param['today'],
+            "TITLE" => "Mr.", //$param['title'] . ".",
+            "CUST_DOC_ACTIVITY" => $param['today'],
+            "SOLICITABLE_CODE" => ""
+
+        ]);
+
+
+        /*
         {"JSON":{"Data":{"referenceNumber":"CUS000000000751",
             "cifNumber":" ",
             "status":"1",
@@ -415,41 +363,36 @@ class Dash extends Controller
 
 
 
-            $var =  $responseB->body();
-            $array = json_decode($var, true);
-            $id = $array['JSON']['Data']['response_status'];
+        $var =  $responseB->body();
+        $array = json_decode($var, true);
+        $id = $array['JSON']['Data']['response_status'];
 
-            $newCif = new Cif_response;
-            $newCif->ref_number = $array['JSON']['Data']['referenceNumber'];
-            $newCif->cif = $array['JSON']['Data']['cifNumber'];
-            $newCif->response_status = $array['JSON']['Data']['response_status'];
-            $newCif->nic = $nic;
+        $newCif = new Cif_response;
+        $newCif->ref_number = $array['JSON']['Data']['referenceNumber'];
+        $newCif->cif = $array['JSON']['Data']['cifNumber'];
+        $newCif->response_status = $array['JSON']['Data']['response_status'];
+        $newCif->nic = $nic;
 
-            $newCif->save();
+        $newCif->save();
 
-            Log::info(json_encode($var));
-
-
+        Log::info(json_encode($var));
 
 
 
 
-            if ($id == "OK") {
 
-                $cif_r_new =  $this->doRef_cif();
 
-                $para = array(
-                    "cif" => $array['JSON']['Data']['cifNumber'],
-                    "ref" => $cif_r_new,
-                    "nic" => $nic,
-                );
-                $this->create_account($para);
-            } else {
-                Log::info("Cannot create account process bcz no CIF given from core");
-            }
+        if ($id == "OK") {
 
-            echo $id;
+            $para = array(
+                "cif" => $array['JSON']['Data']['cifNumber'],
+                "ref" => $array['JSON']['Data']['cifNumber'],
+                "nic" => $nic,
+            );
+            $this->create_account($para);
         }
+
+        echo $id;
     }
 
 

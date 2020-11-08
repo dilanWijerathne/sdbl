@@ -26,16 +26,12 @@ class Dash extends Controller
 
 
 
-    public function sdb_julian_lib(Request $request)
+    public function sdb_julian_lib()
     {
-        $day = $request->day;
-
         $curl = curl_init();
 
-        Log::info('Julian dates from sdb');
-
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://10.100.32.72:7802/jdate/v1/JDateInformation?cdate=" . $day,
+            CURLOPT_URL => "http://10.100.32.72:7802/jdate/v1/JDateInformation?cdate=16101978",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -48,9 +44,7 @@ class Dash extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
-        Log::info('taken Julian dates from sdb ');
-        Log::info($response);
-        echo  $response;
+        echo $response;
     }
 
 
