@@ -505,8 +505,12 @@ class Dash extends Controller
     public function getApplicants(Request $request)
     {
 
-        Log::info($request);
-
+        Log::info("start");
+        Log::info($request["start"]);
+        Log::info("end");
+        Log::info($request["length"]);
+        Log::info("search value ");
+        Log::info($request["search"]["value"]);
 
         $app = Applicant::all();
 
