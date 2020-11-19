@@ -517,7 +517,7 @@ class Dash extends Controller
         $k = "";
         $models = $app->map(function ($item) {
             return [$item->title, $item->initials, $item->display_name, $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-        })->where('nic', 'like', $request->search . "%")->toArray();
+        })->where('nic', '', $request->search)->toArray();
 
 
 
