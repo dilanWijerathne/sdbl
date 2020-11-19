@@ -546,7 +546,6 @@ class Dash extends Controller
         // $ln = $app->count();
 
         $a = array(
-            "draw" => $request->draw,
             "recordsTotal" => $ln,
             "recordsFiltered" => $ln,
             "data" => $models,
