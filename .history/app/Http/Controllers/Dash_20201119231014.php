@@ -543,7 +543,6 @@ class Dash extends Controller
             ->where('nic', 'LIKE', $request->search . '%')
             ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
             ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-            ->limit($request->end)->offset($request->start - 1)
             ->count();
         // $ln = $app->count();
 
