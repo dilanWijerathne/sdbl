@@ -504,14 +504,14 @@ class Dash extends Controller
 
     public function getApplicants(Request $request)
     {
-        /*
+
         Log::info("start");
         Log::info($request["start"]);
         Log::info("end");
         Log::info($request["length"]);
         Log::info("search value ");
         Log::info($request["search"]["value"]);
-*/
+
         $app = Applicant::all();
 
 
@@ -519,7 +519,7 @@ class Dash extends Controller
         $k = "";
         $models = $app->map(function ($item) {
             return [$item->title, $item->initials, $item->display_name, $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-        })->where('nic', $request["search"]["value"])->toArray();
+        })->toArray();
 
 
 
