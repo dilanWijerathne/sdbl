@@ -526,7 +526,7 @@ class Dash extends Controller
         //$models = $app::select('select title, initials, display_name, full_name, f_name, nic, primary_mobile_number, created_at from users where active = ?', [1]);
 
         $models = DB::table('applicant')
-            ->select('title', 'initials', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+            ->select('title', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
             ->where('nic', 'LIKE', $request->search . '%')
             ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
             ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
@@ -540,7 +540,7 @@ class Dash extends Controller
 
         Log::info($models);
         $ln = DB::table('applicant')
-            ->select('title', 'initials', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+            ->select('title', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
             ->where('nic', 'LIKE', $request->search . '%')
             ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
             ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
