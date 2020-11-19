@@ -14,8 +14,6 @@ use App\Models\Kyc;
 use App\Models\Nominee;
 use App\Models\Work_place;
 use App\Models\Ref_nums;
-use Illuminate\Support\Facades\DB;
-
 
 
 
@@ -521,19 +519,10 @@ class Dash extends Controller
             return [$item->title, $item->initials, $item->display_name, $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
         })->where('nic', 'like',  "%90010%")->toArray();
 */
-        //$users = DB::table('users')->select('name', 'email as user_email')->get();
 
-        //$models = $app::select('select title, initials, display_name, full_name, f_name, nic, primary_mobile_number, created_at from users where active = ?', [1]);
-
-        $models = DB::table('applicant')
-            ->select('title', 'initials', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-            ->where('nic', 'LIKE', $request->search . '%')
-            ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-            ->toArray();
+        $models = $appDB::select('select * from users where active = ?', [1]);
 
 
-        Log::info($models);
         $ln = $app->count();
 
         $a = array(
