@@ -14,8 +14,6 @@ class Multimedia extends Controller
     public function upload_nic(Request $request)
     {
 
-        Log::info("image upload request");
-        Log::info($request);
         try {
             $nic =  $request->nic;
             $agent =  $request->agent;
