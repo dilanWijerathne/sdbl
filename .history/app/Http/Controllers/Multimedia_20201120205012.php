@@ -11,25 +11,6 @@ use Exception;
 class Multimedia extends Controller
 {
 
-    public function sign(Request $request)
-    {
-
-        Log::info("Signature request");
-        Log::info($request);
-
-        try {
-            $sign = new Signatures;
-            $sign->signature =  $request->signature;
-            $sign->nic = $request->nic;
-            $sign->ref = $request->ref;
-            $sign->agent = $request->agent;
-            $sign->save();
-            echo  "signed";
-        } catch (Exception $e) {
-            Log::warning(" error on signature request");
-            Log::error($e);
-        }
-    }
 
     public function upload_nic(Request $request)
     {
