@@ -24,7 +24,7 @@ class Multimedia extends Controller
             $image = $request->file('file');
             $image_name =  $nic . "-" . $doctype . "." . $image->extension();
             $ext = $image->extension();
-            $image->move(public_path('images/lib/' . $nic), $image_name);
+            $image->move(public_path('images/lib'), $image_name);
 
             $img =  new Images;
             $img->applicant_ref_number = $ref;
@@ -32,7 +32,7 @@ class Multimedia extends Controller
             $img->file_type = $doctype;
             $img->nic = $nic;
             $img->agent = $agent;
-            $img->file_path = 'images/lib/' . $nic . '/' . $image_name . "." . $ext;
+            $img->file_path = 'images/lib/' . $image_name . "." . $ext;
             $img->save();
             echo  "saved";
         } catch (Exception $e) {
