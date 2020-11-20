@@ -62,4 +62,4 @@ Route::get('/inapp', [Dash::class, 'create_new_Cif_inapp']);
 
 Route::get('/applicants', [Dash::class, 'getApplicants']);
 
-Route::get('/upload_img', [Multimedia::class, 'upload_nic']);
+Route::get('/upload_nic', [Multimedia::class, 'upload_nic']);
