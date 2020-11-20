@@ -26,7 +26,7 @@ class Multimedia extends Controller
             $sign->save();
             echo  "signed";
         } catch (Exception $e) {
-            Log::warning("error on signature request");
+            Log::warning(" error on signature request");
             Log::error($e);
         }
     }
