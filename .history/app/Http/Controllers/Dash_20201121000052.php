@@ -98,8 +98,6 @@ class Dash extends Controller
 
         $multimedia =  Images::where('nic', $nic)->get();
 
-        $signatures =  Signatures::where('nic', $nic)->get();
-
         $ar = array(
             "Applicant" => $app,
             "KYC" => $kyc,
@@ -107,8 +105,6 @@ class Dash extends Controller
             "WorkPlace" => $work_place,
             "cif" => $cif_Response,
             "acc" => $account,
-            "signatures" => $signatures,
-            "multimedia" => $multimedia,
 
         );
 
@@ -118,7 +114,7 @@ class Dash extends Controller
 
 
 
-        return $ar; // view('item', compact('ar'));
+        return view('item', compact('ar'));
     }
 
 

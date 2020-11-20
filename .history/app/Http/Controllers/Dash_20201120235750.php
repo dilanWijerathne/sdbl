@@ -14,8 +14,6 @@ use App\Models\Kyc;
 use App\Models\Nominee;
 use App\Models\Work_place;
 use App\Models\Ref_nums;
-use App\Models\Images;
-use App\Models\Signatures;
 use Illuminate\Support\Facades\DB;
 
 
@@ -96,10 +94,6 @@ class Dash extends Controller
         $account = Account::where('nic', $nic)->get();
         $cif_Response =  Cif_Response::where('nic', $nic)->get();
 
-        $multimedia =  Images::where('nic', $nic)->get();
-
-        $signatures =  Signatures::where('nic', $nic)->get();
-
         $ar = array(
             "Applicant" => $app,
             "KYC" => $kyc,
@@ -107,8 +101,6 @@ class Dash extends Controller
             "WorkPlace" => $work_place,
             "cif" => $cif_Response,
             "acc" => $account,
-            "signatures" => $signatures,
-            "multimedia" => $multimedia,
 
         );
 
@@ -118,7 +110,7 @@ class Dash extends Controller
 
 
 
-        return $ar; // view('item', compact('ar'));
+        return view('item', compact('ar'));
     }
 
 
