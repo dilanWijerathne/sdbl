@@ -156,7 +156,7 @@ class Application extends Controller
 
 
             $kyc_json = array(
-                'pupose' => $purpose_usage,   // convert these json string to array
+                'pupose' => $purpose_usage,
                 'source_funds' => $source_of_funds,
                 'anticipated_volume' => $anticipated_volumes,
                 'source_wealth' => $source_of_wealth,
