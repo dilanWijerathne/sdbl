@@ -88,13 +88,13 @@ class Dash extends Controller
 
         $nic  =  $request->nic;
 
-        $app = Applicant::where("nic", $nic)->latest()->first();
-        $kyc = Kyc::where("nic", $nic)->latest()->first();
-        $nominee = Nominee::where("applicant_nic", $nic)->latest()->first();
-        $work_place = Work_place::where("applicant_nic", $nic)->latest()->first();
+        $app = Applicant::where("nic", $nic)->latest()->get();
+        $kyc = Kyc::where("nic", $nic)->get();
+        $nominee = Nominee::where("applicant_nic", $nic)->get();
+        $work_place = Work_place::where("applicant_nic", $nic)->get();
 
         $account = Account::where('nic', $nic)->get();
-        $cif_Response =  Cif_Response::where('nic', $nic)->latest()->first();
+        $cif_Response =  Cif_Response::where('nic', $nic)->get();
 
         $multimedia =  Images::where('nic', $nic)->get();
 
