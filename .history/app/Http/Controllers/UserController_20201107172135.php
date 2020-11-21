@@ -34,8 +34,6 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'mobile' => 'required|string|max:255',
-            'role' => 'required|string|max:255',
-            'branch' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -46,8 +44,6 @@ class UserController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'mobile' => $request->get('mobile'),
-            "role" => $request->get('role'),
-            "branch" => $request->get('branch'),
             'password' => Hash::make($request->get('password')),
         ]);
 
