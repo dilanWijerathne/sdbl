@@ -178,8 +178,6 @@ class Application extends Controller
             $kyc = new Kyc;
             $kyc->json = json_encode($kyc_json);
             $kyc->nic = $nic;
-            $kyc->pep = $pep;
-            $kyc->pep_relationship = $pep_relationship;
             $kyc->ref_number = $ref;
             $kyc->save();
 
