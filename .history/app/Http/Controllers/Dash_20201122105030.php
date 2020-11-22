@@ -327,7 +327,7 @@ class Dash extends Controller
             ->first();
 
         Log::info('bdo taken');
-        Log::info(json_encode($bdo_branch));
+        Log::info($bdo_branch);
 
         if ($app['existing_customer'] === "true") {
 

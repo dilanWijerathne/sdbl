@@ -160,7 +160,6 @@ class Application extends Controller
             $applicant->same_nic_address = "";
             $applicant->security_question = $security_answer;
             $applicant->existing_customer = $existing_customer;  // bolean
-            $applicant->bdo = $bdo;
             $applicant->save();
 
 

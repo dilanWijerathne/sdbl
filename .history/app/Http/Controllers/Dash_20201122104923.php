@@ -310,14 +310,18 @@ class Dash extends Controller
     public function create_new_Cif_inapp(Request $request)
     {
 
+        // $nic = "900103875v";
 
         $nic  =  $request->nic;
 
         $app = Applicant::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
 
-
+        // $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
+        // $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
         $work_place = Work_place::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
+        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
 
+        //$price = DB::table('orders')->max('price');
 
 
         $bdo_branch = DB::table('users')
@@ -326,8 +330,7 @@ class Dash extends Controller
             ->where('users.email', $app['bdo'])
             ->first();
 
-        Log::info('bdo taken');
-        Log::info(json_encode($bdo_branch));
+        //  Branches::where('')
 
         if ($app['existing_customer'] === "true") {
 

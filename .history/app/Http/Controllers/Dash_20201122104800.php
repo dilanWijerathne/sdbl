@@ -310,14 +310,18 @@ class Dash extends Controller
     public function create_new_Cif_inapp(Request $request)
     {
 
+        // $nic = "900103875v";
 
         $nic  =  $request->nic;
 
         $app = Applicant::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
 
-
+        // $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
+        // $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
         $work_place = Work_place::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
+        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
 
+        //$price = DB::table('orders')->max('price');
 
 
         $bdo_branch = DB::table('users')
@@ -326,8 +330,7 @@ class Dash extends Controller
             ->where('users.email', $app['bdo'])
             ->first();
 
-        Log::info('bdo taken');
-        Log::info(json_encode($bdo_branch));
+        //  Branches::where('')
 
         if ($app['existing_customer'] === "true") {
 
@@ -427,7 +430,7 @@ class Dash extends Controller
                 "DATE" => "",  // current date
                 "MARKET_SEQMENT" => "SOT",
                 "CURR_COUNTRY" => "Sri Lanka",
-                "BRANCH_NUMBER" => $param['branch'],
+                "BRANCH_NUMBER" => "56",
                 "ACCOUNT_TYPE" => "01",
                 "SOURCE_OF_DATA" => "",
                 "SEX" => $param['sex'],
@@ -437,7 +440,7 @@ class Dash extends Controller
                 "ERROR_CODE" => "1",
                 "SEQUENCE_NUMBER" => "1",
                 "LOCATION_CODE" => "1",
-                "CELLULAR_PHONE_NU" => substr($param['primary_mobile_number'], 1),
+                "CELLULAR_PHONE_NU" => "112832599", // $param['primary_mobile_number'],
                 "DATE_OF_BIRTH" => $param['dob'],
                 "SOCIO_ECONOMIC_GRO" => "001",
                 "PERSONAL_NONPERSONAL" => "P",

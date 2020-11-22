@@ -300,34 +300,25 @@ class Dash extends Controller
         return array($nm, $second_name, $mod[0], $str);
     }
 
-    public function branchArray()
-    {
-        $b = array();
-    }
 
 
 
     public function create_new_Cif_inapp(Request $request)
     {
 
+        // $nic = "900103875v";
 
         $nic  =  $request->nic;
 
         $app = Applicant::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
 
-
+        // $kyc = Kyc::where("nic", $nic)->orderBy('updated_at', 'desc')->first();
+        // $nominee = Nominee::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
         $work_place = Work_place::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
+        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
 
+        //$price = DB::table('orders')->max('price');
 
-
-        $bdo_branch = DB::table('users')
-            ->join('branch_codes', 'users.branch', '=', 'branch_codes.code')
-            ->select('branch_codes.code', 'users.email')
-            ->where('users.email', $app['bdo'])
-            ->first();
-
-        Log::info('bdo taken');
-        Log::info(json_encode($bdo_branch));
 
         if ($app['existing_customer'] === "true") {
 
@@ -385,7 +376,6 @@ class Dash extends Controller
                 'short_name' => $short_name, // . " " . ,
                 'second_name' =>  "", //, // $nm_s[1],
                 'title' => $app['title'],
-                'branch' => $bdo_branch['branch_codes'],
 
             );
 
@@ -393,6 +383,13 @@ class Dash extends Controller
 
 
 
+            //   {
+
+            //  echo $app['applicant_status'];
+
+            /// die();
+
+            //echo json_encode($param);
 
             Log::info($param);
 
@@ -415,7 +412,7 @@ class Dash extends Controller
                 "SHORT_NAME" => $param['short_name'], //"Perera ABC",
                 "SECOND_NAME" => $param['second_name'],
                 "CURR_STREET" => $param['CURR_STREET'],
-                "BUSINESS_PHONE" => substr($param['telephone'], 1), //$param['telephone'],
+                "BUSINESS_PHONE" => "112832599", //$param['telephone'],
                 "STATUS" => "1",
                 "PRIMARY_OFFICER_COD" => "MOB",
                 "CURR_DISTRICT" => $param['district'],
@@ -427,7 +424,7 @@ class Dash extends Controller
                 "DATE" => "",  // current date
                 "MARKET_SEQMENT" => "SOT",
                 "CURR_COUNTRY" => "Sri Lanka",
-                "BRANCH_NUMBER" => $param['branch'],
+                "BRANCH_NUMBER" => "56",
                 "ACCOUNT_TYPE" => "01",
                 "SOURCE_OF_DATA" => "",
                 "SEX" => $param['sex'],
@@ -437,7 +434,7 @@ class Dash extends Controller
                 "ERROR_CODE" => "1",
                 "SEQUENCE_NUMBER" => "1",
                 "LOCATION_CODE" => "1",
-                "CELLULAR_PHONE_NU" => substr($param['primary_mobile_number'], 1),
+                "CELLULAR_PHONE_NU" => "112832599", // $param['primary_mobile_number'],
                 "DATE_OF_BIRTH" => $param['dob'],
                 "SOCIO_ECONOMIC_GRO" => "001",
                 "PERSONAL_NONPERSONAL" => "P",
