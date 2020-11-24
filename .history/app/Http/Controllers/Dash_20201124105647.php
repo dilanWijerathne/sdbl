@@ -54,11 +54,11 @@ class Dash extends Controller
 
 
             if ($request->type === "ops") {
-                $app = Applicant::where("ref", $request->ref)->update(['ops' => 1]);
-                $app = Applicant::where("ref", $request->ref)->update(['ops_staff' => $request->bdo]);
+                $app = Applicant::where("ref", $request->ref)->update('ops', 1);
+                $app = Applicant::where("ref", $request->ref)->update('ops_staff', $request->bdo);
             } elseif ($request->type === "mng") {
-                $app = Applicant::where("ref", $request->ref)->update(['approved' => 1]);
-                $app = Applicant::where("ref", $request->ref)->update(['review_staff' => $request->bdo]);
+                $app = Applicant::where("ref", $request->ref)->update('approved', 1);
+                $app = Applicant::where("ref", $request->ref)->update('review_staff', $request->bdo);
             } else {
                 Log::info('invalid type to review ');
                 return  "invalid type";
