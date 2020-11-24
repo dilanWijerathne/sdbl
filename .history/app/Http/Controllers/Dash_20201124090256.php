@@ -44,28 +44,23 @@ class Dash extends Controller
 
 
 
-    public function reviewed(Request $request)
+    public function reviewed_by_manager(Request $request)
     {
 
-        if (isset($request->ref) && isset($request->type)) {
+    if(isset($request->ref) && isset($request->type){
 
-            Log::info('Review mark');
-            Log::info($request);
 
-            if ($request->type === "ops") {
-                $app = Applicant::where("ref", $request->ref)->update('ops', 1);
-                $app = Applicant::where("ref", $request->ref)->update('ops_staff', $request->bdo);
-            } elseif ($request->type === "mng") {
-                $app = Applicant::where("ref", $request->ref)->update('approved', 1);
-                $app = Applicant::where("ref", $request->ref)->update('review_staff', $request->bdo);
-            } else {
-                Log::info('invalid type to review ');
-                return  "invalid type";
-            }
-        } else {
-            Log::info('invalid review ');
-            return "invalid";
+
+        if($request->type==="ops"){
+            $app = Applicant::where("ref", $request->ref)->update('ops', 1);
         }
+        elseif($request->type==="mng"){
+            $app = Applicant::where("ref", $request->ref)->update('approved', 1);
+        }
+    }else{
+        return "invalid";
+    }
+
     }
 
 
