@@ -66,7 +66,7 @@ Route::post('/upload_img', [Multimedia::class, 'upload_nic']);
 
 Route::post('/sign_application', [Multimedia::class, 'sign']);
 
-Route::post('/reviewed', [Dash::class, 'reviewed']);
+Route::post('/reviewed', [Multimedia::class, 'reviewed']);
 
 
 
