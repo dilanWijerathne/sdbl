@@ -439,20 +439,19 @@ class Dash extends Controller
                 'house_numer' => $app['address1'],
                 'CURR_STREET' => $app['address2'],
                 'city' =>   $app['address3'],
-                'secondary_number' =>   substr($app['secondary_mobile_number'], 1),
-                'primary_mobile_number' =>  substr($app['primary_mobile_number'], 1),
+                'secondary_number' => $app['secondary_mobile_number'],
+                'primary_mobile_number' => $app['primary_mobile_number'],
                 'surname' => $name[$num_name - 1],
                 'nic' =>  $app['nic'],
                 'sex' =>  $app['sex'],
                 'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                'today' => "2020002", //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
-                'telephone' => substr($work_place['telephone'], 1),
+                'today' => $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
+                'telephone' => $work_place['telephone'],
                 'ref_number' => $this->doRef(),
                 'short_name' => $short_name, // . " " . ,
                 'second_name' =>  "", //, // $nm_s[1],
                 'title' => $app['title'],
                 'branch' => $bdo_branch->code,
-
 
             );
 
@@ -482,13 +481,13 @@ class Dash extends Controller
                 "SHORT_NAME" => $param['short_name'], //"Perera ABC",
                 "SECOND_NAME" => $param['second_name'],
                 "CURR_STREET" => $param['CURR_STREET'],
-                "BUSINESS_PHONE" => $param['telephone'], //$param['telephone'],
+                "BUSINESS_PHONE" => substr($param['telephone'], 1), //$param['telephone'],
                 "STATUS" => "1",
                 "PRIMARY_OFFICER_COD" => "MOB",
                 "CURR_DISTRICT" => $param['district'],
                 "CITIZENSHIP_CODE" => "001",
                 "CURR_HOUSE_NBR" => $param['house_numer'],
-                "HOME_PHONE_NUMBER" => $param['secondary_number'],
+                "HOME_PHONE_NUMBER" => substr($param['secondary_number'], 1),
                 "TIN_ACTIVITY_DATE" => $param['today'],  // current date // today  => UAT 2020280 //  october 6 2020
                 "CURR_POST_TOWN" => $param['city'],
                 "DATE" => "",  // current date
@@ -504,7 +503,7 @@ class Dash extends Controller
                 "ERROR_CODE" => "1",
                 "SEQUENCE_NUMBER" => "1",
                 "LOCATION_CODE" => "1",
-                "CELLULAR_PHONE_NU" => $param['primary_mobile_number'],
+                "CELLULAR_PHONE_NU" => substr($param['primary_mobile_number'], 1),
                 "DATE_OF_BIRTH" => $param['dob'],
                 "SOCIO_ECONOMIC_GRO" => "001",
                 "PERSONAL_NONPERSONAL" => "P",
@@ -517,9 +516,9 @@ class Dash extends Controller
                 "NATIONAL_ID_NUMBER" => $param['nic'],
                 "MOVED_IN_DATE" =>  $param['today'],   // "2020002"
                 "RACE" => "O",
-                "CUSTOMER_OPEN_DATE" => $param['today'],
+                "CUSTOMER_OPEN_DATE" => "2020002", //$param['today'],
                 "TITLE" => $param['title'] . ".",
-                "CUST_DOC_ACTIVITY" => $param['today'],
+                "CUST_DOC_ACTIVITY" => '2020002', $param['today'],
                 "SOLICITABLE_CODE" => ""
 
             ]);
