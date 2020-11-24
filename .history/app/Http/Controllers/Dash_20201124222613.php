@@ -602,6 +602,15 @@ class Dash extends Controller
             echo "Already approved and account created !";
         }
 
+
+
+
+
+
+
+
+
+
         ////// end
     }
 
