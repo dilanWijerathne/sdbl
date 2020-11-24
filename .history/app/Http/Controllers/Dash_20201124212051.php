@@ -452,7 +452,7 @@ class Dash extends Controller
             $param = array(
                 'initials_of_name' => "PD", $nm_s[3], //$app['display_name'],
                 'district' => $app['district'],
-                'house_numer' => "DTS", // $app['address1'],
+                'house_numer' => $app['address1'],
                 'CURR_STREET' => $app['address2'],
                 'city' =>   $app['address3'],
                 'secondary_number' =>  $pnumber, //  substr($app['secondary_mobile_number'], 1),
