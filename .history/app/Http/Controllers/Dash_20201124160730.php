@@ -299,8 +299,6 @@ class Dash extends Controller
         Log::info(json_encode($array));
 
         $account->save();
-
-        $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
     }
 
 
@@ -562,7 +560,6 @@ class Dash extends Controller
                     "cif" => $array['JSON']['Data']['cifNumber'],
                     "ref" => $cif_r_new,
                     "nic" => $nic,
-                    "mobile" => substr($param['primary_mobile_number'], 1),
                 );
                 $this->create_account($para);
             } else {

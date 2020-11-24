@@ -41,24 +41,10 @@ class Dash extends Controller
 
 
 
-    public function sms($acc, $number)
+    public function sms()
     {
         $url =  "http://10.100.32.202:7802/sms_sending/v1/SmsSending";
-        $mesg = "Thank you for banking with SDB Bank. Your new account number is : " . $acc . ". Call center 0115411411";
-
-        $response = Http::post($url, [
-            'mobalertid' => "0",
-            'mobalerttype' => "SINGLE",
-            'mobile' => "94" . $number,
-            'groupcode' => "",
-            'message' =>  $mesg,
-            'status' => "QUED",
-        ]);
-
-        Log::info('SMS to ' . $number);
-        Log::info($response);
     }
-
 
 
 
@@ -299,8 +285,6 @@ class Dash extends Controller
         Log::info(json_encode($array));
 
         $account->save();
-
-        $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
     }
 
 
@@ -562,7 +546,6 @@ class Dash extends Controller
                     "cif" => $array['JSON']['Data']['cifNumber'],
                     "ref" => $cif_r_new,
                     "nic" => $nic,
-                    "mobile" => substr($param['primary_mobile_number'], 1),
                 );
                 $this->create_account($para);
             } else {

@@ -300,7 +300,7 @@ class Dash extends Controller
 
         $account->save();
 
-        $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
+        $this->sms($array['JSON']['Data']['svId'], $para['cif']);
     }
 
 
