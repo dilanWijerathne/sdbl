@@ -510,8 +510,8 @@ class Dash extends Controller
                 "DATE" => "",  // current date
                 "MARKET_SEQMENT" => "SOT",
                 "CURR_COUNTRY" => "Sri Lanka",
-                "BRANCH_NUMBER" => $param['branch'],
-                "ACCOUNT_TYPE" => "S",
+                "BRANCH_NUMBER" =>
+                "ACCOUNT_TYPE" => "01",
                 "SOURCE_OF_DATA" => "",
                 "SEX" => $param['sex'],
                 "CUSTOMER_TYPE" => "001",
