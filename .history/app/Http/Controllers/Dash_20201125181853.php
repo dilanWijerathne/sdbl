@@ -417,7 +417,7 @@ class Dash extends Controller
                     "ref" => $cif_r,
                     "nic" => $nic,
                     "branch" => $bdo_branch->code,
-                    "app_ref" => $app['ref'],
+                    "ref" => $app['$app'],
                 );
 
                 Log::info("old customer to new acccount");
