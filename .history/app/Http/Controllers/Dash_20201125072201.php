@@ -216,10 +216,10 @@ class Dash extends Controller
         Log::info('Account creation started ' . json_encode($para));
 
         $lv = "http://10.100.32.202:7802/account_creationa/v1/accountCreationA";
-        $lv2 = "http://10.100.32.202:7802/account_creationa/v1/accountCreation";
+        $lv = "http://10.100.32.202:7802/account_creationa/v1/accountCreationA";
 
         $t = 'http://10.100.32.72:7801/account_creation/v1/accountCreation';
-        $responseC = Http::post($lv, [
+        $responseC = Http::post($t, [
 
             "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
 
@@ -491,7 +491,7 @@ class Dash extends Controller
                 $lv2 =  "http://10.100.32.202:7802/new_cif_creationa/v1/newCifCreation";
                 $t = 'http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation';
 
-                $responseB = Http::post($lv, [
+                $responseB = Http::post($lv2, [
                     "FIELD1" => "0",
                     "FIELD2" => "0",
                     "FIELD3" => "0",
