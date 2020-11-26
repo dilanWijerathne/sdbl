@@ -311,11 +311,7 @@ class Dash extends Controller
             if (strlen($array['JSON']['Data']['svId']) > 2) {
                 $app = Applicant::where("ref", $para['app_ref'])->update(['done' => 1]);
                 $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
-            } else {
-                Log::error($array['JSON']['Data']['svId'] . " | wrong response from core api");
             }
-        } else {
-            Log::error("['JSON']['Data']['svId']" . "core banking api response error");
         }
     }
 
