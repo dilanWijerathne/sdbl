@@ -36,8 +36,8 @@ class Stat extends Controller
 
         $pct  =    ($number_of_completedApplications / 100) * $number_of_applications;
 
-        echo  $number_of_applications . "   number_of_applications <br>";
-        echo  $number_of_completedApplications . "  number_of_completedApplications  <br>";
-        echo  $pct . "   pct <br>";
+        echo  $number_of_applications . "<br>";
+        echo  $number_of_completedApplications . "<br>";
+        echo  $pct . "<br>";
     }
 }
