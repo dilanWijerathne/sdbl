@@ -18,7 +18,9 @@ use App\Models\Images;
 use App\Models\Signatures;
 use App\Models\Branches;
 use Illuminate\Support\Facades\DB;
-use SebastianBergmann\Environment\Console;
+
+
+
 
 class Dash extends Controller
 {
@@ -496,8 +498,7 @@ class Dash extends Controller
                 $lv2 =  "http://10.100.32.202:7802/new_cif_creationa/v1/newCifCreation";
                 $t = 'http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation';
 
-
-                $sendArray = array(
+                $responseB = Http::post($t, [
                     "FIELD1" => "0",
                     "FIELD2" => "0",
                     "FIELD3" => "0",
@@ -514,7 +515,7 @@ class Dash extends Controller
                     "SECOND_NAME" => $param['second_name'],
                     "CURR_STREET" => $param['CURR_STREET'],
                     "BUSINESS_PHONE" =>  $this->default_val($param['telephone']), //$param['telephone'],
-                    "STATUS" => $param['today'],
+                    "STATUS" =>=> $param['today'],
                     "PRIMARY_OFFICER_COD" => "MOB",
                     "CURR_DISTRICT" => $param['district'],
                     "CITIZENSHIP_CODE" => "001",
@@ -552,11 +553,8 @@ class Dash extends Controller
                     "TITLE" => $param['title'], //"Mr.",
                     "CUST_DOC_ACTIVITY" => $param['today'],
                     "SOLICITABLE_CODE" => ""
-                );
 
-                Log::info('sedd array : ');
-                Log::info($sendArray);
-                $responseB = Http::post($t,   $sendArray);
+                ]);
 
 
                 /*

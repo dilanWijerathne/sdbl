@@ -18,7 +18,9 @@ use App\Models\Images;
 use App\Models\Signatures;
 use App\Models\Branches;
 use Illuminate\Support\Facades\DB;
-use SebastianBergmann\Environment\Console;
+
+
+
 
 class Dash extends Controller
 {
@@ -554,8 +556,6 @@ class Dash extends Controller
                     "SOLICITABLE_CODE" => ""
                 );
 
-                Log::info('sedd array : ');
-                Log::info($sendArray);
                 $responseB = Http::post($t,   $sendArray);
 
 
