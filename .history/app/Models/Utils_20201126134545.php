@@ -59,25 +59,28 @@ class Utils
 
         Log::info('user taken');
         Log::info($array);
-        $state = "";
-
+        $state = false;
+        /*
         if (isset($array['email'])) {
-
+            session(['user_email' => $array['email']]);
             $state =  true;
         }
         if (isset($array['name'])) {
+            session(['user_name' => $array['name']]);
         }
         if (isset($array['mobile'])) {
+            session(['user_mobile' => $array['mobile']]);
         }
         if (isset($array['branch'])) {
-            $state = $array['branch'];
+            session(['user_branch' => $array['branch']]);
         }
         if (isset($array['role'])) {
+            session(['user_role' => $array['role']]);
         } else {
-            $state =  0;    // invalid_credentials
+            $state =  false;    // invalid_credentials
         }
 
-
+        */
 
         return   $array;
     }

@@ -732,44 +732,6 @@ class Dash extends Controller
 
 
             echo json_encode($a);
-        } else {
-
-            $models = DB::table('applicant')
-                ->select('title',  'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                ->where('nic', 'LIKE', $request->search . '%')
-                ->where('branch', $user)
-                ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                ->orderBy('created_at', 'desc')
-                ->limit($request->end)->offset($request->start - 1)
-                ->get()
-                ->map(function ($item) {
-                    return [$item->title,  $item->display_name, $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-                })->toArray();
-
-
-            Log::info($models);
-            $ln = DB::table('applicant')
-                ->select('title', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                ->where('nic', 'LIKE', $request->search . '%')
-                ->where('branch', $user)
-                ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                ->limit($request->end)->offset($request->start - 1)
-                ->count();
-            // $ln = $app->count();
-
-            $a = array(
-                "draw" => $request->draw,
-                "recordsTotal" => $ln,
-                "recordsFiltered" => $ln,
-                "data" => $models,
-
-            );
-
-
-
-            echo json_encode($a);
         }
     }
 }
