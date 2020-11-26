@@ -219,7 +219,7 @@ class Dash extends Controller
         $lv2 = "http://10.100.32.202:7802/account_creationa/v1/accountCreation";
 
         $t = 'http://10.100.32.72:7801/account_creation/v1/accountCreation';
-        $responseC = Http::post($t, [
+        $responseC = Http::post($lv, [
 
             "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
 
@@ -496,7 +496,7 @@ class Dash extends Controller
                 $lv2 =  "http://10.100.32.202:7802/new_cif_creationa/v1/newCifCreation";
                 $t = 'http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation';
 
-                $responseB = Http::post($t, [
+                $responseB = Http::post($lv, [
                     "FIELD1" => "0",
                     "FIELD2" => "0",
                     "FIELD3" => "0",

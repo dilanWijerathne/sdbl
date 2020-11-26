@@ -144,7 +144,7 @@ class Application extends Controller
             $work->name = $name_of_employer;
             $work->address = $work_address;
             $work->position = $position;
-            $work->telephone = $this->default_val($telephone);
+            $work->telephone = $telephone;
             $work->income_monthly = $salary_trimmed;
             $work->other_income = $other_income;
             $work->applicant_nic = $nic;
@@ -173,7 +173,7 @@ class Application extends Controller
             $applicant->applicant_going_to_open = $goin_to_open;
             $applicant->applicant_individual_account_type = $account_type;
             $applicant->primary_mobile_number = $primary_mobile;
-            $applicant->secondary_mobile_number = $this->default_val($secondary_mobile);
+            $applicant->secondary_mobile_number = $secondary_mobile;
             $applicant->email = $email;
             $applicant->address1 = str_replace(',', '', $address1);
             $applicant->address2 = str_replace(',', '', $address2);
