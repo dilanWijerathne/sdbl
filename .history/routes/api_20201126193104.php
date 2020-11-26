@@ -86,4 +86,4 @@ Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 
 // status
 
-Route::get('/get_progress', [Stat::class, 'get_progress']);
+Route::get('/grab_branches', [Stat::class, 'grab_branches']);

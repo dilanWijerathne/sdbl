@@ -237,7 +237,7 @@ class Application extends Controller
             ->first();
 
 
-        return  $bdo_branch->branch;
+        return   $bdo_branch->branch;
     }
 
 
