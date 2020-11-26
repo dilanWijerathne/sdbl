@@ -28,7 +28,7 @@ class Utils
 
 
 
-        $response = Http::post($url, [
+        $response = Http::post('http://10.100.32.72:7801/smsregistration/v1/CreateSmsRegistration', [
 
             "application_SessionId" =>  uniqid('SDB-'), //"20201021-SDBL-0002",
             "application_Code" => "SDB",

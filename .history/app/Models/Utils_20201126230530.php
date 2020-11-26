@@ -28,7 +28,7 @@ class Utils
 
 
 
-        $response = Http::post($url, [
+        $response = Http::post('http://10.100.32.72:7801/smsregistration/v1/CreateSmsRegistration', [
 
             "application_SessionId" =>  uniqid('SDB-'), //"20201021-SDBL-0002",
             "application_Code" => "SDB",
@@ -66,7 +66,7 @@ class Utils
     {
 
 
-        $response = Http::withToken($access_token)->get(env('APP_URL') . "/sdbl/api/user", null);
+        $response = Http::withToken($access_token)->get("http://10.101.6.198/sdbl/api/user", null);
 
         $ar = $response->body();
         $array = json_decode($ar, true);

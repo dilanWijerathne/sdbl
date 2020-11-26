@@ -44,7 +44,7 @@ class Dash extends Controller
 
     public function sms($acc, $number)
     {
-        $url =   env('SMS_SEND');
+        $url =  "http://10.100.32.202:7802/sms_sending/v1/SmsSending";
         $mesg = "Thank you for banking with SDB Bank. Your new account number is : " . $acc . ". Call center 0115411411.   Get SDB Bank Mobile app for much better experience : https://rb.gy/cc9xb3 ";
 
         $response = Http::post($url, [
@@ -101,7 +101,7 @@ class Dash extends Controller
         Log::info('Julian dates from sdb');
 
         curl_setopt_array($curl, array(
-
+            // http://10.100.32.202:7802/jdate/v1/JDateInformation?cdate
             CURLOPT_URL => "http://10.100.32.202:7802/jdate/v1/JDateInformation?cdate=" . $day,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
@@ -203,6 +203,14 @@ class Dash extends Controller
     }
 
 
+
+    // test
+
+
+    //  old one     http://10.100.32.72:7801/account_creation/v1/accountCreation
+
+    // new onw
+    //http://10.100.32.72:7802/account_creationa/v1/accountCreationA
 
     public function create_account($para)
     {
@@ -512,16 +520,22 @@ class Dash extends Controller
 
 
 
+
+
+
                 Log::info($param);
+
+
 
                 $url = "";
                 if (env('APP_LIVE') === "yes") {
-                    Log::alert('CIF APP L- ' . env('APP_LIVE') . " point -> " .  env('CIF_CREATE'));
-                    $url =  env('CIF_CREATE');
+                    Log::alert('CIF APP L- ' . env('APP_LIVE'));
+                    $url = "http://10.100.32.202:7802/new_cif_creationa/v1/newCifCreationA";
                 } elseif (env('APP_LIVE') === "no") {
-                    Log::alert('CIF APP L- ' . env('APP_LIVE') . " point -> " . env('CIF_CREATE_TEST'));
-                    $url =   env('CIF_CREATE_TEST');
+                    Log::alert('CIF APP L- ' . env('APP_LIVE'));
+                    $url = 'http://10.100.32.72:7801/new_cif_creation/v1/newCifCreation';
                 }
+
 
 
                 $responseB = Http::post($url, [
