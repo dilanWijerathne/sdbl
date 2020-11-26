@@ -36,6 +36,9 @@ class Stat extends Controller
         echo  env('APP_URL') . "<BR>";
         echo  env('ACCOUNT_CREATE') . "<BR>";
         echo  env('APP_LIVE') . "<BR>";
+        echo  env('APP_URL') . "<BR>";
+        echo  env('APP_URL') . "<BR>";
+        echo  env('APP_URL') . "<BR>";
     }
 
 
