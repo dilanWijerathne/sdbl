@@ -700,7 +700,7 @@ class Dash extends Controller
         $bdo_branch = DB::table('users')
             ->join('branch_codes', 'users.branch', '=', 'branch_codes.code')
             ->select('branch_codes.code', 'users.email')
-            ->where('users.email', $user_email)
+            ->where('users.email', $app['bdo'])
             ->first();
 
         $user = $bdo_branch->code;
