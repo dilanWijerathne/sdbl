@@ -694,7 +694,7 @@ class Dash extends Controller
 
 
         Log::info('user check to view applicant data');
-        Log::info($request->access_token);
+        Log::info($access_token);
         $access_token = $request->access_token;
         $user = Utils::currentUser($access_token);
 

@@ -693,11 +693,11 @@ class Dash extends Controller
         $app = Applicant::all();
 
 
-        Log::info('user check to view applicant data');
-        Log::info($request->access_token);
         $access_token = $request->access_token;
         $user = Utils::currentUser($access_token);
 
+        Log::info('user check to view applicant data');
+        Log::info($access_token);
 
 
         if ($user === 0 | $user === "0") {
