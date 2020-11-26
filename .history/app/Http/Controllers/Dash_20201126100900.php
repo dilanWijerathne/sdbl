@@ -458,7 +458,7 @@ class Dash extends Controller
 
                 $onumber =  "";
                 if ($work_place['telephone'] === null | $work_place['telephone'] === "null" | $work_place['telephone'] === NULL | $work_place['telephone'] === "NULL") {
-                    $onumber = "0";
+                    $onumber = "00";
                 } else {
                     $onumber = substr($work_place['telephone'], 1);
                 }
