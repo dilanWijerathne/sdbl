@@ -693,14 +693,11 @@ class Dash extends Controller
         $app = Applicant::all();
 
 
+        $access_token = $request->access_token;
+        $user = Utils::currentUser($access_token);
 
-        $bdo_branch = DB::table('users')
-            ->join('branch_codes', 'users.branch', '=', 'branch_codes.code')
-            ->select('branch_codes.code', 'users.email')
-            ->where('users.email', $app['bdo'])
-            ->first();
-
-        $user = $bdo_branch->code;
+        Log::info('user check to view applicant data');
+        Log::info($access_token);
 
         if ($user === 0 | $user === "0") {
 
@@ -743,7 +740,7 @@ class Dash extends Controller
             $models = DB::table('applicant')
                 ->select('title',  'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                 ->where('branch', $user)
-                ->orWhere('nic', 'LIKE', $request->search . '%')
+                ->where('nic', 'LIKE', $request->search . '%')
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                 ->orderBy('created_at', 'desc')
@@ -758,7 +755,7 @@ class Dash extends Controller
             $ln = DB::table('applicant')
                 ->select('title', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                 ->where('branch', $user)
-                ->orWhere('nic', 'LIKE', $request->search . '%')
+                ->where('nic', 'LIKE', $request->search . '%')
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                 ->limit($request->end)->offset($request->start - 1)

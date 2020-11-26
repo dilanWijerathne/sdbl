@@ -693,6 +693,8 @@ class Dash extends Controller
         $app = Applicant::all();
 
 
+        $access_token = $request->access_token;
+        $user = Utils::currentUser($access_token);
 
         $bdo_branch = DB::table('users')
             ->join('branch_codes', 'users.branch', '=', 'branch_codes.code')

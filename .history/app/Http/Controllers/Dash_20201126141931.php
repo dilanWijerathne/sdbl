@@ -693,14 +693,11 @@ class Dash extends Controller
         $app = Applicant::all();
 
 
+        $access_token = $request->access_token;
+        $user = Utils::currentUser($access_token);
 
-        $bdo_branch = DB::table('users')
-            ->join('branch_codes', 'users.branch', '=', 'branch_codes.code')
-            ->select('branch_codes.code', 'users.email')
-            ->where('users.email', $app['bdo'])
-            ->first();
-
-        $user = $bdo_branch->code;
+        Log::info('user check to view applicant data');
+        Log::info($access_token);
 
         if ($user === 0 | $user === "0") {
 
