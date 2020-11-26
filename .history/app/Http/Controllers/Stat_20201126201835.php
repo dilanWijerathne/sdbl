@@ -25,20 +25,6 @@ use Illuminate\Support\Facades\DB;
 
 class Stat extends Controller
 {
-
-
-
-
-
-
-    public function some()
-    {
-        echo  env('APP_DEBUG', false);
-    }
-
-
-
-
     public function get_progress_completed(Request $request)
     {
 
@@ -48,25 +34,24 @@ class Stat extends Controller
 
         $number_of_completedApplications = Applicant::where('bdo', $bdo)->where('done', 1)->count();
 
-        $pct_done  =    ($number_of_completedApplications / $number_of_applications) * 100;
+        $pct  =    ($number_of_completedApplications / $number_of_applications) * 100;
+
+        return  (int)$pct;
+    }
 
 
 
-        /////////////////// rejected
+    public function get_progress_rejected(Request $request)
+    {
 
-        $number_of_rejectedApplications = Applicant::where('bdo', $bdo)->where('done', 3)->count();
+        $bdo =  $request->user_email;
 
-        $pct_rejected  =    ($number_of_rejectedApplications / $number_of_applications) * 100;
+        $number_of_applications = Applicant::where('bdo', $bdo)->count();
 
+        $number_of_completedApplications = Applicant::where('bdo', $bdo)->where('done', 3)->count();
 
-        $par =  array(
-            "reject_pct" => (int)$pct_rejected,
-            "done_oct" => (int)$pct_done,
-            "done" => $number_of_completedApplications,
-            "rejected" => $number_of_rejectedApplications,
-        );
+        $pct  =    ($number_of_completedApplications / $number_of_applications) * 100;
 
-
-        echo  json_encode($par);
+        return  (int)$pct;
     }
 }

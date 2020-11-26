@@ -41,6 +41,3 @@ Route::get('/bdo', [Application::class, 'branch_bdo']);
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-
-Route::get('/some', [Stat::class, 'some']);

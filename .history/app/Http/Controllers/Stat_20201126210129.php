@@ -25,20 +25,6 @@ use Illuminate\Support\Facades\DB;
 
 class Stat extends Controller
 {
-
-
-
-
-
-
-    public function some()
-    {
-        echo  env('APP_DEBUG', false);
-    }
-
-
-
-
     public function get_progress_completed(Request $request)
     {
 
