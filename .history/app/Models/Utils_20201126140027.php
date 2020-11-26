@@ -61,12 +61,9 @@ class Utils
         Log::info($array);
         $state = "";
 
-
         $state = $array['branch'];
 
 
-
-
-        return   $state;
+        return   $array;
     }
 }

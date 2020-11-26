@@ -61,9 +61,11 @@ class Utils
         Log::info($array);
         $state = "";
 
-
-        $state = $array['branch'];
-
+        if (isset($array['branch'])) {
+            $state = $array['branch'];
+        } else {
+            $state =  0;    // invalid_credentials
+        }
 
 
 
