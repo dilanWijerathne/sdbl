@@ -581,10 +581,15 @@ class Dash extends Controller
                 Log::info("response from cif api body");
                 Log::info($var);
                 $array = json_decode($var, true);
+                $id = $array['JSON']['Data']['response_status'];
 
+                $newCif = new Cif_response;
+                $newCif->ref_number = $array['JSON']['Data']['referenceNumber'];
+                $newCif->cif = $array['JSON']['Data']['cifNumber'];
+                $newCif->response_status = $array['JSON']['Data']['response_status'];
+                $newCif->nic = $nic;
 
-
-
+                $newCif->save();
 
                 Log::info(json_encode($var));
 
@@ -593,49 +598,36 @@ class Dash extends Controller
 
 
 
-                if (isset($array['JSON']['Data']['response_status'])) {
+                if ($id == "OK") {
 
-                    $newCif = new Cif_response;
-                    $newCif->ref_number = $array['JSON']['Data']['referenceNumber'];
-                    $newCif->cif = $array['JSON']['Data']['cifNumber'];
-                    $newCif->response_status = $array['JSON']['Data']['response_status'];
-                    $newCif->nic = $nic;
+                    $cif_r_new =  $this->doRef_cif();
 
-                    $newCif->save();
-
+                    $para = array(
+                        "cif" => $array['JSON']['Data']['cifNumber'],
+                        "ref" => $cif_r_new,
+                        "nic" => $nic,
+                        "mobile" => $param['primary_mobile_number'],
+                        "branch" => $bdo_branch->code,
+                        "app_ref" => $app['ref'],
+                    );
 
                     if (isset($array['JSON']['Data']['cifNumber'])) {
-
-
-
-
-
                         if (strlen($array['JSON']['Data']['cifNumber'] > 2)) {
-
-
-                            $cif_r_new =  $this->doRef_cif();
-                            $para = array(
-                                "cif" => $array['JSON']['Data']['cifNumber'],
-                                "ref" => $cif_r_new,
-                                "nic" => $nic,
-                                "mobile" => $param['primary_mobile_number'],
-                                "branch" => $bdo_branch->code,
-                                "app_ref" => $app['ref'],
-                            );
-
                             $this->create_account($para);
                         } else {
-                            Log::critical($array['JSON']['Data']['cifNumber'] . ' | Core banking ESB seems not functioning properly !  Ref :' . $app['nic']);
+                            Log::critical($array['JSON']['Data']['cifNumber'] . ' | Core banking ESB seems not functioning properly !');
                             echo "ESB /Middlewear response error -  check with IT admin !";
                         }
                     } else {
-                        Log::critical("Cannot create account process bcz no CIF given from core, Core banking ESB seems not functioning properly !  Ref:" . $app['nic']);
+                        Log::critical("Cannot create account process bcz no CIF given from core, Core banking ESB seems not functioning properly !");
                         echo "ESB /Middlewear response error -  check with IT admin !";
                     }
                 } else {
-                    Log::critical("Cannot create account process bcz no CIF given from core!   Ref:" . $app['nic']);
+                    Log::critical("Cannot create account process bcz no CIF given from core");
                     echo "ESB /Middlewear response error -  check with IT admin !";
                 }
+
+                echo $id;
             }
         } else {
             echo "Already approved and account created !";
