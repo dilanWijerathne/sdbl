@@ -34,7 +34,7 @@ class Dash extends Controller
 
         $number_of_completedApplications = Applicant::where('bdo', $bdo)->where('done', 1)->count();
 
-        $pct  =    ($number_of_completedApplications / 100) * $number_of_applications;
+        $pct  =   $number_of_applications * ($number_of_completedApplications / 100);
 
         echo  $pct;
     }
