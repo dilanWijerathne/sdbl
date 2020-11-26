@@ -226,18 +226,15 @@ class Application extends Controller
 
     // get the brach of BDO
 
-    public function branch_bdo()
+    public function branch_bdo($email)
     {
         // use App\Models\Branches;
-        $email = "piroshi@piroshi.com";
+
         //     $app = Branches::where("nic", $nic)->latest()->first();
 
         $bdo_branch = DB::table('users')
             ->where('email', $email)
             ->first();
-
-
-        echo   $bdo_branch['branch'];
     }
 
 

@@ -30,7 +30,7 @@ Route::get('/details', [Dash::class, 'getDetailsByNic']);
 
 Route::get('/item', [Dash::class, 'item_view']);
 
-Route::get('/bdo', [Application::class, 'branch_bdo']);
+Route::get('/item', [Dash::class, 'item_view']);
 
 //Route::get('/day', [Dash::class, 'sdb_julian_lib']);
 
