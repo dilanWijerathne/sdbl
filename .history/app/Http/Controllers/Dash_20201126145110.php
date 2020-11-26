@@ -707,7 +707,6 @@ class Dash extends Controller
         Log::info('user code  ' . $user);
 
         if ($user === 0 | $user === "0") {
-            Log::info('user code Central ' . $user);
 
             $models = DB::table('applicant')
                 ->select('title',  'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
@@ -744,9 +743,6 @@ class Dash extends Controller
 
             echo json_encode($a);
         } else {
-
-            Log::info('user code branch ' . $user);
-
 
             $models = DB::table('applicant')
                 ->select('title',  'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
