@@ -323,14 +323,7 @@ class Dash extends Controller
                     "name" => $para['name'],
                     "branch" => $para['branch'],
                     "email" => $para['email'],
-
-
                 );
-
-                Log::info('Registering to SMS : ' . $para['mobile']);
-                Log::info('Registering to SMS');
-                Log::info(json_encode($param));
-                Utils::smsreg($param);
             } else {
                 Log::error($array['JSON']['Data']['svId'] . " | wrong response from core api");
             }

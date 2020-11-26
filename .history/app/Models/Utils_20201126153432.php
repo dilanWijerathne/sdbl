@@ -39,7 +39,7 @@ class Utils
 
         ]);
 
-        Log::info('sms reg response ' . $param['mobile']);
+        Log::info('sms reg ');
         Log::info($response);
 
         return  $response;

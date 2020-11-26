@@ -316,21 +316,44 @@ class Dash extends Controller
 
 
                 $param = array(
-                    "cusid" => $para['cif'],
-                    "account" => $array['JSON']['Data']['svId'],
-                    "mobile" => $para['mobile'],
-                    "title" => $para['title'],
-                    "name" => $para['name'],
-                    "branch" => $para['branch'],
-                    "email" => $para['email'],
-
-
+                   "cusid"=> $para['cif'],
+                   "account"=> $array['JSON']['Data']['svId'],
+                   "mobile"=> $para['mobile'],
+                   "title"=> $para['title'],
+                   "name"=> $para['name'],
+                   "branch"=>$para['branch'],
+                   "email"=>$param['email'],
                 );
 
-                Log::info('Registering to SMS : ' . $para['mobile']);
-                Log::info('Registering to SMS');
-                Log::info(json_encode($param));
-                Utils::smsreg($param);
+
+
+                "application_SessionId" =>  uniqid('SDB-'), //"20201021-SDBL-0002",
+            "application_Code" => "SDB",
+            "application_Password" => "0cc175b9c0f1b6a831c399e269772661",
+            "customerid" => $param['cusid'], // "10785",
+            "customer_account" => $param['account'],
+            "customer_mobile" => "94" . $param['mobile'],
+            "customer_nic" => $param['nic'],
+            "customer_name" => $param['title'] . " " . $param['name'],
+            "customer_address" => "Sri Lanka",
+            "area_code" => "00010",
+            "branch_code" => $param['branch'],
+            "isstaff" => "No",
+            "customer_email" => $param['email'],
+            "customer_categorycode" => "0004",
+            "customer_epfno" => "00000",
+            "device_type" => "AR",
+            "imei" => "",
+            "feeprofilecode" => ""
+
+
+
+
+
+
+
+
+
             } else {
                 Log::error($array['JSON']['Data']['svId'] . " | wrong response from core api");
             }
@@ -449,9 +472,8 @@ class Dash extends Controller
                     "branch" => $bdo_branch->code,
                     "app_ref" => $app['ref'],
                     "mobile" => substr($ex_cus_mobile, 2),
-                    "title" => $app['title'],
-                    "name" =>  $app['full_name'],
-                    "email" => "",
+                    "title"=> $app['title'],
+                    "name"=>  $app['full_name'],
                 );
 
                 Log::info("old customer to new acccount");
@@ -644,9 +666,8 @@ class Dash extends Controller
                                 "mobile" => $param['primary_mobile_number'],
                                 "branch" => $bdo_branch->code,
                                 "app_ref" => $app['ref'],
-                                "title" => $app['title'],
-                                "name" =>  $param['surname'],
-                                "email" => "",
+                                "title"=> $app['title'],
+                                "name"=>  $param['surname'],
                             );
 
                             $this->create_account($para);

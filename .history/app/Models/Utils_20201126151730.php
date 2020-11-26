@@ -22,8 +22,8 @@ class Utils
             "application_Code" => "SDB",
             "application_Password" => "0cc175b9c0f1b6a831c399e269772661",
             "customerid" => $param['cusid'], // "10785",
-            "customer_account" => $param['account'],
-            "customer_mobile" => "94" . $param['mobile'],
+            "customer_account" => $param['cusid'],
+            "customer_mobile" => "94" . $param['cusid'],
             "customer_nic" => $param['nic'],
             "customer_name" => $param['title'] . " " . $param['name'],
             "customer_address" => "Sri Lanka",
@@ -39,7 +39,7 @@ class Utils
 
         ]);
 
-        Log::info('sms reg response ' . $param['mobile']);
+        Log::info('sms reg ');
         Log::info($response);
 
         return  $response;
