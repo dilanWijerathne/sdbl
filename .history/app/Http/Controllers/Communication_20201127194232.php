@@ -47,25 +47,12 @@ class Communication extends Controller
 
     public function message_get_ref(Request $request)
     {
-        Log::info('Messages taking out for a ref');
+        Log::info('Messages taking out');
         Log::info($request);
 
         $msg =  Msg::where('ref', $request->input('ref'))->get();
-        Log::info($msg);
         return $msg;
     }
-
-    public function message_get_bdo(Request $request)
-    {
-        Log::info('Messages taking out by bdo');
-        Log::info($request);
-
-        $msg =  Msg::where('to_user', $request->input('bdo'))->get();
-        Log::info($msg);
-        return $msg;
-    }
-
-
 
     public function comment(Request $request)
     {

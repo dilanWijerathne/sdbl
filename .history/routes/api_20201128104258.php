@@ -70,20 +70,29 @@ Route::post('/sign_application', [Multimedia::class, 'sign']);
 Route::post('/reviewed', [Dash::class, 'reviewed']);
 
 
+
+
 // retreive to dashboard rendering
+
 Route::get('/applicant_details_by_nic', [Dash::class, 'item_view']);
 Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 
-
 Route::get('/comment', [Communication::class, 'comment']);
 Route::get('/comments_application', [Communication::class, 'get_comments_of_application']);
-
 
 Route::get('/message', [Communication::class, 'message']);
 Route::get('/message_get_ref', [Communication::class, 'message_get_ref']);
 Route::get('/message_get_bdo', [Communication::class, 'message_get_bdo']);
 
 
+
+
+
+
+
+
+
 // status
+
 Route::get('/get_progress', [Stat::class, 'get_progress']);
 Route::get('/get_progress_rejected', [Stat::class, 'get_progress_rejected']);

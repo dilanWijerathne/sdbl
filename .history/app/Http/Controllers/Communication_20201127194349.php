@@ -51,7 +51,6 @@ class Communication extends Controller
         Log::info($request);
 
         $msg =  Msg::where('ref', $request->input('ref'))->get();
-        Log::info($msg);
         return $msg;
     }
 
@@ -61,7 +60,6 @@ class Communication extends Controller
         Log::info($request);
 
         $msg =  Msg::where('to_user', $request->input('bdo'))->get();
-        Log::info($msg);
         return $msg;
     }
 

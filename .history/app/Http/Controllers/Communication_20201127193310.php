@@ -27,46 +27,6 @@ use Illuminate\Support\Facades\DB;
 class Communication extends Controller
 {
 
-    public function message(Request $request)
-    {
-
-
-        Log::info('Messaging');
-        Log::info($request);
-
-        $msg = new Msg;
-        $msg->from_user = $request->input('from_user');
-        $msg->to_user = $request->input('to_user');
-        $msg->msg = $request->input('msg');
-        $msg->nic = $request->input('nic');
-        $msg->ref = $request->input('ref');
-        $msg->status = 1;
-        $msg->save();
-    }
-
-
-    public function message_get_ref(Request $request)
-    {
-        Log::info('Messages taking out for a ref');
-        Log::info($request);
-
-        $msg =  Msg::where('ref', $request->input('ref'))->get();
-        Log::info($msg);
-        return $msg;
-    }
-
-    public function message_get_bdo(Request $request)
-    {
-        Log::info('Messages taking out by bdo');
-        Log::info($request);
-
-        $msg =  Msg::where('to_user', $request->input('bdo'))->get();
-        Log::info($msg);
-        return $msg;
-    }
-
-
-
     public function comment(Request $request)
     {
         Log::info('commenting');
