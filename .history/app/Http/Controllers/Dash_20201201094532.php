@@ -674,7 +674,7 @@ class Dash extends Controller
                     "HOME_PHONE_NUMBER" => $this->default_val($param['secondary_number']),
                     "TIN_ACTIVITY_DATE" => $param['today'],  // current date // today  => UAT 2020280 //  october 6 2020
                     "CURR_POST_TOWN" => $param['city'],
-                    "DATE" => $param['today'],  // current date
+                    "DATE" => "",  // current date
                     "MARKET_SEQMENT" => "SOT",
                     "CURR_COUNTRY" => "Sri Lanka",
                     "BRANCH_NUMBER" => $param['branch'],
