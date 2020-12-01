@@ -219,72 +219,6 @@ class Dash extends Controller
         }
 
 
-        $check2 = array(
-
-            "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
-
-            "CIF_NUMBER" => $para['cif'], // "0001451462",
-
-            "CUS_RELATIONSHIP" => "SOW",
-
-            "SEQUENCE_FOR_REF" => "1",
-
-            "SEQUENCE_NUMBER" => "1",
-
-            "SAVINGS_AC_NUMBER" => "0",
-
-            "BRANCH_NUMBER" => $para['branch'],     //
-
-            "SEQUENCE_NO" => "0",
-
-            "PRODUCT_TYPE" => "111",
-
-            "OFFICER_CODE" => "MOB",
-
-            "OPEN_DATE" => "0",
-
-            "INTEREST_PLAN" => "0",
-
-            "SC_PLAN" => "0",
-
-            "ACCOUNT_TYPE" => "26",
-
-            "NO_OF_RELATIONSHI" => "1",
-
-            "ERROR_CODE" => "",
-
-            "STATUS" => "1",
-
-            "USER_ID" => "",
-
-            "DATE" => "",
-
-            "TIME" => "",
-
-            "FIELD1" => "0",
-
-            "FIELD2" => "0",
-
-            "FIELD3" => "0",
-
-            "FIELD4" => "0",
-
-            "FIELD5" => "0",
-
-            "FIELD6" => "0",
-
-            "FIELD7" => "0",
-
-            "FIELD8" => "0",
-
-            "FIELD9" => "0",
-
-            "FIELD10" => "0"
-        );
-
-        Log::info('acc array');
-        Log::info(json_encode($check2));
-
         $responseC = Http::post($url, [
 
             "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
@@ -646,7 +580,6 @@ class Dash extends Controller
                     "SOLICITABLE_CODE" => ""
                 );
 
-                Log::info('cif array');
                 Log::info(json_encode($check));
 
                 $responseB = Http::post($url, [
