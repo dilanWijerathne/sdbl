@@ -77,7 +77,7 @@ class Dash extends Controller
         );
 
 
-        return  $dis[$val];
+        return  $dis[$va];
     }
 
     public function sms($acc, $number)
@@ -664,7 +664,7 @@ class Dash extends Controller
                     "PREFERED_CUSTOMER" => "",
                     "ERROR_CODE" => "",
                     "SEQUENCE_NUMBER" => 1,
-                    "LOCATION_CODE" => $this->dis($param['district']),
+                    "LOCATION_CODE" => 7,
                     "CELLULAR_PHONE_NU" => $param['primary_mobile_number'],
                     "DATE_OF_BIRTH" => $param['dob'],
                     "SOCIO_ECONOMIC_GRO" => "001",
@@ -724,7 +724,7 @@ class Dash extends Controller
                     "PREFERED_CUSTOMER" => "",
                     "ERROR_CODE" => "",
                     "SEQUENCE_NUMBER" => 1,
-                    "LOCATION_CODE" => $this->dis($param['district']),
+                    "LOCATION_CODE" => 7,
                     "CELLULAR_PHONE_NU" => $param['primary_mobile_number'],
                     "DATE_OF_BIRTH" => $param['dob'],
                     "SOCIO_ECONOMIC_GRO" => "001",

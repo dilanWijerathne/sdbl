@@ -731,7 +731,7 @@ class Dash extends Controller
                     "PERSONAL_NONPERSONAL" => "P",
                     "CIF_NUMBER" => "",
                     "SURNAME" => $param['surname'], // "Perera",
-                    "SIC_CODE" => "33",
+                    "SIC_CODE" => $this->dis($param['district']),
                     "REFERENCE_NUMBER" =>  $param['ref_number'],
                     "CUSTOMER_CLASSIF" => "1",
                     "TIME" => "",  /// current time iso time
