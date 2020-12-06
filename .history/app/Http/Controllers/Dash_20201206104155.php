@@ -284,7 +284,7 @@ class Dash extends Controller
 
             "SEQUENCE_NO" => "0",
 
-            "PRODUCT_TYPE" => $act[$para['act']],
+            "PRODUCT_TYPE" => "111",
 
             "OFFICER_CODE" => "MOB",
 
@@ -558,7 +558,6 @@ class Dash extends Controller
                     "title" => $app['title'],
                     "name" =>  $app['full_name'],
                     "email" => "",
-                    "act" => $app['applicant_individual_account_type'],
                 );
 
                 Log::info("old customer to new acccount");
@@ -815,7 +814,6 @@ class Dash extends Controller
                                 "title" => $app['title'],
                                 "name" =>  $param['surname'],
                                 "email" => "",
-                                "act" => $app['applicant_individual_account_type'],
                             );
 
                             $this->create_account($para);
