@@ -75,7 +75,7 @@ Route::post('/reviewed', [Dash::class, 'reviewed']);
 Route::get('/applicant_details_by_nic', [Dash::class, 'item_view']);
 Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 
-Route::get('/grab_branches_byid', [Dash::class, 'grab_branches_byid']);
+Route::post('/grab_branches_byid', [Dash::class, 'grab_branches_byid']);
 
 
 

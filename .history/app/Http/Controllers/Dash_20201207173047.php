@@ -258,7 +258,7 @@ class Dash extends Controller
             "Normal Savings" => "111",
             "UPay Business Account" => "129",
             "Uththamavi Plus" => "115",
-            "Upahara Savings" => "137",
+            "Upahara Savings" => "Upahara Savings",
 
 
         );
