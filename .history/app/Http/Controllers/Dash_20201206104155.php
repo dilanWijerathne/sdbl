@@ -284,7 +284,7 @@ class Dash extends Controller
 
             "SEQUENCE_NO" => "0",
 
-            "PRODUCT_TYPE" => $act[$para['act']],
+            "PRODUCT_TYPE" => "111",
 
             "OFFICER_CODE" => "MOB",
 
@@ -350,7 +350,7 @@ class Dash extends Controller
 
             "SEQUENCE_NO" => "0",
 
-            "PRODUCT_TYPE" =>  $act[$para['act']],
+            "PRODUCT_TYPE" => "111",
 
             "OFFICER_CODE" => "MOB",
 
@@ -558,7 +558,6 @@ class Dash extends Controller
                     "title" => $app['title'],
                     "name" =>  $app['full_name'],
                     "email" => "",
-                    "act" => $app['applicant_individual_account_type'],
                 );
 
                 Log::info("old customer to new acccount");
@@ -616,8 +615,7 @@ class Dash extends Controller
                     'nic' =>  $app['nic'],
                     'sex' =>  $app['sex'],
                     'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                    // 'today' => $this->sdb_julian_lib($this->call_sampaths_format($d , $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
-                    'today' => $this->sdb_julian_lib($this->call_sampaths_format(3, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
+                    'today' => $this->sdb_julian_lib($this->call_sampaths_format($d - 1, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
                     'telephone' => $onumber, //substr($work_place['telephone'], 1),
                     'ref_number' => $this->doRef(),
                     'short_name' => $short_name, // . " " . ,
@@ -816,7 +814,6 @@ class Dash extends Controller
                                 "title" => $app['title'],
                                 "name" =>  $param['surname'],
                                 "email" => "",
-                                "act" => $app['applicant_individual_account_type'],
                             );
 
                             $this->create_account($para);
