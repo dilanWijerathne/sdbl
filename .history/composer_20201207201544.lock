@@ -8,7 +8,7 @@
     "packages": [
         {
             "name": "arcanedev/log-viewer",
-
+<<<<<<< HEAD
             "version": "8.0.2",
             "source": {
                 "type": "git",
@@ -19,12 +19,24 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/0a92dcf8ee82dc5edefdab4259ccd142be4734d4",
                 "reference": "0a92dcf8ee82dc5edefdab4259ccd142be4734d4",
-
+=======
+            "version": "8.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/LogViewer.git",
+                "reference": "a65d3faf1830f45cd987ed0682278cbd4aa7077e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/a65d3faf1830f45cd987ed0682278cbd4aa7077e",
+                "reference": "a65d3faf1830f45cd987ed0682278cbd4aa7077e",
+>>>>>>> 203c06c6fbb253a40ac86a193eed1d05566d415f
                 "shasum": ""
             },
             "require": {
                 "arcanedev/support": "^8.0",
                 "ext-json": "*",
+<<<<<<< HEAD
                 "php": "^7.3|^8.0",
                 "psr/log": "^1.1"
             },
@@ -32,7 +44,14 @@
                 "mockery/mockery": "^1.4.2",
                 "orchestra/testbench": "^6.4",
                 "phpunit/phpunit": "^9.3.3"
-
+=======
+                "php": "^7.3",
+                "psr/log": "^1.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+>>>>>>> 203c06c6fbb253a40ac86a193eed1d05566d415f
             },
             "type": "library",
             "extra": {
@@ -77,7 +96,7 @@
                 "log-viewer",
                 "logviewer"
             ],
-
+<<<<<<< HEAD
             "time": "2020-11-28T02:18:41+00:00"
         },
         {
@@ -92,13 +111,32 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/b161c3c080b314e832410295011625721fbd3a2f",
                 "reference": "b161c3c080b314e832410295011625721fbd3a2f",
-
+=======
+            "time": "2020-09-09T09:43:59+00:00"
+        },
+        {
+            "name": "arcanedev/support",
+            "version": "8.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/Support.git",
+                "reference": "96280ceaa1918bddfc25ffb6f58d9b96ef44ae5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/96280ceaa1918bddfc25ffb6f58d9b96ef44ae5d",
+                "reference": "96280ceaa1918bddfc25ffb6f58d9b96ef44ae5d",
+>>>>>>> 203c06c6fbb253a40ac86a193eed1d05566d415f
+                "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.0",
                 "illuminate/support": "^8.0",
+<<<<<<< HEAD
                 "php": "^7.3|^8.0"
-
+=======
+                "php": "^7.3"
+>>>>>>> 203c06c6fbb253a40ac86a193eed1d05566d415f
             },
             "require-dev": {
                 "laravel/framework": "^8.0",
@@ -138,8 +176,11 @@
                 "laravel",
                 "support"
             ],
+<<<<<<< HEAD
             "time": "2020-11-27T17:09:38+00:00"
-
+=======
+            "time": "2020-09-09T12:09:28+00:00"
+>>>>>>> 203c06c6fbb253a40ac86a193eed1d05566d415f
         },
         {
             "name": "asm89/stack-cors",
