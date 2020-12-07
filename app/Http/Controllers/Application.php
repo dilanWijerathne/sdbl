@@ -306,10 +306,10 @@ class Application extends Controller
         $statuses = null;
 
         if ($sex == "Female") {
+            //  ->where('applicant_sex', "Female")
             $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
                 ->where('area', 'individual_account_type')
                 ->where('age_limit', '<=', $age)
-                ->where('applicant_sex', "Female")
                 ->where('active',  1)
                 ->get();
         }

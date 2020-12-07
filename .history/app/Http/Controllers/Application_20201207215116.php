@@ -12,15 +12,33 @@ use App\Models\Work_place;
 use App\Models\Nominee;
 use App\Models\Images;
 use App\Models\Applicant;
+use App\Models\Cif_Response;
 use App\Exceptions\Handler;
+use App\Models\Branches;
+use Illuminate\Support\Facades\DB;
 use Exception;
 
 class Application extends Controller
 {
+
+
+
+    public function default_val($val)
+    {
+
+        if ($val === "" | $val === " " | $val === null | $val === "null") {
+            $val = 0;
+        }
+
+        return $val;
+    }
+
+
+
     public function new_customer(Request $request)
     {
 
-        Log::log('1', 'request to new cusotmer');
+        Log::info('request to new cusotmer');
         Log::info($request);
 
         try {
@@ -37,7 +55,10 @@ class Application extends Controller
             $primary_mobile = $request->input('primary_mobile');
             $secondary_mobile = $request->input('secondary_mobile');
             $email = $request->input('email');
-            $address = $request->input('address');
+            $address1 = $request->input('address1');
+            $address2 = $request->input('address2');
+            $address3 = $request->input('address3');
+            $address4 = $request->input('address4');
             $district = $request->input('district');
             $name_of_employer = $request->input('name_of_employer');
             $position = $request->input('position');
@@ -61,27 +82,87 @@ class Application extends Controller
             $f_name = $request->input('f_name');
             $s_name = $request->input('s_name');
 
+            $existing_customer = $request->input('existing_customer');  // booloan
+            $living_place_dif = $request->input('living_place_dif');  // dif
+            $customer_cif = $request->input('existing_customer_cif');
 
+            $ref = $request->input('ref');
+
+            $bdo = $request->input('bdo');
+
+            $sector = $request->input('sector');
+
+            //data.append("existing_customer_cif", customer_cif);
+
+
+
+            /// validate nums
+
+
+
+
+            //$string = '265 9959 b9659';
+            $salary_trimmed = 0;
+            if ($salary === NULL | $salary === "null" | $salary === "NULL" | $salary === null | $salary === "" | $salary === " ") {
+                $salary_trimmed = 0;
+            } else {
+                $s_con = ucfirst($salary);
+                $salbar = ucwords(strtolower($s_con));
+                $salary_trimmed = preg_replace('/\s+/', '',  $salbar);
+            }
+
+
+
+            $months_names = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ];
+
+            $sex_f = array(
+                "Male" => "M",
+                "Female" => "F",
+            );
+
+            $dob_month_p = array_search($dob_month, $months_names) + 1;
 
 
             $nominee = new Nominee;
             $nominee->json = $nominees;
+            $nominee->applicant_nic = $nic;
+            $nominee->ref_number = $ref;
             $nominee->save();
 
             $work = new Work_place;
             $work->name = $name_of_employer;
             $work->address = $work_address;
             $work->position = $position;
-            $work->telephone = $telephone;
-            $work->income_monthly = $salary;
+            $work->telephone = $this->default_val($telephone);
+            $work->income_monthly = $salary_trimmed;
             $work->other_income = $other_income;
+            $work->applicant_nic = $nic;
             $work->source_other_income = $source_of_other_income;
+            $work->ref = $ref;
+            $work->sector = $sector;
 
             $work->save();
 
 
+
+
             $applicant = new Applicant;
 
+            $applicant->branch = $this->branch_bdo($bdo);
+            $applicant->ref = $ref;
             $applicant->title = $title;
             $applicant->surname = $s_name;
             $applicant->initials = "";
@@ -90,26 +171,30 @@ class Application extends Controller
             $applicant->f_name = $f_name;
             $applicant->nic = $nic;
             $applicant->birth_year = $dob_year;
-            $applicant->birth_month = $dob_month;
+            $applicant->birth_month = $dob_month_p;
             $applicant->birth_day = $dob_day;
-            $applicant->sex = $sex;
+            $applicant->sex = $sex_f[$sex];
             $applicant->applicant_status = $applicant_status;
             $applicant->applicant_going_to_open = $goin_to_open;
             $applicant->applicant_individual_account_type = $account_type;
             $applicant->primary_mobile_number = $primary_mobile;
-            $applicant->secondary_mobile_number = $secondary_mobile;
+            $applicant->secondary_mobile_number = $this->default_val($secondary_mobile);
             $applicant->email = $email;
-            $applicant->address = $address;
-            $applicant->living_place_dif = $title;     // recheck
+            $applicant->address1 = str_replace(',', '', $address1);
+            $applicant->address2 = str_replace(',', '', $address2);
+            $applicant->address3 = str_replace(',', '', $address3);
+            $applicant->address4 = str_replace(',', '', $address4);
+            $applicant->living_place_dif =  $living_place_dif;    // dif
             $applicant->district = $district;
             $applicant->same_nic_address = "";
             $applicant->security_question = $security_answer;
-            // $applicant->existing_customer = $existing_customer;
+            $applicant->existing_customer = $existing_customer;  // bolean
+            $applicant->bdo = $bdo;
             $applicant->save();
 
 
             $kyc_json = array(
-                'pupose' => $purpose_usage,
+                'pupose' => $purpose_usage,   // convert these json string to array, has to do with new
                 'source_funds' => $source_of_funds,
                 'anticipated_volume' => $anticipated_volumes,
                 'source_wealth' => $source_of_wealth,
@@ -118,7 +203,19 @@ class Application extends Controller
             );
             $kyc = new Kyc;
             $kyc->json = json_encode($kyc_json);
+            $kyc->nic = $nic;
+            $kyc->pep = $pep;
+            $kyc->pep_relationship = $pep_relationship;
+            $kyc->ref_number = $ref;
             $kyc->save();
+
+
+            if ($existing_customer === "true") {
+                $cif = new Cif_Response;
+                $cif->nic = $nic;
+                $cif->cif = $customer_cif;
+                $cif->save();
+            }
         } catch (Exception $e) {
             Log::error($e);
         }
@@ -127,6 +224,21 @@ class Application extends Controller
     }
 
 
+
+    // get the brach of BDO
+
+    public function branch_bdo($email)
+    {
+
+        //     $app = Branches::where("nic", $nic)->latest()->first();
+
+        $bdo_branch = DB::table('users')
+            ->where('email', $email)
+            ->first();
+
+
+        return  $bdo_branch->branch;
+    }
 
 
     // account applicants current staus needs to get base on their sex and age
@@ -166,7 +278,7 @@ class Application extends Controller
         Log::info($request);
 
         $statuses = null;
-        $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'account_type')->get();
+        $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'account_type')->where('active',  1)->get();
 
 
 
@@ -192,7 +304,26 @@ class Application extends Controller
         Log::info($request);
 
         $statuses = null;
-        $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'individual_account_type')->get();
+
+        if ($sex == "Female") {
+            //  ->where('applicant_sex', "Female")
+            $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
+                ->where('area', 'individual_account_type')
+                ->where('age_limit', '<=', $age)
+                ->where('active',  1)
+                ->get();
+        }
+
+        if ($sex == "Male") {
+            $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
+                ->where('area', 'individual_account_type')
+                ->where('age_limit', '<=', $age)
+                ->where('applicant_sex', "!=", "Female")
+                ->where('active',  1)
+                ->get();
+        }
+
+        // $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'individual_account_type')->where('active',  1)->get();
 
         echo json_encode($statuses);
     }
