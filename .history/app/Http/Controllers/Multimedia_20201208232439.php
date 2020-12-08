@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Images;
 use App\Models\Signatures;
-use Illuminate\Support\Facades\DB;
 use Exception;
 
 class Multimedia extends Controller
