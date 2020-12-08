@@ -61,39 +61,6 @@ class Multimedia extends Controller
                 "data" => $models,
 
             );
-        } else {
-
-            $models = DB::table('users')
-                ->select('name',  'email', 'mobile', 'role')
-                ->where('branch', $user)
-                ->where('nic', 'LIKE', $request->search . '%')
-                ->orWhere('email', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('mobile', 'LIKE', '%' . $request->search . '%')
-                ->orderBy('created_at', 'desc')
-                ->limit($request->end)->offset($request->start - 1)
-                ->get()
-                ->map(function ($item) {
-                    return [$item->name,  $item->email, $item->mobile, $item->role];
-                })->toArray();
-
-
-            Log::info($models);
-            $ln = DB::table('users')
-                ->select('name',  'email', 'mobile', 'role')
-                ->where('nic', 'LIKE', $request->search . '%')
-                ->orWhere('email', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('mobile', 'LIKE', '%' . $request->search . '%')
-                ->limit($request->end)->offset($request->start - 1)
-                ->count();
-            // $ln = $app->count();
-
-            $a = array(
-                "draw" => $request->draw,
-                "recordsTotal" => $ln,
-                "recordsFiltered" => $ln,
-                "data" => $models,
-
-            );
         }
 
 
