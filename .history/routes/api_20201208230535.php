@@ -78,8 +78,6 @@ Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 Route::get('/grab_branches_byid', [Dash::class, 'grab_branches_byid']);
 Route::get('/get_myteam', [Multimedia::class, 'get_myteam']);
 
-Route::get('/get_myteam', [Multimedia::class, 'get_myteam']);
-
 
 
 Route::get('/comment', [Communication::class, 'comment']);
