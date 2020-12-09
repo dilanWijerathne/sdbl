@@ -15,7 +15,7 @@ class Multimedia extends Controller
     public function get_my_team_member(Request $request)
     {
         $user_email = $request->user_email;
-        $us =  User::select('name', 'email', 'mobile', 'role')->where("email", $user_email)->first();
+        $us =  User::where("email", $user_email)->first();
         return $us;
     }
 

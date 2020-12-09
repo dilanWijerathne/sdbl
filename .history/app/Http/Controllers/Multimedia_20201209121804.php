@@ -14,9 +14,11 @@ class Multimedia extends Controller
 {
     public function get_my_team_member(Request $request)
     {
+
+
         $user_email = $request->user_email;
-        $us =  User::select('name', 'email', 'mobile', 'role')->where("email", $user_email)->first();
-        return $us;
+
+        $us =  User::where("nic", $user_email)->orderBy('updated_at', 'desc')->first();
     }
 
     public function get_myteam(Request $request)

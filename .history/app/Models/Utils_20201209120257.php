@@ -49,7 +49,7 @@ class Utils
             "customer_epfno" => "00000",
             "device_type" => "AR",
             "imei" => "",
-            "feeprofilecode" => "FP0001"
+            "feeprofilecode" => ""
         );
 
         Log::info("sms reg message on " .  $param['mobile']);
@@ -74,7 +74,7 @@ class Utils
             "customer_epfno" => "00000",
             "device_type" => "AR",
             "imei" => "",
-            "feeprofilecode" => "FP0001"
+            "feeprofilecode" => ""
 
         ]);
 

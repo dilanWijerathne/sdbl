@@ -27,41 +27,14 @@ class Utils
         }
 
 
-        $cusid = (int)$param['cusid'];
-        $acc =  (int)$param['account'];
-
-        $smsbody  = array(
-
-            "application_SessionId" =>  uniqid('SDB-'), //"20201021-SDBL-0002",
-            "application_Code" => "SDB",
-            "application_Password" => "0cc175b9c0f1b6a831c399e269772661",
-            "customerid" => $cusid, // "10785",
-            "customer_account" => $acc,
-            "customer_mobile" => "94" . $param['mobile'],
-            "customer_nic" => $param['nic'],
-            "customer_name" => $param['title'] . " " . $param['name'],
-            "customer_address" => "Sri Lanka",
-            "area_code" => "00010",
-            "branch_code" => $param['branch'],
-            "isstaff" => "No",
-            "customer_email" => $param['email'],
-            "customer_categorycode" => "0004",
-            "customer_epfno" => "00000",
-            "device_type" => "AR",
-            "imei" => "",
-            "feeprofilecode" => "FP0001"
-        );
-
-        Log::info("sms reg message on " .  $param['mobile']);
-        Log::info($smsbody);
 
         $response = Http::post($url, [
 
             "application_SessionId" =>  uniqid('SDB-'), //"20201021-SDBL-0002",
             "application_Code" => "SDB",
             "application_Password" => "0cc175b9c0f1b6a831c399e269772661",
-            "customerid" => $cusid, // "10785",
-            "customer_account" => $acc,
+            "customerid" => $param['cusid'], // "10785",
+            "customer_account" => substr($param['account'], 5),
             "customer_mobile" => "94" . $param['mobile'],
             "customer_nic" => $param['nic'],
             "customer_name" => $param['title'] . " " . $param['name'],
@@ -74,7 +47,7 @@ class Utils
             "customer_epfno" => "00000",
             "device_type" => "AR",
             "imei" => "",
-            "feeprofilecode" => "FP0001"
+            "feeprofilecode" => ""
 
         ]);
 
