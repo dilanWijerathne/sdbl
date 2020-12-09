@@ -24,13 +24,14 @@ class Multimedia extends Controller
         $mobile = $request->mobile;
         $role = $request->role;
         $branch = $request->branch;
-        try {
+         try{
             $us = User::where('email', $email)
-                ->update(['email' => $email, 'name' => $name, 'mobile' => $mobile, 'role' => $role, 'branch' => $branch]);
-            return $us;
-        } catch (Exception $e) {
-            Log::error($e);
-        }
+            ->update(['email' => $email,'name'=>$name, 'mobile'=>$mobile, 'role'=>$role,'branch'=>$branch]);
+        return $us;
+         }else{
+
+         }
+
     }
 
     public function get_my_team_member(Request $request)
