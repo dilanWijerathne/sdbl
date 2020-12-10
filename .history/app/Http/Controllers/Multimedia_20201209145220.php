@@ -14,22 +14,6 @@ class Multimedia extends Controller
 {
 
 
-    public function delete_my_team_member(Request $request)
-    {
-
-        Log::info('user delete user by ');
-        Log::info($request);
-        $email = $request->email;
-
-        try {
-            $us = DB::table('users')->where('email',  $email)->delete();
-            return $us;
-        } catch (Exception $e) {
-            Log::error($e);
-        }
-    }
-
-
     public function update_my_team_member(Request $request)
     {
 
@@ -37,17 +21,17 @@ class Multimedia extends Controller
         Log::info($request);
         $name = $request->name;
         $email = $request->email;
-        $current_email = $request->cemail;
         $mobile = $request->mobile;
         $role = $request->role;
         $branch = $request->branch;
-        try {
-            $us = User::where('email', $current_email)
-                ->update(['email' => $email, 'name' => $name, 'mobile' => $mobile, 'role' => $role, 'branch' => $branch]);
-            return $us;
-        } catch (Exception $e) {
-            Log::error($e);
-        }
+         try{
+            $us = User::where('email', $email)
+            ->update(['email' => $email,'name'=>$name, 'mobile'=>$mobile, 'role'=>$role,'branch'=>$branch]);
+        return $us;
+         }else{
+
+         }
+
     }
 
     public function get_my_team_member(Request $request)

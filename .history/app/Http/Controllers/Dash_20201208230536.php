@@ -44,7 +44,7 @@ class Dash extends Controller
     {
 
         $branch_id = $request->id;
-        return Branches::where('code',  $branch_id)->first();
+        return Branches::where('code',  $branch_id)->latest()->first();
     }
 
 

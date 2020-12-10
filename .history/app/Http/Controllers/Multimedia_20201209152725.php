@@ -14,22 +14,6 @@ class Multimedia extends Controller
 {
 
 
-    public function delete_my_team_member(Request $request)
-    {
-
-        Log::info('user delete user by ');
-        Log::info($request);
-        $email = $request->email;
-
-        try {
-            $us = DB::table('users')->where('email',  $email)->delete();
-            return $us;
-        } catch (Exception $e) {
-            Log::error($e);
-        }
-    }
-
-
     public function update_my_team_member(Request $request)
     {
 

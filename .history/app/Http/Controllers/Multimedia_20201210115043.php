@@ -14,6 +14,11 @@ class Multimedia extends Controller
 {
 
 
+    public function get_branch_by_id()
+    {
+    }
+
+
     public function delete_my_team_member(Request $request)
     {
 

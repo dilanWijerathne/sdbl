@@ -44,7 +44,7 @@ Route::group(['/middleware' => ['jwt.verify']], function () {
 Route::get('/closed', [DataController::class, 'closed'])->middleware('jwt.verify');
 Route::get('/user',  [UserController::class, 'getAuthenticatedUser'])->middleware('jwt.verify');
 Route::post('/applicantInitialSubmit',  [ApplicantController::class, 'ApplicantInitialSubmit'])->middleware('jwt.verify');
-Route::get('/reset_pass', [UserController::class, 'reset_pass_user'])->middleware('jwt.verify');
+
 
 Route::get('/applicant_nic_check', [DataController::class, 'check_applicant_with_current_banking_data'])->middleware('jwt.verify');
 
@@ -77,11 +77,6 @@ Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 
 Route::get('/grab_branches_byid', [Dash::class, 'grab_branches_byid']);
 Route::get('/get_myteam', [Multimedia::class, 'get_myteam']);
-
-Route::get('/get_myteam', [Multimedia::class, 'get_myteam']);
-Route::get('/get_my_team_member', [Multimedia::class, 'get_my_team_member']);
-Route::get('/update_my_team_member', [Multimedia::class, 'update_my_team_member']);
-Route::post('/delete_my_team_member', [Multimedia::class, 'delete_my_team_member']);
 
 
 

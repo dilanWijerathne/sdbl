@@ -12,6 +12,12 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserController extends Controller
 {
+
+    public function get_myteam(Request $request)
+    {
+    }
+
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -54,15 +60,6 @@ class UserController extends Controller
         $token = JWTAuth::fromUser($user);
 
         return response()->json(compact('user', 'token'), 201);
-    }
-
-    public function reset_pass_user(Request $request)
-    {
-        $email = $request->email;
-        $pass =  $request->password;
-        $us = User::where('email', $email)
-            ->update(['password' => Hash::make($pass)]);
-        return  $us;
     }
 
     public function getAuthenticatedUser()

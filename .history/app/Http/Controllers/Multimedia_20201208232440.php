@@ -6,56 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Images;
 use App\Models\Signatures;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Exception;
 
 class Multimedia extends Controller
 {
-
-
-    public function delete_my_team_member(Request $request)
-    {
-
-        Log::info('user delete user by ');
-        Log::info($request);
-        $email = $request->email;
-
-        try {
-            $us = DB::table('users')->where('email',  $email)->delete();
-            return $us;
-        } catch (Exception $e) {
-            Log::error($e);
-        }
-    }
-
-
-    public function update_my_team_member(Request $request)
-    {
-
-        Log::info('update user details');
-        Log::info($request);
-        $name = $request->name;
-        $email = $request->email;
-        $current_email = $request->cemail;
-        $mobile = $request->mobile;
-        $role = $request->role;
-        $branch = $request->branch;
-        try {
-            $us = User::where('email', $current_email)
-                ->update(['email' => $email, 'name' => $name, 'mobile' => $mobile, 'role' => $role, 'branch' => $branch]);
-            return $us;
-        } catch (Exception $e) {
-            Log::error($e);
-        }
-    }
-
-    public function get_my_team_member(Request $request)
-    {
-        $user_email = $request->user_email;
-        $us =  User::select('name', 'email', 'mobile', 'role', 'branch')->where("email", $user_email)->first();
-        return $us;
-    }
 
     public function get_myteam(Request $request)
     {
@@ -77,7 +31,7 @@ class Multimedia extends Controller
 
             $models = DB::table('users')
                 ->select('name',  'email', 'mobile', 'role')
-                ->where('name', 'LIKE', $request->search . '%')
+                ->where('nic', 'LIKE', $request->search . '%')
                 ->orWhere('email', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('mobile', 'LIKE', '%' . $request->search . '%')
                 ->orderBy('created_at', 'desc')
@@ -91,7 +45,7 @@ class Multimedia extends Controller
             Log::info($models);
             $ln = DB::table('users')
                 ->select('name',  'email', 'mobile', 'role')
-                ->where('name', 'LIKE', $request->search . '%')
+                ->where('nic', 'LIKE', $request->search . '%')
                 ->orWhere('email', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('mobile', 'LIKE', '%' . $request->search . '%')
                 ->limit($request->end)->offset($request->start - 1)
@@ -110,9 +64,9 @@ class Multimedia extends Controller
             $models = DB::table('users')
                 ->select('name',  'email', 'mobile', 'role')
                 ->where('branch', $user)
-                ->where('name', 'LIKE', $request->search . '%')
-                ->where('email', 'LIKE', '%' . $request->search . '%')
-                ->where('mobile', 'LIKE', '%' . $request->search . '%')
+                ->where('nic', 'LIKE', $request->search . '%')
+                ->orWhere('email', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('mobile', 'LIKE', '%' . $request->search . '%')
                 ->orderBy('created_at', 'desc')
                 ->limit($request->end)->offset($request->start - 1)
                 ->get()
@@ -124,10 +78,9 @@ class Multimedia extends Controller
             Log::info($models);
             $ln = DB::table('users')
                 ->select('name',  'email', 'mobile', 'role')
-                ->where('branch', $user)
-                ->where('name', 'LIKE', $request->search . '%')
-                ->where('email', 'LIKE', '%' . $request->search . '%')
-                ->where('mobile', 'LIKE', '%' . $request->search . '%')
+                ->where('nic', 'LIKE', $request->search . '%')
+                ->orWhere('email', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('mobile', 'LIKE', '%' . $request->search . '%')
                 ->limit($request->end)->offset($request->start - 1)
                 ->count();
             // $ln = $app->count();
