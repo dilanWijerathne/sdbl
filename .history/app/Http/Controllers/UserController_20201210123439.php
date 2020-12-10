@@ -62,7 +62,6 @@ class UserController extends Controller
         $pass =  $request->password;
         $us = User::where('email', $email)
             ->update(['password' => Hash::make($pass)]);
-        return  $us;
     }
 
     public function getAuthenticatedUser()
