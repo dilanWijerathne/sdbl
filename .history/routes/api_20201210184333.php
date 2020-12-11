@@ -44,7 +44,7 @@ Route::group(['/middleware' => ['jwt.verify']], function () {
 Route::get('/closed', [DataController::class, 'closed'])->middleware('jwt.verify');
 Route::get('/user',  [UserController::class, 'getAuthenticatedUser'])->middleware('jwt.verify');
 Route::post('/applicantInitialSubmit',  [ApplicantController::class, 'ApplicantInitialSubmit'])->middleware('jwt.verify');
-Route::post('/reset_pass', [UserController::class, 'reset_pass_user'])->middleware('jwt.verify');
+Route::get('/reset_pass', [UserController::class, 'reset_pass_user'])->middleware('jwt.verify');
 
 Route::get('/applicant_nic_check', [DataController::class, 'check_applicant_with_current_banking_data'])->middleware('jwt.verify');
 
