@@ -15,11 +15,8 @@ class Multimedia extends Controller
 {
 
 
-    public function checkDeclaration(Request $request)
+    public function checkDeclaration()
     {
-        $email = $request->email;
-        $rs = Declaration::where("email", $email)->first();
-        return $rs;
     }
 
     public function delete_my_team_member(Request $request)
