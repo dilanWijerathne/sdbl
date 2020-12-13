@@ -30,6 +30,7 @@ class Multimedia extends Controller
     {
         $email = $request->email;
 
+
         $mark = new Declaration;
         $mark->email = $email;
         $mark->new_login = 1;

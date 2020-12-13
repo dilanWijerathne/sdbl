@@ -29,7 +29,6 @@ class Multimedia extends Controller
     public function markDeclaration(Request $request)
     {
         $email = $request->email;
-
         $mark = new Declaration;
         $mark->email = $email;
         $mark->new_login = 1;
