@@ -719,7 +719,7 @@ class Dash extends Controller
                     "MARITAL_STATUS" => "",
                     "USER_ID" => "",
                     "SHORT_NAME" => $param['short_name'], //"Perera ABC",
-                    "SECOND_NAME" => "", //$param['second_name'],
+                    "SECOND_NAME" => $param['second_name'],
                     "CURR_STREET" => $param['CURR_STREET'],
                     "BUSINESS_PHONE" =>  $this->default_val($param['telephone']), //$param['telephone'],
                     "STATUS" => 1,
