@@ -86,7 +86,6 @@ Route::post('/delete_my_team_member', [Multimedia::class, 'delete_my_team_member
 // user decl
 
 Route::get('/check_dec', [Multimedia::class, 'checkDeclaration']);
-Route::get('/mark_dec', [Multimedia::class, 'markDeclaration']);
 
 
 

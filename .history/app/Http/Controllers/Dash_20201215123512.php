@@ -491,7 +491,7 @@ class Dash extends Controller
     public function doName($fullname)
     {
 
-        Log::info("Do name input " . $fullname);
+
 
         $name = explode(" ", $fullname);
         $num_name = count($name);
@@ -504,13 +504,11 @@ class Dash extends Controller
             $v = $name[$i];
             $nm .= $v[0];
             $second_name .= $v;
-            $initials .=  $v[0] . ".";
+            $initials .=  $v[0];
         }
 
         $str = ltrim($initials, '.');   //// make sure intials separate adter dots
-        $str = rtrim($str, ".");
         $mod = explode(" ", $nm);
-        Log::info("Do name outcome" . json_encode(array($nm, $second_name, $mod[0], $str)));
         return array($nm, $second_name, $mod[0], $str);
     }
 
@@ -626,7 +624,7 @@ class Dash extends Controller
                     'nic' =>  $app['nic'],
                     'sex' =>  $app['sex'],
                     'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                    'today' => $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
+                    'today' => $this->sdb_julian_lib($this->call_sampaths_format(3, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
                     'telephone' => $onumber, //substr($work_place['telephone'], 1),
                     'ref_number' => $this->doRef(),
                     'short_name' => $short_name, // . " " . ,
@@ -745,7 +743,7 @@ class Dash extends Controller
                     "PREFERED_CUSTOMER" => "",
                     "ERROR_CODE" => "",
                     "SEQUENCE_NUMBER" => 1,
-                    "LOCATION_CODE" =>  $this->dis($param['district']),
+                    "LOCATION_CODE" => $this->dis($param['district']),
                     "CELLULAR_PHONE_NU" => $param['primary_mobile_number'],
                     "DATE_OF_BIRTH" => $param['dob'],
                     "SOCIO_ECONOMIC_GRO" => "001",

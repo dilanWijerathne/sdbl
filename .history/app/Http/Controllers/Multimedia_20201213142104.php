@@ -26,17 +26,6 @@ class Multimedia extends Controller
         }
     }
 
-    public function markDeclaration(Request $request)
-    {
-        $email = $request->email;
-
-        $mark = new Declaration;
-        $mark->email = $email;
-        $mark->new_login = 1;
-        $mark->agreed = 1;
-        $mark->save();
-    }
-
     public function delete_my_team_member(Request $request)
     {
 

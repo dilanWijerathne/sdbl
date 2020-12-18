@@ -491,7 +491,7 @@ class Dash extends Controller
     public function doName($fullname)
     {
 
-        Log::info("Do name input " . $fullname);
+
 
         $name = explode(" ", $fullname);
         $num_name = count($name);
@@ -504,13 +504,11 @@ class Dash extends Controller
             $v = $name[$i];
             $nm .= $v[0];
             $second_name .= $v;
-            $initials .=  $v[0] . ".";
+            $initials .=  $v[0];
         }
 
-        $str = ltrim($initials, '.');   //// make sure intials separate adter dots
-        $str = rtrim($str, ".");
+        $str = ltrim($initials, '.');
         $mod = explode(" ", $nm);
-        Log::info("Do name outcome" . json_encode(array($nm, $second_name, $mod[0], $str)));
         return array($nm, $second_name, $mod[0], $str);
     }
 
@@ -619,14 +617,13 @@ class Dash extends Controller
                     'house_numer' =>  $app['address1'],
                     'CURR_STREET' => $app['address2'],
                     'city' =>   $app['address3'],
-                    'city_main' =>   $app['address4'],
                     'secondary_number' =>  $pnumber, //  substr($app['secondary_mobile_number'], 1),
                     'primary_mobile_number' =>  substr($app['primary_mobile_number'], 1),
                     'surname' => $name[$num_name - 1],
                     'nic' =>  $app['nic'],
                     'sex' =>  $app['sex'],
                     'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                    'today' => $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
+                    'today' => $this->sdb_julian_lib($this->call_sampaths_format(3, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
                     'telephone' => $onumber, //substr($work_place['telephone'], 1),
                     'ref_number' => $this->doRef(),
                     'short_name' => $short_name, // . " " . ,
@@ -662,12 +659,12 @@ class Dash extends Controller
                     "MARITAL_STATUS" => "",
                     "USER_ID" => "",
                     "SHORT_NAME" => $param['short_name'], //"Perera ABC",
-                    "SECOND_NAME" => "", //$param['second_name'],
+                    "SECOND_NAME" => $param['second_name'],
                     "CURR_STREET" => $param['CURR_STREET'],
                     "BUSINESS_PHONE" =>  $this->default_val($param['telephone']), //$param['telephone'],
                     "STATUS" => 1,
                     "PRIMARY_OFFICER_COD" => "MOB",
-                    "CURR_DISTRICT" => $param['city_main'],
+                    "CURR_DISTRICT" => $param['district'],
                     "CITIZENSHIP_CODE" => "001",
                     "CURR_HOUSE_NBR" => substr($param['house_numer'], 0, 6),
                     "HOME_PHONE_NUMBER" => $this->default_val($param['secondary_number']),
@@ -722,12 +719,12 @@ class Dash extends Controller
                     "MARITAL_STATUS" => "",
                     "USER_ID" => "",
                     "SHORT_NAME" => $param['short_name'], //"Perera ABC",
-                    "SECOND_NAME" => "", //$param['second_name'],
+                    "SECOND_NAME" => $param['second_name'],
                     "CURR_STREET" => $param['CURR_STREET'],
                     "BUSINESS_PHONE" =>  $this->default_val($param['telephone']), //$param['telephone'],
                     "STATUS" => 1,
                     "PRIMARY_OFFICER_COD" => "MOB",
-                    "CURR_DISTRICT" => $param['city_main'],
+                    "CURR_DISTRICT" => $param['district'],
                     "CITIZENSHIP_CODE" => "001",
                     "CURR_HOUSE_NBR" => substr($param['house_numer'], 0, 6),
                     "HOME_PHONE_NUMBER" => $this->default_val($param['secondary_number']),
@@ -745,7 +742,7 @@ class Dash extends Controller
                     "PREFERED_CUSTOMER" => "",
                     "ERROR_CODE" => "",
                     "SEQUENCE_NUMBER" => 1,
-                    "LOCATION_CODE" =>  $this->dis($param['district']),
+                    "LOCATION_CODE" => $this->dis($param['district']),
                     "CELLULAR_PHONE_NU" => $param['primary_mobile_number'],
                     "DATE_OF_BIRTH" => $param['dob'],
                     "SOCIO_ECONOMIC_GRO" => "001",

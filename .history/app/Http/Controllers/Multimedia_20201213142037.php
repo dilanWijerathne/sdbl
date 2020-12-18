@@ -20,21 +20,8 @@ class Multimedia extends Controller
         $email = $request->email;
         $rs = Declaration::where("email", $email)->first();
         if (isset($rs['email'])) {
-            return $rs;
-        } else {
-            return 0;
         }
-    }
-
-    public function markDeclaration(Request $request)
-    {
-        $email = $request->email;
-
-        $mark = new Declaration;
-        $mark->email = $email;
-        $mark->new_login = 1;
-        $mark->agreed = 1;
-        $mark->save();
+        return $rs;
     }
 
     public function delete_my_team_member(Request $request)
