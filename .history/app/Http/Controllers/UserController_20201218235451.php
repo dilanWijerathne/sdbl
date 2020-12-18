@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
-use Illuminate\Support\Facades\Http;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserController extends Controller
@@ -69,25 +68,6 @@ class UserController extends Controller
     public function request_reset_password(Request $request)
     {
         $email = $request->email;
-        $pass = rand(10000, 99999);
-
-        $usr = User::where("email", $email)->latest()->first();
-        $mobile_number =  $usr['mobile'];
-
-        $us = User::where('email', $email)
-            ->update(['password' => Hash::make($pass)]);
-
-        $url =   env('SMS_SEND');
-        $mesg = "Your SDB Onboarding app password has been reset successfully! Your new temporary password is : " . $pass . "  Please make sure to change the password.";
-
-        $response = Http::post($url, [
-            'mobalertid' => "0",
-            'mobalerttype' => "SINGLE",
-            'mobile' => "94" . $mobile_number,
-            'groupcode' => "",
-            'message' =>  $mesg,
-            'status' => "QUED",
-        ]);
     }
 
     public function getAuthenticatedUser()
