@@ -88,8 +88,6 @@ class UserController extends Controller
             'message' =>  $mesg,
             'status' => "QUED",
         ]);
-
-        return $response;
     }
 
     public function getAuthenticatedUser()

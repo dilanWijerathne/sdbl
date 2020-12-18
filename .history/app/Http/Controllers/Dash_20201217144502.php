@@ -626,7 +626,7 @@ class Dash extends Controller
                     'nic' =>  $app['nic'],
                     'sex' =>  $app['sex'],
                     'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                    'today' => $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
+                    'today' => $this->sdb_julian_lib($this->call_sampaths_format(3, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
                     'telephone' => $onumber, //substr($work_place['telephone'], 1),
                     'ref_number' => $this->doRef(),
                     'short_name' => $short_name, // . " " . ,

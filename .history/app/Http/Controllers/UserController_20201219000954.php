@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
-use Illuminate\Support\Facades\Http;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserController extends Controller
@@ -78,7 +77,7 @@ class UserController extends Controller
             ->update(['password' => Hash::make($pass)]);
 
         $url =   env('SMS_SEND');
-        $mesg = "Your SDB Onboarding app password has been reset successfully! Your new temporary password is : " . $pass . "  Please make sure to change the password.";
+        $mesg = "your password has been reset successfully! Your new temporary password is : " . $pass . "  Please make sure to change the password.";
 
         $response = Http::post($url, [
             'mobalertid' => "0",
@@ -88,8 +87,6 @@ class UserController extends Controller
             'message' =>  $mesg,
             'status' => "QUED",
         ]);
-
-        return $response;
     }
 
     public function getAuthenticatedUser()
