@@ -92,9 +92,17 @@ class Application extends Controller
 
             $sector = $request->input('sector');
 
-            $pupose_other_reason = $request->input('pupose_other_reason');
-            $wealth_other_reason = $request->input('source_funds_other_reason');
-            $source_funds_other_reason = $request->input('wealth_other_reason');
+            if (isset($request->input('pupose_other_reason'))) {
+                $wealth_other_reason = $request->input('pupose_other_reason');
+            }
+
+            if (isset($request->input('source_funds_other_reason'))) {
+                $source_funds_other_reason = $request->input('source_funds_other_reason');
+            }
+
+            if (isset($request->input('wealth_other_reason'))) {
+                $wealth_other_reason = $request->input('wealth_other_reason');
+            }
 
             //data.append("existing_customer_cif", customer_cif);
 
@@ -210,15 +218,8 @@ class Application extends Controller
             $kyc->nic = $nic;
             $kyc->pep = $pep;
             $kyc->pep_relationship = $pep_relationship;
-            $kyc->pupose_other_reason = $pupose_other_reason;
-            $kyc->source_funds_other_reason = $source_funds_other_reason;
-            $kyc->wealth_other_reason = $wealth_other_reason;
             $kyc->ref_number = $ref;
             $kyc->save();
-
-
-
-
 
 
             if ($existing_customer === "true") {
