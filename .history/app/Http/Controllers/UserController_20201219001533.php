@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Illuminate\Support\Facades\Http;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -70,30 +69,26 @@ class UserController extends Controller
     public function request_reset_password(Request $request)
     {
         $email = $request->email;
-        Log::info('Password CR');
-        Log::info($request);
-
         $pass = rand(10000, 99999);
 
         $usr = User::where("email", $email)->latest()->first();
         $mobile_number =  $usr['mobile'];
-        Log::info($usr);
 
         $us = User::where('email', $email)
             ->update(['password' => Hash::make($pass)]);
 
         $url =   env('SMS_SEND');
         $mesg = "Your SDB Onboarding app password has been reset successfully! Your new temporary password is : " . $pass . "  Please make sure to change the password.";
-        Log::info($mesg);
+
         $response = Http::post($url, [
             'mobalertid' => "0",
             'mobalerttype' => "SINGLE",
-            'mobile' => "94" . substr($mobile_number, 1),
+            'mobile' => "94" . $mobile_number,
             'groupcode' => "",
             'message' =>  $mesg,
             'status' => "QUED",
         ]);
-        Log::info($response);
+
         return $response;
     }
 

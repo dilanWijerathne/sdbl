@@ -88,12 +88,12 @@ class UserController extends Controller
         $response = Http::post($url, [
             'mobalertid' => "0",
             'mobalerttype' => "SINGLE",
-            'mobile' => "94" . substr($mobile_number, 1),
+            'mobile' => "94" . $mobile_number,
             'groupcode' => "",
             'message' =>  $mesg,
             'status' => "QUED",
         ]);
-        Log::info($response);
+
         return $response;
     }
 
