@@ -97,7 +97,6 @@ class Application extends Controller
             $source_funds_other_reason = $request->input('wealth_other_reason');
             $gps = $request->input('gpsl');
 
-            Log::info($gps);
             //data.append("existing_customer_cif", customer_cif);
 
 
@@ -196,7 +195,6 @@ class Application extends Controller
             $applicant->security_question = $security_answer;
             $applicant->existing_customer = $existing_customer;  // bolean
             $applicant->bdo = $bdo;
-            $applicant->gps = $gps;
             $applicant->save();
 
 

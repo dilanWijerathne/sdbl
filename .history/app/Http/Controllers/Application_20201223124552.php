@@ -97,7 +97,6 @@ class Application extends Controller
             $source_funds_other_reason = $request->input('wealth_other_reason');
             $gps = $request->input('gpsl');
 
-            Log::info($gps);
             //data.append("existing_customer_cif", customer_cif);
 
 
