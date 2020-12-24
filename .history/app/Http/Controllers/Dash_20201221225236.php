@@ -125,9 +125,6 @@ class Dash extends Controller
             } elseif ($request->type === "mng") {
                 $app = Applicant::where("ref", $request->ref)->update(['approved' => 1]);
                 $app = Applicant::where("ref", $request->ref)->update(['review_staff' => $request->bdo]);
-            } elseif ($request->type === "reject") {
-                $app = Applicant::where("ref", $request->ref)->update(['approved' => 3]);
-                $app = Applicant::where("ref", $request->ref)->update(['review_staff' => $request->bdo]);
             } else {
                 Log::info('invalid type to review ');
                 return  "invalid type";
@@ -137,9 +134,6 @@ class Dash extends Controller
             return "invalid";
         }
     }
-
-
-
 
 
 
@@ -430,7 +424,10 @@ class Dash extends Controller
             if (strlen($array['JSON']['Data']['svId']) > 2) {
                 $app = Applicant::where("ref", $para['app_ref'])->update(['done' => 1]);
                 $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
-
+                /**
+                 *
+                 *
+                 */
 
 
                 $param = array(
