@@ -118,20 +118,27 @@ class Utils
     public function nic_conversion($nic)
     {
         if (strlen($nic) > 11) {
-
-            $sentence_flag = substr_replace($nic, "", -10);
+            // new number
+            // echo strlen($nic);
+            $sentence_flag = substr_replace($sentence, "", -10);
             if ($sentence_flag < '20') {
-                $nic = substr_replace($nic, "", 0, 2);
-                $nic = substr_replace($nic, "", 5, 1);
-                return    $nic . 'V';
+                //echo  "less than";
+                $sentence = substr_replace($sentence, "", 0, 2);
+                $sentence = substr_replace($sentence, "", 5, 1);
+                echo    $sentence . 'V';
             } else {
-                return $nic;
+                echo $sentence;
             }
         } else {
+
+            // old number
+            //echo " str len ".strlen($nic);
+            //$sentence = '992592206v';
             $sentence = substr_replace($nic, "", -1);
             $string = '0';
             $position = '5';
 
+            //echo $identifier ;
             $sentence = substr_replace($sentence, $string, $position, 0);
             $sentence = "19" . $sentence;
             return  $sentence;
