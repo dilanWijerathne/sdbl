@@ -56,7 +56,6 @@ class DataController extends Controller
             Log::info($nic . '  NIC respose from Core');
             Log::info($response);
             Log::info(" from core customer nic");
-            Log::info(" from core customer nic  " . $response['Data']['National_ID_Number']);
             Log::info($response['Data']['National_ID_Number']);
             echo $response;
         } else {
