@@ -50,14 +50,14 @@ class DataController extends Controller
             ));
 
             $response = curl_exec($curl);
-            $responsek = json_decode($response, true);
+            $response = json_decode($response, true);
             curl_close($curl);
 
             Log::info($nic . '  NIC respose from Core');
-            Log::info($responsek);
+            Log::info($response);
             Log::info(" from core customer nic");
-            Log::info(" from core customer nic  " . $responsek['JSON']['Data']['National_ID_Number']);
-            Log::info($responsek['JSON']['Data']['National_ID_Number']);
+            Log::info(" from core customer nic  " . $response['JSON']['Data']['National_ID_Number']);
+            Log::info($response['JSON']['Data']['National_ID_Number']);
             echo $response;
         } else {
 
