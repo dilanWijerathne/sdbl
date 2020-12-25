@@ -55,7 +55,7 @@ class DataController extends Controller
             */
             $response =  Utils::call_nic_core($url, $nic);
             $responsek = json_decode($response, true);
-            // curl_close($curl);
+            curl_close($curl);
 
             Log::info($nic . '  NIC respose from Core');
             Log::info($responsek);
@@ -68,9 +68,6 @@ class DataController extends Controller
             if (isset($responsek['JSON']['Data']['National_ID_Number'])) {
                 echo $response;
             } else {
-                $nic2 = Utils::nic_conversion($nic);
-                $response =  Utils::call_nic_core($url, $nic2);
-                echo $response;
             }
         } else {
 

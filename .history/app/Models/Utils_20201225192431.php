@@ -114,8 +114,7 @@ class Utils
     }
 
 
-    public static function call_nic_core($url, $nic)
-    {
+    public function call_nic_core($url,$nic){
 
         $curl = curl_init();
 
@@ -133,11 +132,11 @@ class Utils
         $response = curl_exec($curl);
         curl_close($curl);
 
-        return $response;
+        return $response
     }
 
 
-    public static function nic_conversion($nic)
+    public function nic_conversion($nic)
     {
         if (strlen($nic) > 11) {
 
