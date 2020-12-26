@@ -38,7 +38,7 @@ class UserController extends Controller
             'mobile' => 'required|string|max:255',
             'role' => 'required|string|max:255',
             'branch' => 'required|string|max:255',
-            'emp' => 'required|max:255',
+            'emp' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
