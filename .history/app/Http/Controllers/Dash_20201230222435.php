@@ -937,7 +937,7 @@ class Dash extends Controller
             Log::info($models);
             $ln = DB::table('applicant')
                 ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                ->where('branch', (int)$request->current_branch_search)
+                ->where('branch', $request->current_branch_search)
                 // ->where('nic', 'LIKE', $request->search . '%')
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
