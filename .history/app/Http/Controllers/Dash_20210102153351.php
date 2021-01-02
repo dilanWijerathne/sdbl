@@ -922,36 +922,6 @@ class Dash extends Controller
             //current_branch_search
 
             if ((int)$request->app_status === 10) {
-                $models = DB::table('applicant')
-                    ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                    ->where('branch', (int)$request->current_branch_search)
-                    ->orderBy('created_at', 'desc')
-                    ->limit($request->end)->offset($request->start - 1)
-                    ->get()
-                    ->map(function ($item) {
-                        return [$item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-                    })->toArray();
-
-
-                Log::info($models);
-                $ln = DB::table('applicant')
-                    ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                    ->where('branch', (int)$request->current_branch_search)
-                    ->limit($request->end)->offset($request->start - 1)
-                    ->count();
-                // $ln = $app->count();
-
-                $a = array(
-                    "draw" => $request->draw,
-                    "recordsTotal" => $ln,
-                    "recordsFiltered" => $ln,
-                    "data" => $models,
-
-                );
-
-
-
-                echo json_encode($a);
             } else {
                 $models = DB::table('applicant')
                     ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')

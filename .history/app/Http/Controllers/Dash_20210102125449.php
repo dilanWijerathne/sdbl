@@ -113,7 +113,7 @@ class Dash extends Controller
     public function reviewed(Request $request)
     {
 
-        Log::info('Review | Reject mark');
+        Log::info('Review mark');
         Log::info($request);
         if (isset($request->ref) && isset($request->type)) {
 
@@ -920,76 +920,42 @@ class Dash extends Controller
         if ($user === 0 | $user === "0") {
             Log::info('user code Central ' . $user);
             //current_branch_search
-
-            if ((int)$request->app_status === 10) {
-                $models = DB::table('applicant')
-                    ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                    ->where('branch', (int)$request->current_branch_search)
-                    ->orderBy('created_at', 'desc')
-                    ->limit($request->end)->offset($request->start - 1)
-                    ->get()
-                    ->map(function ($item) {
-                        return [$item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-                    })->toArray();
-
-
-                Log::info($models);
-                $ln = DB::table('applicant')
-                    ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                    ->where('branch', (int)$request->current_branch_search)
-                    ->limit($request->end)->offset($request->start - 1)
-                    ->count();
-                // $ln = $app->count();
-
-                $a = array(
-                    "draw" => $request->draw,
-                    "recordsTotal" => $ln,
-                    "recordsFiltered" => $ln,
-                    "data" => $models,
-
-                );
+            $models = DB::table('applicant')
+                ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                ->where('branch', (int)$request->current_branch_search)
+                ->where('done', (int)$request->app_status)
+                // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
+                // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
+                ->orderBy('created_at', 'desc')
+                ->limit($request->end)->offset($request->start - 1)
+                ->get()
+                ->map(function ($item) {
+                    return [$item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
+                })->toArray();
 
 
+            Log::info($models);
+            $ln = DB::table('applicant')
+                ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                ->where('branch', (int)$request->current_branch_search)
+                ->where('done', (int)$request->app_status)
+                // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
+                // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
+                ->limit($request->end)->offset($request->start - 1)
+                ->count();
+            // $ln = $app->count();
 
-                echo json_encode($a);
-            } else {
-                $models = DB::table('applicant')
-                    ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                    ->where('branch', (int)$request->current_branch_search)
-                    ->where('done', (int)$request->app_status)
-                    // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-                    // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                    ->orderBy('created_at', 'desc')
-                    ->limit($request->end)->offset($request->start - 1)
-                    ->get()
-                    ->map(function ($item) {
-                        return [$item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-                    })->toArray();
+            $a = array(
+                "draw" => $request->draw,
+                "recordsTotal" => $ln,
+                "recordsFiltered" => $ln,
+                "data" => $models,
 
-
-                Log::info($models);
-                $ln = DB::table('applicant')
-                    ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                    ->where('branch', (int)$request->current_branch_search)
-                    ->where('done', (int)$request->app_status)
-                    // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-                    // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                    ->limit($request->end)->offset($request->start - 1)
-                    ->count();
-                // $ln = $app->count();
-
-                $a = array(
-                    "draw" => $request->draw,
-                    "recordsTotal" => $ln,
-                    "recordsFiltered" => $ln,
-                    "data" => $models,
-
-                );
+            );
 
 
 
-                echo json_encode($a);
-            }
+            echo json_encode($a);
         } else {
 
             Log::info('user code branch ' . $user);
