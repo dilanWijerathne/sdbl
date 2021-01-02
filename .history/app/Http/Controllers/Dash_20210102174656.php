@@ -923,19 +923,19 @@ class Dash extends Controller
 
             if ((int)$request->app_status === 10) {
                 $models = DB::table('applicant')
-                    ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                     ->where('branch', (int)$request->current_branch_search)
                     ->orderBy('created_at', 'desc')
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
                     ->map(function ($item) {
-                        return [$item->ref, $item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
+                        return [$item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
                     })->toArray();
 
 
                 Log::info($models);
                 $ln = DB::table('applicant')
-                    ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                     ->where('branch', (int)$request->current_branch_search)
                     ->limit($request->end)->offset($request->start - 1)
                     ->count();
@@ -954,7 +954,7 @@ class Dash extends Controller
                 echo json_encode($a);
             } else {
                 $models = DB::table('applicant')
-                    ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    ->select('title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                     ->where('branch', (int)$request->current_branch_search)
                     ->where('done', (int)$request->app_status)
                     // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
@@ -963,13 +963,13 @@ class Dash extends Controller
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
                     ->map(function ($item) {
-                        return [$item->ref, $item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
+                        return [$item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
                     })->toArray();
 
 
                 Log::info($models);
                 $ln = DB::table('applicant')
-                    ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    ->select('title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                     ->where('branch', (int)$request->current_branch_search)
                     ->where('done', (int)$request->app_status)
                     // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
