@@ -324,7 +324,7 @@ class Application extends Controller
         if ($applicant_status === "fixed_deposits") {
 
             $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
-                ->where('area', 'fixed_deposits')
+                ->where('area', 'individual_account_type')
                 ->where('age_limit', '<=', $age)
                 ->where('active',  1)
                 ->get();
