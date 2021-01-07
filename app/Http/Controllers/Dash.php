@@ -458,10 +458,26 @@ class Dash extends Controller
 
 
 
+    public function generateRandomString($length)
+    {
+        $characters = '123456789';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+
+
+
+
     public function doRef_cif()
     {
-        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
-
+        //   $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        $ref = Ref_nums::latest()->first();
+        //  $app = Applicant::where("nic", $nic)->latest()->first();
         $v =  $ref['ref_number'] + 1;
 
         $rn = new Ref_nums;
@@ -469,13 +485,16 @@ class Dash extends Controller
         $rn->save();
 
         $ref = 'TAP00000000' . $v;
+        $wildcard =  $this->generateRandomString(1);
+        $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
     }
 
 
     public function doRef()
     {
-        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        $ref = Ref_nums::latest()->first();
 
         $v =  $ref['ref_number'] + 1;
 
@@ -484,6 +503,8 @@ class Dash extends Controller
         $rn->save();
 
         $ref = 'CUS00000000' . $v;
+        $wildcard =  $this->generateRandomString(1);
+        $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
     }
 
@@ -518,6 +539,24 @@ class Dash extends Controller
     {
         $b = array();
     }
+
+
+     public function prepare_mobile_number($d)
+    {
+        $n =  null;
+        if (strlen($d) == 10) {
+            $n =  substr($d, 1);
+        }
+        if (strlen($d) == 11) {
+            $n =  substr($d, 2);
+        }
+        if (strlen($d) == 9) {
+            $n =  $d;
+        }
+
+        return  $n;
+    }
+
 
 
 
@@ -563,7 +602,7 @@ class Dash extends Controller
                     "nic" => $nic,
                     "branch" => $bdo_branch->code,
                     "app_ref" => $app['ref'],
-                    "mobile" => substr($ex_cus_mobile, 2),
+                    "mobile" => $this->prepare_mobile_number($ex_cus_mobile), // substr($ex_cus_mobile, 2),
                     "title" => $app['title'],
                     "name" =>  $app['full_name'],
                     "email" => "",
@@ -596,24 +635,25 @@ class Dash extends Controller
                 $short_name = substr($s, 0, 20);
 
 
-                $pnumber = substr($app['primary_mobile_number'], 1);
+                  $pnumber = $this->prepare_mobile_number($app['primary_mobile_number']); // substr($app['primary_mobile_number'], 1);
                 if ($app['secondary_mobile_number'] === null | $app['secondary_mobile_number'] === "null" | $app['secondary_mobile_number'] === NULL | $app['secondary_mobile_number'] === "NULL" | $app['secondary_mobile_number'] === "0" | $app['secondary_mobile_number'] === 0) {
-                    $pnumber = substr($app['primary_mobile_number'], 1);
+                    $pnumber = $this->prepare_mobile_number($app['primary_mobile_number']); //substr($app['primary_mobile_number'], 1);
                 } else {
-                    $pnumber = substr($app['secondary_mobile_number'], 1);
+                    $pnumber = $this->prepare_mobile_number($app['secondary_mobile_number']); //substr($app['secondary_mobile_number'], 1);
                 }
 
 
 
                 $onumber =  "";
                 if ($work_place['telephone'] === null | $work_place['telephone'] === "null" | $work_place['telephone'] === NULL | $work_place['telephone'] === "NULL" | $work_place['telephone'] === "" | $work_place['telephone'] === " " | $work_place['telephone'] === "0" | $work_place['telephone'] === 0) {
-                    $onumber = substr($app['primary_mobile_number'], 1);
+                    $onumber =  $this->prepare_mobile_number($app['primary_mobile_number']); //substr($app['primary_mobile_number'], 1);
                 } else {
-                    $onumber = substr($work_place['telephone'], 1);
+                    $onumber =  $this->prepare_mobile_number($work_place['telephone']); //substr($work_place['telephone'], 1);
                 }
 
 
-                $param = array(
+
+               $param = array(
                     'initials_of_name' => $nm_s[3], //$app['display_name'],
                     'district' => $app['district'],
                     'house_numer' =>  $app['address1'],
@@ -621,7 +661,7 @@ class Dash extends Controller
                     'city' =>   $app['address3'],
                     'city_main' =>   $app['address4'],
                     'secondary_number' =>  $pnumber, //  substr($app['secondary_mobile_number'], 1),
-                    'primary_mobile_number' =>  substr($app['primary_mobile_number'], 1),
+                    'primary_mobile_number' =>  $this->prepare_mobile_number($app['primary_mobile_number']), // substr($app['primary_mobile_number'], 1),
                     'surname' => $name[$num_name - 1],
                     'nic' =>  $app['nic'],
                     'sex' =>  $app['sex'],

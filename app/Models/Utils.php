@@ -60,7 +60,7 @@ class Utils
         $response = Http::post($url, [
 
             "application_SessionId" =>  uniqid('SDB-'), //"20201021-SDBL-0002",
-            "application_Code" => "SDB",
+            "application_Code" => "SDBC",
             "application_Password" => "f1ba603c1a843a3d02d6c5038d8e959",
             "customerid" => $cusid, // "10785",
             "customer_account" => $acc,
