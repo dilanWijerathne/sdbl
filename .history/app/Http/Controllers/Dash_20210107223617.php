@@ -44,7 +44,7 @@ class Dash extends Controller
     {
 
         $branch_id = $request->id;
-        return Branches::where('code',  $branch_id)->latest()->first();
+        return Branches::where('code',  $branch_id)->first();
     }
 
 
@@ -90,7 +90,7 @@ class Dash extends Controller
     public function sms($acc, $number)
     {
         $url =   env('SMS_SEND');
-        $mesg = "Thank you for banking with SDB Bank. Your new account number is : " . $acc . ". Call center 0115411411.   Get SDB Bank Mobile app for much better experience : https://rb.gy/cc9xb3 ";
+        $mesg = "Thank you for banking with SDB Bank. Your new account number is : " . $acc . ". Call center 0115411411.   Get SDB Mobile app download for better experience :  https://rb.gy/cc9xb3 ";
 
         $response = Http::post($url, [
             'mobalertid' => "0",
@@ -113,7 +113,7 @@ class Dash extends Controller
     public function reviewed(Request $request)
     {
 
-        Log::info('Review mark');
+        Log::info('Review | Reject mark');
         Log::info($request);
         if (isset($request->ref) && isset($request->type)) {
 
@@ -125,6 +125,9 @@ class Dash extends Controller
             } elseif ($request->type === "mng") {
                 $app = Applicant::where("ref", $request->ref)->update(['approved' => 1]);
                 $app = Applicant::where("ref", $request->ref)->update(['review_staff' => $request->bdo]);
+            } elseif ($request->type === "reject") {
+                $app = Applicant::where("ref", $request->ref)->update(['approved' => 3, 'done' => 2]);
+                $app = Applicant::where("ref", $request->ref)->update(['review_staff' => $request->bdo]);
             } else {
                 Log::info('invalid type to review ');
                 return  "invalid type";
@@ -134,6 +137,9 @@ class Dash extends Controller
             return "invalid";
         }
     }
+
+
+
 
 
 
@@ -208,6 +214,7 @@ class Dash extends Controller
         $nic_f = Images::where('nic', $nic)->where('file_type', 'nicf')->latest()->first();
         $nic_r = Images::where('nic', $nic)->where('file_type', 'nicr')->latest()->first();
         $proof = Images::where('nic', $nic)->where('file_type', 'proof')->latest()->first();
+        $proofr = Images::where('nic', $nic)->where('file_type', 'proofr')->latest()->first();
         $selfie = Images::where('nic', $nic)->where('file_type', 'selfie')->latest()->first();
 
         $signatures =  Signatures::where('nic', $nic)->latest()->first();
@@ -232,6 +239,7 @@ class Dash extends Controller
             "nicf" => $nic_f,
             "nicr" =>  $nic_r,
             "proof" => $proof,
+            "proofr" => $proofr,
             "selfie" => $selfie,
             "multimedia" => $multimedia,
             "bdo" => $bdo_branch,
@@ -460,8 +468,9 @@ class Dash extends Controller
 
     public function doRef_cif()
     {
-        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
-
+        //   $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        $ref = Ref_nums::latest()->first();
+        //  $app = Applicant::where("nic", $nic)->latest()->first();
         $v =  $ref['ref_number'] + 1;
 
         $rn = new Ref_nums;
@@ -475,7 +484,8 @@ class Dash extends Controller
 
     public function doRef()
     {
-        $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        //$ref = Ref_nums::orderBy('updated_at', 'desc')->first();
+        $ref = Ref_nums::latest()->first();
 
         $v =  $ref['ref_number'] + 1;
 
@@ -491,7 +501,7 @@ class Dash extends Controller
     public function doName($fullname)
     {
 
-
+        Log::info("Do name input " . $fullname);
 
         $name = explode(" ", $fullname);
         $num_name = count($name);
@@ -504,11 +514,13 @@ class Dash extends Controller
             $v = $name[$i];
             $nm .= $v[0];
             $second_name .= $v;
-            $initials .=  $v[0];
+            $initials .=  $v[0] . ".";
         }
 
-        $str = ltrim($initials, '.');
+        $str = ltrim($initials, '.');   //// make sure intials separate adter dots
+        $str = rtrim($str, ".");
         $mod = explode(" ", $nm);
+        Log::info("Do name outcome" . json_encode(array($nm, $second_name, $mod[0], $str)));
         return array($nm, $second_name, $mod[0], $str);
     }
 
@@ -617,6 +629,7 @@ class Dash extends Controller
                     'house_numer' =>  $app['address1'],
                     'CURR_STREET' => $app['address2'],
                     'city' =>   $app['address3'],
+                    'city_main' =>   $app['address4'],
                     'secondary_number' =>  $pnumber, //  substr($app['secondary_mobile_number'], 1),
                     'primary_mobile_number' =>  substr($app['primary_mobile_number'], 1),
                     'surname' => $name[$num_name - 1],
@@ -659,12 +672,12 @@ class Dash extends Controller
                     "MARITAL_STATUS" => "",
                     "USER_ID" => "",
                     "SHORT_NAME" => $param['short_name'], //"Perera ABC",
-                    "SECOND_NAME" => $param['second_name'],
+                    "SECOND_NAME" => "", //$param['second_name'],
                     "CURR_STREET" => $param['CURR_STREET'],
                     "BUSINESS_PHONE" =>  $this->default_val($param['telephone']), //$param['telephone'],
                     "STATUS" => 1,
                     "PRIMARY_OFFICER_COD" => "MOB",
-                    "CURR_DISTRICT" => $param['district'],
+                    "CURR_DISTRICT" => $param['city_main'],
                     "CITIZENSHIP_CODE" => "001",
                     "CURR_HOUSE_NBR" => substr($param['house_numer'], 0, 6),
                     "HOME_PHONE_NUMBER" => $this->default_val($param['secondary_number']),
@@ -719,12 +732,12 @@ class Dash extends Controller
                     "MARITAL_STATUS" => "",
                     "USER_ID" => "",
                     "SHORT_NAME" => $param['short_name'], //"Perera ABC",
-                    "SECOND_NAME" => $param['second_name'],
+                    "SECOND_NAME" => "", //$param['second_name'],
                     "CURR_STREET" => $param['CURR_STREET'],
                     "BUSINESS_PHONE" =>  $this->default_val($param['telephone']), //$param['telephone'],
                     "STATUS" => 1,
                     "PRIMARY_OFFICER_COD" => "MOB",
-                    "CURR_DISTRICT" => $param['district'],
+                    "CURR_DISTRICT" => $param['city_main'],
                     "CITIZENSHIP_CODE" => "001",
                     "CURR_HOUSE_NBR" => substr($param['house_numer'], 0, 6),
                     "HOME_PHONE_NUMBER" => $this->default_val($param['secondary_number']),
@@ -742,7 +755,7 @@ class Dash extends Controller
                     "PREFERED_CUSTOMER" => "",
                     "ERROR_CODE" => "",
                     "SEQUENCE_NUMBER" => 1,
-                    "LOCATION_CODE" => $this->dis($param['district']),
+                    "LOCATION_CODE" =>  $this->dis($param['district']),
                     "CELLULAR_PHONE_NU" => $param['primary_mobile_number'],
                     "DATE_OF_BIRTH" => $param['dob'],
                     "SOCIO_ECONOMIC_GRO" => "001",
@@ -895,6 +908,7 @@ class Dash extends Controller
 
 
         Log::info('user check to view applicant data');
+        Log::info($request);
         Log::info($request->user_email);
         $user_email = $request->user_email;
 
@@ -903,54 +917,90 @@ class Dash extends Controller
             ->select('branch_codes.code', 'users.email')
             ->where('users.email', $user_email)
             ->first();
-
+        //
         $user = $bdo_branch->code;
         Log::info('user code  ' . $user);
 
         if ($user === 0 | $user === "0") {
             Log::info('user code Central ' . $user);
+            //current_branch_search
 
-            $models = DB::table('applicant')
-                ->select('title',  'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                ->where('nic', 'LIKE', $request->search . '%')
-                ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                ->orderBy('created_at', 'desc')
-                ->limit($request->end)->offset($request->start - 1)
-                ->get()
-                ->map(function ($item) {
-                    return [$item->title,  $item->display_name, $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
-                })->toArray();
+            if ((int)$request->app_status === 10) {
+                $models = DB::table('applicant')
+                    ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    ->where('branch', (int)$request->current_branch_search)
+                    ->orderBy('created_at', 'desc')
+                    ->limit($request->end)->offset($request->start - 1)
+                    ->get()
+                    ->map(function ($item) {
+                        return [$item->ref, $item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
+                    })->toArray();
 
 
-            Log::info($models);
-            $ln = DB::table('applicant')
-                ->select('title', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
-                ->where('nic', 'LIKE', $request->search . '%')
-                ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                ->limit($request->end)->offset($request->start - 1)
-                ->count();
-            // $ln = $app->count();
+                Log::info($models);
+                $ln = DB::table('applicant')
+                    ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    ->where('branch', (int)$request->current_branch_search)
+                    ->limit($request->end)->offset($request->start - 1)
+                    ->count();
+                // $ln = $app->count();
 
-            $a = array(
-                "draw" => $request->draw,
-                "recordsTotal" => $ln,
-                "recordsFiltered" => $ln,
-                "data" => $models,
+                $a = array(
+                    "draw" => $request->draw,
+                    "recordsTotal" => $ln,
+                    "recordsFiltered" => $ln,
+                    "data" => $models,
 
-            );
+                );
 
 
 
-            echo json_encode($a);
+                echo json_encode($a);
+            } else {
+                $models = DB::table('applicant')
+                    ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    //->where('branch', (int)$request->current_branch_search)
+                    ->where('done', (int)$request->app_status)
+                    // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
+                    // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
+                    ->orderBy('created_at', 'desc')
+                    ->limit($request->end)->offset($request->start - 1)
+                    ->get()
+                    ->map(function ($item) {
+                        return [$item->ref, $item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
+                    })->toArray();
+
+
+                Log::info($models);
+                $ln = DB::table('applicant')
+                    ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                    //->where('branch', (int)$request->current_branch_search)
+                    ->where('done', (int)$request->app_status)
+                    // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
+                    // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
+                    ->limit($request->end)->offset($request->start - 1)
+                    ->count();
+                // $ln = $app->count();
+
+                $a = array(
+                    "draw" => $request->draw,
+                    "recordsTotal" => $ln,
+                    "recordsFiltered" => $ln,
+                    "data" => $models,
+
+                );
+
+
+
+                echo json_encode($a);
+            }
         } else {
 
             Log::info('user code branch ' . $user);
 
 
             $models = DB::table('applicant')
-                ->select('title',  'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                 ->where('branch', $user)
                 /*  ->orWhere('nic', 'LIKE', $request->search . '%')
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
@@ -960,13 +1010,13 @@ class Dash extends Controller
                 ->limit($request->end)->offset($request->start - 1)
                 ->get()
                 ->map(function ($item) {
-                    return [$item->title,  $item->display_name, $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
+                    return [$item->ref, $item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->created_at];
                 })->toArray();
 
 
             Log::info($models);
             $ln = DB::table('applicant')
-                ->select('title', 'display_name', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
+                ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                 ->where('branch', $user)
                 /*->orWhere('nic', 'LIKE', $request->search . '%')
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
