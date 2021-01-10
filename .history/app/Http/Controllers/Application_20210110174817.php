@@ -48,6 +48,7 @@ class Application extends Controller
         try {
             $nic = $request->input('nic');
             $ref = $request->input('ref');
+
             $period = $request->input('period');
             $interest_payable_at = $request->input('interest_payable_at');
             $interest_disposal_method = $request->input('interest_disposal_method');
@@ -65,7 +66,6 @@ class Application extends Controller
             $fixed->interest_transfer_account = $interest_transfer_account;
             $fixed->interest_transfer_branch = $interest_transfer_branch;
             $fixed->save();
-            return 1;
         } catch (Exception $e) {
             Log::error('erro of FD saving ');
             Log::error($request);

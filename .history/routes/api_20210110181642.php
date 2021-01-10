@@ -10,7 +10,6 @@ use App\Http\Controllers\Bdo\ApplicantController;
 use App\Http\Controllers\Application;
 
 use App\Http\Controllers\Dash;
-use App\Http\Controllers\FDDash;
 use App\Http\Controllers\Multimedia;
 use App\Http\Controllers\Stat;
 use App\Http\Controllers\Communication;
@@ -66,8 +65,6 @@ Route::get('/inapp', [Dash::class, 'create_new_Cif_inapp']);
 
 
 Route::get('/applicants', [Dash::class, 'getApplicants']);
-
-Route::get('/applicants_fds', [FDDash::class, 'getFDApplicants']);
 
 Route::post('/upload_img', [Multimedia::class, 'upload_nic']);
 
