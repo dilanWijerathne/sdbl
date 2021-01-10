@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Log;
 
 use App\Models\Kyc;
 use App\Models\Account;
-use App\Models\Fixed;
 use App\Models\Work_place;
 use App\Models\Nominee;
 use App\Models\Images;
@@ -16,7 +15,6 @@ use App\Models\Applicant;
 use App\Models\Cif_Response;
 use App\Exceptions\Handler;
 use App\Models\Branches;
-use Error;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
@@ -38,39 +36,6 @@ class Application extends Controller
 
     public function new_fd(Request $request)
     {
-        Log::info('request to new FD');
-        Log::info($request);
-
-        /**
-         *   desposit,
-         */
-
-        try {
-            $nic = $request->input('nic');
-            $ref = $request->input('ref');
-            $period = $request->input('period');
-            $interest_payable_at = $request->input('interest_payable_at');
-            $interest_disposal_method = $request->input('interest_disposal_method');
-            $interest_transfer_bank = $request->input('interest_transfer_bank');
-            $interest_transfer_account = $request->input('interest_transfer_account');
-            $interest_transfer_branch = $request->input('interest_transfer_branch');
-
-            $fixed = new Fixed;
-            $fixed->ref = $ref;
-            $fixed->nic = $nic;
-            $fixed->period = $period;
-            $fixed->interest_payable_at = $interest_payable_at;
-            $fixed->interest_disposal_method = $interest_disposal_method;
-            $fixed->interest_transfer_bank = $interest_transfer_bank;
-            $fixed->interest_transfer_account = $interest_transfer_account;
-            $fixed->interest_transfer_branch = $interest_transfer_branch;
-            $fixed->save();
-            return 1;
-        } catch (Exception $e) {
-            Log::error('erro of FD saving ');
-            Log::error($request);
-            Log::error($e);
-        }
     }
 
 
