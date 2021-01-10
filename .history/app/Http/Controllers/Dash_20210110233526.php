@@ -1131,7 +1131,8 @@ class Dash extends Controller
                     );
 
                     echo json_encode($a);
-                } else {
+                }
+                if ($product === "all") {
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at')
                         //->where('branch', (int)$request->current_branch_search)
