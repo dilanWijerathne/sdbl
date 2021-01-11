@@ -18,7 +18,6 @@ use App\Models\Images;
 use App\Models\Signatures;
 use App\Models\Branches;
 use App\Models\Utils;
-use App\Models\Fixed;
 use Illuminate\Support\Facades\DB;
 
 
@@ -228,9 +227,8 @@ class Dash extends Controller
             ->where('users.email', $app['bdo'])
             ->first();
 
-        $fd = "";
+
         if ($app['applicant_going_to_open' === "Fixed Deposits"]) {
-            $fd = Fixed::where("nic", $nic)->latest()->first();
         }
 
         $ar = array(
