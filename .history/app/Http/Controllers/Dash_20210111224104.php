@@ -230,11 +230,7 @@ class Dash extends Controller
 
         $fd = "null";
         if ($app['applicant_going_to_open' == "Fixed Deposits"]) {
-            Log::info('fd tected and from db');
             $fd = Fixed::where("nic", $nic)->latest()->first();
-            Log::info($fd);
-        } else {
-            Log::info('NOT fd tected and from db');
         }
 
         $ar = array(
