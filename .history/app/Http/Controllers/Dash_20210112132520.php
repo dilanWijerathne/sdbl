@@ -266,42 +266,26 @@ class Dash extends Controller
 
     public function create_fd($para)
     {
+        $check2 = array(
 
-        $act = array(
-            "Normal FD" => "162",
-            "Upahara FD" => "150",
-            "Government Special FD" => "185",
-        );
-
-        $fd = Fixed::where("nic", $para['nic'])->latest()->first();
-
-        $I_DISPOSTION_CODE = "";
-        if ($fd['interest_payable_at'] === "disposeOther") {
-            $I_DISPOSTION_CODE = "T";
-        } else {
-            $I_DISPOSTION_CODE = "C";
-        }
-
-
-        $aa = array(
-            "REFERENCE_NUMBER" => $this->doRef_fd(), //"TIM000000000001",
-            "CIF_NUMBER" => $para['cif'], //"0001143959",
-            "CUS_RELATIONSHIP" => "TAB",
+            "REFERENCE_NUMBER" => "TIM000000000001",
+            "CIF_NUMBER" => "0001143959",
+            "CUS_RELATIONSHIP" => "SOW",
             "SEQUENCE_FOR_REF" => "1",
             "SEQUENCE_NUMBER" => "1",
             "TIME_AC_NUMBER" => "0",
-            "BRANCH_NUMBER" => $para['branch'], //"56",
+            "BRANCH_NUMBER" => "56",
             "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => $para['empId'], // officer epf number
-            "OPEN_DATE" => $para['today'],   // julina today
-            "FACE_AMOUNT" => $fd['desposit'], //"500000",
+            "PRODUCT_TYPE" => "162",
+            "OFFICER_CODE" => "119",
+            "OPEN_DATE" => "2020280",
+            "FACE_AMOUNT" => "500000",
             "TESSA_TYPE" => "0",
             "RETIRE_PLAN_NUM" => "",
-            "P_DISPOSTION_CODE" => "N",
-            "I_DISPOSTION_CODE" =>  $I_DISPOSTION_CODE, // "C",
+            "P_DISPOSTION_CODE" => "T",
+            "I_DISPOSTION_CODE" => "C",
             "SOURCE_OF_FUNDS" => "1",
-            "DEPOSIT_AMOUNT" => $fd['desposit'],
+            "DEPOSIT_AMOUNT" => "500000",
             "APPLICATION_DATE" => "0",
             "TITLE_MODIFER" => "",
             "ST_ACCRUAL_DATE" => "0",
@@ -326,8 +310,8 @@ class Dash extends Controller
             "PASSBOOK_NUMBER" => "0",
             "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
-            "RENEWAL_FREQUENCY" => $fd['period'], // "24",
-            "RENEWAL_SPEC_DAY" => $para['day'], // "06",
+            "RENEWAL_FREQUENCY" => "24",
+            "RENEWAL_SPEC_DAY" => "06",
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
@@ -340,7 +324,7 @@ class Dash extends Controller
             "ACCRUAL_METHOD" => "S",
             "ACCRUAL_BASE" => "2",
             "YEAR_BASE" => "2",
-            "ACCOUNT_OPEN_DATE" => $para['today'], // "2020280",
+            "ACCOUNT_OPEN_DATE" => "2020280",
             "DATE_OF_BIRTH" => "0",
             "LIFE_EXPEC_YEAR" => "0",
             "LIFE_EXPEC_MONTH" => "0",
@@ -355,8 +339,8 @@ class Dash extends Controller
             "NO_OF_RELATIONSHI" => "0",
             "ERROR_CODE" => "",
             "STATUS" => "1",
-            "USER_ID" => "",
-            "DATE" => $para['today'], // "20201101",
+            "USER_ID" => "test1",
+            "DATE" => "20201101",
             "TIME" => "20020010",
             "FIELD1" => "0",
             "FIELD2" => "0",
@@ -391,7 +375,7 @@ class Dash extends Controller
             "ORDER_INDEX_IDD" => "C",
             "TARGET_INDEX_IDNO" => "E",
             "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" => $fd['interest_transfer_account'],
+            "INTERNAL_ACCOUNT_N0" => "1089327",
             "AMOUNT" => "0",
             "DESCRIPTION" => "",
             "INTERNAL_GL_COST_CT2" => "0",
@@ -403,31 +387,26 @@ class Dash extends Controller
             "ACCOUNT_SHORT_NAME" => ""
         );
 
-
-
-        Log::info('FD array');
-        Log::info($aa);
-
         $url = "http://10.100.32.72:7801/timeaccountcreation/v1/TimeAccountCreation";
         $response = Http::post($url, [
-            "REFERENCE_NUMBER" => $this->doRef_fd(), //"TIM000000000001",
+            "REFERENCE_NUMBER" => $para['ref'], //"TIM000000000001",
             "CIF_NUMBER" => $para['cif'], //"0001143959",
-            "CUS_RELATIONSHIP" => "TAB",
+            "CUS_RELATIONSHIP" => "SOW",
             "SEQUENCE_FOR_REF" => "1",
             "SEQUENCE_NUMBER" => "1",
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => $para['empId'], // officer epf number
-            "OPEN_DATE" => $para['today'],   // julina today
-            "FACE_AMOUNT" => $fd['desposit'], //"500000",
+            "PRODUCT_TYPE" => "162", // add relevent product type from table
+            "OFFICER_CODE" => "119", // officer epf number
+            "OPEN_DATE" => "2020280",   // julina today
+            "FACE_AMOUNT" => $para['deposit'], //"500000",
             "TESSA_TYPE" => "0",
             "RETIRE_PLAN_NUM" => "",
-            "P_DISPOSTION_CODE" => "N",
-            "I_DISPOSTION_CODE" =>  $I_DISPOSTION_CODE, // "C",
+            "P_DISPOSTION_CODE" => "T",
+            "I_DISPOSTION_CODE" => "C",
             "SOURCE_OF_FUNDS" => "1",
-            "DEPOSIT_AMOUNT" => $fd['desposit'],
+            "DEPOSIT_AMOUNT" => "500000",
             "APPLICATION_DATE" => "0",
             "TITLE_MODIFER" => "",
             "ST_ACCRUAL_DATE" => "0",
@@ -452,8 +431,8 @@ class Dash extends Controller
             "PASSBOOK_NUMBER" => "0",
             "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
-            "RENEWAL_FREQUENCY" => $fd['period'], // "24",
-            "RENEWAL_SPEC_DAY" => $para['day'], // "06",
+            "RENEWAL_FREQUENCY" => "24",
+            "RENEWAL_SPEC_DAY" => "06",
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
@@ -466,7 +445,7 @@ class Dash extends Controller
             "ACCRUAL_METHOD" => "S",
             "ACCRUAL_BASE" => "2",
             "YEAR_BASE" => "2",
-            "ACCOUNT_OPEN_DATE" => $para['today'], // "2020280",
+            "ACCOUNT_OPEN_DATE" => "2020280",
             "DATE_OF_BIRTH" => "0",
             "LIFE_EXPEC_YEAR" => "0",
             "LIFE_EXPEC_MONTH" => "0",
@@ -481,8 +460,8 @@ class Dash extends Controller
             "NO_OF_RELATIONSHI" => "0",
             "ERROR_CODE" => "",
             "STATUS" => "1",
-            "USER_ID" => "",
-            "DATE" => $para['today'], // "20201101",
+            "USER_ID" => "test1",
+            "DATE" => "20201101",
             "TIME" => "20020010",
             "FIELD1" => "0",
             "FIELD2" => "0",
@@ -517,7 +496,7 @@ class Dash extends Controller
             "ORDER_INDEX_IDD" => "C",
             "TARGET_INDEX_IDNO" => "E",
             "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" => $fd['interest_transfer_account'],
+            "INTERNAL_ACCOUNT_N0" => "1089327",
             "AMOUNT" => "0",
             "DESCRIPTION" => "",
             "INTERNAL_GL_COST_CT2" => "0",
@@ -528,225 +507,212 @@ class Dash extends Controller
             "DESCRIPTION_3" => "",
             "ACCOUNT_SHORT_NAME" => ""
         ]);
-
-
-        Log::info('FD core response ');
-        Log::info($response);
     }
 
 
     public function create_account($para)
     {
+        Log::info('Account creation started ' . json_encode($para));
 
-        //create_fd
-        if ($para['applicant_going_to_open'] === "Fixed Deposits") {
-            Log::info('FD creation started ' . json_encode($para));
-            $this->create_fd($para);
-        } else {
+        $act = array(
+            "Top Server" => "122",
+            "Normal Savings" => "111",
+            "UPay Business Account" => "129",
+            "Uththamavi Plus" => "115",
+            "Upahara Savings" => "137",
 
-            Log::info('Account creation started ' . json_encode($para));
 
+        );
 
+        $url = "";
+        if (env('APP_LIVE') === "yes") {
+            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " .  env('ACCOUNT_CREATE'));
+            $url =  env('ACCOUNT_CREATE');
+        } elseif (env('APP_LIVE') === "no") {
+            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " . env('ACCOUNT_CREATE_TEST'));
+            $url =   env('ACCOUNT_CREATE_TEST');
+        }
 
 
-            $act = array(
-                "Top Server" => "122",
-                "Normal Savings" => "111",
-                "UPay Business Account" => "129",
-                "Uththamavi Plus" => "115",
-                "Upahara Savings" => "137",
-            );
+        $check2 = array(
 
-            $url = "";
-            if (env('APP_LIVE') === "yes") {
-                Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " .  env('ACCOUNT_CREATE'));
-                $url =  env('ACCOUNT_CREATE');
-            } elseif (env('APP_LIVE') === "no") {
-                Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " . env('ACCOUNT_CREATE_TEST'));
-                $url =   env('ACCOUNT_CREATE_TEST');
-            }
+            "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
 
+            "CIF_NUMBER" => $para['cif'], // "0001451462",
 
-            $check2 = array(
+            "CUS_RELATIONSHIP" => "SOW",
 
-                "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
+            "SEQUENCE_FOR_REF" => "1",
 
-                "CIF_NUMBER" => $para['cif'], // "0001451462",
+            "SEQUENCE_NUMBER" => "1",
 
-                "CUS_RELATIONSHIP" => "SOW",
+            "SAVINGS_AC_NUMBER" => "0",
 
-                "SEQUENCE_FOR_REF" => "1",
+            "BRANCH_NUMBER" => $para['branch'],     //
 
-                "SEQUENCE_NUMBER" => "1",
+            "SEQUENCE_NO" => "0",
 
-                "SAVINGS_AC_NUMBER" => "0",
+            "PRODUCT_TYPE" => $act[$para['act']],
 
-                "BRANCH_NUMBER" => $para['branch'],     //
+            "OFFICER_CODE" => "MOB",
 
-                "SEQUENCE_NO" => "0",
+            "OPEN_DATE" => "0",
 
-                "PRODUCT_TYPE" => $act[$para['act']],
+            "INTEREST_PLAN" => "0",
 
-                "OFFICER_CODE" => "MOB",
+            "SC_PLAN" => "0",
 
-                "OPEN_DATE" => "0",
+            "ACCOUNT_TYPE" => "26",
 
-                "INTEREST_PLAN" => "0",
+            "NO_OF_RELATIONSHI" => "1",
 
-                "SC_PLAN" => "0",
+            "ERROR_CODE" => "",
 
-                "ACCOUNT_TYPE" => "26",
+            "STATUS" => "1",
 
-                "NO_OF_RELATIONSHI" => "1",
+            "USER_ID" => "",
 
-                "ERROR_CODE" => "",
+            "DATE" => "",
 
-                "STATUS" => "1",
+            "TIME" => "",
 
-                "USER_ID" => "",
+            "FIELD1" => "0",
 
-                "DATE" => "",
+            "FIELD2" => "0",
 
-                "TIME" => "",
+            "FIELD3" => "0",
 
-                "FIELD1" => "0",
+            "FIELD4" => "0",
 
-                "FIELD2" => "0",
+            "FIELD5" => "0",
 
-                "FIELD3" => "0",
+            "FIELD6" => "0",
 
-                "FIELD4" => "0",
+            "FIELD7" => "0",
 
-                "FIELD5" => "0",
+            "FIELD8" => "0",
 
-                "FIELD6" => "0",
+            "FIELD9" => "0",
 
-                "FIELD7" => "0",
+            "FIELD10" => "0"
+        );
 
-                "FIELD8" => "0",
+        Log::info('acc array');
+        Log::info(json_encode($check2));
 
-                "FIELD9" => "0",
+        $responseC = Http::post($url, [
 
-                "FIELD10" => "0"
-            );
+            "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
 
-            Log::info('acc array');
-            Log::info(json_encode($check2));
+            "CIF_NUMBER" => $para['cif'], // "0001451462",
 
-            $responseC = Http::post($url, [
+            "CUS_RELATIONSHIP" => "SOW",
 
-                "REFERENCE_NUMBER" => $para['ref'], //"TAP000000001000",
+            "SEQUENCE_FOR_REF" => "1",
 
-                "CIF_NUMBER" => $para['cif'], // "0001451462",
+            "SEQUENCE_NUMBER" => "1",
 
-                "CUS_RELATIONSHIP" => "SOW",
+            "SAVINGS_AC_NUMBER" => "0",
 
-                "SEQUENCE_FOR_REF" => "1",
+            "BRANCH_NUMBER" => $para['branch'],     //
 
-                "SEQUENCE_NUMBER" => "1",
+            "SEQUENCE_NO" => "0",
 
-                "SAVINGS_AC_NUMBER" => "0",
+            "PRODUCT_TYPE" =>  $act[$para['act']],
 
-                "BRANCH_NUMBER" => $para['branch'],     //
+            "OFFICER_CODE" => "MOB",
 
-                "SEQUENCE_NO" => "0",
+            "OPEN_DATE" => "0",
 
-                "PRODUCT_TYPE" =>  $act[$para['act']],
+            "INTEREST_PLAN" => "0",
 
-                "OFFICER_CODE" => "MOB",
+            "SC_PLAN" => "0",
 
-                "OPEN_DATE" => "0",
+            "ACCOUNT_TYPE" => "26",
 
-                "INTEREST_PLAN" => "0",
+            "NO_OF_RELATIONSHI" => "1",
 
-                "SC_PLAN" => "0",
+            "ERROR_CODE" => "",
 
-                "ACCOUNT_TYPE" => "26",
+            "STATUS" => "1",
 
-                "NO_OF_RELATIONSHI" => "1",
+            "USER_ID" => "",
 
-                "ERROR_CODE" => "",
+            "DATE" => "",
 
-                "STATUS" => "1",
+            "TIME" => "",
 
-                "USER_ID" => "",
+            "FIELD1" => "0",
 
-                "DATE" => "",
+            "FIELD2" => "0",
 
-                "TIME" => "",
+            "FIELD3" => "0",
 
-                "FIELD1" => "0",
+            "FIELD4" => "0",
 
-                "FIELD2" => "0",
+            "FIELD5" => "0",
 
-                "FIELD3" => "0",
+            "FIELD6" => "0",
 
-                "FIELD4" => "0",
+            "FIELD7" => "0",
 
-                "FIELD5" => "0",
+            "FIELD8" => "0",
 
-                "FIELD6" => "0",
+            "FIELD9" => "0",
 
-                "FIELD7" => "0",
+            "FIELD10" => "0"
+        ]);
 
-                "FIELD8" => "0",
 
-                "FIELD9" => "0",
 
-                "FIELD10" => "0"
-            ]);
+        $var =  $responseC->body();
+        $array = json_decode($var, true);
+        $id = $array['JSON']['Data']['response_status'];
 
+        $account = new Account;
+        $account->ref_number = $array['JSON']['Data']['referenceNumber'];
+        $account->account_number = $array['JSON']['Data']['svId'];
+        $account->nic =  $para['nic'];
 
+        Log::info(json_encode($array));
 
-            $var =  $responseC->body();
-            $array = json_decode($var, true);
-            $id = $array['JSON']['Data']['response_status'];
+        $account->save();
 
-            $account = new Account;
-            $account->ref_number = $array['JSON']['Data']['referenceNumber'];
-            $account->account_number = $array['JSON']['Data']['svId'];
-            $account->nic =  $para['nic'];
+        //app_ref
 
-            Log::info(json_encode($array));
+        if (isset($array['JSON']['Data']['svId'])) {
 
-            $account->save();
+            if (strlen($array['JSON']['Data']['svId']) > 2) {
+                $app = Applicant::where("ref", $para['app_ref'])->update(['done' => 1]);
+                $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
 
-            //app_ref
 
-            if (isset($array['JSON']['Data']['svId'])) {
 
-                if (strlen($array['JSON']['Data']['svId']) > 2) {
-                    $app = Applicant::where("ref", $para['app_ref'])->update(['done' => 1]);
-                    $this->sms($array['JSON']['Data']['svId'], $para['mobile']);
+                $param = array(
+                    "cusid" => $para['cif'],
+                    "account" => $array['JSON']['Data']['svId'],
+                    "mobile" => $para['mobile'],
+                    "title" => $para['title'],
+                    "name" => $para['name'],
+                    "branch" => $para['branch'],
+                    "email" => $para['email'],
+                    "nic" => $para['nic'],
 
 
+                );
 
-                    $param = array(
-                        "cusid" => $para['cif'],
-                        "account" => $array['JSON']['Data']['svId'],
-                        "mobile" => $para['mobile'],
-                        "title" => $para['title'],
-                        "name" => $para['name'],
-                        "branch" => $para['branch'],
-                        "email" => $para['email'],
-                        "nic" => $para['nic'],
-
-
-                    );
-
-                    Log::info('Registering to SMS : ' . $para['mobile']);
-                    Log::info('Registering to SMS');
-                    Log::info(json_encode($param));
-                    Utils::smsreg($param);
-                } else {
-                    Log::error($array['JSON']['Data']['svId'] . " | wrong response from core api");
-                }
+                Log::info('Registering to SMS : ' . $para['mobile']);
+                Log::info('Registering to SMS');
+                Log::info(json_encode($param));
+                Utils::smsreg($param);
             } else {
-                Log::error("['JSON']['Data']['svId']" . "core banking api response error");
+                Log::error($array['JSON']['Data']['svId'] . " | wrong response from core api");
             }
+        } else {
+            Log::error("['JSON']['Data']['svId']" . "core banking api response error");
         }
     }
-    // end of account creation
+
 
 
 
@@ -763,25 +729,6 @@ class Dash extends Controller
 
 
 
-
-    // fd ref creation
-
-    public function doRef_fd()
-    {
-        //   $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
-        $ref = Ref_nums::latest()->first();
-        //  $app = Applicant::where("nic", $nic)->latest()->first();
-        $v =  $ref['ref_number'] + 1;
-
-        $rn = new Ref_nums;
-        $rn->ref_number = $v;
-        $rn->save();
-
-        $ref = 'TIM00000000' . $v;
-        $wildcard =  $this->generateRandomString(1);
-        $ref = substr_replace($ref, $wildcard, 9, 1);
-        return $ref;
-    }
 
 
     public function doRef_cif()
@@ -800,8 +747,6 @@ class Dash extends Controller
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
     }
-
-
 
 
     public function doRef()
@@ -881,11 +826,6 @@ class Dash extends Controller
 
         $work_place = Work_place::where("applicant_nic", $nic)->orderBy('updated_at', 'desc')->first();
 
-        $mydate = getdate(date("U"));
-        $d =  $mydate["mday"];
-        $m = $mydate["mon"];
-        $y = $mydate["year"];
-        $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
 
         if ($app['done'] === 0 | $app['done'] === '0') {
 
@@ -894,7 +834,7 @@ class Dash extends Controller
             //////////////////////////
             $bdo_branch = DB::table('users')
                 ->join('branch_codes', 'users.branch', '=', 'branch_codes.code')
-                ->select('branch_codes.code', 'users.email', 'users.emp')
+                ->select('branch_codes.code', 'users.email')
                 ->where('users.email', $app['bdo'])
                 ->first();
 
@@ -910,7 +850,7 @@ class Dash extends Controller
                 $cif_r =  $this->doRef_cif();
 
                 $ex_cus_mobile =  $app['primary_mobile_number'];
-                /*
+
                 $para = array(
                     "cif" => $cif_Response['cif'],
                     "ref" => $cif_r,
@@ -924,29 +864,7 @@ class Dash extends Controller
                     "act" => $app['applicant_individual_account_type'],
                 );
 
-               */
-
-                //
-                $para = array(
-                    "cif" => $cif_Response['cif'],
-                    "ref" => $cif_r,
-                    "nic" => $nic,
-                    "branch" => $bdo_branch->code,
-                    "app_ref" => $app['ref'],
-                    "mobile" => $this->prepare_mobile_number($ex_cus_mobile), //substr( $ex_cus_mobile , 2),
-                    "title" => $app['title'],
-                    "name" =>  $app['full_name'],
-                    "email" => "",
-                    "act" => $app['applicant_individual_account_type'],
-                    "going_to_open" => $app['applicant_going_to_open'],
-                    'today' => $today, //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),
-                    'day' => $d,
-                    'empId' => $bdo_branch->emp,
-                );
-
-                //
                 Log::info("old customer to new acccount");
-
 
                 $this->create_account($para);
             } else {
@@ -959,7 +877,10 @@ class Dash extends Controller
                 //$street = explode(",", $app['address']);
 
 
-
+                $mydate = getdate(date("U"));
+                $d =  $mydate["mday"];
+                $m = $mydate["mon"];
+                $y = $mydate["year"];
 
                 $nm_s = $this->doName($app['full_name']);
 
@@ -999,7 +920,7 @@ class Dash extends Controller
                     'nic' =>  $app['nic'],
                     'sex' =>  $app['sex'],
                     'dob' =>  $this->sdb_julian_lib($this->call_sampaths_format($app['birth_day'], $app['birth_month'], $app['birth_year'])), //juliantojd($app['birth_month'], $app['birth_day'], $app['birth_year']),
-                    'today' => $today, //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
+                    'today' => $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),   //     "2020280", // juliantojd($m, $d, $y),  // for uat only
                     'telephone' => $onumber, //substr($work_place['telephone'], 1),
                     'ref_number' => $this->doRef(),
                     'short_name' => $short_name, // . " " . ,
@@ -1188,8 +1109,6 @@ class Dash extends Controller
 
 
                             $cif_r_new =  $this->doRef_cif();
-
-                            /*
                             $para = array(
                                 "cif" => $array['JSON']['Data']['cifNumber'],
                                 "ref" => $cif_r_new,
@@ -1202,30 +1121,6 @@ class Dash extends Controller
                                 "email" => "",
                                 "act" => $app['applicant_individual_account_type'],
                             );
-*/
-
-                            ////////////////
-
-                            $para = array(
-                                "cif" => $cif_Response['cif'],
-                                "ref" => $cif_r,
-                                "nic" => $nic,
-                                "branch" => $bdo_branch->code,
-                                "app_ref" => $app['ref'],
-                                "mobile" => $this->prepare_mobile_number($ex_cus_mobile), //substr( $ex_cus_mobile , 2),
-                                "title" => $app['title'],
-                                "name" =>  $app['full_name'],
-                                "email" => "",
-                                "act" => $app['applicant_individual_account_type'],
-                                "going_to_open" => $app['applicant_going_to_open'],
-                                'today' => $today, //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),
-                                'day' => $d,
-                                'empId' => $bdo_branch->emp,
-                            );
-
-
-                            //////////////////
-
 
                             $this->create_account($para);
                         } else {

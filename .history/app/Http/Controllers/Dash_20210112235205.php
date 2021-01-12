@@ -283,134 +283,12 @@ class Dash extends Controller
         }
 
 
-        $aa = array(
-            "REFERENCE_NUMBER" => $this->doRef_fd(), //"TIM000000000001",
-            "CIF_NUMBER" => $para['cif'], //"0001143959",
-            "CUS_RELATIONSHIP" => "TAB",
-            "SEQUENCE_FOR_REF" => "1",
-            "SEQUENCE_NUMBER" => "1",
-            "TIME_AC_NUMBER" => "0",
-            "BRANCH_NUMBER" => $para['branch'], //"56",
-            "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => $para['empId'], // officer epf number
-            "OPEN_DATE" => $para['today'],   // julina today
-            "FACE_AMOUNT" => $fd['desposit'], //"500000",
-            "TESSA_TYPE" => "0",
-            "RETIRE_PLAN_NUM" => "",
-            "P_DISPOSTION_CODE" => "N",
-            "I_DISPOSTION_CODE" =>  $I_DISPOSTION_CODE, // "C",
-            "SOURCE_OF_FUNDS" => "1",
-            "DEPOSIT_AMOUNT" => $fd['desposit'],
-            "APPLICATION_DATE" => "0",
-            "TITLE_MODIFER" => "",
-            "ST_ACCRUAL_DATE" => "0",
-            "FUNDS_AVAIL_DATE" => "0",
-            "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0.098500",
-            "SEND_RC_NOTICE" => "",
-            "NEGOTIABLE_FLAG" => "",
-            "EMPLOYEE_CODE" => "E",
-            "SECURED_FLAG" => "",
-            "LEAD_DAYS_FOR_NOT" => "0",
-            "PUBLIC_FUND_FLAG" => "",
-            "USER_CODE_1" => "",
-            "W_H_TAX_ON_INTERE" => "1",
-            "W_H_TAX_PERSENTAG" => "0",
-            "TRUST_DEP_FLAG" => "",
-            "ZBA_FUNDING_CC" => "",
-            "LOCAL_CUR_EQ" => "0",
-            "EXCHANGE_RATE" => "0",
-            "OVERRIDE_CODE" => "",
-            "COLLATE_HOLD_AMT" => "0",
-            "PASSBOOK_NUMBER" => "0",
-            "RENEWAL_OPTION" => "A",
-            "RENUWAL_PERIOD" => "M",
-            "RENEWAL_FREQUENCY" => $fd['period'], // "24",
-            "RENEWAL_SPEC_DAY" => $para['day'], // "06",
-            "NEXT_REN_MAT_DATE" => "0",
-            "SWAP_RATE" => "0",
-            "PAYMENT_PERIOD" => "M",
-            "PAYMENT_FRE_CY" => "1",
-            "PAYMENT_SPE_DAY" => "1",
-            "NEXT_INT_PAY_DATE" => "0",
-            "CODE_FOR_INT_PA" => "0",
-            "PAY_INT_LCY_FLAG" => "",
-            "BOOK_NOTE_BUY_RAT" => "",
-            "ACCRUAL_METHOD" => "S",
-            "ACCRUAL_BASE" => "2",
-            "YEAR_BASE" => "2",
-            "ACCOUNT_OPEN_DATE" => $para['today'], // "2020280",
-            "DATE_OF_BIRTH" => "0",
-            "LIFE_EXPEC_YEAR" => "0",
-            "LIFE_EXPEC_MONTH" => "0",
-            "ALLO_CONT_THIS_YR" => "0",
-            "ALLO_CONT_LAST_YR" => "0",
-            "BENEFICIARY_DATA" => "",
-            "EMPLOYER_DESC" => "",
-            "STATEM_CYCLE_CODE" => "0",
-            "STATEM_CYCLE_FREQ" => "0",
-            "STATEM_SPEC_DAY" => "0",
-            "FIRST_NEXT_ST_DA" => "0",
-            "NO_OF_RELATIONSHI" => "0",
-            "ERROR_CODE" => "",
-            "STATUS" => "1",
-            "USER_ID" => "",
-            "DATE" => $para['today'], // "20201101",
-            "TIME" => "20020010",
-            "FIELD1" => "0",
-            "FIELD2" => "0",
-            "FIELD3" => "0",
-            "FIELD4" => "0",
-            "FIELD5" => "0",
-            "FIELD6" => "",
-            "FIELD7" => "",
-            "FIELD8" => "",
-            "FIELD9" => "",
-            "FIELD10" => "",
-            "ORDER_INDEX_IDER" => "C",
-            "ANCHOR_PROFILE_NO" => "45",
-            "ORDER_REFERENCE" => "",
-            "GENERAL_DESCRIPTION" => "",
-            "ORDER_PERIODID" => "",
-            "ORDER_FREQUENCY" => "0",
-            "ORDER_SPECIFIC_DAY" => "0",
-            "ORDER_EXECUTION_DAT" => "0",
-            "ORDER_EXPIRY_DATE" => "0",
-            "DEBIT_RATE_CODE" => "0",
-            "CREDIT_RATE_CODE" => "0",
-            "RATE_FIXED_CODE" => "0",
-            "CROSS_CURRENCY_CNTR" => "0",
-            "ANCHOR_EXCHANGE_RAT" => "0",
-            "ANCHOR_APP_NO" => "30",
-            "ANCHOR_ACCOUNT_NO" => "0",
-            "SEQUENCE_NUMBER2" => "0",
-            "GENERAL_DESCRIP_2" => "",
-            "GENERAL_DESCRIP_3" => "",
-            "INTERNAL_GL_COST_CT" => "0",
-            "ORDER_INDEX_IDD" => "C",
-            "TARGET_INDEX_IDNO" => "E",
-            "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" => $fd['interest_transfer_account'],
-            "AMOUNT" => "0",
-            "DESCRIPTION" => "",
-            "INTERNAL_GL_COST_CT2" => "0",
-            "TARGET_EXCHANGE_RAT" => "0",
-            "TARGET_APP_NO" => "26",
-            "TARGET_CURRENCY_COD" => "0",
-            "DESCRIPTION_2" => "",
-            "DESCRIPTION_3" => "",
-            "ACCOUNT_SHORT_NAME" => ""
-        );
 
 
-
-        Log::info('FD array');
-        Log::info($aa);
 
         $url = "http://10.100.32.72:7801/timeaccountcreation/v1/TimeAccountCreation";
         $response = Http::post($url, [
-            "REFERENCE_NUMBER" => $this->doRef_fd(), //"TIM000000000001",
+            "REFERENCE_NUMBER" => $para['ref'], //"TIM000000000001",
             "CIF_NUMBER" => $para['cif'], //"0001143959",
             "CUS_RELATIONSHIP" => "TAB",
             "SEQUENCE_FOR_REF" => "1",
@@ -528,10 +406,6 @@ class Dash extends Controller
             "DESCRIPTION_3" => "",
             "ACCOUNT_SHORT_NAME" => ""
         ]);
-
-
-        Log::info('FD core response ');
-        Log::info($response);
     }
 
 
@@ -764,25 +638,6 @@ class Dash extends Controller
 
 
 
-    // fd ref creation
-
-    public function doRef_fd()
-    {
-        //   $ref = Ref_nums::orderBy('updated_at', 'desc')->first();
-        $ref = Ref_nums::latest()->first();
-        //  $app = Applicant::where("nic", $nic)->latest()->first();
-        $v =  $ref['ref_number'] + 1;
-
-        $rn = new Ref_nums;
-        $rn->ref_number = $v;
-        $rn->save();
-
-        $ref = 'TIM00000000' . $v;
-        $wildcard =  $this->generateRandomString(1);
-        $ref = substr_replace($ref, $wildcard, 9, 1);
-        return $ref;
-    }
-
 
     public function doRef_cif()
     {
@@ -800,8 +655,6 @@ class Dash extends Controller
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
     }
-
-
 
 
     public function doRef()
