@@ -230,7 +230,7 @@ class Dash extends Controller
 
         $fd = "null";
         if ($app['applicant_going_to_open'] == "Fixed Deposits") {
-            Log::info('fd sected and from db');
+            Log::info('fd tected and from db');
             $fd = Fixed::where("nic", $nic)->latest()->first();
             Log::info($fd);
         } else {
@@ -938,7 +938,7 @@ class Dash extends Controller
                     "name" =>  $app['full_name'],
                     "email" => "",
                     "act" => $app['applicant_individual_account_type'],
-                    "applicant_going_to_open" => $app['applicant_going_to_open'],
+                    "going_to_open" => $app['applicant_going_to_open'],
                     'today' => $today, //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),
                     'day' => $d,
                     'empId' => $bdo_branch->emp,
@@ -1217,7 +1217,7 @@ class Dash extends Controller
                                 "name" =>  $app['full_name'],
                                 "email" => "",
                                 "act" => $app['applicant_individual_account_type'],
-                                "applicant_going_to_open" => $app['applicant_going_to_open'],
+                                "going_to_open" => $app['applicant_going_to_open'],
                                 'today' => $today, //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y)),
                                 'day' => $d,
                                 'empId' => $bdo_branch->emp,
