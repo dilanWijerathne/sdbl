@@ -327,7 +327,7 @@ class Dash extends Controller
             "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
             "RENEWAL_FREQUENCY" => $fd['period'], // "24",
-            "RENEWAL_SPEC_DAY" => "4", //$para['day'], // "06",
+            "RENEWAL_SPEC_DAY" => $para['day'], // "06",
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
@@ -412,14 +412,14 @@ class Dash extends Controller
         $response = Http::post($url, [
             "REFERENCE_NUMBER" => $this->doRef_fd(), //"TIM000000000001",
             "CIF_NUMBER" => $para['cif'], //"0001143959",
-            "CUS_RELATIONSHIP" => "SOW",
+            "CUS_RELATIONSHIP" => "TAB",
             "SEQUENCE_FOR_REF" => "1",
             "SEQUENCE_NUMBER" => "1",
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => "TAB", //$para['empId'], // officer epf number
+            "OFFICER_CODE" => $para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -453,7 +453,7 @@ class Dash extends Controller
             "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
             "RENEWAL_FREQUENCY" => $fd['period'], // "24",
-            "RENEWAL_SPEC_DAY" => "4", // $para['day'], // "06",   change when go live
+            "RENEWAL_SPEC_DAY" => $para['day'], // "06",
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
