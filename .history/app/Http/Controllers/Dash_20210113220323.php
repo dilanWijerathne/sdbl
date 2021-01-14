@@ -293,7 +293,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => "119", // "MOB", // $para['empId'], // officer epf number
+            "OFFICER_CODE" => "MOB", // $para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -368,9 +368,7 @@ class Dash extends Controller
             "FIELD8" => "",
             "FIELD9" => "",
             "FIELD10" => "",
-            "ORDER_INDEX_IDER" => "C",
-            /*
-
+            "ORDER_INDEX_IDER" => "",
             "ANCHOR_PROFILE_NO" => "0",
             "ORDER_REFERENCE" => "",
             "GENERAL_DESCRIPTION" => "",
@@ -403,39 +401,6 @@ class Dash extends Controller
             "DESCRIPTION_2" => "",
             "DESCRIPTION_3" => "",
             "ACCOUNT_SHORT_NAME" => ""
-            */
-            "ANCHOR_PROFILE_NO" => "45",
-            "ORDER_REFERENCE" => "",
-            "GENERAL_DESCRIPTION" => "",
-            "ORDER_PERIODID" => "",
-            "ORDER_FREQUENCY" => "0",
-            "ORDER_SPECIFIC_DAY" => "0",
-            "ORDER_EXECUTION_DAT" => "0",
-            "ORDER_EXPIRY_DATE" => "0",
-            "DEBIT_RATE_CODE" => "0",
-            "CREDIT_RATE_CODE" => "0",
-            "RATE_FIXED_CODE" => "0",
-            "CROSS_CURRENCY_CNTR" => "0",
-            "ANCHOR_EXCHANGE_RAT" => "0",
-            "ANCHOR_APP_NO" => "30",
-            "ANCHOR_ACCOUNT_NO" => "0",
-            "SEQUENCE_NUMBER2" => "0",
-            "GENERAL_DESCRIP_2" => "",
-            "GENERAL_DESCRIP_3" => "",
-            "INTERNAL_GL_COST_CT" => "0",
-            "ORDER_INDEX_IDD" => "C",
-            "TARGET_INDEX_IDNO" => "E",
-            "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" => "1089327",
-            "AMOUNT" => "0",
-            "DESCRIPTION" => "",
-            "INTERNAL_GL_COST_CT2" => "0",
-            "TARGET_EXCHANGE_RAT" => "0",
-            "TARGET_APP_NO" => "26",
-            "TARGET_CURRENCY_COD" => "0",
-            "DESCRIPTION_2" => "",
-            "DESCRIPTION_3" => "",
-            "ACCOUNT_SHORT_NAME" => ""
         );
 
 
@@ -454,7 +419,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => "119", // "MOB", //$para['empId'], // officer epf number
+            "OFFICER_CODE" => "MOB", //$para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -529,8 +494,7 @@ class Dash extends Controller
             "FIELD8" => "",
             "FIELD9" => "",
             "FIELD10" => "",
-            "ORDER_INDEX_IDER" => "C",
-            /*
+            "ORDER_INDEX_IDER" => "",
             "ANCHOR_PROFILE_NO" => "0",
             "ORDER_REFERENCE" => "",
             "GENERAL_DESCRIPTION" => "",
@@ -559,40 +523,6 @@ class Dash extends Controller
             "INTERNAL_GL_COST_CT2" => "0",
             "TARGET_EXCHANGE_RAT" => "0",
             "TARGET_APP_NO" =>  "0",
-            "TARGET_CURRENCY_COD" => "0",
-            "DESCRIPTION_2" => "",
-            "DESCRIPTION_3" => "",
-            "ACCOUNT_SHORT_NAME" => ""
-
-*/
-            "ANCHOR_PROFILE_NO" => "45",
-            "ORDER_REFERENCE" => "",
-            "GENERAL_DESCRIPTION" => "",
-            "ORDER_PERIODID" => "",
-            "ORDER_FREQUENCY" => "0",
-            "ORDER_SPECIFIC_DAY" => "0",
-            "ORDER_EXECUTION_DAT" => "0",
-            "ORDER_EXPIRY_DATE" => "0",
-            "DEBIT_RATE_CODE" => "0",
-            "CREDIT_RATE_CODE" => "0",
-            "RATE_FIXED_CODE" => "0",
-            "CROSS_CURRENCY_CNTR" => "0",
-            "ANCHOR_EXCHANGE_RAT" => "0",
-            "ANCHOR_APP_NO" => "30",
-            "ANCHOR_ACCOUNT_NO" => "0",
-            "SEQUENCE_NUMBER2" => "0",
-            "GENERAL_DESCRIP_2" => "",
-            "GENERAL_DESCRIP_3" => "",
-            "INTERNAL_GL_COST_CT" => "0",
-            "ORDER_INDEX_IDD" => "C",
-            "TARGET_INDEX_IDNO" => "E",
-            "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" => "1089327",
-            "AMOUNT" => "0",
-            "DESCRIPTION" => "",
-            "INTERNAL_GL_COST_CT2" => "0",
-            "TARGET_EXCHANGE_RAT" => "0",
-            "TARGET_APP_NO" => "26",
             "TARGET_CURRENCY_COD" => "0",
             "DESCRIPTION_2" => "",
             "DESCRIPTION_3" => "",

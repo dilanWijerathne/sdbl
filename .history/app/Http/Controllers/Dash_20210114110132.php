@@ -293,7 +293,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => "119", // "MOB", // $para['empId'], // officer epf number
+            "OFFICER_CODE" => "MOB", // $para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -368,9 +368,8 @@ class Dash extends Controller
             "FIELD8" => "",
             "FIELD9" => "",
             "FIELD10" => "",
-            "ORDER_INDEX_IDER" => "C",
             /*
-
+            "ORDER_INDEX_IDER" => "",
             "ANCHOR_PROFILE_NO" => "0",
             "ORDER_REFERENCE" => "",
             "GENERAL_DESCRIPTION" => "",
@@ -454,7 +453,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
-            "OFFICER_CODE" => "119", // "MOB", //$para['empId'], // officer epf number
+            "OFFICER_CODE" => "MOB", //$para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
