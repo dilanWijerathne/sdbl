@@ -324,7 +324,7 @@ class Dash extends Controller
             "OVERRIDE_CODE" => "",
             "COLLATE_HOLD_AMT" => "0",
             "PASSBOOK_NUMBER" => "0",
-            "RENEWAL_OPTION" => "S",
+            "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
             "RENEWAL_FREQUENCY" => $fd['period'], // "24",
             "RENEWAL_SPEC_DAY" => "4", //$para['day'], // "06",
@@ -485,7 +485,7 @@ class Dash extends Controller
             "OVERRIDE_CODE" => "",
             "COLLATE_HOLD_AMT" => "0",
             "PASSBOOK_NUMBER" => "0",
-            "RENEWAL_OPTION" => "S",
+            "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
             "RENEWAL_FREQUENCY" => $fd['period'], // "24",
             "RENEWAL_SPEC_DAY" => "4", // $para['day'], // "06",   change when go live
