@@ -518,7 +518,7 @@ class Dash extends Controller
             "STATUS" => "1",
             "USER_ID" => $para['empId'],
             "DATE" => $para['today'], // "20201101",
-            "TIME" => "20020010", //  time(), //"20020010",
+            "TIME" =>  time(), //"20020010",
             "FIELD1" => "0",
             "FIELD2" => "0",
             "FIELD3" => "0",
