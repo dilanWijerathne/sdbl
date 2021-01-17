@@ -8,6 +8,7 @@ use App\Models\Images;
 use App\Models\Signatures;
 use App\Models\User;
 use App\Models\Declaration;
+use App\Models\Applicant;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
@@ -30,11 +31,11 @@ class Multimedia extends Controller
     {
         $email = $request->email;
 
-
         $mark = new Declaration;
         $mark->email = $email;
         $mark->new_login = 1;
         $mark->agreed = 1;
+        $mark->save();
     }
 
     public function delete_my_team_member(Request $request)
@@ -184,6 +185,10 @@ class Multimedia extends Controller
             $sign->ref = $request->ref;
             $sign->agent = $request->agent;
             $sign->save();
+
+            $app = Applicant::where("ref", $request->ref)->update(['signed' => 1]);
+
+
             echo  "signed";
         } catch (Exception $e) {
             Log::warning("error on signature request");

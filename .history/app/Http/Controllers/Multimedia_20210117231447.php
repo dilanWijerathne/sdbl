@@ -7,11 +7,51 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Images;
 use App\Models\Signatures;
 use App\Models\User;
+use App\Models\Declaration;
+use App\Models\Applicant;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
 class Multimedia extends Controller
 {
+
+
+    public function checkDeclaration(Request $request)
+    {
+        $email = $request->email;
+        $rs = Declaration::where("email", $email)->first();
+        if (isset($rs['email'])) {
+            return $rs;
+        } else {
+            return 0;
+        }
+    }
+
+    public function markDeclaration(Request $request)
+    {
+        $email = $request->email;
+
+        $mark = new Declaration;
+        $mark->email = $email;
+        $mark->new_login = 1;
+        $mark->agreed = 1;
+        $mark->save();
+    }
+
+    public function delete_my_team_member(Request $request)
+    {
+
+        Log::info('user delete user by ');
+        Log::info($request);
+        $email = $request->email;
+
+        try {
+            $us = DB::table('users')->where('email',  $email)->delete();
+            return $us;
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
 
 
     public function update_my_team_member(Request $request)
@@ -21,17 +61,17 @@ class Multimedia extends Controller
         Log::info($request);
         $name = $request->name;
         $email = $request->email;
+        $current_email = $request->cemail;
         $mobile = $request->mobile;
         $role = $request->role;
         $branch = $request->branch;
-         try{
-            $us = User::where('email', $email)
-            ->update(['email' => $email,'name'=>$name, 'mobile'=>$mobile, 'role'=>$role,'branch'=>$branch]);
-        return $us;
-         }else{
-
-         }
-
+        try {
+            $us = User::where('email', $current_email)
+                ->update(['email' => $email, 'name' => $name, 'mobile' => $mobile, 'role' => $role, 'branch' => $branch]);
+            return $us;
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
     public function get_my_team_member(Request $request)
@@ -145,6 +185,10 @@ class Multimedia extends Controller
             $sign->ref = $request->ref;
             $sign->agent = $request->agent;
             $sign->save();
+
+            $app = Applicant::where("ref", $request->ref)->update(['signed' => 1]);
+
+
             echo  "signed";
         } catch (Exception $e) {
             Log::warning("error on signature request");
