@@ -239,7 +239,6 @@ class Application extends Controller
             $applicant->existing_customer = $existing_customer;  // bolean
             $applicant->bdo = $bdo;
             $applicant->gps = $gps;
-            $applicant->appv = $appv;
             $applicant->save();
 
 
