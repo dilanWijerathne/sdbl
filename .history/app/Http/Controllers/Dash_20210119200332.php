@@ -603,45 +603,6 @@ class Dash extends Controller
         Log::info(json_encode($array));
 
         $account->save();
-
-
-
-        if (isset($array['JSON']['Data']['status'])) {
-
-            if ((int)$array['JSON']['Data']['status'] === 2) {
-                $app = Applicant::where("ref", $para['app_ref'])->update(['done' => 1]);
-                $this->sms($array['JSON']['Data']['timeAccountNo'], $para['mobile']);
-
-
-
-                $param = array(
-                    "cusid" => $para['cif'],
-                    "account" => $array['JSON']['Data']['timeAccountNo'],
-                    "mobile" => $para['mobile'],
-                    "title" => $para['title'],
-                    "name" => $para['name'],
-                    "branch" => $para['branch'],
-                    "email" => $para['email'],
-                    "nic" => $para['nic'],
-
-
-                );
-
-                Log::info('Registering to SMS FD : ' . $para['mobile']);
-                Log::info('Registering to SMS FD');
-                Log::info(json_encode($param));
-                Utils::smsreg($param);
-            } else {
-                Log::error($array['JSON']['Data']['timeAccountNo'] . " |FD - wrong response from core api");
-            }
-        } else {
-            Log::error("['JSON']['Data']['timeAccountNo']" . " FD - core banking api response error");
-        }
-
-
-
-
-        ///////////////// end of fd creation
     }
 
 
