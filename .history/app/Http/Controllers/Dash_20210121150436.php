@@ -312,7 +312,7 @@ class Dash extends Controller
             $I_DISPOSTION_CODE = "C";
         }
 
-        $fd_code = $this->select_fd_code($para['act'],  $fd['interest_disposal_method']);
+        $this->select_fd_code($para['act'],  $fd['interest_disposal_method']);
 
         $REFERENCE_NUMBER =  $this->doRef_fd();
 
@@ -325,7 +325,7 @@ class Dash extends Controller
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
+            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
             "OFFICER_CODE" => "119", // "MOB", // $para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
@@ -486,7 +486,7 @@ class Dash extends Controller
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
+            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
             "OFFICER_CODE" => "119", // "MOB", //$para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",

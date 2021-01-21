@@ -264,7 +264,7 @@ class Dash extends Controller
         return $ar; // view('item', compact('ar'));
     }
 
-    public function select_fd_code($fd_type,  $interest_disposal_method)
+    public function select_fd_code($period, $fd_type, $interest_payable_at, $interest_disposal_method)
     {
         $fd_code = "";
         if ($fd_type === "Normal FD") {
@@ -290,8 +290,6 @@ class Dash extends Controller
                 $fd_code = "185";
             }
         }
-
-        return $fd_code;
     }
 
     public function create_fd($para)
@@ -312,8 +310,6 @@ class Dash extends Controller
             $I_DISPOSTION_CODE = "C";
         }
 
-        $fd_code = $this->select_fd_code($para['act'],  $fd['interest_disposal_method']);
-
         $REFERENCE_NUMBER =  $this->doRef_fd();
 
         $aa = array(
@@ -325,7 +321,7 @@ class Dash extends Controller
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
+            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
             "OFFICER_CODE" => "119", // "MOB", // $para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
@@ -486,7 +482,7 @@ class Dash extends Controller
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
-            "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
+            "PRODUCT_TYPE" => $act[$para['act']], //"162", // add relevent product type from table
             "OFFICER_CODE" => "119", // "MOB", //$para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
