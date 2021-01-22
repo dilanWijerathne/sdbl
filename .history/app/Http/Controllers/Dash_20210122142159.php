@@ -299,12 +299,8 @@ class Dash extends Controller
     {
         $frq = "";
         if ($interest_disposal_method === "monthly") {
-            $frq = "1";
-        } else {
-            $frq = $period;
+            $frq = 1;
         }
-
-        return $frq;
     }
 
     public function create_fd($para)
@@ -377,7 +373,7 @@ class Dash extends Controller
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
-            "PAYMENT_FRE_CY" =>  $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
+            "PAYMENT_FRE_CY" =>  $fd['period'],
             "PAYMENT_SPE_DAY" => "4", // $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
@@ -538,7 +534,7 @@ class Dash extends Controller
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
-            "PAYMENT_FRE_CY" => $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
+            "PAYMENT_FRE_CY" => $fd['period'],
             "PAYMENT_SPE_DAY" => "4", // $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
