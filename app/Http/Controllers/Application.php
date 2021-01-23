@@ -55,6 +55,7 @@ class Application extends Controller
             $interest_transfer_bank = $request->input('interest_transfer_bank');
             $interest_transfer_account = $request->input('interest_transfer_account');
             $interest_transfer_branch = $request->input('interest_transfer_branch');
+            $interest_transfer_acc_name = $request->input('interest_transfer_acc_name');
 
             $fixed = new Fixed;
             $fixed->ref = $ref;
@@ -66,6 +67,7 @@ class Application extends Controller
             $fixed->interest_transfer_bank = $interest_transfer_bank;
             $fixed->interest_transfer_account = $interest_transfer_account;
             $fixed->interest_transfer_branch = $interest_transfer_branch;
+            $fixed->interest_transfer_acc_name = $interest_transfer_acc_name;
             $fixed->save();
             return 1;
         } catch (Exception $e) {

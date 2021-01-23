@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 use App\Models\Kyc;
 use App\Models\Account;
+use App\Models\Fixed;
 use App\Models\Work_place;
 use App\Models\Nominee;
 use App\Models\Images;
@@ -15,6 +16,7 @@ use App\Models\Applicant;
 use App\Models\Cif_Response;
 use App\Exceptions\Handler;
 use App\Models\Branches;
+use Error;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
@@ -33,6 +35,47 @@ class Application extends Controller
         return $val;
     }
 
+
+    public function new_fd(Request $request)
+    {
+        Log::info('request to new FD');
+        Log::info($request);
+
+        /**
+         *   desposit,
+         */
+
+        try {
+            $nic = $request->input('nic');
+            $ref = $request->input('ref');
+            $period = $request->input('period');
+            $desposit = $request->input('desposit');
+            $interest_payable_at = $request->input('interest_payable_at');
+            $interest_disposal_method = $request->input('interest_disposal_method');
+            $interest_transfer_bank = $request->input('interest_transfer_bank');
+            $interest_transfer_account = $request->input('interest_transfer_account');
+            $interest_transfer_branch = $request->input('interest_transfer_branch');
+            $interest_transfer_acc_name = $request->input('interest_transfer_acc_name');
+
+            $fixed = new Fixed;
+            $fixed->ref = $ref;
+            $fixed->nic = $nic;
+            $fixed->period = $period;
+            $fixed->desposit = $desposit;
+            $fixed->interest_payable_at = $interest_payable_at;
+            $fixed->interest_disposal_method = $interest_disposal_method;
+            $fixed->interest_transfer_bank = $interest_transfer_bank;
+            $fixed->interest_transfer_account = $interest_transfer_account;
+            $fixed->interest_transfer_branch = $interest_transfer_branch;
+            $fixed->interest_transfer_acc_name = $interest_transfer_acc_name;
+            $fixed->save();
+            return 1;
+        } catch (Exception $e) {
+            Log::error('erro of FD saving ');
+            Log::error($request);
+            Log::error($e);
+        }
+    }
 
 
     public function new_customer(Request $request)
@@ -95,7 +138,10 @@ class Application extends Controller
             $pupose_other_reason = $request->input('pupose_other_reason');
             $wealth_other_reason = $request->input('source_funds_other_reason');
             $source_funds_other_reason = $request->input('wealth_other_reason');
+            $gps = $request->input('gpsl');
+            $appv = $request->input('appv');
 
+            Log::info($gps);
             //data.append("existing_customer_cif", customer_cif);
 
 
@@ -194,6 +240,8 @@ class Application extends Controller
             $applicant->security_question = $security_answer;
             $applicant->existing_customer = $existing_customer;  // bolean
             $applicant->bdo = $bdo;
+            $applicant->gps = $gps;
+            $applicant->appv = $appv;
             $applicant->save();
 
 
@@ -312,27 +360,43 @@ class Application extends Controller
         $age = $request->input('age');
         $sex = $request->input('sex');
 
+
+
         Log::info($request);
 
         $statuses = null;
 
-        if ($sex == "Female") {
-            //  ->where('applicant_sex', "Female")
+        if ($applicant_status === "fixed_deposits") {
+
             $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
-                ->where('area', 'individual_account_type')
+                ->where('area', 'fixed_deposits')
                 ->where('age_limit', '<=', $age)
                 ->where('active',  1)
                 ->get();
+        }
+        if ($applicant_status === "individual_account_type") {
+
+            if ($sex == "Female") {
+                //  ->where('applicant_sex', "Female")
+                $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
+                    ->where('area', 'individual_account_type')
+                    ->where('age_limit', '<=', $age)
+                    ->where('active',  1)
+                    ->get();
+            }
+
+            if ($sex == "Male") {
+                $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
+                    ->where('area', 'individual_account_type')
+                    ->where('age_limit', '<=', $age)
+                    ->where('applicant_sex', "!=", "Female")
+                    ->where('active',  1)
+                    ->get();
+            }
         }
 
-        if ($sex == "Male") {
-            $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
-                ->where('area', 'individual_account_type')
-                ->where('age_limit', '<=', $age)
-                ->where('applicant_sex', "!=", "Female")
-                ->where('active',  1)
-                ->get();
-        }
+
+
 
         // $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'individual_account_type')->where('active',  1)->get();
 
