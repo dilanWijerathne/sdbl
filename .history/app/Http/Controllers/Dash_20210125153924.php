@@ -506,7 +506,7 @@ class Dash extends Controller
         Log::info(json_encode($aa));
 
 
-        $url = "http://10.100.32.202:7801/timeaccountcreation/v1/TimeAccountCreation";  // live
+        $url = " http://10.100.32.202:7801/timeaccountcreation/v1/TimeAccountCreation";  // live
 
         //  $url = "http://10.100.32.72:7801/timeaccountcreation/v1/TimeAccountCreation";   // uat
         $response = Http::post($url, [
