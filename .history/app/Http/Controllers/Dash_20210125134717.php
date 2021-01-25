@@ -316,11 +316,7 @@ class Dash extends Controller
         } else {
             $k = $ac;
         }
-
-        return  $k;
     }
-
-
     public function create_fd($para)
     {
 
@@ -343,7 +339,7 @@ class Dash extends Controller
 
         $REFERENCE_NUMBER =  $this->doRef_fd();
 
-        ///  $internal_account = $this->sdb_account($fd['interest_transfer_account']);
+        $internal_account = $this->sdb_account($fd['interest_transfer_account']);
 
         $aa = array(
             "REFERENCE_NUMBER" => $REFERENCE_NUMBER, //"TIM000000000001",
@@ -355,7 +351,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
-            "OFFICER_CODE" => "TAB", // $para['empId'], // officer epf number
+            "OFFICER_CODE" => "119", // "MOB", // $para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -394,7 +390,7 @@ class Dash extends Controller
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
             "PAYMENT_FRE_CY" =>  $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
-            "PAYMENT_SPE_DAY" =>  $para['day'], // "06",   change when go live
+            "PAYMENT_SPE_DAY" => "4", // $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
             "PAY_INT_LCY_FLAG" => "",
@@ -453,7 +449,7 @@ class Dash extends Controller
             "ORDER_INDEX_IDD" => "H",
             "TARGET_INDEX_IDNO" => "E",
             "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" =>  $fd['interest_transfer_account'], //"1089327",
+            "INTERNAL_ACCOUNT_N0" => $fd['interest_transfer_account'], //"1089327",
             "AMOUNT" => "0",
             "DESCRIPTION" => "",
             "INTERNAL_GL_COST_CT2" => "0",
@@ -516,7 +512,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
-            "OFFICER_CODE" => "TAB", // "MOB", //$para['empId'], // officer epf number
+            "OFFICER_CODE" => "119", // "MOB", //$para['empId'], // officer epf number
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -555,7 +551,7 @@ class Dash extends Controller
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
             "PAYMENT_FRE_CY" => $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
-            "PAYMENT_SPE_DAY" => $para['day'], // "06",   change when go live
+            "PAYMENT_SPE_DAY" => "4", // $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
             "PAY_INT_LCY_FLAG" => "",
@@ -580,7 +576,7 @@ class Dash extends Controller
             "STATUS" => "1",
             "USER_ID" => $para['empId'],
             "DATE" => $para['today'], // "20201101",
-            "TIME" =>   time(), //"20020010",
+            "TIME" => "20020010", //  time(), //"20020010",
             "FIELD1" => "0",
             "FIELD2" => "0",
             "FIELD3" => "0",
@@ -1056,7 +1052,7 @@ class Dash extends Controller
         $d =  $mydate["mday"];
         $m = $mydate["mon"];
         $y = $mydate["year"];
-        $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
+        $today = '2020339'; //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
 
         if ($app['done'] === 0 | $app['done'] === '0') {
 

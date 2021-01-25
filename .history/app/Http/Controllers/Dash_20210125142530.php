@@ -394,7 +394,7 @@ class Dash extends Controller
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
             "PAYMENT_FRE_CY" =>  $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
-            "PAYMENT_SPE_DAY" =>  $para['day'], // "06",   change when go live
+            "PAYMENT_SPE_DAY" => "4", // $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
             "PAY_INT_LCY_FLAG" => "",
@@ -555,7 +555,7 @@ class Dash extends Controller
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
             "PAYMENT_FRE_CY" => $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
-            "PAYMENT_SPE_DAY" => $para['day'], // "06",   change when go live
+            "PAYMENT_SPE_DAY" => "4", // $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
             "PAY_INT_LCY_FLAG" => "",
@@ -580,7 +580,7 @@ class Dash extends Controller
             "STATUS" => "1",
             "USER_ID" => $para['empId'],
             "DATE" => $para['today'], // "20201101",
-            "TIME" =>   time(), //"20020010",
+            "TIME" => "20020010", //  time(), //"20020010",
             "FIELD1" => "0",
             "FIELD2" => "0",
             "FIELD3" => "0",
@@ -1056,7 +1056,7 @@ class Dash extends Controller
         $d =  $mydate["mday"];
         $m = $mydate["mon"];
         $y = $mydate["year"];
-        $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
+        $today = '2020339'; //$this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
 
         if ($app['done'] === 0 | $app['done'] === '0') {
 
