@@ -437,7 +437,7 @@ class Dash extends Controller
             "ORDER_INDEX_IDD" => "H",
             "TARGET_INDEX_IDNO" => "E",
             "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" => "000000000000", // $fd['interest_transfer_account'], //"1089327",
+            "INTERNAL_ACCOUNT_N0" =>  $fd['interest_transfer_account'], //"1089327",
             "AMOUNT" => "0",
             "DESCRIPTION" => "",
             "INTERNAL_GL_COST_CT2" => "0",
