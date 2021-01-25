@@ -1359,7 +1359,7 @@ class Dash extends Controller
 
                         if (strlen($array['JSON']['Data']['cifNumber'] > 2)) {
 
-                            $appUpdated = Applicant::where("nic", $nic)->update(['existing_customer' => "true"]);
+                            Applicant::where("nic", $nic)->update(['existing_customer' => "true"]);
 
                             $cif_r_new =  $this->doRef_cif();
 
