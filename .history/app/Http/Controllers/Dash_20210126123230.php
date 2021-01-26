@@ -396,7 +396,7 @@ class Dash extends Controller
             "Government Special FD" => "185",
         );
 
-        $fd = Fixed::where("ref", $para['app_ref'])->latest()->first();
+        $fd = Fixed::where("nic", $para['nic'])->latest()->first();
 
         $I_DISPOSTION_CODE = "";
         if ($fd['interest_payable_at'] === "disposeOther") {
@@ -1126,7 +1126,6 @@ class Dash extends Controller
         $m = $mydate["mon"];
         $y = $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
-        $nic = $app['nic'];
 
         if ($app['done'] === 0 | $app['done'] === '0') {
 
@@ -1148,7 +1147,7 @@ class Dash extends Controller
                 // if (true) {   // change when go live
 
 
-                $cif_Response =  Cif_Response::where('nic', $nic)->orderBy('updated_at', 'desc')->first();
+                $cif_Response =  Cif_Response::where('nic', $app['nic'])->orderBy('updated_at', 'desc')->first();
 
                 $cif_r =  $this->doRef_cif();
 
@@ -1429,7 +1428,7 @@ class Dash extends Controller
 
                         if (strlen($array['JSON']['Data']['cifNumber'] > 2)) {
 
-                            $appUpdated = Applicant::where("ref", $ref)->update(['existing_customer' => "true"]);
+                            $appUpdated = Applicant::where("nic", $nic)->update(['existing_customer' => "true"]);
 
                             $cif_r_new =  $this->doRef_cif();
 

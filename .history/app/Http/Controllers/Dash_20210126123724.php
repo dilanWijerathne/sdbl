@@ -396,7 +396,7 @@ class Dash extends Controller
             "Government Special FD" => "185",
         );
 
-        $fd = Fixed::where("ref", $para['app_ref'])->latest()->first();
+        $fd = Fixed::where("nic", $para['nic'])->latest()->first();
 
         $I_DISPOSTION_CODE = "";
         if ($fd['interest_payable_at'] === "disposeOther") {
