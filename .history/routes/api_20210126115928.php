@@ -79,7 +79,7 @@ Route::post('/reviewed', [Dash::class, 'reviewed']);
 
 // retreive to dashboard rendering
 Route::get('/applicant_details_by_nic', [Dash::class, 'item_view']);
-Route::get('/applicant_details_by_ref', [Dash::class, 'item_view_by_ref']);
+Route::get('/applicant_details_by_ref', [Dash::class, 'item_view']);
 
 Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 

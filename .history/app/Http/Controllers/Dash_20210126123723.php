@@ -209,7 +209,7 @@ class Dash extends Controller
         $nominee = Nominee::where("ref_number", $ref)->latest()->first();
         $work_place = Work_place::where("ref", $ref)->latest()->first();
 
-        $account = Account::where('nic', $app['nic'])->get();
+        $account = Account::where('ref_number', $ref)->get();
         $cif_Response =  Cif_Response::where('ref_number', $ref)->latest()->first();
 
         $multimedia =  Images::where('applicant_ref_number', $ref)->get();
@@ -396,7 +396,7 @@ class Dash extends Controller
             "Government Special FD" => "185",
         );
 
-        $fd = Fixed::where("ref", $para['app_ref'])->latest()->first();
+        $fd = Fixed::where("nic", $para['nic'])->latest()->first();
 
         $I_DISPOSTION_CODE = "";
         if ($fd['interest_payable_at'] === "disposeOther") {
@@ -571,17 +571,8 @@ class Dash extends Controller
         Log::info('FD array');
         Log::info(json_encode($aa));
 
-        $url = "";
-        if (env('APP_LIVE') === "yes") {
-            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " .  env('FD_CREATE'));
-            $url =  env('FD_CREATE');
-        } elseif (env('APP_LIVE') === "no") {
-            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " . env('FD_CREATE_TEST'));
-            $url =   env('FD_CREATE_TEST');
-        }
 
-
-
+        $url = "http://10.100.32.202:7801/timeaccountcreation/v1/TimeAccountCreation";  // live
 
         //  $url = "http://10.100.32.72:7801/timeaccountcreation/v1/TimeAccountCreation";   // uat
         $response = Http::post($url, [

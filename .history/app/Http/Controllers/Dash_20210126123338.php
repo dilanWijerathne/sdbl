@@ -209,7 +209,7 @@ class Dash extends Controller
         $nominee = Nominee::where("ref_number", $ref)->latest()->first();
         $work_place = Work_place::where("ref", $ref)->latest()->first();
 
-        $account = Account::where('nic', $app['nic'])->get();
+        $account = Account::where('ref_number', $ref)->get();
         $cif_Response =  Cif_Response::where('ref_number', $ref)->latest()->first();
 
         $multimedia =  Images::where('applicant_ref_number', $ref)->get();
@@ -396,7 +396,7 @@ class Dash extends Controller
             "Government Special FD" => "185",
         );
 
-        $fd = Fixed::where("ref", $para['app_ref'])->latest()->first();
+        $fd = Fixed::where("nic", $para['nic'])->latest()->first();
 
         $I_DISPOSTION_CODE = "";
         if ($fd['interest_payable_at'] === "disposeOther") {
@@ -571,17 +571,8 @@ class Dash extends Controller
         Log::info('FD array');
         Log::info(json_encode($aa));
 
-        $url = "";
-        if (env('APP_LIVE') === "yes") {
-            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " .  env('FD_CREATE'));
-            $url =  env('FD_CREATE');
-        } elseif (env('APP_LIVE') === "no") {
-            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " . env('FD_CREATE_TEST'));
-            $url =   env('FD_CREATE_TEST');
-        }
 
-
-
+        $url = "http://10.100.32.202:7801/timeaccountcreation/v1/TimeAccountCreation";  // live
 
         //  $url = "http://10.100.32.72:7801/timeaccountcreation/v1/TimeAccountCreation";   // uat
         $response = Http::post($url, [
@@ -1135,7 +1126,6 @@ class Dash extends Controller
         $m = $mydate["mon"];
         $y = $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
-        $nic = $app['nic'];
 
         if ($app['done'] === 0 | $app['done'] === '0') {
 
@@ -1156,7 +1146,7 @@ class Dash extends Controller
 
                 // if (true) {   // change when go live
 
-
+                $nic = $app['nic'];
                 $cif_Response =  Cif_Response::where('nic', $nic)->orderBy('updated_at', 'desc')->first();
 
                 $cif_r =  $this->doRef_cif();
@@ -1438,7 +1428,7 @@ class Dash extends Controller
 
                         if (strlen($array['JSON']['Data']['cifNumber'] > 2)) {
 
-                            $appUpdated = Applicant::where("ref", $ref)->update(['existing_customer' => "true"]);
+                            $appUpdated = Applicant::where("nic", $nic)->update(['existing_customer' => "true"]);
 
                             $cif_r_new =  $this->doRef_cif();
 

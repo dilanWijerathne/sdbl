@@ -571,20 +571,11 @@ class Dash extends Controller
         Log::info('FD array');
         Log::info(json_encode($aa));
 
-        $url = "";
-        if (env('APP_LIVE') === "yes") {
-            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " .  env('FD_CREATE'));
-            $url =  env('FD_CREATE');
-        } elseif (env('APP_LIVE') === "no") {
-            Log::alert('ACC APP L- ' . env('APP_LIVE') . " point -> " . env('FD_CREATE_TEST'));
-            $url =   env('FD_CREATE_TEST');
-        }
-
-
-
+        $ishani = "http://10.100.32.203:7801/timeaccountcreation/v1/TimeAccountCreation";
+        $url = "http://10.100.32.202:7801/timeaccountcreation/v1/TimeAccountCreation";  // live
 
         //  $url = "http://10.100.32.72:7801/timeaccountcreation/v1/TimeAccountCreation";   // uat
-        $response = Http::post($url, [
+        $response = Http::post($ishani, [
             "REFERENCE_NUMBER" => $REFERENCE_NUMBER, //"TIM000000000001",
             "CIF_NUMBER" => $para['cif'], //"0001143959",
             "CUS_RELATIONSHIP" => "SOW",
