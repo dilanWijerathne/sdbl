@@ -212,15 +212,14 @@ class Dash extends Controller
         $account = Account::where('ref_number', $ref)->get();
         $cif_Response =  Cif_Response::where('ref_number', $ref)->latest()->first();
 
-        $multimedia =  Images::where('applicant_ref_number', $ref)->get();
+        $multimedia =  Images::where('nic', $nic)->get();
+        $nic_f = Images::where('nic', $nic)->where('file_type', 'nicf')->latest()->first();
+        $nic_r = Images::where('nic', $nic)->where('file_type', 'nicr')->latest()->first();
+        $proof = Images::where('nic', $nic)->where('file_type', 'proof')->latest()->first();
+        $proofr = Images::where('nic', $nic)->where('file_type', 'proofr')->latest()->first();
+        $selfie = Images::where('nic', $nic)->where('file_type', 'selfie')->latest()->first();
 
-        $nic_f = Images::where('applicant_ref_number', $ref)->where('file_type', 'nicf')->latest()->first();
-        $nic_r = Images::where('applicant_ref_number', $ref)->where('file_type', 'nicr')->latest()->first();
-        $proof = Images::where('applicant_ref_number', $ref)->where('file_type', 'proof')->latest()->first();
-        $proofr = Images::where('applicant_ref_number', $ref)->where('file_type', 'proofr')->latest()->first();
-        $selfie = Images::where('applicant_ref_number', $ref)->where('file_type', 'selfie')->latest()->first();
-
-        $signatures =  Signatures::where('ref', $ref)->latest()->first();
+        $signatures =  Signatures::where('nic', $nic)->latest()->first();
 
 
 
@@ -233,7 +232,7 @@ class Dash extends Controller
         $fd = "null";
         if ($app['applicant_going_to_open'] == "Fixed Deposits") {
             Log::info('fd sected and from db');
-            $fd = Fixed::where("ref", $ref)->latest()->first();
+            $fd = Fixed::where("nic", $nic)->latest()->first();
             Log::info($fd);
         } else {
             Log::info('NOT fd tected and from db');

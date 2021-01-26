@@ -10,6 +10,7 @@ use App\Http\Controllers\Bdo\ApplicantController;
 use App\Http\Controllers\Application;
 
 use App\Http\Controllers\Dash;
+use App\Http\Controllers\FDDash;
 use App\Http\Controllers\Multimedia;
 use App\Http\Controllers\Stat;
 use App\Http\Controllers\Communication;
@@ -58,11 +59,15 @@ Route::get('/cif', [DataController::class, 'create_new_Cif']);
 Route::post('/account', [DataController::class, 'create_account']);
 
 Route::post('/new_applicant', [Application::class, 'new_customer']);
+Route::post('/new_applicant_fd', [Application::class, 'new_fd']);
+//
 
 Route::get('/inapp', [Dash::class, 'create_new_Cif_inapp']);
 
 
 Route::get('/applicants', [Dash::class, 'getApplicants']);
+
+Route::get('/applicants_fds', [FDDash::class, 'getFDApplicants']);
 
 Route::post('/upload_img', [Multimedia::class, 'upload_nic']);
 
@@ -74,6 +79,8 @@ Route::post('/reviewed', [Dash::class, 'reviewed']);
 
 // retreive to dashboard rendering
 Route::get('/applicant_details_by_nic', [Dash::class, 'item_view']);
+Route::get('/applicant_details_by_ref', [Dash::class, 'item_view']);
+
 Route::get('/grab_branches', [Dash::class, 'grab_branches']);
 
 Route::get('/grab_branches_byid', [Dash::class, 'grab_branches_byid']);
