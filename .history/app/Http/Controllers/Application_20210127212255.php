@@ -25,46 +25,9 @@ class Application extends Controller
 
 
 
-    public function fd_rates(Request $request)
-    {
-
-        $category = "";
-        $payable = "";
-        $months = "";
-        $error = false;
-
-        if (isset($request->category)) {
-            $category = $request->category;
-        } else {
-            $category = "category missing";
-            $error = true;
-        }
-        if (isset($request->payable)) {
-            $payable = $request->payable;
-        } else {
-            $payable = "payable missing";
-            $error = true;
-        }
-        if (isset($request->months)) {
-            $months = $request->months;
-        } else {
-            $months = "months missing";
-            $error = true;
-        }
-
-        if (!$error) {
-            $rates = FD_rates::where("category", $category)->where("payable", $payable)->where("months", $months)->latest()->first();
-            echo  json_encode($rates);
-        } else {
-            $ar =  array(
-                "category" => $category,
-                "payable" => $payable,
-                "months" => $months,
-            );
-
-            echo json_encode($ar);
-        }
-        //  FD_rates::where
+    public function fd_rates(Request $request){
+        $request->
+      //  FD_rates::where
     }
 
     public function default_val($val)

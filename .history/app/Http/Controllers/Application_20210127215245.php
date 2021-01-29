@@ -53,16 +53,6 @@ class Application extends Controller
         }
 
         if (!$error) {
-            $rates = FD_rates::where("category", $category)->where("payable", $payable)->where("months", $months)->latest()->first();
-            echo  json_encode($rates);
-        } else {
-            $ar =  array(
-                "category" => $category,
-                "payable" => $payable,
-                "months" => $months,
-            );
-
-            echo json_encode($ar);
         }
         //  FD_rates::where
     }

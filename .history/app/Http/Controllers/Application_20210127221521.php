@@ -61,8 +61,6 @@ class Application extends Controller
                 "payable" => $payable,
                 "months" => $months,
             );
-
-            echo json_encode($ar);
         }
         //  FD_rates::where
     }

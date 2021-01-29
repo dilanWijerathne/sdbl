@@ -54,7 +54,7 @@ Route::get('/applicant_nic_check', [DataController::class, 'check_applicant_with
 
 Route::post('/status', [Application::class, 'applicant_status']);
 Route::post('/gointo', [Application::class, 'goin_to_open']);
-Route::get('/fd_rates', [Application::class, 'fd_rates']);
+Route::post('/fd_rates', [Application::class, 'fd_rates']);
 
 Route::post('/individualaccounttypes', [Application::class, 'individual_account_types']);
 Route::get('/cif', [DataController::class, 'create_new_Cif']);

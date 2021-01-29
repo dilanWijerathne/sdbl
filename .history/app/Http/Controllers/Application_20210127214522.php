@@ -31,39 +31,17 @@ class Application extends Controller
         $category = "";
         $payable = "";
         $months = "";
-        $error = false;
 
         if (isset($request->category)) {
             $category = $request->category;
-        } else {
-            $category = "category missing";
-            $error = true;
         }
         if (isset($request->payable)) {
-            $payable = $request->payable;
-        } else {
-            $payable = "payable missing";
-            $error = true;
+            $request->payable;
         }
         if (isset($request->months)) {
-            $months = $request->months;
-        } else {
-            $months = "months missing";
-            $error = true;
+            $request->months;
         }
 
-        if (!$error) {
-            $rates = FD_rates::where("category", $category)->where("payable", $payable)->where("months", $months)->latest()->first();
-            echo  json_encode($rates);
-        } else {
-            $ar =  array(
-                "category" => $category,
-                "payable" => $payable,
-                "months" => $months,
-            );
-
-            echo json_encode($ar);
-        }
         //  FD_rates::where
     }
 
