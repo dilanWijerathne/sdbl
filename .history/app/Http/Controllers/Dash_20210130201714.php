@@ -1377,6 +1377,12 @@ class Dash extends Controller
                 ]);
 
 
+                /*
+{"JSON":{"Data":{"referenceNumber":"CUS000000000751",
+  "cifNumber":" ",
+  "status":"1",
+  "error1":" ","error2":" ","error3":" ","error4":" ","error5":" ","message":" ","response_status":"OK"}}}
+*/
 
 
                 Log::info("response from cif api");
@@ -1446,7 +1452,7 @@ class Dash extends Controller
                                 "app_ref" => $app['ref'],
                                 "mobile" => $param['primary_mobile_number'], //$this->prepare_mobile_number($ex_cus_mobile), //substr( $ex_cus_mobile , 2),
                                 "title" => $app['title'],
-                                "name" =>  $param['surname'], // $app['full_name'],
+                                "name" =>  $app['full_name'],
                                 "email" => "",
                                 "act" => $app['applicant_individual_account_type'],
                                 "applicant_going_to_open" => $app['applicant_going_to_open'],
