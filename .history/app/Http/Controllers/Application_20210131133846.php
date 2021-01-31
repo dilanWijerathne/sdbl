@@ -57,7 +57,6 @@ class Application extends Controller
         if (!$error) {
             $rates = FD_rates::where("category", $category)->where("payable", $payable)->where("months", $months)->latest()->first();
             $rates =  json_encode($rates);
-            Log::info('rates of fd no errors');
             Log::info($rates);
             echo  $rates;
         } else {
@@ -66,8 +65,6 @@ class Application extends Controller
                 "payable" => $payable,
                 "months" => $months,
             );
-
-            Log::info('errors ');
 
             $jsn =  json_encode($ar);
             Log::info($jsn);
