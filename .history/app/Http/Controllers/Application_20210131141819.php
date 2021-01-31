@@ -109,7 +109,6 @@ class Application extends Controller
             $interest_transfer_account = $request->input('interest_transfer_account');
             $interest_transfer_branch = $request->input('interest_transfer_branch');
             $interest_transfer_acc_name = $request->input('interest_transfer_acc_name');
-            $fd_rate = $request->input('fd_rate');
 
             if ($interest_transfer_account === NULL | $interest_transfer_account === "") {
                 $interest_transfer_account = 0;
