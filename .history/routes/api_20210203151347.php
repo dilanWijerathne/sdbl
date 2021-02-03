@@ -57,7 +57,7 @@ Route::post('/status', [Application::class, 'applicant_status']);
 Route::post('/gointo', [Application::class, 'goin_to_open']);
 Route::get('/fd_rates', [Application::class, 'fd_rates']);
 
-Route::get('/app_my_onboardings', [Application_dash::class, 'myOnboardings']);
+Route::get('/app_my_onboardings', [Application::class, 'Application_dash']);
 
 Route::post('/individualaccounttypes', [Application::class, 'individual_account_types']);
 Route::get('/cif', [DataController::class, 'create_new_Cif']);
