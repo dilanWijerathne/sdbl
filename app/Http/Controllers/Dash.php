@@ -1131,8 +1131,8 @@ class Dash extends Controller
         $work_place = Work_place::where("ref", $ref)->orderBy('updated_at', 'desc')->first();
 
         $mydate = getdate(date("U"));
-        $d = "4" //$mydate["mday"];
-        $m = "1"//$mydate["mon"];
+        $d = "4"; //$mydate["mday"];
+        $m = "1";//$mydate["mon"];
         $y = $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
         $nic = $app['nic'];
