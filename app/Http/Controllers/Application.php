@@ -115,6 +115,12 @@ class Application extends Controller
                 $interest_transfer_account = 0;
             }
 
+            if( $fd_rate=="undefined"){
+                $fd_rate =0;
+                Log::info('undefined rate for  new FD');
+                Log::info($fd_rate);
+            }
+
             $fixed = new Fixed;
             $fixed->ref = $ref;
             $fixed->nic = $nic;
