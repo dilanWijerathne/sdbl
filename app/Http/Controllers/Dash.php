@@ -398,6 +398,10 @@ class Dash extends Controller
 
         $fd = Fixed::where("ref", $para['app_ref'])->latest()->first();
 
+
+        Log::info('fd taken from db  for timeaccount');
+        Log::info($fd);
+        
         $I_DISPOSTION_CODE = "";
         if ($fd['interest_payable_at'] === "disposeOther") {
             $I_DISPOSTION_CODE = "T";
