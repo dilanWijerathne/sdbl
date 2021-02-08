@@ -117,7 +117,7 @@ class Application extends Controller
 
             if( $fd_rate=="undefined"){
                 $fd_rate =0;
-                Log::info('undefined rate for  new FD');
+                Log::info('undefined rate for  new FD - fix');
                 Log::info($fd_rate);
             }
 
