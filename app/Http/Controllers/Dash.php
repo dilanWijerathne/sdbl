@@ -401,7 +401,7 @@ class Dash extends Controller
 
         Log::info('fd taken from db  for timeaccount');
         Log::info($fd);
-        
+
         $I_DISPOSTION_CODE = "";
         if ($fd['interest_payable_at'] === "disposeOther") {
             $I_DISPOSTION_CODE = "T";
@@ -409,9 +409,18 @@ class Dash extends Controller
             $I_DISPOSTION_CODE = "C";
         }
 
-        $fd_code = $this->select_fd_code($para['act'],  $fd['interest_disposal_method']);
 
+        Log::info('fd taken from db  for I_DISPOSTION_CODE ');
+        Log::info($I_DISPOSTION_CODE);
+
+        $fd_code = $this->select_fd_code($para['act'],  $fd['interest_disposal_method']);
+        Log::info('fd taken from db  for fd code ');
+        Log::info($fd_code);
+
+        
         $REFERENCE_NUMBER =  $this->doRef_fd();
+        Log::info('fd taken from db  for fd code ');
+        Log::info( $REFERENCE_NUMBER);
 
         ///  $internal_account = $this->sdb_account($fd['interest_transfer_account']);
 
