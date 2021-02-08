@@ -1131,8 +1131,8 @@ class Dash extends Controller
         $work_place = Work_place::where("ref", $ref)->orderBy('updated_at', 'desc')->first();
 
         $mydate = getdate(date("U"));
-        $d = "4" //$mydate["mday"];
-        $m = "1"//$mydate["mon"];
+        $d =  $mydate["mday"];
+        $m = $mydate["mon"];
         $y = $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
         $nic = $app['nic'];
@@ -1305,7 +1305,7 @@ class Dash extends Controller
                     "SIC_CODE" => "33",
                     "REFERENCE_NUMBER" =>  $param['ref_number'],
                     "CUSTOMER_CLASSIF" => "1",
-                    "TIME" => time(),  /// current time iso time
+                    "TIME" => "",  /// current time iso time
                     "NATIONAL_ID_NUMBER" => $param['nic'],
                     "MOVED_IN_DATE" =>  $param['today'],   // "2020002"
                     "RACE" => "O",
@@ -1365,7 +1365,7 @@ class Dash extends Controller
                     "SIC_CODE" => "33",
                     "REFERENCE_NUMBER" =>  $param['ref_number'],
                     "CUSTOMER_CLASSIF" => "1",
-                    "TIME" => time(),  /// current time iso time
+                    "TIME" => "",  /// current time iso time
                     "NATIONAL_ID_NUMBER" => $param['nic'],
                     "MOVED_IN_DATE" =>  $param['today'],   // "2020002"
                     "RACE" => "O",
