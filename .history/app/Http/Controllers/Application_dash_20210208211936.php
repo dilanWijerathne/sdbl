@@ -16,7 +16,7 @@ class Application_dash extends Controller
 
         $models = DB::table('applicant')
             ->select('ref', 'title',  'full_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
-            // ->where('bdo', $request->bdo)
+            ->where('bdo', $request->bdo)
             ->where('nic', '%' . $request->search . '%')
             ->orderBy('created_at', 'desc')
             ->limit($request->end)->offset($request->start - 1)
