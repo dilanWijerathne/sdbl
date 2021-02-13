@@ -435,7 +435,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
-            "OFFICER_CODE" => "TAB", //$para['empId'], // officer epf number  "TAB", //   change when live
+            "OFFICER_CODE" => "MOB", //$para['empId'], // officer epf number  "TAB", //   change when live
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -608,7 +608,7 @@ class Dash extends Controller
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
-            "OFFICER_CODE" =>  "TAB", //$para['empId'], // officer epf number  "TAB", //   change when live
+            "OFFICER_CODE" =>  "MOB", //$para['empId'], // officer epf number  "TAB", //   change when live
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $fd['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -1145,8 +1145,8 @@ class Dash extends Controller
         $work_place = Work_place::where("ref", $ref)->orderBy('updated_at', 'desc')->first();
 
         $mydate = getdate(date("U"));
-        $d = $mydate["mday"];
-        $m = $mydate["mon"];
+        $d = "4"; //$mydate["mday"];
+        $m = "1"; //$mydate["mon"];
         $y = $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
         $nic = $app['nic'];
