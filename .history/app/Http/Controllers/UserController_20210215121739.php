@@ -19,7 +19,7 @@ class UserController extends Controller
     {
 
         Log::info("use lgoin role email ");
-        Log::info($request->email);
+        Log::info($requests);
 
 
         $user_to_login = DB::table('users')
