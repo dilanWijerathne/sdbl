@@ -818,7 +818,6 @@ class Dash extends Controller
                 "UPay Business Account" => "129",
                 "Uththamavi Plus" => "115",
                 "Upahara Savings" => "137",
-                "Agri Saving" => "136",
             );
 
             $url = "";
