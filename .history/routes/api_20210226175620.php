@@ -119,4 +119,4 @@ Route::get('/get_progress_rejected', [Stat::class, 'get_progress_rejected']);
 
 // export excel sheet downloadfs
 
-Route::get('export', 'applicationExport@collection');
+Route::get('applicants/export/', 'applicationExport@collection');
