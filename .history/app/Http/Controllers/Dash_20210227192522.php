@@ -1637,7 +1637,7 @@ class Dash extends Controller
             }
             if ((int)$request->app_status === 10 && $product === "savings") {
 
-                Log::info('(int)$request->app_status === 10  && $product === savings');
+                Log::info(' (int)$request->app_status === 10  && $product === savings');
 
                 $models = DB::table('applicant')
                     ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
@@ -1671,10 +1671,7 @@ class Dash extends Controller
                 echo json_encode($a);
             } else {
 
-                Log::info('2nd else');
-
                 if ($product === "savings") {
-                    Log::info('savings only type');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
                         //->where('branch', (int)$request->current_branch_search)
@@ -1713,7 +1710,6 @@ class Dash extends Controller
                     echo json_encode($a);
                 }
                 if ($product === "fd") {
-                    Log::info('fd only type');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
                         //->where('branch', (int)$request->current_branch_search)
@@ -1751,7 +1747,6 @@ class Dash extends Controller
 
                     echo json_encode($a);
                 } else {
-                    Log::info('anything else');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
                         //->where('branch', (int)$request->current_branch_search)
