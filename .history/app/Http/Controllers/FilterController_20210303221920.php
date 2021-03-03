@@ -118,9 +118,8 @@ class FilterController extends Controller
 
                 $models = DB::table('applicant')
                     ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
-                    //->where('applicant_going_to_open', '!=', 'Fixed Deposits')
-                    // ->where('branch', (int)$request->current_branch_search)
-                    ->where([['branch', (int)$request->current_branch_search], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                    ->where('applicant_going_to_open', '!=', 'Fixed Deposits')
+                    ->where('branch', (int)$request->current_branch_search)
                     ->orderBy('created_at', 'desc')
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
@@ -132,9 +131,8 @@ class FilterController extends Controller
                 Log::info($models);
                 $ln = DB::table('applicant')
                     ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
-                    // ->where('applicant_going_to_open', '!=', 'Fixed Deposits')
-                    ->where([['branch', (int)$request->current_branch_search], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
-                    //  ->where('branch', (int)$request->current_branch_search)
+                    ->where('applicant_going_to_open', '!=', 'Fixed Deposits')
+                    ->where('branch', (int)$request->current_branch_search)
                     ->limit($request->end)->offset($request->start - 1)
                     ->count();
                 // $ln = $app->count();
@@ -152,7 +150,7 @@ class FilterController extends Controller
 
                 Log::info('2nd else');
 
-                if ($request->app_status != "10" && $product === "savings") {
+                if ($product === "savings") {
                     Log::info('savings only type');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
@@ -191,7 +189,7 @@ class FilterController extends Controller
 
                     echo json_encode($a);
                 }
-                if ($request->app_status != "10" && $product === "fd") {
+                if ($product === "fd") {
                     Log::info('fd only type');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
@@ -229,9 +227,7 @@ class FilterController extends Controller
                     );
 
                     echo json_encode($a);
-                }
-
-                /*else {
+                } else {
                     Log::info('anything else');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'created_at', 'signed')
@@ -268,7 +264,6 @@ class FilterController extends Controller
 
                     echo json_encode($a);
                 }
-                */
             }
         } else {
 
