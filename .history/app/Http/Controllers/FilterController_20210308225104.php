@@ -52,13 +52,13 @@ class FilterController extends Controller
             Log::info('user code Central ' . $user);
             //current_branch_search
             if ($request->current_branch_search === "0") {
-                // select all branhes from central ops
+
                 if ($request->app_status === '10' && $product === "all") {
                     Log::info(' (int)$request->app_status === 10  && $product === all');
                     $models = DB::table('applicant')
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         //->where('branch', (int)$request->current_branch_search)
-                        ->where([['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $request->current_branch_search], ['nic', 'LIKE', $request->search . '%']])
                         ->orderBy('updated_at', 'desc')
                         ->limit($request->end)->offset($request->start - 1)
                         ->get()
@@ -71,7 +71,7 @@ class FilterController extends Controller
                     $ln = DB::table('applicant')
                         ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         // ->where('branch', (int)$request->current_branch_search)
-                        ->where([['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $request->current_branch_search], ['nic', 'LIKE', $request->search . '%']])
                         ->limit($request->end)->offset($request->start - 1)
                         ->count();
                     // $ln = $app->count();
@@ -93,7 +93,7 @@ class FilterController extends Controller
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         //->where('applicant_going_to_open', 'Fixed Deposits')
                         //->where('branch', (int)$request->current_branch_search)
-                        ->where([['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $request->current_branch_search], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         ->orderBy('updated_at', 'desc')
                         ->limit($request->end)->offset($request->start - 1)
                         ->get()
@@ -107,7 +107,7 @@ class FilterController extends Controller
                         ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         // ->where('applicant_going_to_open', 'Fixed Deposits')
                         // ->where('branch', (int)$request->current_branch_search)
-                        ->where([['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $request->current_branch_search], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         ->limit($request->end)->offset($request->start - 1)
                         ->count();
                     // $ln = $app->count();
@@ -131,7 +131,7 @@ class FilterController extends Controller
                         ->select('ref', 'title',  'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         //->where('applicant_going_to_open', '!=', 'Fixed Deposits')
                         // ->where('branch', (int)$request->current_branch_search)
-                        ->where([['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $request->current_branch_search], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         ->orderBy('updated_at', 'desc')
                         ->limit($request->end)->offset($request->start - 1)
                         ->get()
@@ -144,7 +144,7 @@ class FilterController extends Controller
                     $ln = DB::table('applicant')
                         ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         // ->where('applicant_going_to_open', '!=', 'Fixed Deposits')
-                        ->where([['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $request->current_branch_search], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         //  ->where('branch', (int)$request->current_branch_search)
                         ->limit($request->end)->offset($request->start - 1)
                         ->count();
@@ -172,7 +172,7 @@ class FilterController extends Controller
                         //->where('branch', (int)$request->current_branch_search)
                         //  ->where('applicant_going_to_open', '!=', 'Fixed Deposits')
                         //    ->where('done', (int)$request->app_status)
-                        ->where([['done', (int)$request->app_status], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['done', (int)$request->app_status], ['branch', $request->current_branch_search], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                         // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                         ->orderBy('updated_at', 'desc')
@@ -188,7 +188,7 @@ class FilterController extends Controller
                         ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
                         //->where('branch', (int)$request->current_branch_search)
                         // ->where('applicant_going_to_open', '!=', 'Fixed Deposits')
-                        ->where([['done', (int)$request->app_status],  ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['done', (int)$request->app_status], ['branch', $request->current_branch_search], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         // ->where('done', (int)$request->app_status)
                         // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                         // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
@@ -215,7 +215,7 @@ class FilterController extends Controller
                         //->where('done', (int)$request->app_status)
                         // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                         // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                        ->where([['done', (int)$request->app_status], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['done', (int)$request->app_status], ['branch', $request->current_branch_search], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         ->orderBy('updated_at', 'desc')
                         ->limit($request->end)->offset($request->start - 1)
                         ->get()
@@ -232,7 +232,7 @@ class FilterController extends Controller
                         //  ->where('done', (int)$request->app_status)
                         // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                         // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                        ->where([['done', (int)$request->app_status], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['done', (int)$request->app_status], ['branch', $request->current_branch_search], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         ->limit($request->end)->offset($request->start - 1)
                         ->count();
                     // $ln = $app->count();
@@ -257,7 +257,7 @@ class FilterController extends Controller
                         //->where('done', (int)$request->app_status)
                         // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                         // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                        ->where([['done', (int)$request->app_status], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['done', (int)$request->app_status], ['branch', $request->current_branch_search], ['nic', 'LIKE', $request->search . '%']])
                         ->orderBy('updated_at', 'desc')
                         ->limit($request->end)->offset($request->start - 1)
                         ->get()
@@ -274,7 +274,7 @@ class FilterController extends Controller
                         //  ->where('done', (int)$request->app_status)
                         // ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                         // ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
-                        ->where([['done', (int)$request->app_status], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['done', (int)$request->app_status], ['branch', $request->current_branch_search],  ['nic', 'LIKE', $request->search . '%']])
                         ->limit($request->end)->offset($request->start - 1)
                         ->count();
                     // $ln = $app->count();
@@ -291,8 +291,6 @@ class FilterController extends Controller
                 }
             } else {
 
-
-                // central ops branch wise
                 if ($request->app_status === '10' && $product === "all") {
                     Log::info(' (int)$request->app_status === 10  && $product === all');
                     $models = DB::table('applicant')
