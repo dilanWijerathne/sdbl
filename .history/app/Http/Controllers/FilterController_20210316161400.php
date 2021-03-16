@@ -575,20 +575,13 @@ class FilterController extends Controller
 
             Log::info('user code branch ' . $user);
 
+            $order_by = "";
 
-
-
-            if (isset($request->app_status)) {
-
-                if ((int)$request->app_status === 0) {
-                    $order_by = "created_at";
-                } else {
-                    $order_by = "updated_at";
-                }
-            } else {
+            if ((int)$request->app_status === 0) {
                 $order_by = "created_at";
+            } else {
+                $order_by = "updated_at";
             }
-
 
             if ($product === "fd") {
 
@@ -601,7 +594,7 @@ class FilterController extends Controller
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                 */
-                    ->orderBy($order_by, 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
                     ->map(function ($item) {
@@ -645,7 +638,7 @@ class FilterController extends Controller
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                 */
-                    ->orderBy($order_by, 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
                     ->map(function ($item) {

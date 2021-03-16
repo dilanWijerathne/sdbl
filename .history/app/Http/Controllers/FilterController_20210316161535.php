@@ -601,7 +601,7 @@ class FilterController extends Controller
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                 */
-                    ->orderBy($order_by, 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
                     ->map(function ($item) {
@@ -645,7 +645,7 @@ class FilterController extends Controller
                 ->orWhere('primary_mobile_number', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('full_name', 'LIKE', '%' . $request->search . '%')
                 */
-                    ->orderBy($order_by, 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->limit($request->end)->offset($request->start - 1)
                     ->get()
                     ->map(function ($item) {
