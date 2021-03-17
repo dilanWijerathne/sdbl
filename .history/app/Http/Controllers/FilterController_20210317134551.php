@@ -648,33 +648,6 @@ class FilterController extends Controller
                     );
 
                     echo json_encode($a);
-                } else {
-                    $models = DB::table('applicant')
-                        ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
-                        ->where([['branch', $user], ['done', (int)$request->app_status], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
-                        ->orderBy($order_by, 'desc')
-                        ->limit($request->end)->offset($request->start - 1)
-                        ->get()
-                        ->map(function ($item) {
-                            return [$item->ref, $item->title,  $item->full_name, $item->f_name, $item->nic, $item->primary_mobile_number, $item->updated_at, $item->signed];
-                        })->toArray();
-
-
-                    Log::info($models);
-                    $ln = DB::table('applicant')
-                        ->select('ref', 'title', 'full_name', 'f_name', 'nic', 'primary_mobile_number', 'updated_at', 'signed')
-                        ->where([['branch', $user], ['done', (int)$request->app_status], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
-                        ->limit($request->end)->offset($request->start - 1)
-                        ->count();
-                    $a = array(
-                        "draw" => $request->draw,
-                        "recordsTotal" => $ln,
-                        "recordsFiltered" => $ln,
-                        "data" => $models,
-
-                    );
-
-                    echo json_encode($a);
                 }
             } else {
 
