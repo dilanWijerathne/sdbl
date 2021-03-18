@@ -738,7 +738,7 @@ class FilterController extends Controller
                     Log::info($models);
                     $ln = DB::table('applicant')
                         ->select('ref', 'branch',  'title', 'full_name',  'nic', 'primary_mobile_number', 'updated_at', 'created_at', 'signed')
-                        ->where([['branch', $user], ['done', (int)$request->app_status], ['applicant_going_to_open', '!=', 'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
+                        ->where([['branch', $user], ['done', (int)$request->app_status], ['applicant_going_to_open',  'Fixed Deposits'], ['nic', 'LIKE', $request->search . '%']])
                         ->limit($request->end)->offset($request->start - 1)
                         ->count();
                     $a = array(
