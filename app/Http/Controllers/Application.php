@@ -282,7 +282,7 @@ class Application extends Controller
             $applicant->surname = $s_name;
             $applicant->initials = "";
             $applicant->display_name = $displayName;
-            $applicant->full_name = $full_name;
+            $applicant->full_name =  trim($full_name);
             $applicant->f_name = $f_name;
             $applicant->nic = $nic;
             $applicant->birth_year = $dob_year;

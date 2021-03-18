@@ -15,7 +15,7 @@ use App\Models\Images;
 use App\Models\Applicant;
 use App\Models\Cif_Response;
 use App\Exceptions\Handler;
-use App\Models\Branches;
+use App\Models\FD_rates;
 use Error;
 use Illuminate\Support\Facades\DB;
 use Exception;
@@ -24,6 +24,58 @@ class Application extends Controller
 {
 
 
+
+    public function fd_rates(Request $request)
+    {
+        Log::info('fd rate request');
+        Log::info($request);
+
+        $category = "";
+        $payable = "";
+        $months = "";
+        $error = false;
+
+        if (isset($request->category)) {
+            $category = $request->category;
+        } else {
+            $category = "category missing";
+            $error = true;
+        }
+        if (isset($request->payable)) {
+
+            $payable = $request->payable;
+        } else {
+            $payable = "payable missing";
+            $error = true;
+        }
+        if (isset($request->months)) {
+            $months = $request->months;
+        } else {
+            $months = "months missing";
+            $error = true;
+        }
+
+        if (!$error) {
+            $rates = FD_rates::where("category", $category)->where("payable", $payable)->where("months", $months)->latest()->first();
+            $rates =  json_encode($rates);
+            Log::info('rates of fd no errors');
+            Log::info($rates);
+            echo  $rates;
+        } else {
+            $ar =  array(
+                "category" => $category,
+                "payable" => $payable,
+                "months" => $months,
+            );
+
+            Log::info('errors ');
+
+            $jsn =  json_encode($ar);
+            Log::info($jsn);
+            echo $jsn;
+        }
+        //  FD_rates::where
+    }
 
     public function default_val($val)
     {
@@ -53,8 +105,21 @@ class Application extends Controller
             $interest_payable_at = $request->input('interest_payable_at');
             $interest_disposal_method = $request->input('interest_disposal_method');
             $interest_transfer_bank = $request->input('interest_transfer_bank');
+
             $interest_transfer_account = $request->input('interest_transfer_account');
             $interest_transfer_branch = $request->input('interest_transfer_branch');
+            $interest_transfer_acc_name = $request->input('interest_transfer_acc_name');
+            $fd_rate = $request->input('fd_rate');
+
+            if ($interest_transfer_account === NULL | $interest_transfer_account === "") {
+                $interest_transfer_account = 0;
+            }
+
+            if ($fd_rate == "undefined") {
+                $fd_rate = 0;
+                Log::info('undefined rate for  new FD - fix');
+                Log::info($fd_rate);
+            }
 
             $fixed = new Fixed;
             $fixed->ref = $ref;
@@ -66,6 +131,8 @@ class Application extends Controller
             $fixed->interest_transfer_bank = $interest_transfer_bank;
             $fixed->interest_transfer_account = $interest_transfer_account;
             $fixed->interest_transfer_branch = $interest_transfer_branch;
+            $fixed->interest_transfer_acc_name = $interest_transfer_acc_name;
+            $fixed->rate = $fd_rate;
             $fixed->save();
             return 1;
         } catch (Exception $e) {
@@ -137,6 +204,7 @@ class Application extends Controller
             $wealth_other_reason = $request->input('source_funds_other_reason');
             $source_funds_other_reason = $request->input('wealth_other_reason');
             $gps = $request->input('gpsl');
+            $appv = $request->input('appv');
 
             Log::info($gps);
             //data.append("existing_customer_cif", customer_cif);
@@ -214,7 +282,7 @@ class Application extends Controller
             $applicant->surname = $s_name;
             $applicant->initials = "";
             $applicant->display_name = $displayName;
-            $applicant->full_name = $full_name;
+            $applicant->full_name =  trim($full_name);
             $applicant->f_name = $f_name;
             $applicant->nic = $nic;
             $applicant->birth_year = $dob_year;
@@ -238,6 +306,7 @@ class Application extends Controller
             $applicant->existing_customer = $existing_customer;  // bolean
             $applicant->bdo = $bdo;
             $applicant->gps = $gps;
+            $applicant->appv = $appv;
             $applicant->save();
 
 
@@ -267,6 +336,7 @@ class Application extends Controller
 
             if ($existing_customer === "true") {
                 $cif = new Cif_Response;
+                $cif->ref_number = $ref;
                 $cif->nic = $nic;
                 $cif->cif = $customer_cif;
                 $cif->save();
@@ -366,6 +436,14 @@ class Application extends Controller
 
             $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
                 ->where('area', 'fixed_deposits')
+                ->where('age_limit', '<=', $age)
+                ->where('active',  1)
+                ->get();
+        }
+        if ($applicant_status === "leasing") {
+
+            $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')
+                ->where('area', 'Leasing')
                 ->where('age_limit', '<=', $age)
                 ->where('active',  1)
                 ->get();
