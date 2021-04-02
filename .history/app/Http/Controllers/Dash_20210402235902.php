@@ -19,6 +19,7 @@ use App\Models\Signatures;
 use App\Models\Branches;
 use App\Models\Utils;
 use App\Models\Fixed;
+use App\Models\investment_saving;
 use Illuminate\Support\Facades\DB;
 
 
@@ -121,8 +122,17 @@ class Dash extends Controller
 
 
             if ($request->type === "ops") {
-                $app = Applicant::where("ref", $request->ref)->update(['ops' => 1]);
-                $app = Applicant::where("ref", $request->ref)->update(['ops_staff' => $request->bdo]);
+                //$app = Applicant::where("ref", $request->ref)->update(['ops' => 1]);
+                //$app = Applicant::where("ref", $request->ref)->update(['ops_staff' => $request->bdo]);
+
+                $appk = Applicant::where("ref", $request->ref)->latest()->first();
+                Log::info($appk);
+                $app = Applicant::find($appk['id']);
+                Log::info($app);
+                $app->ops = 1;
+                $app->ops_staff = $request->bdo;
+                $app->timestamps = false;
+                $app->save();
             } elseif ($request->type === "mng") {
                 $app = Applicant::where("ref", $request->ref)->update(['approved' => 1]);
                 $app = Applicant::where("ref", $request->ref)->update(['review_staff' => $request->bdo]);
@@ -256,6 +266,8 @@ class Dash extends Controller
             "multimedia" => $multimedia,
             "bdo" => $bdo_branch,
             "fd" => $fd,
+            "updated_at" => date('d-m-Y', strtotime($app['updated_at'])),
+            "created_at" =>  date('d-m-Y', strtotime($app['created_at'])),
         );
 
 
@@ -387,6 +399,11 @@ class Dash extends Controller
         return  $k;
     }
 
+
+    public function create_investment()
+    {
+        //investment_saving
+    }
 
     public function create_fd($para)
     {
@@ -749,6 +766,7 @@ class Dash extends Controller
         $id = $array['JSON']['Data']['response_status'];
 
         $account = new Account;
+        $account->app_ref =  $para['app_ref'];
         $account->ref_number = $array['JSON']['Data']['referenceNumber'];
         $account->account_number = $array['JSON']['Data']['timeAccountNo'];
         $account->nic = $para['nic'];
@@ -819,6 +837,7 @@ class Dash extends Controller
                 "Uththamavi Plus" => "115",
                 "Upahara Savings" => "137",
                 "Agri Saving" => "136",
+                "Investment Saving" => "114",
             );
 
             $url = "";
@@ -971,9 +990,13 @@ class Dash extends Controller
 
             $var =  $responseC->body();
             $array = json_decode($var, true);
+
+            Log::info(" account creation response " . $para['ref']);
+            Log::info($array);
             $id = $array['JSON']['Data']['response_status'];
 
             $account = new Account;
+            $account->app_ref =  $para['app_ref'];
             $account->ref_number = $array['JSON']['Data']['referenceNumber'];
             $account->account_number = $array['JSON']['Data']['svId'];
             $account->nic =  $para['nic'];
@@ -1153,9 +1176,10 @@ class Dash extends Controller
         $work_place = Work_place::where("ref", $ref)->orderBy('updated_at', 'desc')->first();
 
         $mydate = getdate(date("U"));
-        $d =  $mydate["mday"];
-        $m = $mydate["mon"];
-        $y = $mydate["year"];
+        // change when go live
+        $d =  "22"; //$mydate["mday"];
+        $m = "03"; //$mydate["mon"];
+        $y = "2021"; // $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
         $nic = $app['nic'];
 
