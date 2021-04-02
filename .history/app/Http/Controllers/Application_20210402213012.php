@@ -116,7 +116,7 @@ class Application extends Controller
             $investment->save();
             return 1;
         } catch (Exception $e) {
-            Log::error('erro of investment_saving');
+            Log::error('erro of investment_saving ');
             Log::error($request);
             Log::error($e);
         }

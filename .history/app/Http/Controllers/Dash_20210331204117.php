@@ -19,7 +19,6 @@ use App\Models\Signatures;
 use App\Models\Branches;
 use App\Models\Utils;
 use App\Models\Fixed;
-use App\Models\investment_saving;
 use Illuminate\Support\Facades\DB;
 
 
@@ -832,7 +831,6 @@ class Dash extends Controller
                 "Uththamavi Plus" => "115",
                 "Upahara Savings" => "137",
                 "Agri Saving" => "136",
-                "Investment Saving" => "114",
             );
 
             $url = "";
@@ -1171,7 +1169,6 @@ class Dash extends Controller
         $work_place = Work_place::where("ref", $ref)->orderBy('updated_at', 'desc')->first();
 
         $mydate = getdate(date("U"));
-        // change when go live
         $d =  "22"; //$mydate["mday"];
         $m = "03"; //$mydate["mon"];
         $y = "2021"; // $mydate["year"];

@@ -89,40 +89,6 @@ class Application extends Controller
     }
 
 
-
-    public function new_investment(Request $request)
-    {
-        // investment_saving;
-        Log::info('request to investment saving');
-        Log::info($request);
-
-        /**
-         *   investment saving,
-         */
-
-        try {
-            $nic = $request->input('nic');
-            $ref = $request->input('ref');
-            $period = $request->input('period');
-            $desposit = $request->input('desposit');
-
-
-
-            $investment = new investment_saving;
-            $investment->ref = $ref;
-            $investment->nic = $nic;
-            $investment->period = $period;
-            $investment->desposit = $desposit;
-            $investment->save();
-            return 1;
-        } catch (Exception $e) {
-            Log::error('erro of investment_saving');
-            Log::error($request);
-            Log::error($e);
-        }
-    }
-
-
     public function new_fd(Request $request)
     {
         Log::info('request to new FD');

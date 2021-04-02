@@ -19,7 +19,6 @@ use App\Models\Signatures;
 use App\Models\Branches;
 use App\Models\Utils;
 use App\Models\Fixed;
-use App\Models\investment_saving;
 use Illuminate\Support\Facades\DB;
 
 
@@ -832,7 +831,6 @@ class Dash extends Controller
                 "Uththamavi Plus" => "115",
                 "Upahara Savings" => "137",
                 "Agri Saving" => "136",
-                "Investment Saving" => "114",
             );
 
             $url = "";
