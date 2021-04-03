@@ -419,32 +419,38 @@ class Dash extends Controller
         //investment_saving
 
         $act = array(
-            "Investment Saving" => "114",
+            "Normal FD" => "162",
+            "Upahara FD" => "150",
+            "Government Special FD" => "185",
         );
 
         $fd = Fixed::where("ref", $para['app_ref'])->latest()->first();
 
 
-        Log::info(' investment saving taken from db  for timeaccount');
+        Log::info('fd taken from db  for timeaccount');
         Log::info($fd);
 
-        $I_DISPOSTION_CODE = "C";
+        $I_DISPOSTION_CODE = "";
+        if ($fd['interest_payable_at'] === "disposeOther") {
+            $I_DISPOSTION_CODE = "T";
+        } else {
+            $I_DISPOSTION_CODE = "C";
+        }
 
 
-        Log::info(' investment saving taken from db  for I_DISPOSTION_CODE ');
+        Log::info('fd taken from db  for I_DISPOSTION_CODE ');
         Log::info($I_DISPOSTION_CODE);
 
         $fd_code = $this->select_fd_code($para['act'],  $fd['interest_disposal_method']);
-        Log::info(' investment saving taken from db  for fd code ');
+        Log::info('fd taken from db  for fd code ');
         Log::info($fd_code);
 
 
         $REFERENCE_NUMBER =  $this->doRef_fd();
-        Log::info(' investment saving taken from db  for fd code ');
+        Log::info('fd taken from db  for fd code ');
         Log::info($REFERENCE_NUMBER);
 
         ///  $internal_account = $this->sdb_account($fd['interest_transfer_account']);
- //investment_saving
 
         $aa = array(
             "REFERENCE_NUMBER" => $REFERENCE_NUMBER, //"TIM000000000001",
@@ -452,9 +458,9 @@ class Dash extends Controller
             "CUS_RELATIONSHIP" => "SOW",
             "SEQUENCE_FOR_REF" => "1",
             "SEQUENCE_NUMBER" => "1",
-            "TIME_AC_NUMBER" => "1",
+            "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
-            "SEQUENCE_NO" => "1",
+            "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
             "OFFICER_CODE" => "TAB", //$para['empId'], // officer epf number  "TAB", //   change when live
             "OPEN_DATE" => $para['today'],   // julina today
@@ -470,7 +476,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" =>  $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0",
+            "INTEREST_RATE" => "0.098500",
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -494,7 +500,7 @@ class Dash extends Controller
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
-            "PAYMENT_FRE_CY" =>  $fd['period'],
+            "PAYMENT_FRE_CY" =>  $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
             "PAYMENT_SPE_DAY" =>  $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
@@ -554,7 +560,7 @@ class Dash extends Controller
             "ORDER_INDEX_IDD" => "H",
             "TARGET_INDEX_IDNO" => "E",
             "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" =>"".//  $fd['interest_transfer_account'], //"1089327",
+            "INTERNAL_ACCOUNT_N0" =>  $fd['interest_transfer_account'], //"1089327",
             "AMOUNT" => "0",
             "DESCRIPTION" => "",
             "INTERNAL_GL_COST_CT2" => "0",
@@ -567,7 +573,7 @@ class Dash extends Controller
         );
 
 
-        Log::info(' investment saving array');
+        Log::info('FD array');
         Log::info(json_encode($aa));
 
         $url = "";
@@ -591,7 +597,7 @@ class Dash extends Controller
             "SEQUENCE_NUMBER" => "1",
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
-            "SEQUENCE_NO" => "1",
+            "SEQUENCE_NO" => "0",
             "PRODUCT_TYPE" => $fd_code, //"162", // add relevent product type from table
             "OFFICER_CODE" =>  "TAB", //$para['empId'], // officer epf number  "TAB", //   change when live
             "OPEN_DATE" => $para['today'],   // julina today
@@ -607,7 +613,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" => $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0",
+            "INTEREST_RATE" => "0.098500",
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -631,7 +637,7 @@ class Dash extends Controller
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
-            "PAYMENT_FRE_CY" => $fd['period'],
+            "PAYMENT_FRE_CY" => $this->fd_payment_frq($fd['period'], $fd['interest_disposal_method']),
             "PAYMENT_SPE_DAY" => $para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
@@ -691,7 +697,7 @@ class Dash extends Controller
             "ORDER_INDEX_IDD" => "H",
             "TARGET_INDEX_IDNO" => "E",
             "TARGET_PROFILE_N0" => "35",
-            "INTERNAL_ACCOUNT_N0" =>"",//  $fd['interest_transfer_account'], //"1089327",
+            "INTERNAL_ACCOUNT_N0" =>  $fd['interest_transfer_account'], //"1089327",
             "AMOUNT" => "0",
             "DESCRIPTION" => "",
             "INTERNAL_GL_COST_CT2" => "0",
@@ -705,9 +711,29 @@ class Dash extends Controller
 
 
 
+        /*
 
+        {
+    "JSON": {
+        "Data": {
+            "referenceNumber": "TIM000000601449",
+            "timeAccountNo": "000000000000",
+            "status": "2",
+            "error1": "       ",
+            "error2": "       ",
+            "error3": "       ",
+            "error4": "       ",
+            "error5": "       ",
+            "message": "          ",
+            "depositonCode": "T",
+            "response_status": "OK"
+        }
+    }
+}
 
-        Log::info(' investment saving core response ');
+        */
+
+        Log::info('FD core response ');
         Log::info($response);
         $var =  $response->body();
         $array = json_decode($var, true);
@@ -751,10 +777,10 @@ class Dash extends Controller
                 // Log::info(json_encode($param));
                 //  Utils::smsreg($param);
             } else {
-                Log::error($array['JSON']['Data']['timeAccountNo'] . " | investment saving - wrong response from core api");
+                Log::error($array['JSON']['Data']['timeAccountNo'] . " |FD - wrong response from core api");
             }
         } else {
-            Log::error("['JSON']['Data']['timeAccountNo']" . "  investment saving - core banking api response error");
+            Log::error("['JSON']['Data']['timeAccountNo']" . " FD - core banking api response error");
         }
 
 
