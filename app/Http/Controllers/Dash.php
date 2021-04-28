@@ -1503,8 +1503,8 @@ class Dash extends Controller
 
         $mydate = getdate(date("U"));
         // change when go live
-        $d =  "22"; //$mydate["mday"];
-        $m = "03"; //$mydate["mon"];
+        $d =  "01"; //$mydate["mday"];
+        $m = "04"; //$mydate["mon"];
         $y = "2021"; // $mydate["year"];
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
         $nic = $app['nic'];
