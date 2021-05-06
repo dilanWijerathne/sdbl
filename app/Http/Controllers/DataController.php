@@ -264,6 +264,30 @@ class DataController extends Controller
 
 
 
+    public function check_sdb_account(Request $request)
+    {
+
+
+        $responseB = Http::post('http://esbprodsdb.sdb.local:7080/accbala/v1/AccountBalanceInformationA?AccountNumber=00001089327&AccountType=S', [
+            "AccountNumber" => "00001089327",
+            "AccountType" => "S",
+
+        ]);
+
+
+
+
+
+
+        $var =  $responseB->body();
+        $array = json_decode($var, true);
+        $obj = $array['JSON']['Data'];;
+
+        echo $obj;
+    }
+
+
+
 
 
     public function open()

@@ -124,3 +124,8 @@ Route::get('/get_progress_rejected', [Stat::class, 'get_progress_rejected']);
 
 // export excel sheet downloadfs
 Route::get('/export', [ExportController::class, 'export']);
+
+
+// check sdb saving account number
+
+Route::get('/check_account', [DataController::class, 'check_sdb_account']);

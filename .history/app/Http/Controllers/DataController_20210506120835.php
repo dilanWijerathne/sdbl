@@ -9,6 +9,7 @@ use Symfony\Component\VarDumper\Cloner\Data;
 
 use App\Models\Cif_Response;
 use App\Models\Account;
+use App\Models\Utils;
 
 class DataController extends Controller
 {
@@ -35,7 +36,7 @@ class DataController extends Controller
 
         if (isset($request->nic)) {
             $nic  =  $request->nic;
-
+            /*
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
@@ -51,13 +52,27 @@ class DataController extends Controller
 
             $response = curl_exec($curl);
 
-            curl_close($curl);
+            */
+            $response =  Utils::call_nic_core($url, $nic);
+            $responsek = json_decode($response, true);
+            // curl_close($curl);
 
             Log::info($nic . '  NIC respose from Core');
-            Log::info($response);
+            Log::info($responsek);
             Log::info(" from core customer nic");
-            Log::info($response['Data']['National_ID_Number']);
-            echo $response;
+
+
+
+
+            if (isset($responsek['JSON']['Data']['National_ID_Number'])) {
+                Log::info(" from core customer nic  " . $responsek['JSON']['Data']['National_ID_Number']);
+                Log::info($responsek['JSON']['Data']['National_ID_Number']);
+                echo $response;
+            } else {
+                $nic2 = Utils::nic_conversion($nic);
+                $response =  Utils::call_nic_core($url, $nic2);
+                echo $response;
+            }
         } else {
 
             $k = array("code" => "1150", "status" => false, "message" => "NIC  does not exist.", "serverTime" => date("Y-m-d h:i:sa"));
@@ -245,6 +260,30 @@ class DataController extends Controller
         $newCif->save();
 
         echo $id;
+    }
+
+
+
+    public function check_sdb_account(Request $request)
+    {
+
+
+        $responseB = Http::post('http://esbprodsdb.sdb.local:7080/accbala/v1/AccountBalanceInformationA?AccountNumber=00001089327&AccountType=S', [
+            "AccountNumber" => "00001089327",
+            "AccountType" => "S",
+
+        ]);
+
+
+
+
+
+
+        $var =  $responseB->body();
+        $array = json_decode($var, true);
+        $obj = $array['JSON']['Data'];;
+
+        echo $obj;
     }
 
 
