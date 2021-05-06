@@ -411,7 +411,7 @@ class Application extends Controller
         Log::info('applicant age  : ' . $age . "  sex : " . $sex);
 
         $statuses = null;
-        if ($age > 18) {
+        if ($age >= 18) {
             if ($sex == "Male") {
                 $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'applicant')->where('id', '!=', 250)->where('id', '!=', 251)->get();
             }

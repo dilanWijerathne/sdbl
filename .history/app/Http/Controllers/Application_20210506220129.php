@@ -116,7 +116,7 @@ class Application extends Controller
             $investment->save();
             return 1;
         } catch (Exception $e) {
-            Log::error('erro of investment_saving ');
+            Log::error('erro of investment_saving');
             Log::error($request);
             Log::error($e);
         }
@@ -411,7 +411,7 @@ class Application extends Controller
         Log::info('applicant age  : ' . $age . "  sex : " . $sex);
 
         $statuses = null;
-        if ($age > 18) {
+        if ($age >= 18) {
             if ($sex == "Male") {
                 $statuses =  ApplicationConfigs::select('id', 'area', 'val', 'description')->where('area', 'applicant')->where('id', '!=', 250)->where('id', '!=', 251)->get();
             }
