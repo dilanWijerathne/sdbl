@@ -1,0 +1,15 @@
+[2021-05-08 08:54:27] stage.INFO: use lgoin role email   
+[2021-05-08 08:54:27] stage.INFO: tilakarathna.d@sdb.lk  
+[2021-05-08 08:54:27] stage.INFO: use lgoin role   
+[2021-05-08 08:54:27] stage.INFO: {"code":"12","email":"tilakarathna.d@sdb.lk","emp":776,"role":"manager"}  
+[2021-05-08 11:04:58] stage.INFO: use lgoin role email   
+[2021-05-08 11:04:58] stage.INFO: selva.vsp@sdb.lk  
+[2021-05-08 11:04:58] stage.INFO: use lgoin role   
+[2021-05-08 11:04:58] stage.INFO: {"code":"89","email":"selva.vsp@sdb.lk","emp":2431,"role":"bdo"}  
+[2021-05-08 11:05:06] stage.INFO: my onboarding app request  
+[2021-05-08 11:05:06] stage.INFO: array (
+  'bdo' => 'selva.vsp@sdb.lk',
+  'start' => '1',
+  'end' => '100',
+  'search' => NULL,
+)  
