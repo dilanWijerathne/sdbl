@@ -1499,7 +1499,7 @@ class Dash extends Controller
 
 
         $mydate = getdate(date("U"));
-        // change when go live  today
+        // change when go live
         $d =  "04"; //$mydate["mday"];
         $m = "05"; //$mydate["mon"];
         $y = "2021"; // $mydate["year"];
@@ -1652,7 +1652,7 @@ class Dash extends Controller
                     "HOME_PHONE_NUMBER" => $this->default_val($param['secondary_number']),
                     "TIN_ACTIVITY_DATE" => $param['today'],  // current date // today  => UAT 2020280 //  october 6 2020
                     "CURR_POST_TOWN" => $param['city'],
-                    "DATE" =>  $param['today'], // current date  date("m/d/Y h:i:s a", time()), //
+                    "DATE" =>   date("m/d/Y h:i:s a", time()), //$param['today'], // current date
                     "MARKET_SEQMENT" => "SOT",
                     "CURR_COUNTRY" => "Sri Lanka",
                     "BRANCH_NUMBER" => $param['branch'],
