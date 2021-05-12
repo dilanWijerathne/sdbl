@@ -460,7 +460,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" =>  $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0.098500",
+            "INTEREST_RATE" => $fd['rate'], //"0.098500",
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -633,7 +633,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" => $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0.098500",
+            "INTEREST_RATE" => $fd['rate'],
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -1082,7 +1082,7 @@ class Dash extends Controller
         $rn->ref_number = $v;
         $rn->save();
 
-        $ref = 'TAP00000000' . $v;
+        $ref = 'TAP0000000' . $v; // removed 0, orginal TAP00000000
         $wildcard =  $this->generateRandomString(1);
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
@@ -1102,7 +1102,7 @@ class Dash extends Controller
         $rn->ref_number = $v;
         $rn->save();
 
-        $ref = 'CUS00000000' . $v;
+        $ref = 'CUS0000000' . $v; // removed 0, orginal CUS00000000
         $wildcard =  $this->generateRandomString(1);
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
