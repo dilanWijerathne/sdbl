@@ -1064,7 +1064,7 @@ class Dash extends Controller
         $rn->ref_number = $v;
         $rn->save();
 
-        $ref = 'TIM00000000' . $v;
+        $ref = 'TIM0000000' . $v; // removed one 0, orginal TIM00000000
         $wildcard =  $this->generateRandomString(1);
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
