@@ -84942,3 +84942,1631 @@ Stack trace:
 </html>  
 [2021-05-12 11:39:01] stage.INFO: "<html>\r\n<head><title>Operation timed out<\/title><\/head>\r\n<body><h1>Operation timed out<\/h1><p>The operation has timed out.<\/p><\/body>\r\n<\/html>"  
 [2021-05-12 11:39:01] stage.CRITICAL: Cannot create account process bcz no CIF given from core!   Ref:982821983V  
+[2021-05-12 11:39:09] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:39:22] stage.INFO: my onboarding app request  
+[2021-05-12 11:39:22] stage.INFO: array (
+  'bdo' => 'chathuranga@sdb.lk',
+  'start' => '1',
+  'end' => '100',
+  'search' => NULL,
+)  
+[2021-05-12 11:39:23] stage.INFO: my onboarding app request  
+[2021-05-12 11:39:23] stage.INFO: array (
+  'bdo' => 'chathuranga@sdb.lk',
+  'start' => '1',
+  'end' => '100',
+  'search' => NULL,
+)  
+[2021-05-12 11:39:26] stage.INFO: fd sected and from db  
+[2021-05-12 11:39:26] stage.INFO: {"id":1709,"ref":"1620798075644","nic":"813084970V","desposit":300000,"rate":"6","period":"12","interest_payable_at":"disposeOther","interest_disposal_method":"maturity","interest_transfer_bank":"SDB","interest_transfer_branch":null,"interest_transfer_acc_name":"H.M.Janaka Bandara","interest_transfer_account":"2223514","created_at":"2021-05-12T05:41:15.000000Z","updated_at":"2021-05-12T05:41:15.000000Z"}  
+[2021-05-12 11:40:08] stage.INFO: user check to view applicant data  
+[2021-05-12 11:40:08] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'draw' => '1',
+  'user_email' => 'dulani@SDB.lk',
+)  
+[2021-05-12 11:40:08] stage.INFO: dulani@SDB.lk  
+[2021-05-12 11:40:08] stage.INFO: user code  0  
+[2021-05-12 11:40:08] stage.INFO: user code Central 0  
+[2021-05-12 11:40:08] stage.INFO: anything else | Default state of central ops when load  
+[2021-05-12 11:40:08] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620799428006',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Aththanayaka Mudiyanselage Sarath Jayantha Wijerathna',
+    4 => '900313080V',
+    5 => '0773091652',
+    6 => '2021-05-12 11:35:11',
+    7 => '2021-05-12 11:33:48',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620798939466',
+    1 => '20',
+    2 => 'Mr',
+    3 => 'Siriwardhana Kasee Brahmana Ralalage Lahiru Hasan Thilakarathne',
+    4 => '982821983V',
+    5 => '0773084993',
+    6 => '2021-05-12 11:36:00',
+    7 => '2021-05-12 11:30:11',
+    8 => 1,
+  ),
+  2 => 
+  array (
+    0 => '1620798957007',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Konara Appuhamilage Prasanna Pradeep Kumara',
+    4 => '892274061V',
+    5 => '0726736538',
+    6 => '2021-05-12 11:38:02',
+    7 => '2021-05-12 11:25:58',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620798768876',
+    1 => '37',
+    2 => 'Mrs',
+    3 => 'Lansakara Jayasundara Mudiyanselage Nandawathi',
+    4 => '646410223V',
+    5 => '0771733526',
+    6 => '2021-05-12 11:35:31',
+    7 => '2021-05-12 11:22:49',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620798543947',
+    1 => '22',
+    2 => 'Mr',
+    3 => 'Arungiyan Theeparaj',
+    4 => '943482950V',
+    5 => '0768786132',
+    6 => '2021-05-12 11:19:52',
+    7 => '2021-05-12 11:19:03',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620798448775',
+    1 => '27',
+    2 => 'Mrs',
+    3 => 'D,A,A Amarasinghe',
+    4 => '578570527V',
+    5 => '0',
+    6 => '2021-05-12 11:17:35',
+    7 => '2021-05-12 11:17:35',
+    8 => 0,
+  ),
+  6 => 
+  array (
+    0 => '1620798075644',
+    1 => '77',
+    2 => 'Mr',
+    3 => 'H,M, Janaka Bandara',
+    4 => '813084970V',
+    5 => '94768899770',
+    6 => '2021-05-12 11:19:54',
+    7 => '2021-05-12 11:11:15',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620797936694',
+    1 => '22',
+    2 => 'Mr',
+    3 => 'Arungiyan Theepanraj',
+    4 => '943482950V',
+    5 => '0768786132',
+    6 => '2021-05-12 11:12:50',
+    7 => '2021-05-12 11:08:56',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620797090851',
+    1 => '91',
+    2 => 'Mr',
+    3 => 'P,N, Sampath',
+    4 => '903051710V',
+    5 => '0',
+    6 => '2021-05-12 11:02:13',
+    7 => '2021-05-12 10:54:51',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620797055036',
+    1 => '89',
+    2 => 'Mrs',
+    3 => 'Kaneshamoorthy Rathirany',
+    4 => '667113610V',
+    5 => '0750993542',
+    6 => '2021-05-12 10:54:55',
+    7 => '2021-05-12 10:54:15',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:40:34] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '26',
+)  
+[2021-05-12 11:40:34] stage.INFO: applicant age  : 26  sex : Male  
+[2021-05-12 11:40:34] stage.INFO: NIC Check with Core  
+[2021-05-12 11:40:34] stage.INFO: array (
+  'nic' => '950571705V',
+)  
+[2021-05-12 11:40:34] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-05-12 11:40:34] stage.INFO: 950571705V  NIC respose from Core  
+[2021-05-12 11:40:34] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-05-12 11:40:34] stage.INFO:  from core customer nic  
+[2021-05-12 11:40:42] stage.INFO: user check to view applicant data  
+[2021-05-12 11:40:42] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '970183507V',
+  'draw' => '4',
+  'user_email' => 'sachethani@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:40:42] stage.INFO: sachethani@sdb.lk  
+[2021-05-12 11:40:42] stage.INFO: user code  0  
+[2021-05-12 11:40:42] stage.INFO: user code Central 0  
+[2021-05-12 11:40:42] stage.INFO: fd only type  
+[2021-05-12 11:40:42] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620639073587',
+    1 => '12',
+    2 => 'Mr',
+    3 => 'Sapitheen Muhamadu Safras',
+    4 => '970183507V',
+    5 => '771776950',
+    6 => '2021-05-11 16:31:21',
+    7 => '2021-05-10 15:01:15',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:40:44] stage.INFO: array (
+  'status' => 'Entrepreneur',
+)  
+[2021-05-12 11:40:46] stage.INFO: array (
+  'status' => 'individual_account_type',
+  'sex' => 'Male',
+  'age' => '26',
+)  
+[2021-05-12 11:40:48] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:40:48] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:40:51] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:40:51] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:40:53] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '64',
+)  
+[2021-05-12 11:40:53] stage.INFO: applicant age  : 64  sex : Male  
+[2021-05-12 11:41:02] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:41:02] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:41:02] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:41:02] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:41:17] stage.INFO: Review | Reject mark  
+[2021-05-12 11:41:17] stage.INFO: array (
+  'type' => 'mng',
+  'ref' => '1620799428006',
+  'bdo' => 'bandara.k@sdb.lk',
+)  
+[2021-05-12 11:41:17] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:41:17] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:41:17] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:41:18] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:41:18] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:41:19] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '64',
+)  
+[2021-05-12 11:41:19] stage.INFO: applicant age  : 64  sex : Male  
+[2021-05-12 11:41:21] stage.INFO: Review | Reject mark  
+[2021-05-12 11:41:21] stage.INFO: array (
+  'type' => 'mng',
+  'ref' => '1620799428006',
+  'bdo' => 'bandara.k@sdb.lk',
+)  
+[2021-05-12 11:41:22] stage.INFO: formated Day  
+[2021-05-12 11:41:22] stage.INFO: 12052021  
+[2021-05-12 11:41:22] stage.INFO: Julian dates from sdb  
+[2021-05-12 11:41:22] stage.INFO: taken Julian dates from sdb   
+[2021-05-12 11:41:22] stage.INFO: {"JSON":{"Data":{"Julian_Date":"2021132"}}}  
+[2021-05-12 11:41:22] stage.INFO: bdo taken  
+[2021-05-12 11:41:22] stage.INFO: {"code":"73","email":"prathiba@SDB.lk","emp":2413}  
+[2021-05-12 11:41:22] stage.INFO: CIF call new cusomter   
+[2021-05-12 11:41:22] stage.INFO: {"id":6212,"branch":"73","ref":"1620799428006","title":"Mr","surname":null,"initials":"","display_name":null,"full_name":"Aththanayaka Mudiyanselage Sarath Jayantha Wijerathna","f_name":"Aththanayaka","nic":"900313080V","birth_year":1990,"birth_month":"1","birth_day":31,"sex":"M","applicant_status":"Employed (Salaried)","applicant_going_to_open":"Individual Account","applicant_individual_account_type":"Normal Savings","primary_mobile_number":"0773091652","secondary_mobile_number":"0","email":null,"address":null,"address1":"50","address2":"Thalgaswewa","address3":"Agbopura.","address4":"Kanthale","living_place_dif":"same","district":"Trincomalee","same_nic_address":"","security_question":null,"existing_customer":"false","bdo":"prathiba@sdb.lk","approved":1,"done":0,"ops":0,"ops_staff":null,"review_staff":"bandara.k@sdb.lk","gps":"undefined","appv":"BETA 1.3.12","signed":1,"created_at":"2021-05-12T06:03:48.000000Z","updated_at":"2021-05-12T06:11:17.000000Z"}  
+[2021-05-12 11:41:22] stage.INFO: Do name input Aththanayaka Mudiyanselage Sarath Jayantha Wijerathna  
+[2021-05-12 11:41:22] stage.INFO: Do name outcome["Wijerathna AMSJ","AththanayakaMudiyanselageSarathJayantha","Wijerathna","A.M.S.J"]  
+[2021-05-12 11:41:22] stage.INFO: formated Day  
+[2021-05-12 11:41:22] stage.INFO: 31011990  
+[2021-05-12 11:41:22] stage.INFO: Julian dates from sdb  
+[2021-05-12 11:41:22] stage.INFO: taken Julian dates from sdb   
+[2021-05-12 11:41:22] stage.INFO: {"JSON":{"Data":{"Julian_Date":"1990031"}}}  
+[2021-05-12 11:41:22] stage.INFO: array (
+  'initials_of_name' => 'A.M.S.J',
+  'district' => 'Trincomalee',
+  'house_numer' => '50',
+  'CURR_STREET' => 'Thalgaswewa',
+  'city' => 'Agbopura.',
+  'city_main' => 'Kanthale',
+  'secondary_number' => '773091652',
+  'primary_mobile_number' => '773091652',
+  'surname' => 'Wijerathna',
+  'nic' => '900313080V',
+  'sex' => 'M',
+  'dob' => '1990031',
+  'today' => '2021132',
+  'telephone' => '773091652',
+  'ref_number' => 'CUS000000710246',
+  'short_name' => 'Wijerathna AMSJ',
+  'second_name' => 'Wijerathna',
+  'title' => 'Mr.',
+  'branch' => '73',
+)  
+[2021-05-12 11:41:22] stage.ALERT: CIF APP L- yes point -> http://10.100.32.202:7802/new_cif_creationa/v1/newCifCreationA  
+[2021-05-12 11:41:22] stage.INFO: cif array  
+[2021-05-12 11:41:22] stage.INFO: {"FIELD1":"0","FIELD2":"0","FIELD3":"0","FIELD4":"0","FIELD5":"0","FIELD6":"","FIELD7":"","FIELD8":"","FIELD9":"","FIELD10":"","MARITAL_STATUS":"","USER_ID":"","SHORT_NAME":"Wijerathna AMSJ","SECOND_NAME":"","CURR_STREET":"Thalgaswewa","BUSINESS_PHONE":"773091652","STATUS":1,"PRIMARY_OFFICER_COD":"MOB","CURR_DISTRICT":"Kanthale","CITIZENSHIP_CODE":"001","CURR_HOUSE_NBR":"50","HOME_PHONE_NUMBER":"773091652","TIN_ACTIVITY_DATE":"2021132","CURR_POST_TOWN":"Agbopura.","DATE":"2021132","MARKET_SEQMENT":"SOT","CURR_COUNTRY":"Sri Lanka","BRANCH_NUMBER":"73","ACCOUNT_TYPE":"S","SOURCE_OF_DATA":"","SEX":"M","CUSTOMER_TYPE":"001","FIRST_NAME":"A.M.S.J","PREFERED_CUSTOMER":"","ERROR_CODE":"","SEQUENCE_NUMBER":1,"LOCATION_CODE":19,"CELLULAR_PHONE_NU":"773091652","DATE_OF_BIRTH":"1990031","SOCIO_ECONOMIC_GRO":"001","PERSONAL_NONPERSONAL":"P","CIF_NUMBER":"","SURNAME":"Wijerathna","SIC_CODE":"33","REFERENCE_NUMBER":"CUS000000710246","CUSTOMER_CLASSIF":"1","TIME":1620799882,"NATIONAL_ID_NUMBER":"900313080V","MOVED_IN_DATE":"2021132","RACE":"O","CUSTOMER_OPEN_DATE":"2021132","TITLE":"Mr.","CUST_DOC_ACTIVITY":"2021132","SOLICITABLE_CODE":""}  
+[2021-05-12 11:41:22] stage.INFO: response from cif api  
+[2021-05-12 11:41:22] stage.INFO: {"JSON":{"Data":{"referenceNumber":"CUS000000710246","cifNumber":"0001511207","status":"2","error1":"       ","error2":"       ","error3":"       ","error4":"       ","error5":"       ","message":"          ","response_status":"OK"}}}  
+[2021-05-12 11:41:22] stage.INFO: response from cif api body  
+[2021-05-12 11:41:22] stage.INFO: {"JSON":{"Data":{"referenceNumber":"CUS000000710246","cifNumber":"0001511207","status":"2","error1":"       ","error2":"       ","error3":"       ","error4":"       ","error5":"       ","message":"          ","response_status":"OK"}}}  
+[2021-05-12 11:41:22] stage.INFO: "{\"JSON\":{\"Data\":{\"referenceNumber\":\"CUS000000710246\",\"cifNumber\":\"0001511207\",\"status\":\"2\",\"error1\":\"       \",\"error2\":\"       \",\"error3\":\"       \",\"error4\":\"       \",\"error5\":\"       \",\"message\":\"          \",\"response_status\":\"OK\"}}}"  
+[2021-05-12 11:41:22] stage.INFO: Account creation started {"cif":"0001511207","ref":"TAP000000810247","nic":"900313080V","branch":"73","app_ref":"1620799428006","mobile":"773091652","title":"Mr","name":"Wijerathna","email":"","act":"Normal Savings","applicant_going_to_open":"Individual Account","today":"2021132","day":12,"empId":2413}  
+[2021-05-12 11:41:22] stage.ALERT: ACC APP L- yes point -> http://10.100.32.202:7802/account_creationa/v1/accountCreationA  
+[2021-05-12 11:41:22] stage.INFO: acc array  
+[2021-05-12 11:41:22] stage.INFO: {"REFERENCE_NUMBER":"TAP000000810247","CIF_NUMBER":"0001511207","CUS_RELATIONSHIP":"SOW","SEQUENCE_FOR_REF":"1","SEQUENCE_NUMBER":"1","SAVINGS_AC_NUMBER":"0","BRANCH_NUMBER":"73","SEQUENCE_NO":"0","PRODUCT_TYPE":"111","OFFICER_CODE":"MOB","OPEN_DATE":"0","INTEREST_PLAN":"0","SC_PLAN":"0","ACCOUNT_TYPE":"26","NO_OF_RELATIONSHI":"1","ERROR_CODE":"","STATUS":"1","USER_ID":2413,"DATE":"2021132","TIME":1620799882,"FIELD1":"0","FIELD2":"0","FIELD3":"0","FIELD4":"0","FIELD5":"0","FIELD6":"0","FIELD7":"0","FIELD8":"0","FIELD9":"0","FIELD10":"0"}  
+[2021-05-12 11:41:23] stage.INFO:  account creation response TAP000000810247  
+[2021-05-12 11:41:23] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'referenceNumber' => 'TAP000000810247',
+      'svId' => '000002871156',
+      'status' => '2',
+      'error1' => '       ',
+      'error2' => '       ',
+      'error3' => '       ',
+      'error4' => '       ',
+      'error5' => '       ',
+      'message' => '          ',
+      'response_status' => 'OK',
+    ),
+  ),
+)  
+[2021-05-12 11:41:23] stage.INFO: {"JSON":{"Data":{"referenceNumber":"TAP000000810247","svId":"000002871156","status":"2","error1":"       ","error2":"       ","error3":"       ","error4":"       ","error5":"       ","message":"          ","response_status":"OK"}}}  
+[2021-05-12 11:41:23] stage.INFO: SMS to 773091652  
+[2021-05-12 11:41:23] stage.INFO: {"JSON":{"Status":{"Status":"Message sending Success"}}}  
+[2021-05-12 11:41:23] stage.INFO: Registering to SMS : 773091652  
+[2021-05-12 11:41:23] stage.INFO: Registering to SMS  
+[2021-05-12 11:41:23] stage.INFO: {"cusid":"0001511207","account":"000002871156","mobile":"773091652","title":"Mr","name":"Wijerathna","branch":"73","email":"","nic":"900313080V"}  
+[2021-05-12 11:41:23] stage.ALERT: SMS REG APP L- yes point -> http://10.100.32.202:7802/smsregistration/v1/CreateSmsRegistration  
+[2021-05-12 11:41:23] stage.INFO: sms reg message on 773091652  
+[2021-05-12 11:41:23] stage.INFO: array (
+  'application_SessionId' => 'SDB-609b718b3aae3',
+  'application_Code' => 'SDBC',
+  'application_Password' => 'f1ba603c1a843a3d02d6c5038d8e959',
+  'customerid' => 1511207,
+  'customer_account' => 2871156,
+  'customer_mobile' => '94773091652',
+  'customer_nic' => '900313080V',
+  'customer_name' => 'Mr Wijerathna',
+  'customer_address' => 'Sri Lanka',
+  'area_code' => '00010',
+  'branch_code' => '73',
+  'isstaff' => 'No',
+  'customer_email' => '',
+  'customer_categorycode' => '0004',
+  'customer_epfno' => '00000',
+  'device_type' => 'AR',
+  'imei' => '',
+  'feeprofilecode' => 'FP0001',
+)  
+[2021-05-12 11:41:23] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:41:23] stage.INFO: sms reg response 773091652  
+[2021-05-12 11:41:23] stage.INFO: {"responsecode":"V00","description":"Customer registration is successful.","app_sessionid":"SDB-609b718b3ab35"}  
+[2021-05-12 11:41:25] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:41:27] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:41:27] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:41:27] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:41:27] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:41:31] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:41:44] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:42:42] stage.INFO: use lgoin role email   
+[2021-05-12 11:42:42] stage.INFO: senanayake.h@sdb.lk  
+[2021-05-12 11:42:42] stage.INFO: use lgoin role   
+[2021-05-12 11:42:42] stage.INFO: {"code":"8","email":"senanayake.h@sdb.lk","emp":830,"role":"bdo"}  
+[2021-05-12 11:42:52] stage.INFO: user check to view applicant data  
+[2021-05-12 11:42:52] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '196754904002',
+  'draw' => '2',
+  'user_email' => 'dulani@SDB.lk',
+)  
+[2021-05-12 11:42:52] stage.INFO: dulani@SDB.lk  
+[2021-05-12 11:42:52] stage.INFO: user code  0  
+[2021-05-12 11:42:52] stage.INFO: user code Central 0  
+[2021-05-12 11:42:52] stage.INFO: anything else | Default state of central ops when load  
+[2021-05-12 11:42:52] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620793750273',
+    1 => '43',
+    2 => 'Mrs',
+    3 => 'Karmaala Thevaraja',
+    4 => '196754904002',
+    5 => '0775531782',
+    6 => '2021-05-12 10:27:28',
+    7 => '2021-05-12 09:59:11',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:42:56] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:42:58] stage.INFO: use lgoin role email   
+[2021-05-12 11:42:58] stage.INFO: senanayake.h@sdb.lk  
+[2021-05-12 11:42:58] stage.INFO: use lgoin role   
+[2021-05-12 11:42:58] stage.INFO: {"code":"8","email":"senanayake.h@sdb.lk","emp":830,"role":"bdo"}  
+[2021-05-12 11:43:13] stage.INFO: use lgoin role email   
+[2021-05-12 11:43:13] stage.INFO: vithanage.m@sdb.lk  
+[2021-05-12 11:43:13] stage.INFO: use lgoin role   
+[2021-05-12 11:43:13] stage.INFO: {"code":"55","email":"vithanage.m@SDB.lk","emp":1845,"role":"bdo"}  
+[2021-05-12 11:43:15] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '24',
+)  
+[2021-05-12 11:43:15] stage.INFO: applicant age  : 24  sex : Male  
+[2021-05-12 11:43:15] stage.INFO: NIC Check with Core  
+[2021-05-12 11:43:15] stage.INFO: array (
+  'nic' => '961952450V',
+)  
+[2021-05-12 11:43:15] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-05-12 11:43:16] stage.INFO: 961952450V  NIC respose from Core  
+[2021-05-12 11:43:16] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-05-12 11:43:16] stage.INFO:  from core customer nic  
+[2021-05-12 11:43:30] stage.INFO: array (
+  'status' => 'Unemployed',
+)  
+[2021-05-12 11:43:31] stage.INFO: array (
+  'status' => 'individual_account_type',
+  'sex' => 'Male',
+  'age' => '24',
+)  
+[2021-05-12 11:43:35] stage.INFO: user check to view applicant data  
+[2021-05-12 11:43:35] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '6',
+  'draw' => '5',
+  'user_email' => 'sachethani@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:43:35] stage.INFO: sachethani@sdb.lk  
+[2021-05-12 11:43:35] stage.INFO: user code  0  
+[2021-05-12 11:43:35] stage.INFO: user code Central 0  
+[2021-05-12 11:43:35] stage.INFO: fd only type  
+[2021-05-12 11:43:35] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620798768876',
+    1 => '37',
+    2 => 'Mrs',
+    3 => 'Lansakara Jayasundara Mudiyanselage Nandawathi',
+    4 => '646410223V',
+    5 => '0771733526',
+    6 => '2021-05-12 11:35:31',
+    7 => '2021-05-12 11:22:49',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620642134646',
+    1 => '77',
+    2 => 'Mrs',
+    3 => 'D,G,G,P, Nilmini',
+    4 => '687982835V',
+    5 => '705230089',
+    6 => '2021-05-10 16:02:13',
+    7 => '2021-05-10 15:52:35',
+    8 => 1,
+  ),
+  2 => 
+  array (
+    0 => '1620641130559',
+    1 => '12',
+    2 => 'Mrs',
+    3 => 'Ra Indian sumathi',
+    4 => '688273420v',
+    5 => '0770321092',
+    6 => '2021-05-10 15:42:59',
+    7 => '2021-05-10 15:40:45',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620639786181',
+    1 => '12',
+    2 => 'Mrs',
+    3 => 'Thambipillei wasanthi',
+    4 => '667593867V',
+    5 => '0779912581',
+    6 => '2021-05-10 15:22:21',
+    7 => '2021-05-10 15:18:20',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620638616279',
+    1 => '8',
+    2 => 'Mr',
+    3 => 'W D WIJAYARATHNA',
+    4 => '651082609V',
+    5 => '774382396',
+    6 => '2021-05-10 14:57:04',
+    7 => '2021-05-10 14:53:37',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620636453967',
+    1 => '54',
+    2 => 'Mr',
+    3 => 'K,D,G Dharmasiri',
+    4 => '641393037V',
+    5 => '0',
+    6 => '2021-05-10 14:20:45',
+    7 => '2021-05-10 14:17:34',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1620635130489',
+    1 => '18',
+    2 => 'Mr',
+    3 => 'Arumugan Ravichandran',
+    4 => '690474859V',
+    5 => '0753890253',
+    6 => '2021-05-10 13:59:16',
+    7 => '2021-05-10 13:55:32',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620631867885',
+    1 => '12',
+    2 => 'Mr',
+    3 => 'R,U, Gunapala',
+    4 => '673191959V',
+    5 => '0',
+    6 => '2021-05-10 13:10:46',
+    7 => '2021-05-10 13:06:22',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620627983198',
+    1 => '31',
+    2 => 'Mr',
+    3 => 'S,K, Sunil',
+    4 => '650921828V',
+    5 => '714396232',
+    6 => '2021-05-10 12:01:15',
+    7 => '2021-05-10 11:57:20',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620620213878',
+    1 => '60',
+    2 => 'Mr',
+    3 => 'W,T,R,J, Wijewardana',
+    4 => '671051769V',
+    5 => '173512067',
+    6 => '2021-05-10 10:04:43',
+    7 => '2021-05-10 09:47:15',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:43:36] stage.INFO: user check to view applicant data  
+[2021-05-12 11:43:36] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '68',
+  'draw' => '6',
+  'user_email' => 'sachethani@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:43:36] stage.INFO: sachethani@sdb.lk  
+[2021-05-12 11:43:36] stage.INFO: user code  0  
+[2021-05-12 11:43:36] stage.INFO: user code Central 0  
+[2021-05-12 11:43:36] stage.INFO: fd only type  
+[2021-05-12 11:43:36] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620642134646',
+    1 => '77',
+    2 => 'Mrs',
+    3 => 'D,G,G,P, Nilmini',
+    4 => '687982835V',
+    5 => '705230089',
+    6 => '2021-05-10 16:02:13',
+    7 => '2021-05-10 15:52:35',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620641130559',
+    1 => '12',
+    2 => 'Mrs',
+    3 => 'Ra Indian sumathi',
+    4 => '688273420v',
+    5 => '0770321092',
+    6 => '2021-05-10 15:42:59',
+    7 => '2021-05-10 15:40:45',
+    8 => 1,
+  ),
+  2 => 
+  array (
+    0 => '1620276124781',
+    1 => '40',
+    2 => 'Mrs',
+    3 => 'D,B, Pathmawathi',
+    4 => '687763254V',
+    5 => '0',
+    6 => '2021-05-06 10:16:38',
+    7 => '2021-05-06 10:12:07',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620187766321',
+    1 => '38',
+    2 => 'Mrs',
+    3 => 'M,A,L,C,D, Fernando',
+    4 => '685241188V',
+    5 => '760611446',
+    6 => '2021-05-05 09:44:25',
+    7 => '2021-05-05 09:40:02',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1619759241352',
+    1 => '15',
+    2 => 'Mr',
+    3 => 'Diyakolawatthalage Chandrapala',
+    4 => '680634386V',
+    5 => '0766767054',
+    6 => '2021-04-30 10:46:01',
+    7 => '2021-04-30 10:37:22',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1619602054349',
+    1 => '87',
+    2 => 'Mr',
+    3 => 'K, Kumaranatha',
+    4 => '683610208V',
+    5 => '715346386',
+    6 => '2021-04-28 15:02:56',
+    7 => '2021-04-28 14:57:36',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1619585100694',
+    1 => '6',
+    2 => 'Mr',
+    3 => 'Weebath Arachchige Roshan Chinthaka',
+    4 => '680340277V',
+    5 => '0765532698',
+    6 => '2021-04-28 10:45:21',
+    7 => '2021-04-28 10:15:01',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1619586106175',
+    1 => '31',
+    2 => 'Mr',
+    3 => 'W,W,W,A,D,P, Wickramarathna',
+    4 => '680432597V',
+    5 => '779661412',
+    6 => '2021-04-28 10:38:31',
+    7 => '2021-04-28 10:31:46',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1619509460911',
+    1 => '31',
+    2 => 'Mr',
+    3 => 'W,W,W,A,D,P, Wickramarathna',
+    4 => '680432597V',
+    5 => '779661412',
+    6 => '2021-04-27 13:19:00',
+    7 => '2021-04-27 13:14:22',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1619069538683',
+    1 => '65',
+    2 => 'Mrs',
+    3 => 'P,B, Nandawathi',
+    4 => '685694166V',
+    5 => '766857501',
+    6 => '2021-04-22 11:07:03',
+    7 => '2021-04-22 11:02:19',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:43:36] stage.INFO: user check to view applicant data  
+[2021-05-12 11:43:36] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '6882',
+  'draw' => '7',
+  'user_email' => 'sachethani@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:43:36] stage.INFO: sachethani@sdb.lk  
+[2021-05-12 11:43:36] stage.INFO: user code  0  
+[2021-05-12 11:43:36] stage.INFO: user code Central 0  
+[2021-05-12 11:43:36] stage.INFO: fd only type  
+[2021-05-12 11:43:36] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620641130559',
+    1 => '12',
+    2 => 'Mrs',
+    3 => 'Ra Indian sumathi',
+    4 => '688273420v',
+    5 => '0770321092',
+    6 => '2021-05-10 15:42:59',
+    7 => '2021-05-10 15:40:45',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1616059542290',
+    1 => '57',
+    2 => 'Mrs',
+    3 => 'A,N, Karunarathne',
+    4 => '688230586V',
+    5 => '716504943',
+    6 => '2021-03-22 09:33:54',
+    7 => '2021-03-18 14:55:44',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:43:36] stage.INFO: user check to view applicant data  
+[2021-05-12 11:43:36] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '688273',
+  'draw' => '8',
+  'user_email' => 'sachethani@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:43:36] stage.INFO: sachethani@sdb.lk  
+[2021-05-12 11:43:36] stage.INFO: user code  0  
+[2021-05-12 11:43:36] stage.INFO: user code Central 0  
+[2021-05-12 11:43:36] stage.INFO: fd only type  
+[2021-05-12 11:43:36] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620641130559',
+    1 => '12',
+    2 => 'Mrs',
+    3 => 'Ra Indian sumathi',
+    4 => '688273420v',
+    5 => '0770321092',
+    6 => '2021-05-10 15:42:59',
+    7 => '2021-05-10 15:40:45',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:43:43] stage.INFO: user check to view applicant data  
+[2021-05-12 11:43:43] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'draw' => '1',
+  'user_email' => 'sivaranjani.s@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '0',
+  'product' => 'all',
+)  
+[2021-05-12 11:43:43] stage.INFO: sivaranjani.s@sdb.lk  
+[2021-05-12 11:43:43] stage.INFO: user code  0  
+[2021-05-12 11:43:43] stage.INFO: user code Central 0  
+[2021-05-12 11:43:43] stage.INFO: fd only type  
+[2021-05-12 11:43:43] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620798939466',
+    1 => '20',
+    2 => 'Mr',
+    3 => 'Siriwardhana Kasee Brahmana Ralalage Lahiru Hasan Thilakarathne',
+    4 => '982821983V',
+    5 => '0773084993',
+    6 => '2021-05-12 11:36:00',
+    7 => '2021-05-12 11:30:11',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620798448775',
+    1 => '27',
+    2 => 'Mrs',
+    3 => 'D,A,A Amarasinghe',
+    4 => '578570527V',
+    5 => '0',
+    6 => '2021-05-12 11:17:35',
+    7 => '2021-05-12 11:17:35',
+    8 => 0,
+  ),
+  2 => 
+  array (
+    0 => '1620798075644',
+    1 => '77',
+    2 => 'Mr',
+    3 => 'H,M, Janaka Bandara',
+    4 => '813084970V',
+    5 => '94768899770',
+    6 => '2021-05-12 11:19:54',
+    7 => '2021-05-12 11:11:15',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620797055036',
+    1 => '89',
+    2 => 'Mrs',
+    3 => 'Kaneshamoorthy Rathirany',
+    4 => '667113610V',
+    5 => '0750993542',
+    6 => '2021-05-12 10:54:55',
+    7 => '2021-05-12 10:54:15',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620795491141',
+    1 => '38',
+    2 => 'Mrs',
+    3 => 'D,N,B,K, Suriyarachchi',
+    4 => '716453405V',
+    5 => '771624935',
+    6 => '2021-05-12 10:34:50',
+    7 => '2021-05-12 10:28:28',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620795100374',
+    1 => '38',
+    2 => 'Mrs',
+    3 => 'D,N,B,K, Suriyarachchi',
+    4 => '716453405V',
+    5 => '771624935',
+    6 => '2021-05-12 10:23:44',
+    7 => '2021-05-12 10:21:57',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1620794906856',
+    1 => '14',
+    2 => 'Mrs',
+    3 => 'B,R Podinona',
+    4 => '557862293V',
+    5 => '775912667',
+    6 => '2021-05-12 10:32:58',
+    7 => '2021-05-12 10:18:29',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620793750273',
+    1 => '43',
+    2 => 'Mrs',
+    3 => 'Karmaala Thevaraja',
+    4 => '196754904002',
+    5 => '0775531782',
+    6 => '2021-05-12 10:27:28',
+    7 => '2021-05-12 09:59:11',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620793566580',
+    1 => '89',
+    2 => 'Ms',
+    3 => 'Rajenthiran suthana',
+    4 => '967780090V',
+    5 => '0763120284',
+    6 => '2021-05-12 09:57:02',
+    7 => '2021-05-12 09:56:08',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620792919055',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'G,K,G, Chandradasa',
+    4 => '751841353V',
+    5 => '0',
+    6 => '2021-05-12 09:45:20',
+    7 => '2021-05-12 09:45:20',
+    8 => 0,
+  ),
+)  
+[2021-05-12 11:43:47] stage.INFO: user check to view applicant data  
+[2021-05-12 11:43:47] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'draw' => '1',
+  'user_email' => 'sivaranjani.s@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:43:47] stage.INFO: sivaranjani.s@sdb.lk  
+[2021-05-12 11:43:47] stage.INFO: user code  0  
+[2021-05-12 11:43:47] stage.INFO: user code Central 0  
+[2021-05-12 11:43:47] stage.INFO: fd only type  
+[2021-05-12 11:43:47] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620799428006',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Aththanayaka Mudiyanselage Sarath Jayantha Wijerathna',
+    4 => '900313080V',
+    5 => '0773091652',
+    6 => '2021-05-12 11:41:23',
+    7 => '2021-05-12 11:33:48',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620798957007',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Konara Appuhamilage Prasanna Pradeep Kumara',
+    4 => '892274061V',
+    5 => '0726736538',
+    6 => '2021-05-12 11:38:02',
+    7 => '2021-05-12 11:25:58',
+    8 => 1,
+  ),
+  2 => 
+  array (
+    0 => '1620798768876',
+    1 => '37',
+    2 => 'Mrs',
+    3 => 'Lansakara Jayasundara Mudiyanselage Nandawathi',
+    4 => '646410223V',
+    5 => '0771733526',
+    6 => '2021-05-12 11:35:31',
+    7 => '2021-05-12 11:22:49',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620798543947',
+    1 => '22',
+    2 => 'Mr',
+    3 => 'Arungiyan Theeparaj',
+    4 => '943482950V',
+    5 => '0768786132',
+    6 => '2021-05-12 11:19:52',
+    7 => '2021-05-12 11:19:03',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620797090851',
+    1 => '91',
+    2 => 'Mr',
+    3 => 'P,N, Sampath',
+    4 => '903051710V',
+    5 => '0',
+    6 => '2021-05-12 11:02:13',
+    7 => '2021-05-12 10:54:51',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620797013671',
+    1 => '23',
+    2 => 'Mr',
+    3 => 'H,M,S,P, Kumara',
+    4 => '801734731V',
+    5 => '715501940',
+    6 => '2021-05-12 11:02:01',
+    7 => '2021-05-12 10:53:40',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1620796820248',
+    1 => '59',
+    2 => 'Mr',
+    3 => 'Arulrasa Mirujan',
+    4 => '921040717V',
+    5 => '0772920309',
+    6 => '2021-05-12 10:52:10',
+    7 => '2021-05-12 10:50:20',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620794012325',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'G,K,G, Chandradasa',
+    4 => '751841353V',
+    5 => '0',
+    6 => '2021-05-12 10:07:24',
+    7 => '2021-05-12 10:03:33',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620793748604',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'Danigala Mahabandaralage Dharmadasa',
+    4 => '196215310030',
+    5 => '0728917052',
+    6 => '2021-05-12 10:05:30',
+    7 => '2021-05-12 09:59:09',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620793904944',
+    1 => '13',
+    2 => 'Mr',
+    3 => 'Punchi Hennadige Asanka Udaya Kumara',
+    4 => '893301151V',
+    5 => '0789709328',
+    6 => '2021-05-12 10:05:23',
+    7 => '2021-05-12 10:01:45',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:44:00] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:44:05] stage.INFO: user check to view applicant data  
+[2021-05-12 11:44:05] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'draw' => '1',
+  'user_email' => 'buddika.sb@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:44:05] stage.INFO: buddika.sb@sdb.lk  
+[2021-05-12 11:44:05] stage.INFO: user code  0  
+[2021-05-12 11:44:05] stage.INFO: user code Central 0  
+[2021-05-12 11:44:05] stage.INFO: fd only type  
+[2021-05-12 11:44:05] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620799428006',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Aththanayaka Mudiyanselage Sarath Jayantha Wijerathna',
+    4 => '900313080V',
+    5 => '0773091652',
+    6 => '2021-05-12 11:41:23',
+    7 => '2021-05-12 11:33:48',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620798957007',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Konara Appuhamilage Prasanna Pradeep Kumara',
+    4 => '892274061V',
+    5 => '0726736538',
+    6 => '2021-05-12 11:38:02',
+    7 => '2021-05-12 11:25:58',
+    8 => 1,
+  ),
+  2 => 
+  array (
+    0 => '1620798768876',
+    1 => '37',
+    2 => 'Mrs',
+    3 => 'Lansakara Jayasundara Mudiyanselage Nandawathi',
+    4 => '646410223V',
+    5 => '0771733526',
+    6 => '2021-05-12 11:35:31',
+    7 => '2021-05-12 11:22:49',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620798543947',
+    1 => '22',
+    2 => 'Mr',
+    3 => 'Arungiyan Theeparaj',
+    4 => '943482950V',
+    5 => '0768786132',
+    6 => '2021-05-12 11:19:52',
+    7 => '2021-05-12 11:19:03',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620797090851',
+    1 => '91',
+    2 => 'Mr',
+    3 => 'P,N, Sampath',
+    4 => '903051710V',
+    5 => '0',
+    6 => '2021-05-12 11:02:13',
+    7 => '2021-05-12 10:54:51',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620797013671',
+    1 => '23',
+    2 => 'Mr',
+    3 => 'H,M,S,P, Kumara',
+    4 => '801734731V',
+    5 => '715501940',
+    6 => '2021-05-12 11:02:01',
+    7 => '2021-05-12 10:53:40',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1620796820248',
+    1 => '59',
+    2 => 'Mr',
+    3 => 'Arulrasa Mirujan',
+    4 => '921040717V',
+    5 => '0772920309',
+    6 => '2021-05-12 10:52:10',
+    7 => '2021-05-12 10:50:20',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620794012325',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'G,K,G, Chandradasa',
+    4 => '751841353V',
+    5 => '0',
+    6 => '2021-05-12 10:07:24',
+    7 => '2021-05-12 10:03:33',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620793748604',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'Danigala Mahabandaralage Dharmadasa',
+    4 => '196215310030',
+    5 => '0728917052',
+    6 => '2021-05-12 10:05:30',
+    7 => '2021-05-12 09:59:09',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620793904944',
+    1 => '13',
+    2 => 'Mr',
+    3 => 'Punchi Hennadige Asanka Udaya Kumara',
+    4 => '893301151V',
+    5 => '0789709328',
+    6 => '2021-05-12 10:05:23',
+    7 => '2021-05-12 10:01:45',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:44:07] stage.INFO: user check to view applicant data  
+[2021-05-12 11:44:07] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'draw' => '1',
+  'user_email' => 'buddika.sb@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '0',
+  'product' => 'all',
+)  
+[2021-05-12 11:44:07] stage.INFO: buddika.sb@sdb.lk  
+[2021-05-12 11:44:07] stage.INFO: user code  0  
+[2021-05-12 11:44:07] stage.INFO: user code Central 0  
+[2021-05-12 11:44:07] stage.INFO: fd only type  
+[2021-05-12 11:44:08] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620798939466',
+    1 => '20',
+    2 => 'Mr',
+    3 => 'Siriwardhana Kasee Brahmana Ralalage Lahiru Hasan Thilakarathne',
+    4 => '982821983V',
+    5 => '0773084993',
+    6 => '2021-05-12 11:36:00',
+    7 => '2021-05-12 11:30:11',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620798448775',
+    1 => '27',
+    2 => 'Mrs',
+    3 => 'D,A,A Amarasinghe',
+    4 => '578570527V',
+    5 => '0',
+    6 => '2021-05-12 11:17:35',
+    7 => '2021-05-12 11:17:35',
+    8 => 0,
+  ),
+  2 => 
+  array (
+    0 => '1620798075644',
+    1 => '77',
+    2 => 'Mr',
+    3 => 'H,M, Janaka Bandara',
+    4 => '813084970V',
+    5 => '94768899770',
+    6 => '2021-05-12 11:19:54',
+    7 => '2021-05-12 11:11:15',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620797055036',
+    1 => '89',
+    2 => 'Mrs',
+    3 => 'Kaneshamoorthy Rathirany',
+    4 => '667113610V',
+    5 => '0750993542',
+    6 => '2021-05-12 10:54:55',
+    7 => '2021-05-12 10:54:15',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620795491141',
+    1 => '38',
+    2 => 'Mrs',
+    3 => 'D,N,B,K, Suriyarachchi',
+    4 => '716453405V',
+    5 => '771624935',
+    6 => '2021-05-12 10:34:50',
+    7 => '2021-05-12 10:28:28',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620795100374',
+    1 => '38',
+    2 => 'Mrs',
+    3 => 'D,N,B,K, Suriyarachchi',
+    4 => '716453405V',
+    5 => '771624935',
+    6 => '2021-05-12 10:23:44',
+    7 => '2021-05-12 10:21:57',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1620794906856',
+    1 => '14',
+    2 => 'Mrs',
+    3 => 'B,R Podinona',
+    4 => '557862293V',
+    5 => '775912667',
+    6 => '2021-05-12 10:32:58',
+    7 => '2021-05-12 10:18:29',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620793750273',
+    1 => '43',
+    2 => 'Mrs',
+    3 => 'Karmaala Thevaraja',
+    4 => '196754904002',
+    5 => '0775531782',
+    6 => '2021-05-12 10:27:28',
+    7 => '2021-05-12 09:59:11',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620793566580',
+    1 => '89',
+    2 => 'Ms',
+    3 => 'Rajenthiran suthana',
+    4 => '967780090V',
+    5 => '0763120284',
+    6 => '2021-05-12 09:57:02',
+    7 => '2021-05-12 09:56:08',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620792919055',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'G,K,G, Chandradasa',
+    4 => '751841353V',
+    5 => '0',
+    6 => '2021-05-12 09:45:20',
+    7 => '2021-05-12 09:45:20',
+    8 => 0,
+  ),
+)  
+[2021-05-12 11:44:17] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:44:18] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:44:18] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:44:18] stage.INFO: NIC Check with Core  
+[2021-05-12 11:44:18] stage.INFO: array (
+  'nic' => '1956137100',
+)  
+[2021-05-12 11:44:18] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-05-12 11:44:18] stage.INFO: 1956137100  NIC respose from Core  
+[2021-05-12 11:44:18] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-05-12 11:44:18] stage.INFO:  from core customer nic  
+[2021-05-12 11:44:22] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-05-12 11:44:22] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-05-12 11:44:22] stage.INFO: NIC Check with Core  
+[2021-05-12 11:44:22] stage.INFO: array (
+  'nic' => '19561371006',
+)  
+[2021-05-12 11:44:22] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-05-12 11:44:22] stage.INFO: 19561371006  NIC respose from Core  
+[2021-05-12 11:44:22] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-05-12 11:44:22] stage.INFO:  from core customer nic  
+[2021-05-12 11:44:23] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '64',
+)  
+[2021-05-12 11:44:23] stage.INFO: applicant age  : 64  sex : Male  
+[2021-05-12 11:44:23] stage.INFO: NIC Check with Core  
+[2021-05-12 11:44:23] stage.INFO: array (
+  'nic' => '195613710063',
+)  
+[2021-05-12 11:44:23] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-05-12 11:44:23] stage.INFO: 195613710063  NIC respose from Core  
+[2021-05-12 11:44:23] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Customer_Number' => '0001466472',
+      'Name_With_Initial' => 'Mr. S.M.N.M. Bandara                    ',
+      'Name_Address_Line2' => 'No.22/A/1,                              ',
+      'Name_Address_Line3' => 'Pethiyagoda,                            ',
+      'Name_Address_Line4' => 'Handessa.                               ',
+      'Name_Address_Line5' => '02                                      ',
+      'Name_Address_Line6' => '                                        ',
+      'Short_Name' => 'BANDARA SMNH      ',
+      'Cellular_Phone_Number' => '779868082',
+      'Home_Phone_Number' => '0',
+      'Business_Phone' => '0',
+      'Customer_Type' => '3',
+      'Sex' => 'M',
+      'Date_Of_Birth' => '1956137',
+      'National_ID_Number' => '195613710063        ',
+      'Citizenship_Code' => '1',
+      'Profession_Code' => '0',
+      'Postal_Code' => '          ',
+      'Branch_Number' => '55',
+      'Marital_Status' => 'M',
+      'Socio-Economic_Group' => '.   ',
+      'PersonalOrNonPersonal' => 'P',
+      'Salutation' => '                    ',
+      'Market_Seqment' => 'OPE  ',
+      'Employee_Code' => ' ',
+      'Location_Code' => '0.13',
+      'Customer_Classification' => 'D',
+      'Home_E-Mail_Address' => '                                        ',
+      'Business_E-Mail_Address' => '                                        ',
+      'Status' => 'OK',
+    ),
+  ),
+)  
+[2021-05-12 11:44:23] stage.INFO:  from core customer nic  
+[2021-05-12 11:44:23] stage.INFO:  from core customer nic  195613710063          
+[2021-05-12 11:44:23] stage.INFO: 195613710063          
+[2021-05-12 11:44:55] stage.INFO: array (
+  'status' => 'Unemployed',
+)  
+[2021-05-12 11:44:59] stage.INFO: array (
+  'status' => 'fixed_deposits',
+  'sex' => 'Male',
+  'age' => '64',
+)  
+[2021-05-12 11:44:59] stage.INFO: user check to view applicant data  
+[2021-05-12 11:44:59] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '461980350v',
+  'draw' => '3',
+  'user_email' => 'dulani@SDB.lk',
+)  
+[2021-05-12 11:44:59] stage.INFO: dulani@SDB.lk  
+[2021-05-12 11:44:59] stage.INFO: user code  0  
+[2021-05-12 11:44:59] stage.INFO: user code Central 0  
+[2021-05-12 11:44:59] stage.INFO: anything else | Default state of central ops when load  
+[2021-05-12 11:44:59] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620792888264',
+    1 => '72',
+    2 => 'Mr',
+    3 => 'E, Karunarathna',
+    4 => '461980350V',
+    5 => '778618709',
+    6 => '2021-05-12 09:59:24',
+    7 => '2021-05-12 09:45:11',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:45:03] stage.INFO: fd sected and from db  
+[2021-05-12 11:45:03] stage.INFO: {"id":1705,"ref":"1620792888264","nic":"461980350V","desposit":500000,"rate":"14.06","period":"12","interest_payable_at":"disposeOther","interest_disposal_method":"monthly","interest_transfer_bank":"SDB","interest_transfer_branch":null,"interest_transfer_acc_name":"E Karunarathne","interest_transfer_account":"2627240","created_at":"2021-05-12T04:15:11.000000Z","updated_at":"2021-05-12T04:15:11.000000Z"}  
+[2021-05-12 11:45:26] stage.INFO: user check to view applicant data  
+[2021-05-12 11:45:26] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'draw' => '25',
+  'user_email' => 'handuwela.p@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:45:26] stage.INFO: handuwela.p@sdb.lk  
+[2021-05-12 11:45:26] stage.INFO: user code  0  
+[2021-05-12 11:45:26] stage.INFO: user code Central 0  
+[2021-05-12 11:45:26] stage.INFO: fd only type  
+[2021-05-12 11:45:26] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620799428006',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Aththanayaka Mudiyanselage Sarath Jayantha Wijerathna',
+    4 => '900313080V',
+    5 => '0773091652',
+    6 => '2021-05-12 11:41:23',
+    7 => '2021-05-12 11:33:48',
+    8 => 1,
+  ),
+  1 => 
+  array (
+    0 => '1620798957007',
+    1 => '73',
+    2 => 'Mr',
+    3 => 'Konara Appuhamilage Prasanna Pradeep Kumara',
+    4 => '892274061V',
+    5 => '0726736538',
+    6 => '2021-05-12 11:38:02',
+    7 => '2021-05-12 11:25:58',
+    8 => 1,
+  ),
+  2 => 
+  array (
+    0 => '1620798768876',
+    1 => '37',
+    2 => 'Mrs',
+    3 => 'Lansakara Jayasundara Mudiyanselage Nandawathi',
+    4 => '646410223V',
+    5 => '0771733526',
+    6 => '2021-05-12 11:35:31',
+    7 => '2021-05-12 11:22:49',
+    8 => 1,
+  ),
+  3 => 
+  array (
+    0 => '1620798543947',
+    1 => '22',
+    2 => 'Mr',
+    3 => 'Arungiyan Theeparaj',
+    4 => '943482950V',
+    5 => '0768786132',
+    6 => '2021-05-12 11:19:52',
+    7 => '2021-05-12 11:19:03',
+    8 => 1,
+  ),
+  4 => 
+  array (
+    0 => '1620797090851',
+    1 => '91',
+    2 => 'Mr',
+    3 => 'P,N, Sampath',
+    4 => '903051710V',
+    5 => '0',
+    6 => '2021-05-12 11:02:13',
+    7 => '2021-05-12 10:54:51',
+    8 => 1,
+  ),
+  5 => 
+  array (
+    0 => '1620797013671',
+    1 => '23',
+    2 => 'Mr',
+    3 => 'H,M,S,P, Kumara',
+    4 => '801734731V',
+    5 => '715501940',
+    6 => '2021-05-12 11:02:01',
+    7 => '2021-05-12 10:53:40',
+    8 => 1,
+  ),
+  6 => 
+  array (
+    0 => '1620796820248',
+    1 => '59',
+    2 => 'Mr',
+    3 => 'Arulrasa Mirujan',
+    4 => '921040717V',
+    5 => '0772920309',
+    6 => '2021-05-12 10:52:10',
+    7 => '2021-05-12 10:50:20',
+    8 => 1,
+  ),
+  7 => 
+  array (
+    0 => '1620794012325',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'G,K,G, Chandradasa',
+    4 => '751841353V',
+    5 => '0',
+    6 => '2021-05-12 10:07:24',
+    7 => '2021-05-12 10:03:33',
+    8 => 1,
+  ),
+  8 => 
+  array (
+    0 => '1620793748604',
+    1 => '39',
+    2 => 'Mr',
+    3 => 'Danigala Mahabandaralage Dharmadasa',
+    4 => '196215310030',
+    5 => '0728917052',
+    6 => '2021-05-12 10:05:30',
+    7 => '2021-05-12 09:59:09',
+    8 => 1,
+  ),
+  9 => 
+  array (
+    0 => '1620793904944',
+    1 => '13',
+    2 => 'Mr',
+    3 => 'Punchi Hennadige Asanka Udaya Kumara',
+    4 => '893301151V',
+    5 => '0789709328',
+    6 => '2021-05-12 10:05:23',
+    7 => '2021-05-12 10:01:45',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:45:32] stage.INFO: NOT fd tected and from db  
+[2021-05-12 11:45:56] stage.INFO: user check to view applicant data  
+[2021-05-12 11:45:56] stage.INFO: array (
+  'start' => '0',
+  'end' => '10',
+  'search' => '792845819V',
+  'draw' => '9',
+  'user_email' => 'sachethani@sdb.lk',
+  'current_branch_search' => '0',
+  'app_status' => '1',
+  'product' => 'all',
+)  
+[2021-05-12 11:45:56] stage.INFO: sachethani@sdb.lk  
+[2021-05-12 11:45:56] stage.INFO: user code  0  
+[2021-05-12 11:45:56] stage.INFO: user code Central 0  
+[2021-05-12 11:45:56] stage.INFO: fd only type  
+[2021-05-12 11:45:56] stage.INFO: array (
+  0 => 
+  array (
+    0 => '1620640514305',
+    1 => '12',
+    2 => 'Mr',
+    3 => 'Abdul Hameethu Munaf',
+    4 => '792845819V',
+    5 => '770784007',
+    6 => '2021-05-11 09:46:21',
+    7 => '2021-05-10 15:25:19',
+    8 => 1,
+  ),
+)  
+[2021-05-12 11:45:58] stage.INFO: NOT fd tected and from db  
