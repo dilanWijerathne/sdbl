@@ -450,12 +450,12 @@ class Dash extends Controller
             "CIF_NUMBER" => $para['cif'], //"0001143959",
             "CUS_RELATIONSHIP" => "SOW",
             "SEQUENCE_FOR_REF" => "1",
-            "SEQUENCE_NUMBER" => "1",
-            "TIME_AC_NUMBER" => "1",
+            "SEQUENCE_NUMBER" => "0",
+            "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "1",
             "PRODUCT_TYPE" => $isa_code, //"162", // add relevent product type from table
-            "OFFICER_CODE" => "MOB", //$para['empId'], // officer epf number  "TAB", //   change when live
+            "OFFICER_CODE" => "TAB", //$para['empId'], // officer epf number  "TAB", //   change when live
             "OPEN_DATE" => $para['today'],   // julina today
             "FACE_AMOUNT" => $isa['desposit'], //"500000",
             "TESSA_TYPE" => "0",
@@ -489,12 +489,12 @@ class Dash extends Controller
             "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
             "RENEWAL_FREQUENCY" => $isa['period'], // "24",
-            "RENEWAL_SPEC_DAY" => $para['day'], // "06",
+            "RENEWAL_SPEC_DAY" => (int)$para['day'], // "06",
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
             "PAYMENT_FRE_CY" =>  $isa['period'],
-            "PAYMENT_SPE_DAY" =>  $para['day'], // "06",   change when go live
+            "PAYMENT_SPE_DAY" =>  (int)$para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
             "PAY_INT_LCY_FLAG" => "",
@@ -587,7 +587,7 @@ class Dash extends Controller
             "CIF_NUMBER" => $para['cif'], //"0001143959",
             "CUS_RELATIONSHIP" => "SOW",
             "SEQUENCE_FOR_REF" => "1",
-            "SEQUENCE_NUMBER" => "1",
+            "SEQUENCE_NUMBER" => "0",
             "TIME_AC_NUMBER" => "0",
             "BRANCH_NUMBER" => $para['branch'], //"56",
             "SEQUENCE_NO" => "1",
@@ -626,12 +626,12 @@ class Dash extends Controller
             "RENEWAL_OPTION" => "A",
             "RENUWAL_PERIOD" => "M",
             "RENEWAL_FREQUENCY" => $isa['period'], // "24",
-            "RENEWAL_SPEC_DAY" => $para['day'], // "06",   change when go live
+            "RENEWAL_SPEC_DAY" => (int)$para['day'], // "06",   change when go live
             "NEXT_REN_MAT_DATE" => "0",
             "SWAP_RATE" => "0",
             "PAYMENT_PERIOD" => "M",
             "PAYMENT_FRE_CY" => $isa['period'],
-            "PAYMENT_SPE_DAY" => $para['day'], // "06",   change when go live
+            "PAYMENT_SPE_DAY" => (int)$para['day'], // "06",   change when go live
             "NEXT_INT_PAY_DATE" => "0",
             "CODE_FOR_INT_PA" => "0",
             "PAY_INT_LCY_FLAG" => "",
@@ -824,7 +824,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" =>  $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0.098500",
+            "INTEREST_RATE" => "0.098500",  //$fd['rate'], //
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -961,7 +961,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" => $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => "0.098500",
+            "INTEREST_RATE" => "0.098500",  //$fd['rate'],
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -1397,7 +1397,7 @@ class Dash extends Controller
         $rn->ref_number = $v;
         $rn->save();
 
-        $ref = 'TIM0000000' . $v; /// chnage red numbers
+        $ref = 'TIM0000000' . $v; // removed one 0, orginal TIM00000000
         $wildcard =  $this->generateRandomString(1);
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
@@ -1415,7 +1415,8 @@ class Dash extends Controller
         $rn->ref_number = $v;
         $rn->save();
 
-        $ref = 'TAP0000000' . $v;
+
+        $ref = 'TAP0000000' . $v; // removed 0, orginal TAP00000000
         $wildcard =  $this->generateRandomString(1);
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
@@ -1435,7 +1436,7 @@ class Dash extends Controller
         $rn->ref_number = $v;
         $rn->save();
 
-        $ref = 'CUS00000000' . $v;
+        $ref = 'CUS0000000' . $v; // removed 0, orginal CUS00000000
         $wildcard =  $this->generateRandomString(1);
         $ref = substr_replace($ref, $wildcard, 9, 1);
         return $ref;
@@ -1500,9 +1501,10 @@ class Dash extends Controller
 
         $mydate = getdate(date("U"));
         // change when go live  today
-        $d =  "04"; //$mydate["mday"];
-        $m = "05"; //$mydate["mon"];
-        $y = "2021"; // $mydate["year"];
+        $d =  13; //$mydate["mday"];
+        $m = 05; //$mydate["mon"];
+        $y =  $mydate["year"];
+
         $today = $this->sdb_julian_lib($this->call_sampaths_format($d, $m, $y));
         $nic = $app['nic'];
 

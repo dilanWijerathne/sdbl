@@ -1,0 +1,557 @@
+[2021-03-13 06:49:00] stage.INFO: array (
+  'sex' => 'Female',
+  'age' => '54',
+)  
+[2021-03-13 06:49:00] stage.INFO: applicant age  : 54  sex : Female  
+[2021-03-13 09:04:34] stage.INFO: use lgoin role email   
+[2021-03-13 09:04:34] stage.INFO: prasanna.l@sdb.lk  
+[2021-03-13 09:04:34] stage.INFO: use lgoin role   
+[2021-03-13 09:04:34] stage.INFO: {"code":"58","email":"prasanna.l@sdb.lk","emp":2453,"role":"bdo"}  
+[2021-03-13 09:05:06] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-03-13 09:05:06] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-03-13 09:05:06] stage.INFO: NIC Check with Core  
+[2021-03-13 09:05:06] stage.INFO: array (
+  'nic' => '960372310V',
+)  
+[2021-03-13 09:05:06] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 09:05:07] stage.INFO: 960372310V  NIC respose from Core  
+[2021-03-13 09:05:07] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Customer_Number' => '0001247470',
+      'Name_With_Initial' => 'Mr. P.L.M.P. LAKMAL                     ',
+      'Name_Address_Line2' => 'NO.281                                  ',
+      'Name_Address_Line3' => 'SANDUNPURA                              ',
+      'Name_Address_Line4' => 'DEHIATTHAKANDIYA                        ',
+      'Name_Address_Line5' => '05                                      ',
+      'Name_Address_Line6' => '                                        ',
+      'Short_Name' => 'LAKMAL P.L.M.P    ',
+      'Cellular_Phone_Number' => '94775458050',
+      'Home_Phone_Number' => '775458050',
+      'Business_Phone' => '0',
+      'Customer_Type' => '2',
+      'Sex' => 'M',
+      'Date_Of_Birth' => '1996037',
+      'National_ID_Number' => '960372310V          ',
+      'Citizenship_Code' => '1',
+      'Profession_Code' => '1',
+      'Postal_Code' => '          ',
+      'Branch_Number' => '56',
+      'Marital_Status' => 'S',
+      'Socio-Economic_Group' => '.   ',
+      'PersonalOrNonPersonal' => 'P',
+      'Salutation' => '                    ',
+      'Market_Seqment' => 'EOP  ',
+      'Employee_Code' => 'E',
+      'Location_Code' => '0.01',
+      'Customer_Classification' => 'K',
+      'Home_E-Mail_Address' => '                                        ',
+      'Business_E-Mail_Address' => '                                        ',
+      'Status' => 'OK',
+    ),
+  ),
+)  
+[2021-03-13 09:05:07] stage.INFO:  from core customer nic  
+[2021-03-13 09:05:07] stage.INFO:  from core customer nic  960372310V            
+[2021-03-13 09:05:07] stage.INFO: 960372310V            
+[2021-03-13 09:05:16] stage.INFO: array (
+  'status' => 'Student',
+)  
+[2021-03-13 09:05:26] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '25',
+)  
+[2021-03-13 09:05:26] stage.INFO: applicant age  : 25  sex : Male  
+[2021-03-13 09:05:26] stage.INFO: NIC Check with Core  
+[2021-03-13 09:05:26] stage.INFO: array (
+  'nic' => '960372310V',
+)  
+[2021-03-13 09:05:26] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 09:05:26] stage.INFO: 960372310V  NIC respose from Core  
+[2021-03-13 09:05:26] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Customer_Number' => '0001247470',
+      'Name_With_Initial' => 'Mr. P.L.M.P. LAKMAL                     ',
+      'Name_Address_Line2' => 'NO.281                                  ',
+      'Name_Address_Line3' => 'SANDUNPURA                              ',
+      'Name_Address_Line4' => 'DEHIATTHAKANDIYA                        ',
+      'Name_Address_Line5' => '05                                      ',
+      'Name_Address_Line6' => '                                        ',
+      'Short_Name' => 'LAKMAL P.L.M.P    ',
+      'Cellular_Phone_Number' => '94775458050',
+      'Home_Phone_Number' => '775458050',
+      'Business_Phone' => '0',
+      'Customer_Type' => '2',
+      'Sex' => 'M',
+      'Date_Of_Birth' => '1996037',
+      'National_ID_Number' => '960372310V          ',
+      'Citizenship_Code' => '1',
+      'Profession_Code' => '1',
+      'Postal_Code' => '          ',
+      'Branch_Number' => '56',
+      'Marital_Status' => 'S',
+      'Socio-Economic_Group' => '.   ',
+      'PersonalOrNonPersonal' => 'P',
+      'Salutation' => '                    ',
+      'Market_Seqment' => 'EOP  ',
+      'Employee_Code' => 'E',
+      'Location_Code' => '0.01',
+      'Customer_Classification' => 'K',
+      'Home_E-Mail_Address' => '                                        ',
+      'Business_E-Mail_Address' => '                                        ',
+      'Status' => 'OK',
+    ),
+  ),
+)  
+[2021-03-13 09:05:26] stage.INFO:  from core customer nic  
+[2021-03-13 09:05:26] stage.INFO:  from core customer nic  960372310V            
+[2021-03-13 09:05:26] stage.INFO: 960372310V            
+[2021-03-13 09:05:35] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-03-13 09:05:35] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-03-13 09:05:35] stage.INFO: NIC Check with Core  
+[2021-03-13 09:05:35] stage.INFO: array (
+  'nic' => '960372310V',
+)  
+[2021-03-13 09:05:35] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 09:05:35] stage.INFO: 960372310V  NIC respose from Core  
+[2021-03-13 09:05:35] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Customer_Number' => '0001247470',
+      'Name_With_Initial' => 'Mr. P.L.M.P. LAKMAL                     ',
+      'Name_Address_Line2' => 'NO.281                                  ',
+      'Name_Address_Line3' => 'SANDUNPURA                              ',
+      'Name_Address_Line4' => 'DEHIATTHAKANDIYA                        ',
+      'Name_Address_Line5' => '05                                      ',
+      'Name_Address_Line6' => '                                        ',
+      'Short_Name' => 'LAKMAL P.L.M.P    ',
+      'Cellular_Phone_Number' => '94775458050',
+      'Home_Phone_Number' => '775458050',
+      'Business_Phone' => '0',
+      'Customer_Type' => '2',
+      'Sex' => 'M',
+      'Date_Of_Birth' => '1996037',
+      'National_ID_Number' => '960372310V          ',
+      'Citizenship_Code' => '1',
+      'Profession_Code' => '1',
+      'Postal_Code' => '          ',
+      'Branch_Number' => '56',
+      'Marital_Status' => 'S',
+      'Socio-Economic_Group' => '.   ',
+      'PersonalOrNonPersonal' => 'P',
+      'Salutation' => '                    ',
+      'Market_Seqment' => 'EOP  ',
+      'Employee_Code' => 'E',
+      'Location_Code' => '0.01',
+      'Customer_Classification' => 'K',
+      'Home_E-Mail_Address' => '                                        ',
+      'Business_E-Mail_Address' => '                                        ',
+      'Status' => 'OK',
+    ),
+  ),
+)  
+[2021-03-13 09:05:35] stage.INFO:  from core customer nic  
+[2021-03-13 09:05:35] stage.INFO:  from core customer nic  960372310V            
+[2021-03-13 09:05:35] stage.INFO: 960372310V            
+[2021-03-13 09:05:37] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '25',
+)  
+[2021-03-13 09:05:37] stage.INFO: applicant age  : 25  sex : Male  
+[2021-03-13 09:05:37] stage.INFO: NIC Check with Core  
+[2021-03-13 09:05:37] stage.INFO: array (
+  'nic' => '960372310V',
+)  
+[2021-03-13 09:05:37] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 09:05:37] stage.INFO: 960372310V  NIC respose from Core  
+[2021-03-13 09:05:37] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Customer_Number' => '0001247470',
+      'Name_With_Initial' => 'Mr. P.L.M.P. LAKMAL                     ',
+      'Name_Address_Line2' => 'NO.281                                  ',
+      'Name_Address_Line3' => 'SANDUNPURA                              ',
+      'Name_Address_Line4' => 'DEHIATTHAKANDIYA                        ',
+      'Name_Address_Line5' => '05                                      ',
+      'Name_Address_Line6' => '                                        ',
+      'Short_Name' => 'LAKMAL P.L.M.P    ',
+      'Cellular_Phone_Number' => '94775458050',
+      'Home_Phone_Number' => '775458050',
+      'Business_Phone' => '0',
+      'Customer_Type' => '2',
+      'Sex' => 'M',
+      'Date_Of_Birth' => '1996037',
+      'National_ID_Number' => '960372310V          ',
+      'Citizenship_Code' => '1',
+      'Profession_Code' => '1',
+      'Postal_Code' => '          ',
+      'Branch_Number' => '56',
+      'Marital_Status' => 'S',
+      'Socio-Economic_Group' => '.   ',
+      'PersonalOrNonPersonal' => 'P',
+      'Salutation' => '                    ',
+      'Market_Seqment' => 'EOP  ',
+      'Employee_Code' => 'E',
+      'Location_Code' => '0.01',
+      'Customer_Classification' => 'K',
+      'Home_E-Mail_Address' => '                                        ',
+      'Business_E-Mail_Address' => '                                        ',
+      'Status' => 'OK',
+    ),
+  ),
+)  
+[2021-03-13 09:05:37] stage.INFO:  from core customer nic  
+[2021-03-13 09:05:37] stage.INFO:  from core customer nic  960372310V            
+[2021-03-13 09:05:37] stage.INFO: 960372310V            
+[2021-03-13 09:05:46] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '25',
+)  
+[2021-03-13 09:05:46] stage.INFO: applicant age  : 25  sex : Male  
+[2021-03-13 09:05:46] stage.INFO: NIC Check with Core  
+[2021-03-13 09:05:46] stage.INFO: array (
+  'nic' => '960372310V',
+)  
+[2021-03-13 09:05:46] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 09:05:46] stage.INFO: 960372310V  NIC respose from Core  
+[2021-03-13 09:05:46] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Customer_Number' => '0001247470',
+      'Name_With_Initial' => 'Mr. P.L.M.P. LAKMAL                     ',
+      'Name_Address_Line2' => 'NO.281                                  ',
+      'Name_Address_Line3' => 'SANDUNPURA                              ',
+      'Name_Address_Line4' => 'DEHIATTHAKANDIYA                        ',
+      'Name_Address_Line5' => '05                                      ',
+      'Name_Address_Line6' => '                                        ',
+      'Short_Name' => 'LAKMAL P.L.M.P    ',
+      'Cellular_Phone_Number' => '94775458050',
+      'Home_Phone_Number' => '775458050',
+      'Business_Phone' => '0',
+      'Customer_Type' => '2',
+      'Sex' => 'M',
+      'Date_Of_Birth' => '1996037',
+      'National_ID_Number' => '960372310V          ',
+      'Citizenship_Code' => '1',
+      'Profession_Code' => '1',
+      'Postal_Code' => '          ',
+      'Branch_Number' => '56',
+      'Marital_Status' => 'S',
+      'Socio-Economic_Group' => '.   ',
+      'PersonalOrNonPersonal' => 'P',
+      'Salutation' => '                    ',
+      'Market_Seqment' => 'EOP  ',
+      'Employee_Code' => 'E',
+      'Location_Code' => '0.01',
+      'Customer_Classification' => 'K',
+      'Home_E-Mail_Address' => '                                        ',
+      'Business_E-Mail_Address' => '                                        ',
+      'Status' => 'OK',
+    ),
+  ),
+)  
+[2021-03-13 09:05:46] stage.INFO:  from core customer nic  
+[2021-03-13 09:05:46] stage.INFO:  from core customer nic  960372310V            
+[2021-03-13 09:05:46] stage.INFO: 960372310V            
+[2021-03-13 09:05:55] stage.INFO: array (
+  'status' => 'Employed (Salaried)',
+)  
+[2021-03-13 09:05:56] stage.INFO: array (
+  'status' => 'individual_account_type',
+  'sex' => 'Male',
+  'age' => '25',
+)  
+[2021-03-13 09:17:10] stage.INFO: use lgoin role email   
+[2021-03-13 09:17:10] stage.INFO: chathurangana.k@sdb.lk  
+[2021-03-13 09:17:10] stage.INFO: use lgoin role   
+[2021-03-13 09:17:10] stage.INFO: {"code":"63","email":"chathurangana.k@SDB.lk","emp":1401,"role":"manager"}  
+[2021-03-13 09:17:18] stage.INFO: use lgoin role email   
+[2021-03-13 09:17:18] stage.INFO: chathurangana.k@sdb.lk  
+[2021-03-13 09:17:18] stage.INFO: use lgoin role   
+[2021-03-13 09:17:18] stage.INFO: {"code":"63","email":"chathurangana.k@SDB.lk","emp":1401,"role":"manager"}  
+[2021-03-13 09:17:19] stage.ERROR: Division by zero {"exception":"[object] (ErrorException(code: 0): Division by zero at /var/www/html/sdbl/app/Http/Controllers/Stat.php:56)
+[stacktrace]
+#0 /var/www/html/sdbl/app/Http/Controllers/Stat.php(56): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Stat->get_progress_completed()
+#2 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Route.php(254): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Route.php(197): Illuminate\\Routing\\Route->runController()
+#5 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(693): Illuminate\\Routing\\Route->run()
+#6 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#9 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(103): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#11 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(55): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter()
+#12 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#13 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(695): Illuminate\\Pipeline\\Pipeline->then()
+#15 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(670): Illuminate\\Routing\\Router->runRouteWithinStack()
+#16 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(636): Illuminate\\Routing\\Router->runRoute()
+#17 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(625): Illuminate\\Routing\\Router->dispatchToRoute()
+#18 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(166): Illuminate\\Routing\\Router->dispatch()
+#19 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#20 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#22 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#24 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#26 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#28 /var/www/html/sdbl/vendor/fruitcake/laravel-cors/src/HandleCors.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle()
+#30 /var/www/html/sdbl/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle()
+#32 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(141): Illuminate\\Pipeline\\Pipeline->then()
+#34 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#35 /var/www/html/sdbl/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#36 /var/www/html/sdbl/index.php(21): require_once('/var/www/html/s...')
+#37 {main}
+"} 
+[2021-03-13 09:17:20] stage.INFO: use lgoin role email   
+[2021-03-13 09:17:20] stage.INFO: chathurangana.k@sdb.lk  
+[2021-03-13 09:17:20] stage.INFO: use lgoin role   
+[2021-03-13 09:17:20] stage.INFO: {"code":"63","email":"chathurangana.k@SDB.lk","emp":1401,"role":"manager"}  
+[2021-03-13 09:17:24] stage.ERROR: Division by zero {"exception":"[object] (ErrorException(code: 0): Division by zero at /var/www/html/sdbl/app/Http/Controllers/Stat.php:56)
+[stacktrace]
+#0 /var/www/html/sdbl/app/Http/Controllers/Stat.php(56): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Stat->get_progress_completed()
+#2 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Route.php(254): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Route.php(197): Illuminate\\Routing\\Route->runController()
+#5 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(693): Illuminate\\Routing\\Route->run()
+#6 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#9 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(103): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#11 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(55): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter()
+#12 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#13 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(695): Illuminate\\Pipeline\\Pipeline->then()
+#15 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(670): Illuminate\\Routing\\Router->runRouteWithinStack()
+#16 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(636): Illuminate\\Routing\\Router->runRoute()
+#17 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Routing/Router.php(625): Illuminate\\Routing\\Router->dispatchToRoute()
+#18 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(166): Illuminate\\Routing\\Router->dispatch()
+#19 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#20 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#22 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#24 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#26 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#28 /var/www/html/sdbl/vendor/fruitcake/laravel-cors/src/HandleCors.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle()
+#30 /var/www/html/sdbl/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fideloper\\Proxy\\TrustProxies->handle()
+#32 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(141): Illuminate\\Pipeline\\Pipeline->then()
+#34 /var/www/html/sdbl/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#35 /var/www/html/sdbl/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#36 /var/www/html/sdbl/index.php(21): require_once('/var/www/html/s...')
+#37 {main}
+"} 
+[2021-03-13 11:20:28] stage.INFO: use lgoin role email   
+[2021-03-13 11:20:28] stage.INFO: sanjeewa.am@sdb.lk  
+[2021-03-13 11:20:28] stage.INFO: use lgoin role   
+[2021-03-13 11:20:28] stage.INFO: {"code":"61","email":"sanjeewa.am@SDB.lk","emp":2443,"role":"bdo"}  
+[2021-03-13 17:39:18] stage.INFO: use lgoin role email   
+[2021-03-13 17:39:18] stage.INFO: ruwan.k@sdb.lk  
+[2021-03-13 17:39:18] stage.INFO: use lgoin role   
+[2021-03-13 17:39:18] stage.INFO: {"code":"79","email":"ruwan.k@sdb.lk","emp":738,"role":"bdo"}  
+[2021-03-13 18:16:34] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-03-13 18:16:34] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-03-13 18:16:34] stage.INFO: NIC Check with Core  
+[2021-03-13 18:16:34] stage.INFO: array (
+  'nic' => '1976197035',
+)  
+[2021-03-13 18:16:34] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 18:16:35] stage.INFO: 1976197035  NIC respose from Core  
+[2021-03-13 18:16:35] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-03-13 18:16:35] stage.INFO:  from core customer nic  
+[2021-03-13 18:16:38] stage.INFO: array (
+  'sex' => 'undefined',
+  'age' => 'NaN',
+)  
+[2021-03-13 18:16:38] stage.INFO: applicant age  : NaN  sex : undefined  
+[2021-03-13 18:16:38] stage.INFO: NIC Check with Core  
+[2021-03-13 18:16:38] stage.INFO: array (
+  'nic' => '19761970359',
+)  
+[2021-03-13 18:16:38] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 18:16:38] stage.INFO: 19761970359  NIC respose from Core  
+[2021-03-13 18:16:38] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-03-13 18:16:38] stage.INFO:  from core customer nic  
+[2021-03-13 18:16:39] stage.INFO: array (
+  'sex' => 'Male',
+  'age' => '44',
+)  
+[2021-03-13 18:16:39] stage.INFO: applicant age  : 44  sex : Male  
+[2021-03-13 18:16:39] stage.INFO: NIC Check with Core  
+[2021-03-13 18:16:39] stage.INFO: array (
+  'nic' => '197619703592',
+)  
+[2021-03-13 18:16:39] stage.ALERT: NIC Customer APP L- yes point -> http://10.100.32.202:7802/cif/v1/CustomerInformation  
+[2021-03-13 18:16:39] stage.INFO: 197619703592  NIC respose from Core  
+[2021-03-13 18:16:39] stage.INFO: array (
+  'JSON' => 
+  array (
+    'Data' => 
+    array (
+      'Status' => 'ERROR',
+    ),
+  ),
+)  
+[2021-03-13 18:16:39] stage.INFO:  from core customer nic  
+[2021-03-13 18:16:54] stage.INFO: array (
+  'status' => 'Entrepreneur',
+)  
+[2021-03-13 18:16:57] stage.INFO: array (
+  'status' => 'individual_account_type',
+  'sex' => 'Male',
+  'age' => '44',
+)  
+[2021-03-13 18:27:12] stage.INFO: request to new cusotmer  
+[2021-03-13 18:27:12] stage.INFO: array (
+  'gpsl' => 'undefined',
+  'nic' => '197619703592',
+  'dob_day' => '15',
+  'dob_month' => 'July',
+  'dob_year' => '1976',
+  'sex' => 'Male',
+  'applicant_status' => 'Entrepreneur',
+  'goin_to_open' => 'Individual Account',
+  'account_type' => 'UPay Business Account',
+  'title' => 'Mr',
+  'full_name' => 'Bulathsinhala Appuhamilage Neil Krishantha',
+  'primary_mobile' => '0776594429',
+  'secondary_mobile' => NULL,
+  'email' => NULL,
+  'address1' => '_',
+  'address2' => '_',
+  'address3' => 'Pahala Piduma',
+  'address4' => 'Kuliyapitiya',
+  'district' => 'Kurunegala',
+  'name_of_employer' => 'MalindA Tailors',
+  'position' => 'Taylor Shop',
+  'work_address' => 'Pahala Piduma, Kuliyapitiya',
+  'telephone' => NULL,
+  'salary' => '40000',
+  'other_income' => NULL,
+  'purpose_usage' => '["Business Income"]',
+  'source_of_funds' => '["Business Income"]',
+  'anticipated_volumes' => '["Less than 100,000/="]',
+  'source_of_wealth' => '["Business Ownership / Shares"]',
+  'pep' => 'I am not a politically exposed person',
+  'pep_relationship' => NULL,
+  'nominees' => '""',
+  'security_answer' => 'E.A.J.M.Theresa',
+  'source_of_other_income' => NULL,
+  'f_name' => 'Bulathsinhala',
+  's_name' => NULL,
+  'existing_customer' => 'false',
+  'living_place_dif' => 'same',
+  'existing_customer_cif' => NULL,
+  'ref' => '1615640231775',
+  'bdo' => 'ruwan.k@sdb.lk',
+  'sector' => NULL,
+  'pupose_other_reason' => NULL,
+  'source_funds_other_reason' => NULL,
+  'wealth_other_reason' => NULL,
+  'appv' => 'BETA 1.3.12',
+)  
+[2021-03-13 18:27:12] stage.INFO: undefined  
+[2021-03-13 18:27:40] stage.INFO: Signature request  
+[2021-03-13 18:27:40] stage.INFO: array (
+  'nic' => '197619703592',
+  'ref' => '1615640231775',
+  'agent' => 'ruwan.k@sdb.lk',
+  'signature' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmEAAAIlCAYAAACdPC8xAAAgAElEQVR4Xu2dC/Q8SVme/yKyCCpZrxARBqOrWVdWBBGNxPEkRER04QCComdHJQtBCUhEc7wOejSK6KIejAsqs94FFAjgNUeHSEQIsHgBEVAGUfCCrrpEMIjme2XqUFv/6p7unu6uSz91Tp3f/Ga66/u+p2q636lbv88FEgQgAAEIQAACEIDA7ATeZ3aLGIQABCAAAQhAAAIQuIAIoxFAAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC6JiEAAQgAAEIQAACiDDaAAQgAAEIQAACEEhAABGWADomIQABCEAAAhCAACKMNgABCEAAAhCAAAQSEECEJYCOSQhAAAIQgAAEIIAIow1AAAIQgAAEIACBBAQQYQmgYxICEIAABCAAAQggwmgDEIAABCAAAQhAIAEBRFgC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',
+)  
+[2021-03-13 20:41:56] stage.INFO: my onboarding app request  
+[2021-03-13 20:41:56] stage.INFO: array (
+  'bdo' => 'ruwan.k@sdb.lk',
+  'start' => '1',
+  'end' => '100',
+  'search' => NULL,
+)  
+[2021-03-13 20:42:08] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:43:15] stage.INFO: fd sected and from db  
+[2021-03-13 20:43:15] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:43:19] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:44:25] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:44:36] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:44:43] stage.INFO: fd sected and from db  
+[2021-03-13 20:44:43] stage.INFO: {"id":374,"ref":"1615540781462","nic":"810022795V","desposit":400000,"rate":"6","period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T09:19:41.000000Z","updated_at":"2021-03-12T09:19:41.000000Z"}  
+[2021-03-13 20:44:55] stage.INFO: fd sected and from db  
+[2021-03-13 20:44:55] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:00] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:00] stage.INFO: {"id":374,"ref":"1615540781462","nic":"810022795V","desposit":400000,"rate":"6","period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T09:19:41.000000Z","updated_at":"2021-03-12T09:19:41.000000Z"}  
+[2021-03-13 20:45:09] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:45:13] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:45:17] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:45:31] stage.INFO: NOT fd tected and from db  
+[2021-03-13 20:45:35] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:35] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:37] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:37] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:38] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:38] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:40] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:40] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:42] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:42] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:43] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:43] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:44] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:44] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:45:45] stage.INFO: fd sected and from db  
+[2021-03-13 20:45:45] stage.INFO: {"id":379,"ref":"1615547634861","nic":"717512880V","desposit":500000,"rate":null,"period":"12","interest_payable_at":"capitalized","interest_disposal_method":"maturity","interest_transfer_bank":null,"interest_transfer_branch":null,"interest_transfer_acc_name":null,"interest_transfer_account":"0","created_at":"2021-03-12T11:13:55.000000Z","updated_at":"2021-03-12T11:13:55.000000Z"}  
+[2021-03-13 20:46:39] stage.INFO: my onboarding app request  
+[2021-03-13 20:46:39] stage.INFO: array (
+  'bdo' => 'ruwan.k@sdb.lk',
+  'start' => '1',
+  'end' => '100',
+  'search' => NULL,
+)  
+[2021-03-13 20:46:44] stage.INFO: NOT fd tected and from db  
