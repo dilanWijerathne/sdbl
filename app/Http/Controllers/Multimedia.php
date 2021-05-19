@@ -94,7 +94,10 @@ class Multimedia extends Controller
             ->where('users.email', $user_email)
             ->first();
 
+        Log::info("bdo branch ");
+        Log::info($bdo_branch);
         $user = $bdo_branch->code;
+
         Log::info('user code  ' . $user);
 
         if ($user === 0 | $user === "0") {
