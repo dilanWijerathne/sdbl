@@ -460,7 +460,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" =>  $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => $fd['rate'], //"0.098500",
+           "INTEREST_RATE" => "0.098500",  //$fd['rate'], //
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
@@ -633,7 +633,7 @@ class Dash extends Controller
             "ST_ACCRUAL_DATE" => $para['today'], // "0",
             "FUNDS_AVAIL_DATE" =>  $para['today'], // "0",
             "PER_NON_PER_CODE" => "P",
-            "INTEREST_RATE" => $fd['rate'],
+           "INTEREST_RATE" => "0.098500",  //$fd['rate'], //
             "SEND_RC_NOTICE" => "",
             "NEGOTIABLE_FLAG" => "",
             "EMPLOYEE_CODE" => "E",
