@@ -350,7 +350,7 @@ class Dash extends Controller
             "fd" => $fd,
         );
 
-
+        Log::info($ar);
 
         return $ar;
     }
@@ -1574,7 +1574,7 @@ class Dash extends Controller
                 $nm_s = $this->doName($app['full_name']);
                 $short_name = str_replace(".", "", $nm_s[3]);
                 $s = $nm_s[2] . " " . $short_name;
-                $short_name = substr($s, 0, 18);
+                $short_name = substr($s, 0, 20);
 
 
                 $pnumber = $this->prepare_mobile_number($app['primary_mobile_number']); // substr($app['primary_mobile_number'], 1);

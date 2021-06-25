@@ -108,16 +108,16 @@ class ApplicantController extends Controller
         if (isset($request->same_nic_address)) {
             $applicant->same_nic_address =  $request->same_nic_address;
         }
-        /*
+
         try {
             $applicant->save();
             $state = "1111";
-        } catch ( $e) {
+        } catch (Exception $e) {
             $state = "0000";
             Log::info('ApplicantInitialSubmit : ' . $e);
             Log::info('ApplicantInitialSubmit Request: ' . json_encode($request));
         }
-*/
+
         return response()->json(compact('state'), 200);
     }
 }
